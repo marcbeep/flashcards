@@ -42,7 +42,9 @@ def _load_markdown(path: Path) -> str:
 
 with st.sidebar:
     st.header("Markdown Viewer")
-    st.markdown("""Enter the directory containing your markdown files""")
+    st.markdown(
+        """Enter the directory: `bi/cheatsheets`, `ci/cheatsheets`, or `dm/cheatsheets`"""
+    )
     DIR = Path(st.text_input("Markdown directory", value="."))
 
 files = sorted(DIR.glob("*.md"))
