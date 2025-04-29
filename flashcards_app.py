@@ -54,25 +54,33 @@ def _card_viewer(cards):
         st.session_state.idx = 0
     if "show" not in st.session_state:
         st.session_state.show = False
+    if "current_deck" not in st.session_state:
+        st.session_state.current_deck = cards
 
     # Create a single row for all navigation buttons
     nav_cols = st.columns([1, 1, 1, 1])
     with nav_cols[0]:
         if st.button("⬅️ Previous"):
-            st.session_state.idx = (st.session_state.idx - 1) % len(cards)
+            st.session_state.idx = (st.session_state.idx - 1) % len(
+                st.session_state.current_deck
+            )
             st.session_state.show = False
     with nav_cols[1]:
         if st.button("Show / Hide Answer"):
             st.session_state.show = not st.session_state.show
     with nav_cols[2]:
         if st.button("Next ➡️", key="next_btn"):
-            st.session_state.idx = (st.session_state.idx + 1) % len(cards)
+            st.session_state.idx = (st.session_state.idx + 1) % len(
+                st.session_state.current_deck
+            )
             st.session_state.show = False
     with nav_cols[3]:
-        st.caption(f"Card {st.session_state.idx + 1} / {len(cards)}")
+        st.caption(
+            f"Card {st.session_state.idx + 1} / {len(st.session_state.current_deck)}"
+        )
 
     # Display the card content
-    card = cards[st.session_state.idx]
+    card = st.session_state.current_deck[st.session_state.idx]
     st.markdown(f"### Q{st.session_state.idx + 1}: {card['q']}")
     if st.session_state.show:
         st.markdown(card["a"])
@@ -92,5 +100,6 @@ else:
     deck = _load_cards(file_sel)
     if DO_SHUFFLE:
         random.shuffle(deck)
+        st.session_state.current_deck = deck
         st.session_state.idx, st.session_state.show = 0, False
     _card_viewer(deck)
