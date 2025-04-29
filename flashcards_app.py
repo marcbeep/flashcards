@@ -55,31 +55,31 @@ def _card_viewer(cards):
     if "show" not in st.session_state:
         st.session_state.show = False
 
-    prev_c, mid_c, next_c = st.columns([1, 2, 1])
-    with prev_c:
+    # Create a single row for all navigation buttons
+    nav_cols = st.columns([1, 1, 1, 1])
+    with nav_cols[0]:
         if st.button("⬅️ Previous"):
             st.session_state.idx = (st.session_state.idx - 1) % len(cards)
             st.session_state.show = False
-    with mid_c:
+    with nav_cols[1]:
         if st.button("Show / Hide Answer"):
             st.session_state.show = not st.session_state.show
-    with next_c:
+    with nav_cols[2]:
         if st.button("Next ➡️", key="next_btn"):
             st.session_state.idx = (st.session_state.idx + 1) % len(cards)
             st.session_state.show = False
+    with nav_cols[3]:
+        st.caption(f"Card {st.session_state.idx + 1} / {len(cards)}")
 
+    # Display the card content
     card = cards[st.session_state.idx]
     st.markdown(f"### Q{st.session_state.idx + 1}: {card['q']}")
     if st.session_state.show:
         st.markdown(card["a"])
-    st.caption(f"Card {st.session_state.idx + 1} / {len(cards)}")
 
-
-# Main
-st.title("📚 JSON Flashcards")
 
 with st.sidebar:
-    st.header("Settings")
+    st.header("Flashcards")
     st.markdown(
         """Pick where your decks live:
         1. **Directory** – folder that contains your `.json` files
