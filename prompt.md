@@ -24,11 +24,11 @@ Example:
 
 [
 {
-"q": "State the area formula for a circle.",
-"a": "\\[ A = \\pi r^2 \\]"
+"q": "State the Hebbian learning principle, its weight update, and a stabilization variant.",
+"a": "- Principle: \"Neurons that fire together, wire together.\"\n\n- Basic update:\n\\[ \\Delta w_{kj}(n) = \\eta\\, y_k(n)\\, x_j(n) \\]\n- Limitation: unbounded growth (synaptic saturation).\n- **Covariance hypothesis** stabilizes weights:\n\\[ \\Delta w_{kj}(n) = \\eta\\, (y_k - \\bar{y})(x_j - \\bar{x}) \\]"
 },
 {
-"q": "How to initialize weights with Keras?",
-"a": "Use `kernel_initializer='he_normal'` in the layer."
+"q": "How does competitive learning work and which formulas govern it?",
+"a": "- Neurons compete; only the **winner** fires:\n\\[ y_k=\\begin{cases}1 & v_k > v_j,\\ \\forall j\\neq k\\\\0&\\text{otherwise}\\end{cases} \\]\n\n- Winner's weights move toward the input:\n\\[ \\Delta w_{ki} = \\eta (x_i - w_{ki}) \\]\n- Produces specialization for clustering and Self-Organizing Maps."
 }
 ]
