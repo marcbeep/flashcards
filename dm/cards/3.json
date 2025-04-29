@@ -1,0 +1,66 @@
+[
+  {
+    "q": "What is a vector in data mining and how is it denoted?",
+    "a": "- Represents a data point as an ordered set of real numbers.\n- Denoted by uppercase letters with a bar, e.g., \\( \\vec{X}, \\vec{Y} \\).\n- Typically column vectors: \\( X = (3.2, -9.1, 0.1)^T \\).\n- \\( X \\in \\mathbb{R}^d \\) where \\( d \\) is the dimension."
+  },
+  {
+    "q": "What is a matrix and how are its properties defined?",
+    "a": "- Matrix: collection of vectors arranged as rows or columns.\n- Denoted by uppercase letters with a bar, e.g., \\( \\vec{M} \\).\n- \\( M \\in \\mathbb{R}^{n \\times m} \\): \\( n \\) rows, \\( m \\) columns.\n- Square if \\( n = m \\).\n- Element at \\( (i,j) \\): \\( M_{i,j} \\).\n- Symmetric if \\( M_{i,j} = M_{j,i} \\) for all \\( i,j \\)."
+  },
+  {
+    "q": "Describe vector addition, inner product, and outer product.",
+    "a": "- Addition:\n\\[ z_i = x_i + y_i \\]\n- Inner product (dot product):\n\\[ X^T Y = \\sum_{i=1}^d x_i y_i \\]\n- Outer product:\n\\[ (XY^T)_{i,j} = x_i y_j \\] resulting in \\( \\mathbb{R}^{d \\times d} \\) matrix."
+  },
+  {
+    "q": "When can matrices be added and multiplied?",
+    "a": "- Addition: matrices must have the same shape, element-wise sum.\n- Multiplication: number of columns in first = number of rows in second.\nMatrix multiplication:\n\\[ (C)_{i,j} = \\sum_{k=1}^m A_{i,k} B_{k,j} \\]"
+  },
+  {
+    "q": "Define transpose and inverse of a matrix.",
+    "a": "- Transpose: \\( (A^T)_{i,k} = A_{k,i} \\).\n- \\( (AB)^T = B^T A^T \\).\n- Inverse (for square matrices):\n\\[ AA^{-1} = A^{-1}A = I \\]\nwhere \\( I \\) is the identity matrix."
+  },
+  {
+    "q": "What does linear independence mean among vectors?",
+    "a": "- Vectors are linearly dependent if there exist scalars, not all zero, such that:\n\\[ \\lambda_1 X_1 + \\dots + \\lambda_k X_k = 0 \\]\n- Otherwise, they are linearly independent."
+  },
+  {
+    "q": "Define the rank of a matrix and its significance.",
+    "a": "- Rank: number of linearly independent columns (or rows).\n- \\( \\text{rank}(A) \\leq \\min(m, n) \\).\n- Full-rank if \\( \\text{rank}(A) = m \\).\n- Only full-rank square matrices are invertible."
+  },
+  {
+    "q": "What is the trace of a matrix?",
+    "a": "- Trace: sum of diagonal elements.\n\\[ \\text{tr}(A) = \\sum_i A_{i,i} \\]"
+  },
+  {
+    "q": "What are eigenvalues and eigenvectors of a matrix?",
+    "a": "- Eigenvector \\( X \\) satisfies:\n\\[ AX = \\lambda X \\]\n- \\( \\lambda \\) is the eigenvalue corresponding to \\( X \\).\n- \\( A \\) must be square (\\( \\mathbb{R}^{n \\times n} \\))."
+  },
+  {
+    "q": "State derivatives of basic functions.",
+    "a": "- \\( \\frac{d}{dx} a = 0 \\) where \\( a \\) is constant.\n- \\( \\frac{d}{dx} x^a = a x^{a-1} \\).\n- \\( \\frac{d}{dx} e^x = e^x \\).\n- \\( \\frac{d}{dx} \\log(x) = \\frac{1}{x} \\) for \\( x > 0 \\).\n- \\( \\frac{d}{dx} \\sin(x) = \\cos(x) \\).\n- \\( \\frac{d}{dx} \\cos(x) = -\\sin(x) \\)."
+  },
+  {
+    "q": "Summarize differentiation rules.",
+    "a": "- Sum rule:\n\\[ (\\alpha f + \\beta g)' = \\alpha f' + \\beta g' \\]\n- Product rule:\n\\[ (fg)' = f'g + fg' \\]\n- Quotient rule:\n\\[ \\left( \\frac{f}{g} \\right)' = \\frac{f'g - fg'}{g^2} \\]\n- Chain rule:\n\\[ f(x) = h(g(x)) \\quad \\Rightarrow \\quad f'(x) = h'(g(x)) \\cdot g'(x) \\]"
+  },
+  {
+    "q": "What is a partial derivative?",
+    "a": "- Derivative with respect to one variable, keeping others constant.\nExample:\nIf \\( f(x,y) = 5x + y^2 \\), then:\n- \\( \\frac{\\partial f}{\\partial x} = 5 \\)\n- \\( \\frac{\\partial f}{\\partial y} = 2y \\)"
+  },
+  {
+    "q": "Describe the Gradient Descent method for unconstrained optimization.",
+    "a": "- Problem: minimize \\( f(X) \\).\n- Gradient \\( \\nabla_X f \\) points in direction of steepest ascent.\n- Update rule:\n\\[ X_{i+1} = X_i - \\gamma_i (\\nabla_X f)(X_i) \\]\n- For small step-size \\( \\gamma \\), \\( f(X_{i+1}) \\leq f(X_i) \\)."
+  },
+  {
+    "q": "How is constrained optimization solved using Lagrange multipliers?",
+    "a": "- Problem: minimize \\( f(X) \\) subject to \\( g(X) = 0 \\).\n- Form the Lagrangian:\n\\[ \\mathcal{L}(X, \\lambda) = f(X) - \\lambda g(X) \\]\n- Solve for stationary points where:\n\\[ \\nabla_{(X,\\lambda)} \\mathcal{L} = 0 \\]"
+  },
+  {
+    "q": "Describe the Bernoulli and Generalized Bernoulli distributions.",
+    "a": "- Bernoulli: binary outcomes (e.g., coin flip).\n\\[ P(X=\\text{head})=p, \\quad P(X=\\text{tail})=1-p \\]\n- Generalized Bernoulli: \\( k \\) outcomes.\n\\[ P(X=i) = p_i \\quad \\text{for} \\quad i=1,\\dots,k \\]\n- \\( \\sum_{i=1}^k p_i = 1 \\)."
+  },
+  {
+    "q": "Explain Binomial and Multinomial distributions.",
+    "a": "- Binomial: number of heads in \\( n \\) flips.\n\\[ P(\\text{exactly } k \\text{ heads}) = \\binom{n}{k} p^k (1-p)^{n-k} \\]\n- Multinomial: counts of \\( k \\) outcomes over \\( n \\) trials.\n\\[ \\frac{n!}{n_1! n_2! \\dots n_k!} p_1^{n_1} p_2^{n_2} \\dots p_k^{n_k} \\]"
+  }
+]
