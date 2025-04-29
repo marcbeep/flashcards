@@ -98,6 +98,16 @@ if not files:
 else:
     file_sel = st.sidebar.selectbox("Choose a set", files, format_func=lambda p: p.name)
     deck = _load_cards(file_sel)
+
+    # Update current_deck when a new deck is selected
+    if "current_deck" not in st.session_state or st.session_state.get(
+        "last_file"
+    ) != str(file_sel):
+        st.session_state.current_deck = deck
+        st.session_state.last_file = str(file_sel)
+        st.session_state.idx = 0
+        st.session_state.show = False
+
     if DO_SHUFFLE:
         random.shuffle(deck)
         st.session_state.current_deck = deck
