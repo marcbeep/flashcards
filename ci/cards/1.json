@@ -1,0 +1,86 @@
+[
+  {
+    "q": "What key observation about the human brain motivated the development of Artificial Neural Networks (ANNs)?",
+    "a": "The recognition that the human brain computes in a way vastly different from a conventional computer, inspiring researchers to create brain-inspired computing models."
+  },
+  {
+    "q": "List the properties that make the human brain a highly complex computing machine.",
+    "a": "- Highly complex structure\n- Nonlinear processing\n- Massively parallel operation\n- Utilises simple structural constituents (neurons) for tasks such as motor control, perception and pattern recognition"
+  },
+  {
+    "q": "Define brain plasticity and explain its significance in learning.",
+    "a": "Brain plasticity is the ability of the nervous system to adapt by developing neurons and building new rules from experience. It permits continuous learning and adaptation to the environment."
+  },
+  {
+    "q": "In what ways are ANNs biologically inspired analogues of the brain?",
+    "a": "- Both consist of primitive neuron components\n- Acquire and store information from the environment through a learning process\n- Represent knowledge via inter-neuron connection strengths (synaptic weights)"
+  },
+  {
+    "q": "Why are ANNs described as \"massively parallel distributed processors\"?",
+    "a": "They are composed of many simple processing units (neurons) that operate concurrently to store and process patterns in a distributed fashion."
+  },
+  {
+    "q": "Approximately how many neurons and synapses are in the human brain, and what role do synapses play?",
+    "a": "- ~10 billion neurons\n- ~60 trillion synapses\n- Synapses facilitate learning by creating new connections and modifying existing ones."
+  },
+  {
+    "q": "Differentiate between an axon and a dendrite.",
+    "a": "- **Axon:** signal-transmission structure that sends electrical spikes away from the cell body.\n- **Dendrite:** receptive structure that receives signals; morphologically and functionally distinct from axons."
+  },
+  {
+    "q": "What happens to an electrical activity spike once it is generated in a neuron?",
+    "a": "The spike travels down the axon, splits into thousands of terminal branches, and reaches synapses that can either inhibit or excite downstream neurons through electro-chemical conversion."
+  },
+  {
+    "q": "Describe the inhibitory and excitatory functions of synapses.",
+    "a": "Synapses convert electrical signals into chemical signals that either **inhibit** (reduce) or **excite** (increase) the activity of the receiving neuron."
+  },
+  {
+    "q": "How does a single ANN neuron compute its output from multiple inputs?",
+    "a": "It forms a combination (typically a weighted sum) of its input activities and passes the result through an activation function to produce one output."
+  },
+  {
+    "q": "What simplifications make it feasible to simulate biological neural networks on standard hardware?",
+    "a": "Abstracting detailed biological processes into mathematical operations (e.g., weighted sums and activation functions) and representing neurons and connections digitally allows software or hardware implementations."
+  },
+  {
+    "q": "Name and briefly define the two operating modes of an ANN.",
+    "a": "- **Training mode:** connection weights are adjusted so the network learns a task.\n- **Online (inference) mode:** fixed weights convert input signals into output signals during normal operation."
+  },
+  {
+    "q": "How does nonlinearity benefit Artificial Neural Networks?",
+    "a": "Neurons can implement nonlinear functions, enabling networks to model inherently nonlinear signals such as speech and vision."
+  },
+  {
+    "q": "Explain the input-to-output mapping capability of ANNs.",
+    "a": "Sensory inputs are transformed into outputs via a complex distributed function encoded in the network's weights, allowing flexible mapping between domains."
+  },
+  {
+    "q": "What does adaptivity mean in the context of neural networks?",
+    "a": "Networks can be retrained so their synaptic weights change to reflect real-time environmental changes, enabling continual learning."
+  },
+  {
+    "q": "Define evidential response in pattern classification using ANNs.",
+    "a": "Beyond producing a class label, a network can output decision confidence or probability, assisting in rejecting ambiguous patterns."
+  },
+  {
+    "q": "How do ANNs store contextual information?",
+    "a": "Knowledge is embedded in the structure (weights) and activation state of the network itself, meaning each neuron's activity is influenced by and influences many others."
+  },
+  {
+    "q": "What is fault tolerance, and how do ANNs exhibit it?",
+    "a": "Fault tolerance is graceful degradation when components fail; distributed representations in ANNs prevent catastrophic failure, so performance degrades gradually."
+  },
+  {
+    "q": "Why is the massively parallel structure of ANNs advantageous for hardware implementation?",
+    "a": "Parallelism maps well onto very-large-scale integrated electronics like GPUs, TPUs, and VLSI, enabling efficient large-scale computation."
+  },
+  {
+    "q": "What is meant by uniformity of analysis and design in neural networks?",
+    "a": "Because NNs are built from similar neuron components, consistent mathematical techniques can be applied for learning and analysis, and modular integration is straightforward."
+  },
+  {
+    "q": "Summarise the neurobiological analogy advantage of ANNs.",
+    "a": "ANNs both help interpret biological neural behaviour and, by borrowing concepts from nature, enable the design of complex, fault-tolerant learning machines."
+  }
+]

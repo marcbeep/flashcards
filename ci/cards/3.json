@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What does \"learning\" mean for a neural network?",
+    "a": "A neural network **learns** by adapting its internal parameters (e.g., synaptic weights) to improve performance.\n\n- Environment supplies stimulation → network processes it.\n- In **training mode**, parameters are updated.\n- In **online (deployment) mode**, the adapted parameters generate improved responses."
+  },
+  {
+    "q": "How can learning processes in neural networks be classified?",
+    "a": "- **By learning rules**: mechanisms that update weights (e.g., error-correction, Hebbian).\n\n- **By paradigms**: ways data is presented (supervised, unsupervised, reinforcement)."
+  },
+  {
+    "q": "Describe error-correction learning and give its key formulas.",
+    "a": "- Compares actual output \\( y_k(n) \\) to desired \\( d_k(n) \\); error \\( e_k(n) = d_k(n) - y_k(n) \\).\n\n- **Delta (Widrow–Hoff) rule** updates weights:\n\\[ \\Delta w_{kj}(n) = \\eta\\, e_k(n)\\, x_j(n) \\]\n- Learning minimizes cost \\( E(n) = \\frac{1}{2} e_k^2(n) \\)."
+  },
+  {
+    "q": "What is memory-based learning and how is a prediction made?",
+    "a": "- Stores the entire training set \\( D_{\\text{train}} = \\{(x_i,d_i)\\} \\).\n\n- For a test sample, retrieves the closest stored input (1-NN):\n\\[ x^* = \\arg\\min_{x \\in D_{\\text{train}}} \\|x - x_{\\text{test}}\\|_2 \\]\n- Predicts using the corresponding stored output \\( d^* \\); extends to k-NN, weighted k-NN, Parzen windows."
+  },
+  {
+    "q": "State the Hebbian learning principle, its weight update, and a stabilization variant.",
+    "a": "- Principle: \"Neurons that fire together, wire together.\"\n\n- Basic update:\n\\[ \\Delta w_{kj}(n) = \\eta\\, y_k(n)\\, x_j(n) \\]\n- Limitation: unbounded growth (synaptic saturation).\n- **Covariance hypothesis** stabilizes weights:\n\\[ \\Delta w_{kj}(n) = \\eta\\, (y_k - \\bar{y})(x_j - \\bar{x}) \\]"
+  },
+  {
+    "q": "How does competitive learning work and which formulas govern it?",
+    "a": "- Neurons compete; only the **winner** fires:\n\\[ y_k=\\begin{cases}1 & v_k > v_j,\\ \\forall j\\neq k\\\\0&\\text{otherwise}\\end{cases} \\]\n\n- Winner's weights move toward the input:\n\\[ \\Delta w_{ki} = \\eta (x_i - w_{ki}) \\]\n- Produces specialization for clustering and Self-Organizing Maps."
+  },
+  {
+    "q": "Outline Boltzmann learning, including energy, state update probability, and weight rule.",
+    "a": "- Uses binary (\\(+1/-1\\)) units and an **energy function**:\n\\[ E = -\\frac{1}{2} \\sum_{k\\neq j} w_{kj} x_k x_j \\]\n\n- State flip probability:\n\\[ p(x_k \\!\\to\\! -x_k) = \\frac{1}{1 + \\exp(-\\Delta E_k / T)} \\]\n- Weight update from clamped vs. free correlations:\n\\[ \\Delta w_{kj} = \\eta\\bigl(\\rho^+_{kj} - \\rho^-_{kj}\\bigr) \\]"
+  },
+  {
+    "q": "What is the credit assignment problem in neural networks?",
+    "a": "Identifying which internal decisions should receive credit/blame for an outcome.\n\n- **Temporal credit assignment**: pinpointing the responsible time step.\n- **Structural credit assignment**: pinpointing the responsible neuron/layer."
+  },
+  {
+    "q": "Summarize supervised learning and its training dataset notation.",
+    "a": "- Learns from labeled pairs \\( (x_i,d_i) \\) in \\( D_{\\text{train}} \\).\n\n- Minimizes error between network output and desired output.\n- After training, operates without the teacher."
+  },
+  {
+    "q": "Describe unsupervised learning and give a classic example.",
+    "a": "- Uses only input data (no labels) to uncover structure (e.g., clusters, features).\n\n- **Competitive learning** and k-NN are typical methods."
+  },
+  {
+    "q": "Explain reinforcement learning, its objective, and main components.",
+    "a": "- Agent interacts with an environment: observes state, takes action, receives reward.\n\n- Objective: **maximize cumulative (long-term) reward**.\n- Components:\n  - **Policy**: maps states to actions.\n  - **Learning algorithm**: updates the policy via trial-and-error."
+  },
+  {
+    "q": "Compare supervised, unsupervised, and reinforcement learning on teacher presence, feedback, and goal.",
+    "a": "- **Supervised**\n  - Teacher: Yes\n  - Feedback: error signal\n  - Goal: learn input–output mapping\n\n- **Unsupervised**\n  - Teacher: No\n  - Feedback: data statistics/structure\n  - Goal: discover hidden patterns/features\n\n- **Reinforcement**\n  - Teacher: No\n  - Feedback: scalar reward signal\n  - Goal: maximize cumulative reward"
+  }
+]

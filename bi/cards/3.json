@@ -1,0 +1,42 @@
+[
+  {
+    "q": "Define a random variable and give its probability notation.",
+    "a": "A **random variable** $X$ is a variable whose value corresponds to the outcome of a random process.\\n\\nThe probability that $X$ takes the value $x$ is denoted $p(x)=\\mathbb{P}(X=x)$."
+  },
+  {
+    "q": "What is the sample space of an experiment? Illustrate with one- and two-coin tosses.",
+    "a": "The **sample space** $\\mathcal{S}$ is the set of all possible outcomes of an experiment.\\n\\n* One coin: $\\mathcal{S}=\\{H,T\\}$.\\n* Two coins: $\\mathcal{S}=\\{HH,HT,TH,TT\\}$."
+  },
+  {
+    "q": "Distinguish between a Probability Mass Function (PMF) and a Probability Density Function (PDF).",
+    "a": "**PMF** (discrete): assigns probability $p(x)$ to each outcome $x$.\\n\\n**PDF** (continuous): assigns probability *density*; probabilities are obtained by integrating the density over intervals."
+  },
+  {
+    "q": "State the two key properties every PMF or PDF must satisfy.",
+    "a": "1. **Non-negativity**: $p(x)\\ge0$ for all $x$.\\n2. **Normalization**: $\\sum_x p(x)=1$ (discrete) or $\\int p(x)\\,dx=1$ (continuous)."
+  },
+  {
+    "q": "What is a random experiment? Provide three examples.",
+    "a": "A **random experiment** is an action that can yield different outcomes even under identical conditions. Examples: coin toss, die roll, measuring rainfall."
+  },
+  {
+    "q": "Define joint probability and give its mathematical expression.",
+    "a": "The **joint probability** of two random variables is the probability they take specific values together:\\n\\n$$\\mathbb{P}(X=x,\\,Y=y)$$"
+  },
+  {
+    "q": "State the Sum Rule (marginal probability) and illustrate it with the fruit-basket example.",
+    "a": "Sum Rule:\\n\\n$$\\mathbb{P}(X=x)=\\sum_y \\mathbb{P}(X=x,\\,Y=y)$$\\n\\nExample (picking an orange): $\\mathbb{P}(F=o)=45/100=0.45$."
+  },
+  {
+    "q": "Give the definition and formula for conditional probability, with the fruit-basket example.",
+    "a": "Conditional probability of $Y=y$ given $X=x$:\\n\\n$$\\mathbb{P}(Y=y\\mid X=x)=\\frac{\\mathbb{P}(X=x,\\,Y=y)}{\\mathbb{P}(X=x)}$$\\n\\nExample: $\\mathbb{P}(B=r\\mid F=o)=\\tfrac{2}{3}$."
+  },
+  {
+    "q": "State the Product Rule that relates joint, conditional, and marginal probabilities.",
+    "a": "$$\\mathbb{P}(X=x,\\,Y=y)=\\mathbb{P}(Y=y\\mid X=x)\\,\\mathbb{P}(X=x)$$"
+  },
+  {
+    "q": "Write Bayes’ Rule and interpret each term.",
+    "a": "$$\\mathbb{P}(A\\mid B)=\\frac{\\mathbb{P}(B\\mid A)\\,\\mathbb{P}(A)}{\\mathbb{P}(B)}$$\\n\\n* $\\mathbb{P}(A)$: **prior**\\n* $\\mathbb{P}(B\\mid A)$: **likelihood**\\n* $\\mathbb{P}(B)$: **evidence**\\n* $\\mathbb{P}(A\\mid B)$: **posterior**"
+  }
+]

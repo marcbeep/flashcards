@@ -1,0 +1,74 @@
+[
+  {
+    "q": "What are the three main components of an artificial neuron and their roles?",
+    "a": "1. **Synapses / Connections**: scale each input \\( x_j \\) by its weight \\( w_{kj} \\)\n2. **Adder (Summing Junction)**: sums the weighted inputs to form the induced local field: \\[ u_k = \\sum_{j=1}^{p} w_{kj} x_j = \\mathbf{w}_k^{\\top}\\mathbf{x} \\]\n3. **Activation Function**: applies a non-linearity to produce the output \\( y_k = \\phi(u_k) \\)"
+  },
+  {
+    "q": "Write the mathematical expressions for the induced local field and the output of a neuron.",
+    "a": "The induced local field is:\n\n\\[ u_k = \\sum_{j=1}^{p} w_{kj} x_j = \\mathbf{w}_k^{\\top}\\mathbf{x} \\]\n\nAnd the output is:\n\n\\[ y_k = \\phi(u_k) \\]"
+  },
+  {
+    "q": "What is the purpose of the bias term \\( \\theta_k \\) in a neuron and how does it modify the output equation?",
+    "a": "- **Purpose**: shifts the activation threshold, increasing model flexibility\n- **Modified equation**: \\[ y_k = \\phi(\\mathbf{w}_k^{\\top}\\mathbf{x} - \\theta_k) \\]"
+  },
+  {
+    "q": "How can the bias term be absorbed into the weight vector, and what fixed input is used?",
+    "a": "- Set a fixed input \\( x_0 = -1 \\)\n- Define \\( w_{k0} = \\theta_k \\) and extend the weight vector: \\( \\mathbf{w}_k \\leftarrow [w_{k0}, w_{k1}, \\dots, w_{kp}] \\)\n- New input vector: \\( \\mathbf{x} = [-1, x_1, \\dots, x_p] \\)"
+  },
+  {
+    "q": "Give the definition and formula of the Heaviside (threshold) activation function.",
+    "a": "\\[ \\phi(v) = \\begin{cases} 1 & \\text{if } v \\ge 0 \\\\ 0 & \\text{if } v < 0 \\end{cases} \\]\n\n- Binary, non-differentiable; useful for theoretical analysis"
+  },
+  {
+    "q": "Provide the piecewise linear activation function and its key property.",
+    "a": "\\[ \\phi(v) = \\begin{cases} 1 & \\text{if } v \\ge \\frac{1}{2} \\\\ v + \\frac{1}{2} & \\text{if } -\\frac{1}{2} < v < \\frac{1}{2} \\\\ 0 & \\text{if } v \\le -\\frac{1}{2} \\end{cases} \\]\n\n- Smooth approximation of the threshold function"
+  },
+  {
+    "q": "State the formula of the sigmoid (logistic) activation function and its main characteristics.",
+    "a": "\\[ \\phi(v) = \\frac{1}{1 + e^{-\\alpha v}} \\]\n\n- Differentiable\n- Output range: \\( (0, 1) \\)\n- Commonly used for binary classification"
+  },
+  {
+    "q": "Give the formula for the hyperbolic tangent activation function and its output range.",
+    "a": "\\[ \\phi(v) = \\tanh(v) = \\frac{e^{2v} - 1}{e^{2v} + 1} \\]\n\n- Output range: \\( (-1, 1) \\)\n- Zero-centred activation"
+  },
+  {
+    "q": "Define the ReLU activation function and mention its main drawback.",
+    "a": "- Formula: \\[ \\phi(v) = \\max(0,v) \\]\n- Drawback: neurons can die if \\( v < 0 \\) permanently (zero gradient)"
+  },
+  {
+    "q": "Describe the structure of a single-layer feedforward neural network and give its output equation.",
+    "a": "- One input layer directly connected to one output layer; no hidden layers or cycles\n- Output: \\[ y_k = \\phi\\left( \\sum_{j=0}^{p} w_{kj} x_j \\right) \\]"
+  },
+  {
+    "q": "What defines a multi-layer feedforward (MLP) network?",
+    "a": "- Layers: Input → Hidden → Output\n- Each layer receives signals only from the previous layer\n- Typically fully connected (dense) between successive layers"
+  },
+  {
+    "q": "List the core components of a Convolutional Neural Network (CNN) and its primary application.",
+    "a": "- **Convolution layers** with learned filters and ReLU\n- **Pooling layers** (e.g., max pooling)\n- **Fully connected layers** followed by **softmax** output\n- Excellent for image classification and recognition tasks"
+  },
+  {
+    "q": "Explain the key feature of a Recurrent Neural Network (RNN) and the type of problems it solves well.",
+    "a": "- Contains feedback loops with unit delay elements \\( z^{-1} \\), giving memory of past outputs\n- Well-suited to sequential data such as time series and natural language"
+  },
+  {
+    "q": "Write the mathematical expression for the output of a multi-layer (two-layer) feedforward network.",
+    "a": "\\[ y_k(\\mathbf{x}) = \\phi\\left( \\sum_{j=0}^{p_{\\text{hidden}}} w_{kj}\\,\\phi\\left( \\sum_{i=0}^{p_{\\text{input}}} w_{ji} x_i \\right) \\right) \\]"
+  },
+  {
+    "q": "Give the general expression for the output of a recurrent network at time step \\( n \\).",
+    "a": "\\[ y_k(n) = \\phi\\left( \\sum_{i=0}^{p_{\\text{input}}} w_{ki} x_i(n) + \\sum_{j=0}^{p_{\\text{output}}} w_{kj} y_j(n-1) \\right) \\]"
+  },
+  {
+    "q": "Summarize the standard training and testing workflow for neural networks.",
+    "a": "1. **Choose an appropriate architecture** (based on task and I/O size)\n2. **Prepare training dataset** to adjust weights\n3. **Use a separate testing dataset** of unseen examples\n4. **Assess the model** using metrics such as accuracy and generalization"
+  },
+  {
+    "q": "How do neural networks represent knowledge, and what kinds of data are used?",
+    "a": "- Knowledge is encoded in learned weights derived from **observations/samples**\n- Data may be **noisy**, **incomplete**, or **redundant**\n- Can be **labelled** (supervised learning) or **unlabelled** (unsupervised learning)"
+  },
+  {
+    "q": "Provide examples of neural-network applications by listing typical inputs and outputs.",
+    "a": "| Field | \\( x \\) (Input) | \\( y \\) (Output) |\n|-------------------|-------------------------|-----------------------|\n| Medical | Patient data | Disease yes/no |\n| OCR | Pixel strokes | Letter (A–Z) |\n| Regression | \\( x \\) | \\( f(x) \\) |\n| Defence | Sensor data | Threat category |\n| Weather | Current conditions | Future forecast |\n| Finance | Prices now | Prices tomorrow |\n| Vehicle Guidance | Sensors | Direction, speed |\n| Electronics | Specifications | Optimal circuit |\n| Games | Character state | Enemy reaction |"
+  }
+]
