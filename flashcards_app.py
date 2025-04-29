@@ -5,7 +5,7 @@ from pathlib import Path
 import random
 
 # Configure the Streamlit page with LaTeX support
-st.set_page_config(page_title="JSON Flashcards", page_icon="📚", layout="centered")
+st.set_page_config(page_title="Flashcards", page_icon="📚", layout="centered")
 
 # Enable LaTeX support with better defaults
 st.markdown(
