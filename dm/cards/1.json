@@ -1,0 +1,74 @@
+[
+  {
+    "q": "What motivates the need for data mining?",
+    "a": "- Explosive growth of data volumes (terabytes → petabytes)\n- Abundant new sources: social media, YouTube, sensor networks, web logs, surveys\n- Data collection is cheaper & easier, so manual inspection is impossible; we need automated analysis"
+  },
+  {
+    "q": "Give a concise definition of data mining.",
+    "a": "Automated discovery and analysis of useful patterns in **massive** data sets."
+  },
+  {
+    "q": "Name the main stages of a typical data-mining pipeline.",
+    "a": "- Data collection\n- Data preprocessing (feature extraction, cleaning, feature selection & transformation)\n- Analytical processing (apply mining algorithms)\n- (Optional) feedback loop\n- Output for analysts"
+  },
+  {
+    "q": "What key steps occur during the data-preprocessing phase?",
+    "a": "- **Feature extraction** – convert raw data into an algorithm-friendly form (tables, time-series, etc.)\n- **Data cleaning** – handle missing or erroneous values (drop, correct, estimate)\n- **Feature selection & transformation** – remove irrelevant attributes; rescale or discretise existing ones"
+  },
+  {
+    "q": "Define “feature” and “object” in data-mining terminology.",
+    "a": "- **Feature** (attribute, variable, dimension) – a measurable property of data\n- **Object** (record, instance) – an entity described by a collection of features"
+  },
+  {
+    "q": "Why is feature engineering/pruning important?",
+    "a": "- Good features let models learn rules that generalise to unseen data\n- Irrelevant or low-variance features add noise & computation cost\n- Pruning removes such features (e.g., rare words in text, flat numeric columns)"
+  },
+  {
+    "q": "Distinguish non-dependency-oriented and dependency-oriented data.",
+    "a": "- **Non-dependency-oriented**: objects are independent; representable as an \\(n\\times d\\) matrix of features\n- **Dependency-oriented**: objects have implicit or explicit relationships (order, space, time, or edges)"
+  },
+  {
+    "q": "List the main attribute types found in multidimensional (tabular) data.",
+    "a": "- Numerical (integers, reals)\n- Categorical (unordered discrete values)\n- Binary (0/1; can act as categorical or numeric)\n- Text (string) – often converted to vector form for tabular use"
+  },
+  {
+    "q": "Give four examples of data with **implicit** dependencies.",
+    "a": "- Time-series (sensor readings over time)\n- Discrete sequences / strings (categorical analogue of time-series)\n- Spatial data (each record tagged with location)\n- Spatiotemporal data (both spatial & temporal attributes)"
+  },
+  {
+    "q": "What characterises **explicit** dependency data, and give common examples.",
+    "a": "- Represented as graphs/networks where nodes are objects and edges are relationships (directed or undirected)\n- Examples: web graph, Facebook/Instagram/LinkedIn social networks"
+  },
+  {
+    "q": "Why is data representation a critical design choice?",
+    "a": "- It is the first actionable step after collection\n- Determines which algorithms are applicable and which patterns are discoverable\n- No single representation suits every task"
+  },
+  {
+    "q": "How can categorical data be encoded numerically?",
+    "a": "- One-hot (indicator) encoding: create one dimension per category; value is 1 if the record possesses that category, otherwise 0"
+  },
+  {
+    "q": "Provide four different ways to represent the sentence “The burger I ate was an awesome burger!”.",
+    "a": "- Word **list** (sequence keeps order + duplicates)\n- Word **set** (unique tokens only)\n- **Bag-of-words** frequency vector (term counts)\n- **Character-frequency** vector (counts per character)"
+  },
+  {
+    "q": "Name the four fundamental problem types in data mining.",
+    "a": "- Association-pattern mining\n- Classification\n- Clustering\n- Outlier detection"
+  },
+  {
+    "q": "Describe association-pattern (frequent-pattern) mining for binary data.",
+    "a": "- Goal: find subsets of columns (features) where all features = 1 in at least a fraction \\(s\\) of rows (support) in an \\(n\\times d\\) binary matrix\n- Example: \\({\\text{Milk, Butter, Bread}}\\) appear together in ≥ 65 % of transactions"
+  },
+  {
+    "q": "What is the objective of **classification** and what makes it supervised?",
+    "a": "- Learn a mapping from features to a fixed **class label** using labelled training data\n- Apply the learned model to predict labels for previously unseen test objects\n- Called *supervised* because label guidance is provided during training"
+  },
+  {
+    "q": "Define **clustering** and its optimisation goal.",
+    "a": "- Partition the data into clusters \\(C_1,\\dots,C_k\\) such that:\n  - Intra-cluster similarity is high\n  - Inter-cluster similarity is low\n- Unsupervised: no class labels are given"
+  },
+  {
+    "q": "What is outlier detection and why is it useful?",
+    "a": "- Identify objects that differ significantly from the majority (noise or true exceptions)\n- Applications: credit-card fraud spotting, sensor fault alerts, medical anomaly detection, earth-science extremes"
+  }
+]

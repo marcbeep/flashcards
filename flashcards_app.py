@@ -80,13 +80,7 @@ def _card_viewer(cards):
 
 with st.sidebar:
     st.header("Flashcards")
-    st.markdown(
-        """Pick where your decks live:
-        1. **Directory** – folder that contains your `.json` files
-        2. **Choose a set** – select the file to study
-        3. **Shuffle** – randomize order anytime
-        """
-    )
+    st.markdown("""Enter the directory: `bi/cards`, `ci/cards`, or `dm/cards`""")
     DIR = Path(st.text_input("Flashcard directory", value="."))
     DO_SHUFFLE = st.button("🔀 Shuffle deck")
 
