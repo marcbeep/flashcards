@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What are the main strategies to handle missing values in data?",
+    "a": "- Discard the instance with missing values\n- Fill in missing values manually\n- Use a constant like \"missingValue\"\n- Replace missing values with the feature's mean\n- Predict the missing value using a model\n- Accept missing values and let the algorithm handle them"
+  },
+  {
+    "q": "What are the pros and cons of replacing missing values with the mean?",
+    "a": "- Pros:\n  - Simple to implement\n  - Useful if data is representative\n- Cons:\n  - Inaccurate for outliers\n  - May introduce bias"
+  },
+  {
+    "q": "Define noisy data and explain why it is a problem.",
+    "a": "- Noisy data contains random errors or corrupt values\n- Causes:\n  - Inaccurate recording\n  - Data corruption\n- Problem:\n  - Leads to overfitting if noise is treated as valid data"
+  },
+  {
+    "q": "How can noisy data be detected?",
+    "a": "- Obvious signs:\n  - Incorrect data types\n  - Extreme outliers\n- Subtle errors:\n  - Small typos or inconsistent values (e.g., 0.52 instead of 0.25)"
+  },
+  {
+    "q": "What are common methods to handle noisy data?",
+    "a": "- Manual inspection and removal\n- Clustering-based outlier detection\n- Linear regression to remove points far from prediction\n- Frequency threshold to remove rare values\n- Treat noisy values as missing and apply missing value techniques"
+  },
+  {
+    "q": "What is overfitting in machine learning?",
+    "a": "- A model performs well on training data but poorly on unseen test data\n- Caused by excessive model complexity and fitting to noise\n- Results in poor generalization"
+  },
+  {
+    "q": "What is underfitting in machine learning?",
+    "a": "- A model performs poorly on both training and test data\n- Caused by insufficient model complexity or inadequate training\n- Fails to capture underlying patterns"
+  },
+  {
+    "q": "What are solutions to underfitting?",
+    "a": "- Train for more iterations\n- Use better or more features\n- Clean or re-annotate training data\n- Try a different training algorithm"
+  },
+  {
+    "q": "What are solutions to overfitting?",
+    "a": "- Reduce model complexity\n- Apply regularization\n- Remove irrelevant features\n- Use early stopping\n- Train with more data\n- Use cross-validation"
+  },
+  {
+    "q": "Why is feature normalization important in machine learning?",
+    "a": "- Ensures all features are on a similar scale\n- Prevents features with larger ranges from dominating\n- Improves performance of many algorithms (e.g., KNN, gradient descent)"
+  },
+  {
+    "q": "What is [0,1]-scaling (min-max normalization) and its formula?",
+    "a": "- Scales feature values to the range \\([0, 1]\\)\n- Formula:\n\\[ \\hat{x} = \\frac{x - \\min(x)}{\\max(x) - \\min(x)} \\]"
+  },
+  {
+    "q": "What is Gaussian normalization (standardization) and its formula?",
+    "a": "- Centers feature to mean 0 and scales to unit variance\n- Formula:\n\\[ \\hat{x} = \\frac{x - \\mu}{\\sigma} \\]\n- \\(\\mu\\): mean of the feature\n- \\(\\sigma\\): standard deviation"
+  }
+]
