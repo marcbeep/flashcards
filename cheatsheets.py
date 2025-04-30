@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 
 # Configure the Streamlit page
-st.set_page_config(page_title="Cheatsheet Viewer", page_icon="📝", layout="centered")
+st.set_page_config(page_title="Cheatsheets", page_icon="📝", layout="centered")
 
 # Enable LaTeX support with better defaults
 st.markdown(
