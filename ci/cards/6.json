@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What does Cover’s theorem say about pattern separability?",
+    "a": "- A set of linearly inseparable patterns can become linearly separable when mapped to a higher-dimensional space.\n- Mapping function: \\( \\varphi(x) \\) transforms \\( \\mathbb{R}^d \\to \\mathbb{R}^b \\)."
+  },
+  {
+    "q": "What is φ-separability and how is it achieved?",
+    "a": "- A dataset is φ-separable if there exists a vector \\( \\mathbf{w} \\) such that:\n\\[\n\\mathbf{w}^T\\varphi(x) \\geq 0,\\ \\forall x \\in C_1 \\\\\n\\mathbf{w}^T\\varphi(x) < 0,\\ \\forall x \\in C_2\n\\]\n- A hyperplane \\( \\mathbf{w}^T \\varphi(x) = 0 \\) separates the mapped data in \\( \\varphi \\)-space."
+  },
+  {
+    "q": "How does the XOR problem demonstrate φ-separability?",
+    "a": "- XOR is not linearly separable in 2D input space.\n- Map with RBFs centered at \\( (0,0) \\) and \\( (1,1) \\):\n\\[\n\\varphi_1(x) = \\exp(-\\|x - c_1\\|^2), \\quad \\varphi_2(x) = \\exp(-\\|x - c_2\\|^2)\n\\]\n- Transformed points become linearly separable in \\( \\varphi \\)-space."
+  },
+  {
+    "q": "What is interpolation using Radial Basis Functions (RBFs)?",
+    "a": "- Goal: Construct \\( F(x) \\) such that \\( F(x_i) = y_i \\) for all training points.\n- Function:\n\\[\nF(x) = \\sum_{i=1}^{N} w_i \\varphi(\\|x - x_i\\|)\n\\]\n- Solve for \\( w \\) using:\n\\[\n\\Phi w = y \\Rightarrow w = \\Phi^{-1} y\n\\]"
+  },
+  {
+    "q": "What are common types of radial basis functions?",
+    "a": "- **Multiquadric**: \\( \\varphi(r) = \\sqrt{r^2 + c^2} \\)\n- **Inverse multiquadric**: \\( \\varphi(r) = \\frac{1}{\\sqrt{r^2 + c^2}} \\)\n- **Gaussian**: \\( \\varphi(r) = \\exp\\left(-\\frac{r^2}{2\\sigma^2}\\right) \\)"
+  },
+  {
+    "q": "What is the structure of an RBF Neural Network?",
+    "a": "- Input layer: takes input vector \\( x \\)\n- Hidden layer: applies \\( M \\) RBFs centered at \\( c_i \\)\n- Output layer: computes \\( F(x) = \\sum_{i=1}^{M} w_i \\varphi_i(x) \\)"
+  },
+  {
+    "q": "How is an RBF network trained with regularization?",
+    "a": "- Minimize error:\n\\[\nE(w) = \\sum [F(x_i) - y_i]^2 + \\lambda \\|D F\\|^2\n\\]\n- Regularized least squares solution:\n\\[\nw = (\\Phi^T \\Phi + \\lambda I)^{-1} \\Phi^T y\n\\]"
+  },
+  {
+    "q": "What are strategies to choose RBF centres and widths?",
+    "a": "- **Random selection**: Pick M < N random data points.\n  - Width: \\( \\sigma = d_{\\text{max}} / \\sqrt{2M} \\)\n- **Self-organised (clustering)**: Use K-means to define centres and spreads.\n- **Supervised learning**: Learn \\( w_i, c_i, \\sigma_i \\) by minimizing network error."
+  },
+  {
+    "q": "How are RBF parameters updated using gradient descent?",
+    "a": "- **Weights**:\n\\[\nw_i(n+1) = w_i(n) - \\eta_1 \\frac{\\partial E}{\\partial w_i}\n\\]\n- **Centres**:\n\\[\nc_{ik}(n+1) = c_{ik}(n) - \\eta_2 \\frac{\\partial E}{\\partial c_{ik}}\n\\]\n- **Widths**:\n\\[\n\\sigma_i(n+1) = \\sigma_i(n) - \\eta_3 \\frac{\\partial E}{\\partial \\sigma_i}\n\\]"
+  },
+  {
+    "q": "What are the similarities and differences between RBF and MLP networks?",
+    "a": "- **Similarities**:\n  - Both are ANNs for nonlinear mapping.\n  - Both are universal approximators.\n\n- **Differences**:\n  - RBFs: 1 hidden layer; MLPs: multiple possible.\n  - RBF hidden nodes are nonlinear; output is linear.\n  - RBF hidden activations depend on distance to centre.\n  - MLP hidden activations depend on inner product.\n  - RBFs are localized; MLPs are global approximators."
+  }
+]
