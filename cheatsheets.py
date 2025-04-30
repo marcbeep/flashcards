@@ -41,7 +41,7 @@ def _load_markdown(path: Path) -> str:
 
 
 with st.sidebar:
-    st.header("Markdown Viewer")
+    st.header("Cheatsheets")
     st.markdown(
         """Enter the directory: `bi/cheatsheets`, `ci/cheatsheets`, or `dm/cheatsheets`"""
     )
