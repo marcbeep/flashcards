@@ -1,0 +1,58 @@
+[
+  {
+    "q": "What are the main characteristics of Multi-Layer Perceptrons (MLPs)?",
+    "a": "- Use nonlinear activation functions (e.g., logistic, tanh)\n- Contain one or more hidden layers\n- Exhibit high degrees of connectivity (each node connected to all in previous layer)"
+  },
+  {
+    "q": "What is the function of hidden layers in MLPs?",
+    "a": "- Enable learning of complex, non-linearly separable tasks (e.g., XOR)\n- Hidden nodes solve partial problems; the output node combines these\n- Additional layers form progressively more complex decision boundaries"
+  },
+  {
+    "q": "What is the forward pass in the backpropagation algorithm?",
+    "a": "- Inputs are propagated through the network to compute outputs\n- Neuron activation:\n\\[ y_j(n) = \\phi_j[v_j(n)] \\]\n\\[ v_j(n) = \\sum_{i=0}^{p} w_{ji}(n) y_i(n) \\]"
+  },
+  {
+    "q": "How is the error defined in backpropagation?",
+    "a": "- Output error:\n\\[ e_j(n) = d_j(n) - y_j(n) \\]\n- Network error:\n\\[ E(n) = \\frac{1}{2} \\sum_j e_j^2(n) \\]\n- Average error:\n\\[ E_{avg} = \\frac{1}{N} \\sum_{n=1}^{N} E(n) \\]"
+  },
+  {
+    "q": "What are the local gradient formulas in backpropagation?",
+    "a": "- Output neuron:\n\\[ \\delta_j(n) = e_j(n) \\phi'_j[v_j(n)] \\]\n- Hidden neuron:\n\\[ \\delta_j(n) = \\phi'_j[v_j(n)] \\sum_k \\delta_k(n) w_{kj}(n) \\]"
+  },
+  {
+    "q": "What is the weight update rule in backpropagation?",
+    "a": "- Gradient descent:\n\\[ \\Delta w_{ji}(n) = \\eta \\delta_j(n) y_i(n) \\]\n- With momentum:\n\\[ \\Delta w_{ji}(n) = \\eta \\delta_j(n) y_i(n) + \\mu \\Delta w_{ji}(n-1) \\]"
+  },
+  {
+    "q": "What are common activation functions and their derivatives used in BP?",
+    "a": "- Logistic function:\n\\[ \\phi_j(v) = \\frac{1}{1 + \\exp(-\\alpha v)} \\]\n\\[ \\phi'_j(v) = \\alpha y_j(n)(1 - y_j(n)) \\]\n- Hyperbolic tangent:\n\\[ \\phi_j(v) = \\alpha \\tanh(\\beta v) \\]\n\\[ \\phi'_j(v) = \\frac{\\beta}{\\alpha} (\\alpha^2 - y_j^2(n)) \\]"
+  },
+  {
+    "q": "What are the training modes used in backpropagation?",
+    "a": "- Sequential (STM): update weights after each sample\n- Batch (BTM): update weights after all samples\n- Mini-batch (MBTM): update weights after small groups of samples"
+  },
+  {
+    "q": "How does early stopping help prevent overfitting?",
+    "a": "- Monitors validation error during training\n- Stops when validation error increases\n- Prevents the model from learning noise in the training set"
+  },
+  {
+    "q": "What is the role of regularization in controlling model complexity?",
+    "a": "- Adds a penalty to the loss function:\n\\[ E(w) = E_{avg}(w) + \\lambda E_S(w) \\]\n- Penalizes large weights or lack of smoothness"
+  },
+  {
+    "q": "What are two common regularization techniques for MLPs?",
+    "a": "- Weight Decay:\n\\[ E_S(w) = \\|\\mathbf{w}\\|_2^2 = \\sum_i w_i^2 \\]\n- Penalization of derivatives: reduces model complexity by minimizing high-order derivatives of the output function"
+  },
+  {
+    "q": "How does dropout regularization work?",
+    "a": "- Randomly deactivates nodes during training\n- All nodes used during testing, but outputs scaled\n- Prevents co-adaptation and trains an ensemble of subnetworks"
+  },
+  {
+    "q": "What is weight elimination in MLP regularization?",
+    "a": "- Penalizes weights using:\n\\[ E_S(w) = \\sum_i \\frac{(w_i/\\alpha)^2}{1 + (w_i/\\alpha)^2} \\]\n- Encourages small, unimportant weights to shrink further"
+  },
+  {
+    "q": "What is Optimal Brain Damage (OBD)?",
+    "a": "- Prunes weights post-training using second-order error info\n- Error expansion:\n\\[ \\Delta E_{avg} \\approx \\frac{1}{2} \\Delta w^T H(w) \\Delta w \\]\n- Selects weights whose removal minimally increases error"
+  }
+]

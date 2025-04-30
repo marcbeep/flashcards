@@ -1,5 +1,5 @@
 ROLE:
-Create Anki flashcards from lecture content.
+Create flashcards from lecture content.
 
 TASK:
 Write Basic (Q→A) cards in JSON format.

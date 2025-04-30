@@ -1,0 +1,34 @@
+[
+  {
+    "q": "What are the components of an adaptive filtering system and how is the error computed?",
+    "a": "- Inputs: \\( \\mathbf{x}(i) = (x_1(i), ..., x_p(i))^T \\)\n- Desired output: \\( d(i) \\)\n- Output: \\( y(i) = \\mathbf{x}(i)^T \\mathbf{w}(i) \\)\n- Error: \\( e(i) = d(i) - y(i) \\)\n- Goal: Adjust weights \\( \\mathbf{w} \\) to minimize \\( e(i) \\)"
+  },
+  {
+    "q": "State the least-squares cost function for adaptive filtering and its matrix form.",
+    "a": "- Cost function:\n\\[ E(\\mathbf{w}) = \\frac{1}{2} \\sum_{i=1}^{n} e(i)^2 = \\frac{1}{2} \\| \\mathbf{d}(n) - \\mathbf{X}(n)\\mathbf{w} \\|^2 \\]\n- Error vector: \\( \\mathbf{e}(n) = \\mathbf{d}(n) - \\mathbf{X}(n)\\mathbf{w} \\)\n- \\( \\mathbf{X}(n) \\): design matrix of stacked input vectors"
+  },
+  {
+    "q": "How do you solve the LLS filtering problem using the pseudo-inverse?",
+    "a": "- Optimal weights:\n\\[ \\mathbf{w}(n+1) = (\\mathbf{X}(n)^T \\mathbf{X}(n))^{-1} \\mathbf{X}(n)^T \\mathbf{d}(n) \\]\n- Using pseudo-inverse notation:\n\\[ \\mathbf{w}(n+1) = \\mathbf{X}(n)^+ \\mathbf{d}(n) \\]"
+  },
+  {
+    "q": "Describe the LMS algorithm and its weight update rule.",
+    "a": "- Cost function (instantaneous):\n\\[ E(n) = \\frac{1}{2} e(n)^2 \\]\n- Gradient descent update:\n\\[ \\mathbf{w}(n+1) = \\mathbf{w}(n) + \\eta e(n) \\mathbf{x}(n) \\]\n- \\( \\eta \\): learning rate controlling convergence speed and memory"
+  },
+  {
+    "q": "What is a perceptron and how does it compute its output?",
+    "a": "- Weighted sum: \\( v_j = \\mathbf{w}_j^T \\mathbf{x} - \\theta \\)\n- Activation: \\( y_j = \\phi(v_j) = \\text{signum}(v_j) \\)\n\\[ \\phi(v_j) = \\begin{cases} +1 & v_j > 0 \\\\ -1 & v_j < 0 \\end{cases} \\]\n- Binary classifier using thresholded linear combination of inputs"
+  },
+  {
+    "q": "What is the perceptron's decision boundary and when can it classify data correctly?",
+    "a": "- Decision boundary: a hyperplane \\( \\sum_{i=1}^p w_i x_i = \\theta \\)\n- Data must be linearly separable:\n  - \\( \\mathbf{w}^T \\mathbf{x} > 0 \\) for all \\( \\mathbf{x} \\in D_1 \\)\n  - \\( \\mathbf{w}^T \\mathbf{x} \\leq 0 \\) for all \\( \\mathbf{x} \\in D_2 \\)"
+  },
+  {
+    "q": "Outline the Perceptron Training Algorithm steps.",
+    "a": "- Step 1: Initialize \\( t=1 \\), \\( \\mathbf{w}(1)=0 \\), choose \\( \\eta \\in (0,1] \\)\n- Step 2: Apply input \\( \\mathbf{x}(t) \\)\n- Step 3: Compute \\( y(t) = \\text{signum}(\\mathbf{w}(t)^T \\mathbf{x}(t)) \\)\n- Step 4: Update weights:\n\\[ \\mathbf{w}(t+1) = \\mathbf{w}(t) + \\eta [d(t) - y(t)] \\mathbf{x}(t) \\]\n- Step 5: Repeat until all samples are correctly classified"
+  },
+  {
+    "q": "State the Perceptron Convergence Theorem.",
+    "a": "- If the dataset is linearly separable, the perceptron learning algorithm is guaranteed to converge in a finite number of steps."
+  }
+]
