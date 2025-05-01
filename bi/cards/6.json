@@ -1,0 +1,34 @@
+[
+  {
+    "q": "What are the core components of the agent-environment interaction in Reinforcement Learning?",
+    "a": "- Time is discrete: \\( t = 0, 1, 2, \\dots \\)\n- Agent at each step:\n  - Observes state \\( s_t \\)\n  - Takes action \\( a_t \\)\n  - Receives reward \\( r_t \\)\n  - Moves to next state \\( s_{t+1} \\)"
+  },
+  {
+    "q": "What is a policy in Reinforcement Learning?",
+    "a": "- A mapping from states to action probabilities:\n  \\[ \\pi(s, a) = \\Pr(a_t = a | s_t = s) \\]\n- It defines the agent's behavior at each state\n- The agent learns and updates its policy based on experience"
+  },
+  {
+    "q": "What is the reward hypothesis in Reinforcement Learning?",
+    "a": "- All goals and purposes can be represented by the maximization of the expected cumulative reward\n- The agent uses rewards to measure success\n- Rewards should be:\n  - Frequent\n  - Measurable\n  - Outside the agent's control"
+  },
+  {
+    "q": "How are returns defined in episodic and continuing tasks?",
+    "a": "- **Episodic tasks** (tasks with clear end):\n  \\[ R_t = r_{t+1} + r_{t+2} + \\dots + r_T \\]\n- **Continuing tasks** (no natural end):\n  \\[ R_t = r_{t+1} + \\gamma r_{t+2} + \\gamma^2 r_{t+3} + \\dots = \\sum_{k=0}^{\\infty} \\gamma^k r_{t+k+1} \\]\n- \\( \\gamma \\) is the discount factor, \\( 0 \\leq \\gamma \\leq 1 \\)"
+  },
+  {
+    "q": "Describe the two reward schemes in the pole balancing example.",
+    "a": "- **Episodic**:\n  - Reward = +1 for each time step before failure\n  - Return = number of steps without failure\n\n- **Continuing**:\n  - Reward = 0 normally, -1 on failure\n  - Return = \\( -\\gamma^k \\) for failure at step \\( k \\)\n\n- In both cases, maximizing return means avoiding failure"
+  },
+  {
+    "q": "What is the Markov Property in RL?",
+    "a": "- A state has the Markov Property if it captures all relevant information from the history\n- Formally:\n  \\[ P(s_{t+1}, r_{t+1} | s_t, a_t) = P(s_{t+1}, r_{t+1} | s_1, a_1, r_1, \\dots, s_t, a_t) \\ ]\n- Future depends only on the current state and action, not past history"
+  },
+  {
+    "q": "What is a Markov Decision Process (MDP)?",
+    "a": "- A framework for RL tasks satisfying the Markov Property\n- Components of a finite MDP:\n  - Set of states \\( S \\)\n  - Set of actions \\( A \\)\n  - Transition probabilities:\n    \\[ P(s' | s, a) \\]\n  - Expected rewards:\n    \\[ R(s, a, s') = \\mathbb{E}[r_{t+1} | s_t = s, a_t = a, s_{t+1} = s'] \\]"
+  },
+  {
+    "q": "What is the goal of an RL agent?",
+    "a": "- Learn a policy that maximizes expected return over time\n- Return varies by task type:\n  - Sum of future rewards (episodic)\n  - Discounted sum (continuing)"
+  }
+]

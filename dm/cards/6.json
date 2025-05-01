@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is the purpose of classifier evaluation?",
+    "a": "- To determine how well a model performs\n- Two types:\n  - **Absolute goodness**: performance in real-world use (unknown before deployment)\n  - **Relative goodness**: measured on labeled test data (gold standard)"
+  },
+  {
+    "q": "What is a gold standard in classifier evaluation?",
+    "a": "- A test dataset with known correct labels\n- Used to evaluate model predictions\n- Important: never train on test data"
+  },
+  {
+    "q": "What is a confusion matrix and its components?",
+    "a": "- A table comparing predicted vs actual classes\n\n|             | Actual + | Actual - |\n|-------------|----------|----------|\n| Predicted + | TP       | FP       |\n| Predicted - | FN       | TN       |\n\n- **TP**: True Positive\n- **FP**: False Positive\n- **FN**: False Negative\n- **TN**: True Negative"
+  },
+  {
+    "q": "Define TP, FP, FN, and TN with examples.",
+    "a": "- **True Positive (TP)**: Predicted +, actually + (e.g., predicted cancer, has cancer)\n- **False Positive (FP)**: Predicted +, actually - (e.g., predicted cancer, no cancer)\n- **False Negative (FN)**: Predicted -, actually + (e.g., predicted healthy, has cancer)\n- **True Negative (TN)**: Predicted -, actually - (e.g., predicted healthy, is healthy)"
+  },
+  {
+    "q": "What are common evaluation metrics and their formulas?",
+    "a": "- **Accuracy**: Proportion of correct predictions\n\\[ \\text{Accuracy} = \\frac{TP + TN}{TP + TN + FP + FN} \\]\n- **Precision**: Proportion of predicted positives that are correct\n\\[ \\text{Precision} = \\frac{TP}{TP + FP} \\]\n- **Recall**: Proportion of actual positives that are detected\n\\[ \\text{Recall} = \\frac{TP}{TP + FN} \\]\n- **F-score**: Harmonic mean of precision and recall\n\\[ F = \\frac{2 \\cdot \\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}} \\]"
+  },
+  {
+    "q": "When is precision or recall more important?",
+    "a": "- **High recall** needed in cancer detection (catch all true cases)\n- **High precision** needed in product recommendation (avoid bad suggestions)\n- There is a trade-off between precision and recall"
+  },
+  {
+    "q": "How is F-score used and what does it indicate?",
+    "a": "- Combines precision and recall into one metric\n- Sensitive to low values\n\\[ F = \\frac{2 \\cdot \\text{Precision} \\cdot \\text{Recall}}{\\text{Precision} + \\text{Recall}} \\]"
+  },
+  {
+    "q": "How are precision, recall, and F-score extended to multi-class classification?",
+    "a": "- For class A:\n  - Precision = correct A / predicted A\n  - Recall = correct A / actual A\n  - F-score uses these two\n- **Macro F-score**:\n\\[ \\text{Macro F} = \\frac{1}{C} \\sum_{i=1}^{C} F_i \\] (C = number of classes)"
+  },
+  {
+    "q": "What are the two main strategies for multiclass classification using binary classifiers?",
+    "a": "- **One-vs-One (OvO)**\n  - Train \\( \\frac{k(k-1)}{2} \\) classifiers for each class pair\n  - Each model votes; class with most votes wins\n  - Tie-breaking may use confidence scores\n\n- **One-vs-Rest (OvR)**\n  - Train one classifier per class vs all others\n  - Choose class with highest confidence score"
+  },
+  {
+    "q": "What are the drawbacks of One-vs-One and One-vs-Rest strategies?",
+    "a": "- **One-vs-One**:\n  - May lead to ties\n  - Requires many models\n\n- **One-vs-Rest**:\n  - Confidence scores may differ in scale\n  - Class imbalance: more negatives than positives"
+  },
+  {
+    "q": "How are confidence scores computed in One-vs-Rest classifiers?",
+    "a": "- **Perceptron**: activation score\n\\[ a = b + W^T X \\]\n- **Logistic Regression**: sigmoid of activation\n\\[ \\sigma(a) = \\frac{1}{1 + e^{-a}} \\]"
+  }
+]

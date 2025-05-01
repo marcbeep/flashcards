@@ -1,0 +1,38 @@
+[
+  {
+    "q": "What is mathematical optimisation?",
+    "a": "- The process of finding the best design for a system or model.\n- Involves:\n  - Choosing parameter values\n  - Following constraints and goals\n  - Maximising or minimising an objective function"
+  },
+  {
+    "q": "What are the components of an optimisation problem?",
+    "a": "- **Parameters**: Values that define the system\n- **System/Model**: Set of equations, goals, or constraints\n- **Objective function**: What we want to optimise (e.g. maximise profit)\n- **Constraints**: Conditions that must be satisfied"
+  },
+  {
+    "q": "What is unconstrained optimisation? Give an example.",
+    "a": "- Optimisation without any restrictions on parameter values\n- Example:\n  Maximise \\( f(x, y) = x \\cdot y \\)\n- You can choose any \\( x \\) and \\( y \\) to get the maximum"
+  },
+  {
+    "q": "What is constrained optimisation? Give an example.",
+    "a": "- Optimisation with conditions (constraints) on the variables\n- Example:\n  Maximise \\( f(x, y) = x \\cdot y \\)\n  Subject to:\n  \\[ g(x,y) = 2(x + y) - 8.2 \\leq 0 \\]\n  \\[ h(x,y) = 0.5 \\sqrt{x^2 + y^2} - 1.8 = 0 \\ ]\n- The solution must satisfy both constraints"
+  },
+  {
+    "q": "What are enumerative methods in optimisation?",
+    "a": "- Try all possible combinations of parameter values (brute force)\n- For continuous variables, use a discretised version\n- ✅ Simple and exhaustive\n- ❌ Very inefficient for large problems (curse of dimensionality)"
+  },
+  {
+    "q": "What are gradient-based methods in optimisation?",
+    "a": "- Move in the direction of the steepest gradient (or steepest descent for minimisation)\n- Update rule:\n\\[ \\vec{x}(t+1) = \\vec{x}(t) - \\eta \\nabla f[\\vec{x}(t)] \\ ]\n- ✅ Fast for smooth functions\n- ❌ May get stuck in local minima"
+  },
+  {
+    "q": "What are the limitations of gradient-based methods?",
+    "a": "- Only use local information\n- May find a local optimum instead of the global one\n- Require good initialisation near the optimum"
+  },
+  {
+    "q": "What are stochastic methods in optimisation?",
+    "a": "- Use randomised rules to explore the solution space\n- Can escape local minima\n- Examples:\n  - **Random walk**: Completely random direction\n  - **Genetic algorithms**: Directed random search based on evolution\n- ✅ Better at global search\n- ❌ May be slower and need tuning"
+  },
+  {
+    "q": "Compare enumerative, gradient-based, and stochastic methods.",
+    "a": "- **Enumerative**: Try all combinations\n  - ✅ Always finds best solution\n  - ❌ Very slow for large problems\n\n- **Gradient-based**: Follow steepest slope\n  - ✅ Fast and efficient\n  - ❌ May get stuck in local minima\n\n- **Stochastic**: Use random exploration\n  - ✅ Can find global optimum\n  - ❌ May be computationally expensive"
+  }
+]

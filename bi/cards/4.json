@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What are the roots of Reinforcement Learning (RL)?",
+    "a": "- Mathematical psychology (1910s)\n- Control theory (1950s)\n- Influences from:\n  - Artificial Intelligence\n  - Psychology\n  - Neuroscience\n  - Deep Neural Networks\n  - Operations Research"
+  },
+  {
+    "q": "What is reinforcement learning?",
+    "a": "- An approach to Artificial Intelligence\n- Learning from interaction with an environment\n- Goal: maximize a numerical reward signal\n- Learns what to do (map situations to actions)"
+  },
+  {
+    "q": "What are the key features of reinforcement learning?",
+    "a": "- Learns from trial-and-error\n- No direct instruction on actions\n- Can have delayed rewards\n- Must balance exploration and exploitation\n- Solves goal-directed problems in uncertain environments"
+  },
+  {
+    "q": "What are the main elements of reinforcement learning?",
+    "a": "- **Policy**: defines behavior (what to do)\n- **Reward**: immediate signal for what is good\n- **Value function**: predicts long-term rewards (what is good in the long run)\n- **Model**: predicts environment dynamics (what follows what)"
+  },
+  {
+    "q": "What are the types of environments in reinforcement learning?",
+    "a": "- **Deterministic vs. Stochastic**: predictability of next state\n- **Fully vs. Partially Observable**: access to state info\n- **Episodic vs. Sequential**: task has terminal state or not\n- **Dynamic vs. Static**: changes during decision-making or not\n- **Discrete vs. Continuous**: number of possible states/actions\n- **Single vs. Multi-Agent**: number of agents involved"
+  },
+  {
+    "q": "How does RL compare to supervised learning?",
+    "a": "- **Supervised Learning**:\n  - Learns from labeled examples (inputs → outputs)\n  - Training uses known correct outputs\n- **Reinforcement Learning**:\n  - Learns from rewards/feedback\n  - Goal is to maximize reward over time"
+  },
+  {
+    "q": "How is the RL update rule for value functions written?",
+    "a": "- Update rule:\n\\[ V(s) \\leftarrow V(s) + \\alpha [V(s') - V(s)] \\]\n- Where:\n  - \\( V(s) \\): current value of state \\( s \\)\n  - \\( s' \\): next state\n  - \\( \\alpha \\): learning rate (e.g. 1)"
+  },
+  {
+    "q": "What is an RL approach to learning Tic-Tac-Toe?",
+    "a": "- Create a table with value \\( V(s) \\) for each state\n- Learn by playing many games\n- Use greedy or exploratory moves\n- Update value estimates using backup from next state\n- Incorporate symmetries and possibly offline learning"
+  },
+  {
+    "q": "What are some real-world applications of reinforcement learning?",
+    "a": "- RoboCup soccer\n- Inventory management\n- Dynamic channel assignment\n- Elevator control\n- Robotics: navigation, walking, grasping\n- Games: TD-Gammon, AlphaGo"
+  },
+  {
+    "q": "Why is Tic-Tac-Toe considered an easy RL task?",
+    "a": "- Small, finite state space\n- One-step look-ahead is always possible\n- Fully observable state\n- Doesn't reflect complexity of real-world tasks"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the reinforcement learning (RL) paradigm inspired by?",
+    "a": "- Inspired by how agents learn from trial and error.\n- Uses feedback (rewards) to improve actions over time.\n- Rooted in behavioral psychology and nature-inspired problem solving."
+  },
+  {
+    "q": "What are the key elements of reinforcement learning (RL)?",
+    "a": "- Agent: learner or decision maker.\n- Environment: the world the agent interacts with.\n- Actions: choices the agent can make.\n- Rewards: feedback received from the environment after actions."
+  },
+  {
+    "q": "What is the multi-armed bandit problem?",
+    "a": "- Scenario: Choose repeatedly from \\( n \\) actions (arms).\n- Goal: Maximize total reward over time.\n- Challenge: Each arm has an unknown reward distribution."
+  },
+  {
+    "q": "What is the exploration vs. exploitation dilemma in RL?",
+    "a": "- **Exploration**: Try new actions to discover potential rewards.\n- **Exploitation**: Choose known best actions to get high rewards.\n- Dilemma: You must balance both for optimal long-term results."
+  },
+  {
+    "q": "What are action-value methods in bandit problems?",
+    "a": "- Estimate the value \\( Q(a) \\) for each action based on received rewards.\n- Sample average method:\n\\[ Q_t(a) = \\frac{r_1 + r_2 + \\dots + r_k}{k} \\]\n- Incremental update:\n\\[ Q_{n+1} = Q_n + \\frac{1}{k+1}(r - Q_n) \\]"
+  },
+  {
+    "q": "How does \\( \\varepsilon \\)-greedy action selection work?",
+    "a": "- With probability \\( 1 - \\varepsilon \\), select the best-known action.\n- With probability \\( \\varepsilon \\), select a random action.\n- Balances exploration and exploitation."
+  },
+  {
+    "q": "What is softmax action selection?",
+    "a": "- Assigns probabilities to actions using the softmax function:\n\\[ P(a) = \\frac{e^{Q(a)/\\tau}}{\\sum_b e^{Q(b)/\\tau}} \\]\n- \\( \\tau \\) is the temperature: high \\( \\tau \\) means more exploration, low \\( \\tau \\) means more exploitation."
+  },
+  {
+    "q": "How do you adapt to nonstationary problems in RL?",
+    "a": "- In nonstationary settings, reward values can change over time.\n- Use a constant step-size update:\n\\[ Q_{n+1} = Q_n + \\alpha (r - Q_n),\\ \\text{where } 0 < \\alpha \\leq 1 \\]\n- Produces a recency-weighted average that adapts to changes."
+  },
+  {
+    "q": "What is evaluative feedback and how does it relate to learning types?",
+    "a": "- **Evaluative feedback**: depends on actions taken (no correct answer given).\n- **Instructive feedback**: provides correct action.\n- **Associative learning**: learns best output per input.\n- **Nonassociative learning**: finds one best overall action.\n- Multi-armed bandits use evaluative and nonassociative learning."
+  },
+  {
+    "q": "What is the 10-armed testbed experiment?",
+    "a": "- Simulated environment with 10 actions (arms), each with unknown reward.\n- Used to test action selection methods like greedy, \\( \\varepsilon \\)-greedy, and softmax.\n- Results averaged over 1000 plays and 1000 experiments."
+  }
+]

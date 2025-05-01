@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What is reinforcement learning (RL)?",
+    "a": "- A machine learning method where an agent learns by interacting with an environment\n- Learns to maximize total reward over time through trial-and-error"
+  },
+  {
+    "q": "What are the main components of an RL setup?",
+    "a": "- Agent: decision maker\n- Environment: everything the agent interacts with\n- State (s): current situation\n- Action (a): choices available to the agent\n- Reward (r): feedback signal\n- Policy (\\( \\pi \\)): strategy for selecting actions\n- Value function: expected long-term return from states or actions"
+  },
+  {
+    "q": "What is a Markov Decision Process (MDP)?",
+    "a": "- Mathematical framework for RL problems\n- Defined as \\( M = \\langle S, A, P, R, \\rho \\rangle \\):\n  - \\( S \\): state space\n  - \\( A \\): action space\n  - \\( P \\): transition probabilities\n  - \\( R \\): reward function\n  - \\( \\rho \\): initial state distribution"
+  },
+  {
+    "q": "Explain the difference between supervised and reinforcement learning.",
+    "a": "- Supervised learning:\n  - Learns from labeled examples\n  - Output labels are fixed\n\n- Reinforcement learning:\n  - Learns from interaction and rewards\n  - No fixed labels; feedback depends on behavior over time"
+  },
+  {
+    "q": "What is the exploration vs. exploitation dilemma in RL?",
+    "a": "- Exploration: try new actions to discover their value\n- Exploitation: use known actions to get high reward\n- Good agents must balance both"
+  },
+  {
+    "q": "How does Q-learning work?",
+    "a": "- Learns action-value function \\( Q(s, a) \\): expected reward of taking action \\( a \\) in state \\( s \\)\n- Update rule (Bellman equation):\n\\[ Q(s, a) = r + \\gamma \\max_{a'} Q(s', a') \\]\n- Policy: choose action with highest Q-value\n\\[ \\pi(s) = \\arg\\max_a Q(s, a) \\]"
+  },
+  {
+    "q": "What are the limitations of traditional Q-learning?",
+    "a": "- Requires large memory for Q-table in big state/action spaces\n- Becomes infeasible for high-dimensional problems"
+  },
+  {
+    "q": "What is Deep Q-Learning (DQN) and why is it used?",
+    "a": "- Uses a neural network to approximate \\( Q(s, a) \\)\n- Handles large or continuous state/action spaces\n- Enables generalization instead of storing every Q-value"
+  },
+  {
+    "q": "What challenges does RL face compared to supervised learning?",
+    "a": "- Input and target (Q-values) both change over time\n- Training is unstable due to moving targets\n- Correlated data in sequences harms learning stability"
+  },
+  {
+    "q": "What are solutions to stabilize Deep Q-Learning?",
+    "a": "- Experience Replay:\n  - Store past experiences\n  - Train on randomly sampled batches for i.i.d. data\n\n- Target Network:\n  - Use separate networks \\( \\theta^- \\) and \\( \\theta \\)\n  - Update \\( \\theta^- \\) slowly to stabilize targets"
+  },
+  {
+    "q": "What are some advanced techniques in Deep Q-Learning?",
+    "a": "- \\( \\varepsilon \\)-greedy: explore randomly with small probability\n- Double DQN: reduces overestimation of Q-values\n- Prioritized Experience Replay: focus training on high-error transitions\n- Dueling DQN:\n  - Separates state value \\( V(s) \\) and advantage \\( A(s, a) \\)\n  - Improves learning efficiency"
+  },
+  {
+    "q": "How does a reinforcement learning chatbot work?",
+    "a": "- Chooses an action (e.g., reply text)\n- User responds; STT converts it to text\n- Gets reward based on user feedback\n- Learns to maximize conversational reward"
+  }
+]

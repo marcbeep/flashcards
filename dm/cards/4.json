@@ -1,0 +1,54 @@
+[
+  {
+    "q": "What is a perceptron and what is it inspired by?",
+    "a": "- A binary classification algorithm\n- Inspired by the human nervous system\n- Mimics how neurons and synapses work\n- Learning occurs by adjusting synaptic strengths based on external stimuli"
+  },
+  {
+    "q": "What is the perceptron model and how does it make predictions?",
+    "a": "- Inputs: \\( x_1, x_2, ..., x_d \\)\n- Weights: \\( w_1, w_2, ..., w_d \\)\n- Activation score:\n\\[ a = w_1x_1 + w_2x_2 + \\cdots + w_dx_d \\]\n- Output:\n  - \\( +1 \\) if \\( a > \\theta \\)\n  - \\( -1 \\) if \\( a \\leq \\theta \\)"
+  },
+  {
+    "q": "What is the role of bias in a perceptron?",
+    "a": "- Bias term \\( b = -\\theta \\) shifts the decision boundary\n- Activation becomes:\n\\[ a = W^T X + b \\]\n- Output:\n\\[ \\text{sign}(W^T X + b) \\]"
+  },
+  {
+    "q": "How can the bias term be absorbed into the weight vector?",
+    "a": "- Add a feature \\( x_0 = 1 \\) for all inputs\n- Set \\( w_0 = b \\)\n- Now activation becomes:\n\\[ a = \\sum_{i=0}^d w_i x_i = W^T X \\]\n- This simplifies the model while retaining the bias"
+  },
+  {
+    "q": "What is the perceptron training algorithm?",
+    "a": "- Initialize all weights \\( w_i = 0 \\) and bias \\( b = 0 \\)\n- For each training example \\( (X, y) \\):\n  - Compute activation: \\( a = W^T X + b \\)\n  - If \\( y \\cdot a \\leq 0 \\), update:\n    - \\( w_i = w_i + y \\cdot x_i \\)\n    - \\( b = b + y \\)"
+  },
+  {
+    "q": "What is the perceptron test algorithm?",
+    "a": "- Given weights, bias, and input \\( X \\):\n- Compute activation: \\( a = W^T X + b \\)\n- Output prediction:\n\\[ \\text{sign}(a) \\]"
+  },
+  {
+    "q": "What are key features of the perceptron algorithm?",
+    "a": "- Online algorithm: updates per example\n- Error-driven: updates only on mistakes"
+  },
+  {
+    "q": "How is a misclassification detected in perceptron?",
+    "a": "- A prediction is incorrect if:\n\\[ y \\cdot a \\leq 0 \\]"
+  },
+  {
+    "q": "What is the perceptron update rule?",
+    "a": "- If misclassified:\n\\[ W = W + yX \\]\n\\[ b = b + y \\ ]\n- Rotates weight vector toward correct classification"
+  },
+  {
+    "q": "What happens geometrically during a perceptron update?",
+    "a": "- Before update: \\( W^T X < 0 \\), angle > 90°\n- After update: \\( W' = W + X \\), angle < 90°\n- Instance becomes more likely to be correctly classified"
+  },
+  {
+    "q": "What does it mean for a dataset to be linearly separable?",
+    "a": "- Exists a hyperplane that separates +1 and -1 classes\n- May be multiple such hyperplanes\n- If not linearly separable: no hyperplane can separate the classes"
+  },
+  {
+    "q": "What is the perceptron convergence theorem?",
+    "a": "- If data is linearly separable, perceptron will converge to a separating hyperplane"
+  },
+  {
+    "q": "What are some practical issues and enhancements with perceptron?",
+    "a": "- Final weights depend on order of training examples\n- Shuffle training data to improve performance\n- Use the Averaged Perceptron to stabilize output"
+  }
+]

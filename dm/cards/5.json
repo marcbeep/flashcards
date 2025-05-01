@@ -1,0 +1,30 @@
+[
+  {
+    "q": "What is the goal of loss function minimization in the perceptron model?",
+    "a": "- Minimize a loss function \\( L(W, \\mathcal{D}) \\)\n- Adjust model parameters \\( W = (w_0, w_1, \\ldots, w_d) \\)\n- Training dataset: \\( \\mathcal{D} = \\{(X_1, y_1), \\ldots, (X_n, y_n)\\} \\)\n- Aim: find \\( W \\) such that misclassifications are reduced"
+  },
+  {
+    "q": "Describe the basic Perceptron training algorithm.",
+    "a": "- Initialize: \\( w_i = 0 \\) for all \\( i \\), \\( b = 0 \\)\n- For each iteration up to MaxIter:\n  - For each training example \\( (X, y) \\):\n    - Compute \\( a = W^T X + b \\)\n    - If \\( y \\cdot a \\leq 0 \\) (misclassified):\n      - Update weights: \\( w_i = w_i + y \\cdot x_i \\)\n      - Update bias: \\( b = b + y \\)"
+  },
+  {
+    "q": "What is the step loss function used in perceptron training and its limitations?",
+    "a": "- For one example: \\( L(b, W, X_k, y_k) = 1 \\) if misclassified, 0 otherwise\n- Total loss: \\[ L(b, W, \\mathcal{D}) = \\sum_{k=1}^n L(b, W, X_k, y_k) \\]\n- Counts total misclassifications\n- **Limitations**:\n  - Piecewise constant\n  - Non-differentiable\n  - Gradient descent not applicable"
+  },
+  {
+    "q": "Define the hinge-like loss function \\( h(t) = \\max(0, t) \\) and its application in perceptron.",
+    "a": "- Activation: \\( a_k = b + \\sum_{i=1}^d w_i x_k^{(i)} \\)\n- Single example loss: \\( L(b, W, X_k, y_k) = h(-y_k \\cdot a_k) \\)\n- Dataset loss: \\[ L(b, W, \\mathcal{D}) = \\sum_{k=1}^n h(-y_k \\cdot a_k) \\]\n- Differentiable almost everywhere → suitable for gradient descent"
+  },
+  {
+    "q": "How is the gradient computed for hinge-like loss function \\( h(-y_k \\cdot a_k) \\)?",
+    "a": "- When misclassified:\n  - \\( \\frac{\\partial h(-y_k \\cdot a_k)}{\\partial b} = -y_k \\)\n  - \\( \\frac{\\partial h(-y_k \\cdot a_k)}{\\partial w_i} = -y_k \\cdot x_k^{(i)} \\)\n- When correctly classified:\n  - Gradient is zero\n- Gradient vector for misclassified example:\n  \\[ \\nabla = -y_k \\cdot (1, x_k^{(1)}, \\ldots, x_k^{(d)})^T \\]"
+  },
+  {
+    "q": "Explain the update rule using gradient descent for hinge-like loss in batch and online mode.",
+    "a": "- **Batch Gradient Descent**:\n  - Use full dataset to compute total gradient\n  - Update: \\[ (b, w_1, \\ldots, w_d)^T \\leftarrow (b, w_1, \\ldots, w_d)^T + \\mu \\sum_{k: X_k \\text{ miscl.}} y_k \\cdot (1, x_k^{(1)}, \\ldots, x_k^{(d)})^T \\]\n\n- **Online Gradient Descent**:\n  - Update after each misclassified example:\n  \\[ (b, w_1, \\ldots, w_d)^T \\leftarrow (b, w_1, \\ldots, w_d)^T + \\mu \\cdot y_k \\cdot (1, x_k^{(1)}, \\ldots, x_k^{(d)})^T \\]"
+  },
+  {
+    "q": "How does the gradient-based update match the Perceptron rule?",
+    "a": "- Use hinge loss gradient: \\( \\nabla = -y \\cdot (1, x_1, \\ldots, x_d)^T \\)\n- With learning rate \\( \\mu = 1 \\):\n  - Update becomes:\n    - \\( b \\leftarrow b + y \\)\n    - \\( w_i \\leftarrow w_i + y \\cdot x_i \\)\n- Matches classical perceptron update rule"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "q": "What is the main goal of a Support Vector Machine (SVM)?",
+    "a": "- To find the optimal hyperplane that separates two classes with the maximum margin\n- This improves generalization and reduces classification error"
+  },
+  {
+    "q": "How is the decision function of an SVM defined?",
+    "a": "- Discriminant function:\n\\[ g(\\mathbf{x}) = \\mathbf{w}^T \\mathbf{x} + b \\]\n- Predict class:\n  - If \\( g(\\mathbf{x}) > 0 \\), class is +1\n  - If \\( g(\\mathbf{x}) < 0 \\), class is -1"
+  },
+  {
+    "q": "What are the constraints for the linearly separable case in SVM?",
+    "a": "- For all training points \\( (\\mathbf{x}_i, d_i) \\):\n\\[ d_i(\\mathbf{w}^T \\mathbf{x}_i + b) \\geq 1 \\]\n- This ensures correct classification and keeps points outside the margin"
+  },
+  {
+    "q": "What are support vectors and why are they important?",
+    "a": "- Points that lie exactly on the margin boundaries\n- They satisfy:\n\\[ d_i(\\mathbf{w}^T \\mathbf{x}_i + b) = 1 \\]\n- They determine the position of the optimal hyperplane"
+  },
+  {
+    "q": "How is the margin \\( \\rho \\) related to the weight vector \\( \\mathbf{w} \\)?",
+    "a": "- Margin:\n\\[ \\rho = \\frac{1}{\\|\\mathbf{w}\\|_2} \\]\n- Larger margin \\( \\Rightarrow \\) smaller \\( \\|\\mathbf{w}\\|_2 \\)"
+  },
+  {
+    "q": "What is the primal optimization problem for SVM?",
+    "a": "- Objective:\n\\[ \\min_{\\mathbf{w}, b} \\frac{1}{2} \\|\\mathbf{w}\\|^2 \\]\n- Subject to:\n\\[ d_i(\\mathbf{w}^T \\mathbf{x}_i + b) \\geq 1 \\]"
+  },
+  {
+    "q": "What is the dual problem formulation in SVM?",
+    "a": "- Objective:\n\\[\n\\max_{\\lambda} \\sum_{i=1}^{N} \\lambda_i - \\frac{1}{2} \\sum_{i,j=1}^{N} \\lambda_i \\lambda_j d_i d_j \\mathbf{x}_i^T \\mathbf{x}_j\n\\]\n- Subject to:\n\\[ \\sum_{i=1}^{N} \\lambda_i d_i = 0,\\quad \\lambda_i \\geq 0 \\]"
+  },
+  {
+    "q": "Why is the dual formulation useful in SVM training?",
+    "a": "- Eliminates the need to compute \\( \\mathbf{w} \\) and \\( b \\) directly\n- Allows kernel trick for nonlinear problems\n- Identifies support vectors via non-zero \\( \\lambda_i \\)"
+  },
+  {
+    "q": "How do slack variables \\( \\xi_i \\) help in nonseparable cases?",
+    "a": "- Allow controlled misclassification\n- Modified constraint:\n\\[ d_i(\\mathbf{w}^T \\mathbf{x}_i + b) \\geq 1 - \\xi_i \\]\n- \\( \\xi_i > 0 \\): point inside margin or misclassified"
+  },
+  {
+    "q": "What is the soft-margin SVM primal problem?",
+    "a": "- Objective:\n\\[ \\min_{\\mathbf{w}, b, \\boldsymbol{\\xi}} \\frac{1}{2} \\|\\mathbf{w}\\|^2 + C \\sum_{i=1}^{N} \\xi_i \\]\n- Subject to:\n\\[ d_i(\\mathbf{w}^T \\mathbf{x}_i + b) \\geq 1 - \\xi_i,\\quad \\xi_i \\geq 0 \\]"
+  },
+  {
+    "q": "What is the role of the regularization parameter \\( C \\) in soft-margin SVM?",
+    "a": "- Controls the trade-off between margin size and classification error\n- Large \\( C \\): penalizes errors more, fits training data closely\n- Small \\( C \\): allows more slack, better generalization"
+  },
+  {
+    "q": "What is the kernel trick in SVMs?",
+    "a": "- Projects data to a higher-dimensional space where it is linearly separable\n- Uses a kernel function \\( K(\\mathbf{x}_i, \\mathbf{x}_j) = \\varphi(\\mathbf{x}_i)^T \\varphi(\\mathbf{x}_j) \\)\n- Avoids computing \\( \\varphi \\) explicitly"
+  },
+  {
+    "q": "How does the kernel affect the SVM dual problem?",
+    "a": "- The dual becomes:\n\\[\n\\max \\sum \\lambda_i - \\frac{1}{2} \\sum_{i,j} \\lambda_i \\lambda_j d_i d_j K(\\mathbf{x}_i, \\mathbf{x}_j)\n\\]\n- Kernel replaces the dot product \\( \\mathbf{x}_i^T \\mathbf{x}_j \\)"
+  },
+  {
+    "q": "What are some common kernel functions?",
+    "a": "- **Polynomial**: \\( K(\\mathbf{x}, \\mathbf{y}) = (\\mathbf{x}^T \\mathbf{y} + 1)^p \\)\n- **RBF (Gaussian)**: \\( K(\\mathbf{x}, \\mathbf{y}) = \\exp\\left(-\\frac{\\|\\mathbf{x} - \\mathbf{y}\\|^2}{2\\sigma^2}\\right) \\)\n- **Tanh**: \\( K(\\mathbf{x}, \\mathbf{y}) = \\tanh(\\alpha \\mathbf{x}^T \\mathbf{y} + \\beta) \\)"
+  }
+]
