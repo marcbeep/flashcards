@@ -14,9 +14,12 @@ RULES:
 
 MATH & CODE:
 
-- Inline math: `\\( ... \\)`
-- Display math: `\\[ ... \\]`
+- Inline math: `\\( ... \\)` (will be rendered as `$$ ... $$`)
+- Display math: `\\[ ... \\]` (will be rendered as `$$\n...\n$$`)
 - Code: `` `...` ``
+- Use `\\mathbf{...}` for bold math
+- Use `\\sum\\limits_` for better sum limits
+- Add space after `\\top`
 
 OUTPUT:
 JSON array of objects with `q` and `a` fields.

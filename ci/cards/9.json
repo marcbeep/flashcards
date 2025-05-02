@@ -13,7 +13,7 @@
   },
   {
     "q": "What is constrained optimisation? Give an example.",
-    "a": "- Optimisation with conditions (constraints) on the variables\n- Example:\n  Maximise \\( f(x, y) = x \\cdot y \\)\n  Subject to:\n  \\[ g(x,y) = 2(x + y) - 8.2 \\leq 0 \\]\n  \\[ h(x,y) = 0.5 \\sqrt{x^2 + y^2} - 1.8 = 0 \\ ]\n- The solution must satisfy both constraints"
+    "a": "- Optimisation with conditions (constraints) on the variables\n- Example:\n  Maximise \\( f(x, y) = x \\cdot y \\)\n  Subject to:\n  \\[ g(x,y) = 2(x + y) - 8.2 \\leq 0 \\]\n  \\[ h(x,y) = 0.5 \\sqrt{x^2 + y^2} - 1.8 = 0 \\]"
   },
   {
     "q": "What are enumerative methods in optimisation?",
@@ -21,7 +21,7 @@
   },
   {
     "q": "What are gradient-based methods in optimisation?",
-    "a": "- Move in the direction of the steepest gradient (or steepest descent for minimisation)\n- Update rule:\n\\[ \\vec{x}(t+1) = \\vec{x}(t) - \\eta \\nabla f[\\vec{x}(t)] \\ ]\n- ✅ Fast for smooth functions\n- ❌ May get stuck in local minima"
+    "a": "- Move in the direction of the steepest gradient (or steepest descent for minimisation)\n- Update rule:\n\\[ \\vec{x}(t+1) = \\vec{x}(t) - \\eta \\nabla f[\\vec{x}(t)] \\]"
   },
   {
     "q": "What are the limitations of gradient-based methods?",
