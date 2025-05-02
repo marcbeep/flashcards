@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is Evolution Strategy (ES) and what makes it unique?",
+    "a": "- ES is an optimization algorithm designed for numerical problems.\n- It uses real-valued solutions and focuses on mutation (no recombination in basic form).\n- Can work with very small populations, even (1+1)-ES (one parent, one child).\n- It evolves solutions by random perturbation and selection based on performance."
+  },
+  {
+    "q": "What are the main steps of the (1+1)-ES algorithm?",
+    "a": "- Start with an initial solution \\( \\mathbf{x}^{(0)} \\).\n- Generate a random vector \\( \\mathbf{r} \\sim \\mathcal{N}(0, \\Sigma) \\).\n- Create offspring: \\( \\mathbf{x}^{(t+1)} = \\mathbf{x}^{(t)} + \\mathbf{r} \\).\n- If \\( F(\\mathbf{x}^{(t+1)}) < F(\\mathbf{x}^{(t)}) \\), accept the new point.\n- Otherwise, keep the current point."
+  },
+  {
+    "q": "How is a solution represented in Evolution Strategy?",
+    "a": "- A solution is encoded as:\n\\[ (\\mathbf{x}, \\Sigma) = [x_1, ..., x_d, \\sigma_1, ..., \\sigma_k] \\]\n- \\( \\Sigma \\) is the covariance matrix controlling mutation:\n  - Diagonal: variances (step sizes)\n  - Off-diagonal: covariances (rotation angles)"
+  },
+  {
+    "q": "What is the role of the covariance matrix \\( \\Sigma \\) in ES?",
+    "a": "- Controls mutation step size and direction.\n- Larger elements in \\( \\Sigma \\) lead to larger jumps.\n- \\( \\Sigma \\) can co-evolve with \\( \\mathbf{x} \\) to adapt the strategy.\n- Basic version uses \\( \\Sigma = \\sigma I \\): equal step sizes, no correlation."
+  },
+  {
+    "q": "State the basic mutation rule in ES and how \\( \\Sigma \\) evolves in simple form.",
+    "a": "- Mutation rule:\n\\[ \\mathbf{x}^{(t+1)} = \\mathbf{x}^{(t)} + \\mathcal{N}(0, \\Sigma^{(t)}) \\]\n- Simple evolution of \\( \\Sigma \\):\n\\[ \\Sigma^{(t+1)} = \\Sigma^{(t)} = \\sigma I \\]"
+  },
+  {
+    "q": "What does the 1/5 success rule in ES do?",
+    "a": "- Adjusts mutation strength based on success rate.\n- If success rate \\( R_k > 1/5 \\), increase \\( \\sigma \\).\n- If \\( R_k < 1/5 \\), decrease \\( \\sigma \\).\n- Rule:\n\\[ \\sigma^{(t+1)} = \\begin{cases} c_{dec} \\cdot \\sigma^{(t)} & R_k < 1/5 \\\\ c_{inc} \\cdot \\sigma^{(t)} & R_k > 1/5 \\\\ \\sigma^{(t)} & R_k = 1/5 \\end{cases} \\]\n- Typical values: \\( c_{inc} = 1.22 \\), \\( c_{dec} \\in [0.8, 1.0] \\)"
+  },
+  {
+    "q": "Compare (μ+λ)-ES and (μ,λ)-ES strategies.",
+    "a": "- Both use μ parents to produce λ offspring.\n- (μ+λ)-ES:\n  - Select best μ from both parents and offspring.\n  - Parents can survive longer.\n- (μ,λ)-ES:\n  - Select best μ from offspring only.\n  - Parents live one generation.\n  - Better for dynamic or noisy functions."
+  },
+  {
+    "q": "How is crossover used in Evolution Strategies?",
+    "a": "- Two individuals \\( [\\mathbf{x}_1, \\Sigma_1] \\) and \\( [\\mathbf{x}_2, \\Sigma_2] \\) are combined.\n- Crossover types:\n  - Discrete (e.g., 2-point or uniform)\n  - Real-valued (e.g., intermediate/arithmetic average)\n- After crossover, apply mutation.\n- Must ensure covariance matrix \\( \\Sigma \\) remains valid."
+  },
+  {
+    "q": "How is the full covariance matrix \\( \\Sigma \\) updated in advanced ES?",
+    "a": "- Update variances:\n\\[ \\sigma_{ii}^{(t+1)} = \\sigma_{ii}^{(t)} \\cdot e^{N(0, \\Delta\\sigma)} \\]\n- Update rotation angles:\n\\[ \\alpha_{ij}^{(t+1)} = \\alpha_{ij}^{(t)} + N(0, \\Delta\\alpha), \\quad i \\ne j \\]\n- Mutation step:\n\\[ \\mathbf{x}^{(t+1)} = \\mathbf{x}^{(t)} + \\mathcal{N}(0, \\Sigma^{(t+1)}) \\]"
+  },
+  {
+    "q": "What is the formula for rotation angle \\( \\alpha_{ij} \\) in terms of \\( \\Sigma \\)?",
+    "a": "- The rotation angle \\( \\alpha_{ij} \\) relates to covariance as:\n\\[ \\tan(2\\alpha_{ij}) = \\frac{2\\sigma_{ij}}{\\sigma_{ii} - \\sigma_{jj}} \\]\n- This helps maintain a valid (positive definite) covariance matrix."
+  }
+]
