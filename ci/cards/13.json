@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is Genetic Programming (GP) and how is it different from Genetic Algorithms (GAs)?",
+    "a": "- GP evolves programs (structures + parameters), not just parameter values.\n- GP uses trees where:\n  - Branches = functions (e.g., +, *, if-else)\n  - Leaves = terminals (e.g., numbers, variables)\n- In GAs, structure is fixed; GP evolves both structure and parameters."
+  },
+  {
+    "q": "What are terminal and function sets in GP?",
+    "a": "- Terminal set (T): constants and input variables (e.g., `x`, `2`).\n- Function set (F): operations used in trees, such as:\n  - Logic: `and`, `or`, `not`\n  - Arithmetic: `+`, `-`, `*`, `/`\n  - Advanced math: `sin`, `cos`\n  - Control: `if-then-else`, loops"
+  },
+  {
+    "q": "Describe the main genetic operators used in GP.",
+    "a": "- Selection: choose individuals based on fitness\n- Crossover: swap subtrees between two parents\n- Mutation: change a function or terminal at a random node\n- Operators maintain tree structure but evolve behavior"
+  },
+  {
+    "q": "How is the initial population created in GP?",
+    "a": "- Set maximum tree depth \\( D_{\\max} \\)\n- Full method: all branches reach \\( D_{\\max} \\), using only functions below and terminals at the leaves\n- Grow method: branches vary in depth, mixing functions and terminals\n- Ramped half-and-half: 50% from Full, 50% from Grow"
+  },
+  {
+    "q": "What are introns in GP and why do they matter?",
+    "a": "- Introns: code that exists but doesn't affect output (inactive)\n- Example: an `if` condition that never runs\n- Pros: protect useful code from bad crossover\n- Cons: increase size, complexity, and resource use"
+  },
+  {
+    "q": "How can complexity be measured and controlled in GP?",
+    "a": "- To reduce introns, penalize complexity\n- Common measures:\n  - Number of nodes\n  - Number of instructions\n  - CPU instructions needed to run"
+  },
+  {
+    "q": "What is Gene Expression Programming (GEP) and how does it work?",
+    "a": "- GEP uses fixed-length linear strings (genes)\n- Genotype: the gene string (e.g., `Q * + - a b c d`)\n- Phenotype: the decoded tree\n- Builds trees level-by-level based on number of inputs per function"
+  },
+  {
+    "q": "What are the advantages of GEP over GP?",
+    "a": "- Fixed-length genes make operations easier\n- Always produce valid trees\n- Non-coding regions allow safe mutation/crossover\n- Head contains functions + terminals; tail only terminals"
+  },
+  {
+    "q": "How does mutation work in GEP?",
+    "a": "- A gene is chosen randomly with probability \\( p_m \\)\n- If in head: can be replaced with function or terminal\n- If in tail: replaced only with terminal\n- Structure stays valid; tree may grow"
+  },
+  {
+    "q": "How does 1-point crossover work in GEP?",
+    "a": "- Choose one crossover point\n- Swap segments of two parent strings after the point\n- Creates two new children with mixed content\n- Increases diversity but may disrupt useful structures"
+  },
+  {
+    "q": "How is symbolic regression done using GEP?",
+    "a": "- Goal: discover math expression for data (e.g., \\( a^4 + a^3 + a^2 + a \\))\n- Use only basic functions: \\( F = \\{+, -, *, /\\} \\), \\( T = \\{a\\} \\)\n- GEP finds:\n  `* + + / * * a a a a a a a a`\n- Tree corresponds to:\n\\[ (1 + a^2)(a + a^2) = a + a^2 + a^3 + a^4 \\]"
+  }
+]

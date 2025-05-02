@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What are Genetic Algorithms (GAs) and what concepts do they mimic?",
+    "a": "- GAs are search and optimization techniques.\n- They mimic natural genetics and evolution.\n- Key biological ideas used:\n  - Selection\n  - Crossover\n  - Mutation"
+  },
+  {
+    "q": "What are genotype and phenotype in Genetic Algorithms?",
+    "a": "- **Genotype**: Coded version of a solution (e.g., binary string).\n- **Phenotype**: Actual solution or output (e.g., a number, a path).\n- GAs operate on genotypes but evaluate phenotypes."
+  },
+  {
+    "q": "List the main stages of a Genetic Algorithm.",
+    "a": "- Genetic coding\n- Population initialization\n- Fitness evaluation\n- Selection (e.g., roulette wheel)\n- Crossover (recombination)\n- Mutation\n- Insertion into new population"
+  },
+  {
+    "q": "How is fitness-proportionate selection performed in GAs?",
+    "a": "- Each individual is selected with probability:\n\\[ p_i = \\frac{f_i}{\\sum\\limits_{j=1}^n f_j} \\]\n- Higher fitness \\( f_i \\) increases chance of being selected."
+  },
+  {
+    "q": "What is genetic encoding and how are real values represented?",
+    "a": "- Each variable \\( x_i \\) is encoded using \\( l_0 \\) bits.\n- Range: \\( [x_{i,\\text{min}}, x_{i,\\text{max}}] \\).\n- Decoding formula:\n\\[\nx_i = x_{i,\\min} + \\frac{x_{i,\\max} - x_{i,\\min}}{2^{l_0} - 1} \\times D\n\\]\n- \\( D \\) is the decimal value of the binary string."
+  },
+  {
+    "q": "How does crossover work in Genetic Algorithms?",
+    "a": "- Two parent strings are chosen.\n- A random crossover point is selected.\n- Parts of each parent are swapped to create children.\n- Example:\n  - Parent 1: `001000|0010`\n  - Parent 2: `001100|1100`\n  - Child 1: `0010001100`\n  - Child 2: `0011000010`"
+  },
+  {
+    "q": "What is the purpose of mutation in GAs and how is it done?",
+    "a": "- Mutation ensures **exploration** of new solution areas.\n- Prevents **premature convergence** and maintains **diversity**.\n- Applied after crossover.\n- Each bit has a small probability of flipping (e.g., 1 → 0).\n- Example:\n  - Before: `0010001100`\n  - After: `0010101100`"
+  },
+  {
+    "q": "What are the advantages of Genetic Algorithms?",
+    "a": "- Handle both continuous and discrete problems.\n- Work on noisy, discontinuous, or multimodal functions.\n- Search multiple solutions at once (population-based).\n- Useful in diverse applications: game playing, machine learning, control, etc."
+  },
+  {
+    "q": "What are the drawbacks of Genetic Algorithms?",
+    "a": "- No guaranteed convergence to the global optimum.\n- Can be slow (many evaluations needed).\n- Require fine-tuning of parameters (e.g., mutation rate).\n- General-purpose GAs may be inefficient vs. custom ones."
+  },
+  {
+    "q": "What shapes can chromosomes take besides 1D strings?",
+    "a": "- Chromosomes can be:\n  - (A) 1D strings (e.g., for simple crossover)\n  - (B, C) 2D arrays (e.g., matrix crossover)\n  - (D) Graphs (subgraph crossover)\n  - (E) Sets (set-based crossover)\n- Allows flexibility for complex problem structures."
+  },
+  {
+    "q": "How is the resolution of binary encoding determined in GAs?",
+    "a": "- Resolution (step size between encoded values):\n\\[\n\\text{distance} = \\frac{x_{i,\\max} - x_{i,\\min}}{2^{l_0} - 1}\n\\]\n- More bits \\( l_0 \\) = finer resolution.\n- Important for representing continuous variables accurately."
+  }
+]

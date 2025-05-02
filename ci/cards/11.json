@@ -1,0 +1,62 @@
+[
+  {
+    "q": "What is the purpose of fitness transformation in Genetic Algorithms (GAs)?",
+    "a": "- To adjust the raw objective values \\( F(c_i) \\) for proper selection.\n- Helps avoid:\n  - Negative or poorly scaled fitness values\n  - Close-race (everyone looks equal)\n  - Super-individuals (one dominates)"
+  },
+  {
+    "q": "List and describe common fitness transformation methods in GAs.",
+    "a": "- **Direct Scaling**: \\( f(c_i) = F(c_i) - F_{\\text{worst}} \\)\n- **Linear Scaling**: \\( f(c_i) = aF(c_i) + b \\)\n- **Sigma Truncation**: \\( f(c_i) = \\max(0, F(c_i) + (\\mu - a\\sigma)) \\)\n- **Power Scaling**: \\( f(c_i) = F(c_i)^a \\)\n- **Exponential Scaling**: \\( f(c_i) = \\exp(F(c_i)/a) \\)"
+  },
+  {
+    "q": "What are ranking-based transformations and why are they used?",
+    "a": "- Replace raw fitness with rank-based values\n- Reduces effect of extreme values (avoids super-individuals)\n- Prevents close-race when fitness values are close"
+  },
+  {
+    "q": "Describe Baker’s linear ranking scheme and its formula.",
+    "a": "- Assigns selection probabilities based on rank:\n\\[ p_i = \\frac{1}{N}\\left(\\eta_{\\text{max}} - (\\eta_{\\text{max}} - \\eta_{\\text{min}}) \\cdot \\frac{i - 1}{N - 1}\\right) \\]\n- \\( i \\): rank (1 is best)\n- \\( \\eta_{\\text{min}} = 2 - \\eta_{\\text{max}} \\), \\( \\eta_{\\text{max}} \\in [1, 2] \\)"
+  },
+  {
+    "q": "What is takeover time in selection, and what does it indicate?",
+    "a": "- The number of generations needed for the best individual to dominate the population\n- **Short takeover time**: strong selective pressure (fast convergence)\n- **Long takeover time**: weak pressure (better exploration)"
+  },
+  {
+    "q": "Compare selection schemes in GAs.",
+    "a": "- **Roulette Wheel**: Selection probability ∝ fitness\n- **Stochastic Sampling**: Reduces dominance by lowering selected individual's fitness\n- **Universal Sampling**: Uses evenly spaced pointers to sample\n- **k-Tournament**: Select k individuals, choose the best"
+  },
+  {
+    "q": "Compare \\( \\chi \\)-point, uniform, and binomial crossover.",
+    "a": "- **\\( \\chi \\)-point**: Swap segments between parents at \\( \\chi \\) random points\n- **Uniform**: Each gene from either parent with 50% probability\n- **Binomial**: Each gene taken from parent 1 with prob \\( p_r \\), otherwise from parent 2"
+  },
+  {
+    "q": "Describe real-valued crossover types used in GAs.",
+    "a": "- **Line Arithmetical**: Offspring on line between parents\n\\[ c_i = r p_i + (1 - r) p_j \\]\n- **Intermediate**: Different \\( r_k \\) for each gene\n- **Heuristic**: Extrapolate from better parent\n\\[ c = r(p_i - p_j) + p_i \\]\n- **Simplex**: Multi-parent; move away from worst"
+  },
+  {
+    "q": "What are common mutation types in GAs (discrete and real-valued)?",
+    "a": "- **Bit-flipping**: Flip 0 ↔ 1 with small \\( p_m \\)\n- **Uniform (real-valued)**: Pick random value in \\([L_k, U_k]\\)\n- **Gaussian**: Add normal noise centered at current value\n- **Adaptive Non-Uniform**: Mutation shrinks over time for fine-tuning"
+  },
+  {
+    "q": "What are common strategies to handle invalid chromosomes?",
+    "a": "- **Rejection**: Discard invalid ones and retry\n- **Penalty Function**: Add violation cost to fitness\n\\[ F'(x) = F(x) + \\sum a_i G_i(x) + \\sum b_j H_j(x) \\]\n- **Repair**: Fix invalid chromosomes\n- **Special Operators**: Design operators that avoid creating invalid results\n- **Decoders**: Map genotype to valid phenotype using rules"
+  },
+  {
+    "q": "What are the main types of population models in GAs?",
+    "a": "- **Generational**: Replace all individuals each generation\n- **Overlapping (steady-state)**: Replace few individuals (\\( M < N \\))\n- **No-duplicates**: Prevent identical individuals in population"
+  },
+  {
+    "q": "List common termination conditions for a GA.",
+    "a": "- Max number of generations\n- \\( \\left|F_{\\text{avg}} - F_{\\text{best}}\\right|/\\left|F_{\\text{avg}}\\right| \\leq \\varepsilon \\)\n- No change in \\( F_{\\text{best}} \\) for \\( t_s \\) generations\n- Population diversity is too low\n- Gradient or optimality conditions met"
+  },
+  {
+    "q": "Compare fine-grained and coarse-grained parallel GAs.",
+    "a": "- **Fine-grained (cellular)**:\n  - Individuals on a grid\n  - Interact with neighbors only\n- **Coarse-grained (island)**:\n  - Separate populations\n  - Occasional migration between islands"
+  },
+  {
+    "q": "What is hybridisation in GAs and how can it be done?",
+    "a": "- Start with a good (non-random) initial population\n- Use domain-specific genetic operators\n- Combine GA with local search (e.g., gradient methods)\n- Use memetic GAs (local search per individual)\n- Apply:\n  - **Lamarckian model**: Learned traits passed to offspring\n  - **Baldwinian model**: Learning improves fitness, not passed down"
+  },
+  {
+    "q": "What is niching in GAs and how is fitness sharing implemented?",
+    "a": "- Maintains diversity by forming subpopulations (niches)\n- Share fitness among similar individuals:\n\\[ F_{\\text{shared}}(p_i) = \\frac{F(p_i)^b}{\\sum\\limits_{j=1}^{N} \\gamma(d(p_i, p_j))} \\]\n- Sharing function:\n\\[ \\gamma(d) = \\max\\left[0, 1 - \\left(\\frac{d}{\\sigma_{\\text{share}}}\\right)^a\\right] \\]\n- \\( d \\): distance; \\( \\sigma_{\\text{share}} \\): niche radius"
+  }
+]
