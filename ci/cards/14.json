@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is Particle Swarm Optimization (PSO) and how does it work?",
+    "a": "- PSO is an optimization algorithm inspired by the social behavior of animals like birds or fish.\n- A group of particles (called a swarm) searches for the best solution in a problem space.\n- Each particle adjusts its path using:\n  - Its own best known position (\\(\\mathbf{pbest}\\))\n  - The swarm's best known position (\\(\\mathbf{gbest}\\))\n- No genetic material is mixed (unlike genetic algorithms)."
+  },
+  {
+    "q": "What are the main components of the PSO velocity update equation?",
+    "a": "- The velocity of a particle is updated using:\n\\[\nv_{ij} = w \\cdot v_{ij} + c_1 \\cdot \\text{rand}() \\cdot (pbest_{ij} - x_{ij}) + c_2 \\cdot \\text{rand}() \\cdot (gbest_j - x_{ij})\n\\]\n- \\(w\\): inertia weight (momentum)\n- \\(c_1\\): cognitive coefficient (personal influence)\n- \\(c_2\\): social coefficient (group influence)\n- \\(\\text{rand}()\\): random value in [0,1]"
+  },
+  {
+    "q": "How are particle positions updated in PSO?",
+    "a": "- After updating velocity:\n\\[ x_{ij} = x_{ij} + v_{ij} \\]\n- This moves the particle through the search space."
+  },
+  {
+    "q": "How are pbest and gbest updated in PSO?",
+    "a": "- \\(\\mathbf{pbest}_i\\): best position a particle has found\n\\[\n\\mathbf{pbest}_i(t+1) =\n\\begin{cases}\n\\mathbf{pbest}_i(t) & \\text{if } F(\\mathbf{x}_i(t+1)) \\geq F(\\mathbf{pbest}_i(t)) \\\\\n\\mathbf{x}_i(t+1) & \\text{otherwise}\n\\end{cases}\n\\]\n- \\(\\mathbf{gbest}\\): best position found by any particle\n\\[\n\\mathbf{gbest}(t+1) = \\arg\\min\\limits_i F(\\mathbf{pbest}_i(t+1))\n\\]"
+  },
+  {
+    "q": "What is Time Varying Inertia Weight (TVIW) in PSO?",
+    "a": "- TVIW gradually reduces inertia weight \\(w\\) over time:\n\\[\nw = (w_{init} - w_{final})\\cdot \\frac{t_{final} - t}{t_{final}} + w_{final}\n\\]\n- Encourages global search early (large \\(w\\))\n- Encourages fine-tuning later (small \\(w\\))"
+  },
+  {
+    "q": "What is the Constriction Factor (CF) in PSO?",
+    "a": "- It modifies velocity update to ensure convergence:\n\\[\nv_{ij} = \\chi \\left[v_{ij} + c_1 \\cdot \\text{rand} \\cdot (pbest_{ij} - x_{ij}) + c_2 \\cdot \\text{rand} \\cdot (gbest_j - x_{ij})\\right]\n\\]\n- \\[ \\chi = \\frac{2}{|2 - \\varphi - \\sqrt{\\varphi^2 - 4\\varphi}|}, \\quad \\varphi = c_1 + c_2, \\quad \\varphi > 4 \\]"
+  },
+  {
+    "q": "What is Time Varying Acceleration Coefficients (TVAC) in PSO?",
+    "a": "- TVAC gradually changes \\(c_1\\) and \\(c_2\\) over time:\n\\[\nc_i = (c_{i,\\text{final}} - c_{i,\\text{init}}) \\cdot \\frac{t}{t_{final}} + c_{i,\\text{init}}, \\quad i = 1, 2\n\\]\n- Example:\n  - Start: \\(c_1 = 2.5\\), \\(c_2 = 0.5\\) → global search\n  - End: \\(c_1 = 0.5\\), \\(c_2 = 2.5\\) → local convergence"
+  },
+  {
+    "q": "What is TVAC-Mutation (TVAC-M) PSO and how does mutation work?",
+    "a": "- Introduces random mutation if no improvement occurs:\n```text\nIf rate_of_improvement <= threshold:\n    If rand < p_m:\n        v_kj := v_kj ± v_max / m\n```\n- Mutation increases diversity and helps escape local optima."
+  },
+  {
+    "q": "What is Passive Congregation (PC) PSO?",
+    "a": "- Adds another term to velocity using a random particle \\(q\\):\n\\[\nv_{ij} = w \\cdot v_{ij} + c_1 \\cdot \\text{rand}(pbest_{ij} - x_{ij}) + c_2 \\cdot \\text{rand}(gbest_j - x_{ij}) + c_3 \\cdot \\text{rand}(q_j - x_{ij})\n\\]\n- Models passive social drifting, like plankton clustering\n- Helps avoid getting stuck and uses swarm information better"
+  },
+  {
+    "q": "What is LBEST PSO?",
+    "a": "- Divides the swarm into multiple neighborhoods\n- Each neighborhood uses its own local best (lbest)\n- Less sensitive to local minima than using a single gbest"
+  },
+  {
+    "q": "What is Social Stereotyping PSO and how is velocity updated?",
+    "a": "- Particles are grouped using clustering into stereotypes\n- Each group has a center \\(\\mathbf{u}_k\\)\n- Velocity update options:\n\\[\nv_i = w \\cdot v_i + c_1 \\cdot \\text{rand}(\\mathbf{u}_k - x_i) + c_2 \\cdot \\text{rand}(\\mathbf{gbest} - x_i)\n\\]\n\\[\nv_i = w \\cdot v_i + c_1 \\cdot \\text{rand}(\\mathbf{pbest}_i - x_i) + c_2 \\cdot \\text{rand}(\\mathbf{u}_k - x_i)\n\\]\n\\[\nv_i = w \\cdot v_i + c_1 \\cdot \\text{rand}(\\mathbf{u}_k - x_i) + c_2 \\cdot \\text{rand}(\\mathbf{u}_k - x_i)\n\\]"
+  }
+]
