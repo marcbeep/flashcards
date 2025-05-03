@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is Machine Learning and how is it defined by Tom Mitchell?",
+    "a": "- Machine Learning (ML) is a field of AI where machines learn patterns from data to make decisions.\n- Tom Mitchell's definition:\n\\[ \\text{A computer program learns from experience } E \\text{ with respect to tasks } T \\text{ and performance measure } P, \\text{ if performance on } T, \\text{ measured by } P, \\text{ improves with } E. \\]"
+  },
+  {
+    "q": "What are the main types of Machine Learning?",
+    "a": "- **Supervised Learning**: Uses labelled data (input-output pairs).\n- **Unsupervised Learning**: Uses unlabelled data to find patterns.\n- **Semi-supervised Learning**: Uses a mix of labelled and unlabelled data.\n- **Reinforcement Learning**: Learns via trial-and-error with rewards and penalties."
+  },
+  {
+    "q": "What is Deep Learning?",
+    "a": "- A subfield of ML using neural networks with many layers (deep architectures).\n- Learns high-level features and representations from raw data."
+  },
+  {
+    "q": "What are the main types of Deep Learning architectures?",
+    "a": "- **Convolutional Neural Networks (CNNs)**: Used for image tasks like classification.\n- **Autoencoders**: Learn compressed representations of input data.\n- **Deep Belief Networks (DBNs)**: Generative models for unsupervised learning.\n- **Recurrent Neural Networks (RNNs)**: Capture patterns in sequences like text or speech."
+  },
+  {
+    "q": "What are some common applications of Deep Learning?",
+    "a": "- Computer vision: object detection, scene segmentation, face reconstruction\n- Self-driving cars: real-time perception and decision-making\n- Robotics: learning tasks like hand-eye coordination\n- Others: language translation, game playing, medical diagnosis"
+  },
+  {
+    "q": "Why was Deep Learning not successful earlier and what changed?",
+    "a": "- Early algorithms worked well for shallow networks (1 hidden layer).\n- Training deep networks was difficult due to poor algorithms and computing limitations.\n- Breakthrough: new training methods (e.g. backpropagation) and better hardware enabled deep learning success."
+  },
+  {
+    "q": "What inspired Artificial Neural Networks (ANNs)?",
+    "a": "- Biological neural systems: simple units (neurons) forming complex behaviors\n- Goal: mimic brain-like learning and processing using artificial models"
+  },
+  {
+    "q": "How do biological and artificial neurons compare?",
+    "a": "- Biological neurons: communicate via spikes, connect to thousands of other neurons\n- Artificial neurons: receive inputs, compute activation, send output to next layer\n- Key concepts: neurons (nodes) and synapses (weights)"
+  },
+  {
+    "q": "How does a neuron in a neural network operate?",
+    "a": "- Receives multiple inputs\n- Applies weights to each input\n- Computes activation (internal state)\n- Sends output to connected neurons\n- Recurrent networks allow output to feed back as new input (memory)"
+  },
+  {
+    "q": "Summarize the key milestones in the history of Artificial Neural Networks.",
+    "a": "- 1943: McCulloch & Pitts – first neuron model\n- 1949: Hebb – learning rule\n- 1958: Rosenblatt – perceptron\n- 1960: ADALINE and gradient descent (Widrow & Hoff)\n- 1969: Minsky & Papert – showed limits of perceptrons\n- 1982–85: Hopfield networks, Kohonen maps, Boltzmann machines\n- 1986: Backpropagation (Rumelhart, Hinton, Williams) revived interest"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is the error function used in backpropagation for a single neuron?",
+    "a": "- Error function:\n\\[ E = \\frac{1}{2}(o - d)^2 \\]\n- Where:\n  - \\( o \\): output of the neuron\n  - \\( d \\): desired (target) output"
+  },
+  {
+    "q": "How is the output of a sigmoid neuron calculated?",
+    "a": "- Neuron input:\n\\[ q = \\sum\\limits_j w_j x_j \\]\n- Sigmoid output:\n\\[ o = f(q) = \\frac{1}{1 + e^{-q}} \\]"
+  },
+  {
+    "q": "What are the derivatives used in backpropagation for a single neuron?",
+    "a": "- Chain rule for gradient:\n\\[ \\frac{\\partial E}{\\partial w_j} = (o - d) \\cdot o(1 - o) \\cdot x_j \\]\n- Terms:\n  - \\( \\frac{\\partial E}{\\partial o} = o - d \\)\n  - \\( \\frac{\\partial o}{\\partial q} = o(1 - o) \\)\n  - \\( \\frac{\\partial q}{\\partial w_j} = x_j \\)"
+  },
+  {
+    "q": "What is the weight update rule in backpropagation?",
+    "a": "- Gradient descent update:\n\\[ \\Delta w_j = -\\eta (o - d) o (1 - o) x_j \\]\n- New weight:\n\\[ w_j \\leftarrow w_j + \\Delta w_j \\]\n- \\( \\eta \\): learning rate (step size)"
+  },
+  {
+    "q": "What are the main steps of the backpropagation algorithm?",
+    "a": "- Start with random weights\n- Repeat until error is low or time runs out:\n  - For each input pattern:\n    - Compute hidden layer activations\n    - Compute output layer activations\n    - Calculate error\n    - Update weights from output to hidden\n    - Update weights from hidden to input"
+  },
+  {
+    "q": "What is deep learning and how is it structured?",
+    "a": "- Uses deep (multi-layer) neural networks\n- Learns high-level features from raw data\n- Involves non-linear transformations\n- Can be:\n  - Supervised (e.g. CNNs)\n  - Unsupervised (e.g. autoencoders)"
+  },
+  {
+    "q": "What are common uses of convolution and filtering in deep learning?",
+    "a": "- Noise removal\n- Edge detection\n- Pattern detection (template matching)\n- Deconvolution (removing prior effects)"
+  },
+  {
+    "q": "What is 1D convolution in the continuous and discrete case?",
+    "a": "- Continuous:\n\\[ h(t) = (f * g)(t) = \\int f(\\tau) g(t - \\tau) d\\tau \\]\n- Discrete:\n\\[ h[i] = \\sum\\limits_k f[i - k] \\cdot g[k] \\ ]"
+  },
+  {
+    "q": "How is 2D convolution applied to images?",
+    "a": "- Slide a filter over the image\n- For each position:\n  - Multiply filter values by corresponding pixels\n  - Sum the results\n- Output pixel = sum\n- Formula:\n\\[ I'(i,j) = \\sum\\limits_k \\sum\\limits_l I(i-k, j-l) H(k,l) \\]"
+  },
+  {
+    "q": "What is stride in convolution, and how does it affect output size?",
+    "a": "- Stride: step size of the filter across the input\n- Formula:\n\\[ \\text{Output size} = \\frac{(N - F)}{\\text{stride}} + 1 \\]\n  - \\( N \\): input size\n  - \\( F \\): filter size\n- Larger stride → smaller output"
+  },
+  {
+    "q": "What is padding and why is it used in convolutional networks?",
+    "a": "- Adds zeros around input borders\n- Prevents shrinking of output size\n- Common padding: \\( (F - 1)/2 \\) for filter size \\( F \\)\n- Example:\n  - \\( F = 3 \\) → pad = 1\n  - \\( F = 5 \\) → pad = 2"
+  }
+]

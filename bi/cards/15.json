@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What does a convolution layer do in a ConvNet?",
+    "a": "- Slides filters over input images to extract features (e.g., edges)\n- Each filter produces an activation map by computing dot products\n- Output is a stack of these activation maps"
+  },
+  {
+    "q": "What is the formula for calculating the output size of a convolution layer?",
+    "a": "\\[ W_2 = \\frac{W_1 - F + 2P}{S} + 1 \\]\n\\[ H_2 = \\frac{H_1 - F + 2P}{S} + 1 \\]\n\\[ D_2 = K \\]\nWhere:\n- \\( W_1, H_1 \\): input width and height\n- \\( F \\): filter size\n- \\( P \\): padding\n- \\( S \\): stride\n- \\( K \\): number of filters (output depth)"
+  },
+  {
+    "q": "What are the key hyperparameters of a convolution layer?",
+    "a": "- Filter size \\( F \\)\n- Stride \\( S \\)\n- Padding \\( P \\)\n- Number of filters \\( K \\)"
+  },
+  {
+    "q": "What is zero-padding and why is it used?",
+    "a": "- Zero-padding adds a border of zeros around the input\n- Keeps the output spatial size same as the input when:\n\\[ P = \\frac{F - 1}{2} \\]\n- Common in ConvNets to preserve resolution"
+  },
+  {
+    "q": "How is a single activation in a convolution layer computed?",
+    "a": "- Flatten filter \\( \\mathbf{w} \\) and image patch \\( \\mathbf{x} \\)\n- Compute dot product plus bias:\n\\[ \\mathbf{w}^{\\top} \\mathbf{x} + b \\]"
+  },
+  {
+    "q": "What is the purpose of using multiple filters in a convolution layer?",
+    "a": "- Each filter detects a different feature\n- Multiple filters generate multiple activation maps\n- These maps are stacked to form the output volume"
+  },
+  {
+    "q": "What does a ConvNet (Convolutional Neural Network) consist of?",
+    "a": "- Sequence of layers including:\n  - Convolution layers\n  - Activation functions (e.g., ReLU)\n  - Pooling layers\n  - Fully connected (FC) layers"
+  },
+  {
+    "q": "What is the purpose of a pooling layer in ConvNets?",
+    "a": "- Reduces spatial dimensions (width and height)\n- Makes representations smaller and invariant to small translations\n- Operates on each activation map independently"
+  },
+  {
+    "q": "How does max pooling work?",
+    "a": "- Takes the maximum value in each filter-sized region\n- Common settings:\n  - Filter size \\( F = 2 \\), stride \\( S = 2 \\)\n  - Filter size \\( F = 3 \\), stride \\( S = 2 \\)"
+  },
+  {
+    "q": "What is the output size formula for pooling layers?",
+    "a": "\\[ W_2 = \\frac{W_1 - F}{S} + 1 \\]\n\\[ H_2 = \\frac{H_1 - F}{S} + 1 \\]\n\\[ D_2 = D_1 \\]\nWhere:\n- \\( W_1, H_1 \\): input dimensions\n- \\( F \\): filter size\n- \\( S \\): stride"
+  },
+  {
+    "q": "What is a fully connected (FC) layer in a ConvNet?",
+    "a": "- Each neuron connects to all inputs from previous layer\n- Like in a traditional neural network\n- Used in final layers for classification"
+  },
+  {
+    "q": "How is input handled in a fully connected layer?",
+    "a": "- Input volume (e.g., 32x32x3) is flattened to a vector\n- Matrix of weights (e.g., 10x3072) transforms it to output vector\n- Output might represent class scores"
+  }
+]

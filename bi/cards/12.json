@@ -1,0 +1,30 @@
+[
+  {
+    "q": "What does an artificial neuron compute?",
+    "a": "- It takes inputs \\( x_1, x_2, \\dots, x_n \\)\n- Each input has a weight \\( w_{i,1}, w_{i,2}, \\dots, w_{i,n} \\)\n- Computes net input:\n\\[ \\text{net}_i(t) = \\sum\\limits_{j=1}^n w_{i,j}(t) \\cdot x_j(t) \\]\n- Applies activation function:\n\\[ y_i(t) = f_i(\\text{net}_i(t)) \\]"
+  },
+  {
+    "q": "What is a threshold activation function and how does it work?",
+    "a": "- Used in Perceptrons\n- Outputs 1 if net input is non-negative, else 0:\n\\[ f_i(\\text{net}_i(t)) = \\begin{cases}1 & \\text{if } \\text{net}_i(t) \\geq 0 \\\\ 0 & \\text{otherwise} \\end{cases} \\]"
+  },
+  {
+    "q": "What is the sigmoid activation function and what are its parameters?",
+    "a": "- Common in learning networks\n- Maps input to \\([0, 1]\\) range:\n\\[ f_i(\\text{net}_i(t)) = \\frac{1}{1 + e^{-\\frac{\\text{net}_i(t) - \\theta}{\\tau}}} \\]\n- \\( \\theta \\): horizontal shift (like threshold)\n- \\( \\tau \\): slope control (steepness of curve)"
+  },
+  {
+    "q": "What are the layers of a feed-forward neural network and their roles?",
+    "a": "- **Input layer**: holds the input vector, no computation\n- **Hidden layer**: processes input, applies activation function\n- **Output layer**: produces the result after processing"
+  },
+  {
+    "q": "How are weights set in Artificial Neural Networks (ANNs)?",
+    "a": "- Typically via **supervised learning**\n- Train the network with input-output pairs: \\( (x, y) \\)\n- Goal: network learns a function so that \\( f(x) \\approx y \\)\n- Good training helps the network generalize to unseen inputs"
+  },
+  {
+    "q": "What is the tradeoff between fitting and generalization in ANNs?",
+    "a": "- **Underfitting**: too few neurons, can't model data well\n- **Overfitting**: too many neurons, memorizes training data, performs poorly on new inputs\n- No exact formula for optimal network size — use heuristics"
+  },
+  {
+    "q": "What happens when an ANN overfits or underfits?",
+    "a": "- **Underfitting**: network lacks capacity to capture patterns\n- **Overfitting**: network captures noise, fails to generalize\n- Like fitting a low-degree vs high-degree polynomial to data"
+  }
+]

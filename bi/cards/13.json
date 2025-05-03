@@ -1,0 +1,54 @@
+[
+  {
+    "q": "How is error evaluated in neural networks for regression and classification?",
+    "a": "- For regression, typical error function:\n\\[ E = \\sum\\limits_{i} (d_i - y_i)^2 \\]\n- For classification, accuracy:\n\\[ \\text{Accuracy} = \\frac{\\text{correctly classified samples}}{\\text{total samples}} \\]"
+  },
+  {
+    "q": "How does a perceptron compute its output?",
+    "a": "- Net input: \\( \\text{net} = \\sum\\limits_{i} w_i x_i \\)\n- Output:\n  - +1 if \\( \\text{net} > \\text{threshold} \\)\n  - -1 otherwise\n- With bias:\n  - Add \\( x_0 = 1 \\) and learnable weight \\( w_0 = -\\text{threshold} \\)\n  - Net input becomes: \\( \\text{net} = w_0 x_0 + \\sum\\limits_{i=1}^{n} w_i x_i \\)"
+  },
+  {
+    "q": "What function does a perceptron represent in geometry?",
+    "a": "- Decision boundary: a hyperplane in \\( n \\)-dimensional space\n\\[ w_0 + w_1 x_1 + \\dots + w_n x_n = 0 \\]\n- If the input lies on one side: output is 1\n- On the other side: output is -1"
+  },
+  {
+    "q": "How does perceptron training update weights for misclassified samples?",
+    "a": "- Update rule:\n\\[ \\mathbf{w}_{\\text{new}} = \\mathbf{w}_{\\text{old}} + \\eta \\, y \\mathbf{x} \\]\n  - \\( y \\) is the true class label (+1 or -1)\n  - \\( \\eta \\) is the learning rate\n  - \\( \\mathbf{x} \\) is the input vector (including bias)\n- Applies to both classes with unified update"
+  },
+  {
+    "q": "What are the effects of learning rate in perceptron training?",
+    "a": "- If \\( \\eta \\) is too large: learning oscillates, unstable\n- If \\( \\eta \\) is too small: very slow convergence\n- If changing \\( \\eta \\) doesn't help: data might not be linearly separable"
+  },
+  {
+    "q": "How is a perceptron trained (algorithm steps)?",
+    "a": "- Start with random weights\n- Repeat until no misclassifications:\n  - Pick a misclassified input \\( \\mathbf{x} \\)\n  - Compute class \\( y \\)\n  - Update weights:\n\\[ \\mathbf{w} \\leftarrow \\mathbf{w} + \\eta y \\mathbf{x} \\]"
+  },
+  {
+    "q": "How are multiclass problems handled using perceptrons?",
+    "a": "- Use one perceptron per class\n- Each perceptron outputs 1 for its class, 0 otherwise\n- The class with highest output is selected\n- If outputs are real-valued, pick the neuron with the maximum"
+  },
+  {
+    "q": "What limitation of single-layer perceptrons do multilayer networks overcome?",
+    "a": "- Single-layer perceptrons require linear separability\n- Multilayer networks handle non-linearly separable data\n- Use differentiable activation (e.g., sigmoid) and backpropagation to train"
+  },
+  {
+    "q": "What is the goal of backpropagation learning?",
+    "a": "- Adjust weights to minimize output error\n- Given training pairs \\( (\\mathbf{x}^{(p)}, \\mathbf{d}^{(p)}) \\)\n- Output: \\( \\mathbf{y}^{(p)} \\)\n- Minimize mean squared error:\n\\[ \\text{MSE} = \\frac{1}{P} \\sum\\limits_{p=1}^{P} \\sum\\limits_{i=1}^{n} (y_i^{(p)} - d_i^{(p)})^2 \\]"
+  },
+  {
+    "q": "What is gradient descent and how is it used in neural networks?",
+    "a": "- Finds minimum of error function by following negative gradient\n- Weight update rule:\n\\[ w \\leftarrow w - \\eta \\frac{\\partial E}{\\partial w} \\]\n- Repeated until error converges"
+  },
+  {
+    "q": "What mathematical rule is key to computing gradients in backpropagation?",
+    "a": "- **Chain rule** of derivatives:\nIf \\( z = f(g(x)) \\), then:\n\\[ \\frac{dz}{dx} = \\frac{df}{dg} \\cdot \\frac{dg}{dx} \\]\n- Used to propagate error backward through layers"
+  },
+  {
+    "q": "What is the sigmoid function and its derivative used in backpropagation?",
+    "a": "- Sigmoid activation:\n\\[ \\sigma(\\text{net}) = \\frac{1}{1 + e^{-\\text{net}}} \\]\n- Derivative:\n\\[ \\sigma'(\\text{net}) = \\sigma(\\text{net}) (1 - \\sigma(\\text{net})) \\]\n- Smooth, differentiable, ideal for backpropagation"
+  },
+  {
+    "q": "What are the main phases of backpropagation training?",
+    "a": "- **Feedforward**:\n  - Compute output by passing input through network\n- **Backward pass**:\n  - Compute output error\n  - Backpropagate error using gradients\n  - Update weights using gradient descent"
+  }
+]
