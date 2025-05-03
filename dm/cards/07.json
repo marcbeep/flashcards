@@ -1,0 +1,34 @@
+[
+  {
+    "q": "What is regularisation and why is it used in machine learning?",
+    "a": "- Regularisation reduces overfitting by constraining the model's complexity.\n- It limits the size of the model parameters (e.g. weights).\n- Common techniques:\n  - L2 regularisation (Ridge)\n  - L1 regularisation (Lasso)\n  - L1 + L2 (ElasticNet)"
+  },
+  {
+    "q": "How does polynomial regression demonstrate the need for regularisation?",
+    "a": "- We fit data sampled from:\n\\[ f(x) = x^3 - 4x^2 + 3x - 2 \\]\n- Approximated by:\n\\[ \\hat{y}(x, \\mathbf{W}) = \\sum\\limits_{j=0}^d w_j x^j \\]\n- Loss without regularisation:\n\\[ L(\\mathcal{D}, \\mathbf{W}) = \\sum\\limits_{i=1}^n (\\hat{y}(x_i, \\mathbf{W}) - y_i)^2 \\]\n- High-degree polynomials lead to large weights and overfitting."
+  },
+  {
+    "q": "What is the formula for L2-regularised loss and what does each part represent?",
+    "a": "- L2-regularised objective:\n\\[ J(\\mathcal{D}, \\mathbf{W}) = L(\\mathcal{D}, \\mathbf{W}) + \\lambda \\|\\mathbf{W}\\|^2 \\]\n- \\( L \\): standard loss (e.g. RSS or classification loss)\n- \\( \\lambda \\): regularisation coefficient (hyperparameter)\n- \\( \\|\\mathbf{W}\\|^2 = \\sum\\limits_{j=1}^d w_j^2 \\): penalty on large weights"
+  },
+  {
+    "q": "How does the gradient change with L2 regularisation?",
+    "a": "- The total gradient becomes:\n\\[ \\nabla_\\mathbf{W} J = \\nabla_\\mathbf{W} L + 2\\lambda \\mathbf{W} \\]\n- Adds a shrinkage term proportional to \\( \\mathbf{W} \\)\n- Helps reduce weight magnitudes during training"
+  },
+  {
+    "q": "What is the Perceptron loss function and when is it non-zero?",
+    "a": "- For input \\( (X_k, y_k) \\), activation:\n\\[ a_k = b + \\sum\\limits_{j=1}^d w_j x_k^{(j)} \\]\n- Loss:\n\\[ L = h(-y_k \\cdot a_k),\\ \\text{where } h(t) = \\max(0, t) \\]\n- Non-zero only when the prediction is incorrect"
+  },
+  {
+    "q": "What is the gradient of the Perceptron loss with L2 regularisation?",
+    "a": "- If \\( (X, y) \\) is misclassified:\n\\[ \\nabla J = -y \\cdot (1, x_1, ..., x_d)^\\top + 2\\lambda \\cdot (0, w_1, ..., w_d)^\\top \\]\n- If correctly classified:\n\\[ \\nabla J = 2\\lambda \\cdot (0, w_1, ..., w_d)^\\top \\]"
+  },
+  {
+    "q": "What are the SGD update rules for L2-regularised Perceptron?",
+    "a": "- If \\( (X, y) \\) is misclassified:\n  - \\( w_i \\leftarrow w_i (1 - 2\\lambda) + y \\cdot x_i \\)\n  - \\( b \\leftarrow b + y \\)\n- If correctly classified:\n  - \\( w_i \\leftarrow w_i (1 - 2\\lambda) \\)\n  - \\( b \\leftarrow b \\)"
+  },
+  {
+    "q": "How do you select the best \\( \\lambda \\) value in regularisation?",
+    "a": "- Split data into training and validation sets (e.g. 80%-20%)\n- Try different \\( \\lambda \\) values (log scale):\n  - \\( 10^{-5}, 10^{-4}, \\dots, 10^5 \\)\n- Train a model for each \\( \\lambda \\)\n- Choose \\( \\lambda \\) with best validation performance"
+  }
+]
