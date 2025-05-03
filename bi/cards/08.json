@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What are the three main methods to solve the Bellman Optimality Equation in Reinforcement Learning?",
+    "a": "- Dynamic Programming (DP)\n- Monte Carlo (MC) methods\n- Temporal Difference (TD) methods"
+  },
+  {
+    "q": "What are the key requirements and limitations of Dynamic Programming (DP) in RL?",
+    "a": "- Requires accurate knowledge of environment dynamics\n- Needs large memory and time resources\n- Assumes the Markov Property (future depends only on current state)\n- Rarely used in practice due to these limitations"
+  },
+  {
+    "q": "Write the value update formula for Dynamic Programming and explain the terms.",
+    "a": "- Formula:\n\\[ V(s_t) \\leftarrow \\mathbb{E}[r_{t+1} + \\gamma V(s_{t+1})] \\]\n- \\(V(s_t)\\): current value estimate of state \\(s_t\\)\n- \\(r_{t+1}\\): reward received after taking action\n- \\(\\gamma\\): discount factor\n- \\(V(s_{t+1})\\): value of next state"
+  },
+  {
+    "q": "What are Monte Carlo (MC) methods and when are they used?",
+    "a": "- Learn from complete episodes (from start to terminal state)\n- No need to know the environment model\n- Only applicable to episodic tasks\n- Useful when environment is complex and model is unavailable"
+  },
+  {
+    "q": "How does First-Visit and Every-Visit Monte Carlo evaluation differ?",
+    "a": "- First-Visit MC: averages returns from the first time a state is visited in each episode\n- Every-Visit MC: averages all returns from every visit to the state\n- Both converge asymptotically with enough episodes"
+  },
+  {
+    "q": "State the Monte Carlo value update formula and explain its meaning.",
+    "a": "- Formula:\n\\[ V(s_t) \\leftarrow V(s_t) + \\alpha (R_t - V(s_t)) \\]\n- \\(\\alpha\\): learning rate\n- \\(R_t\\): actual return received from the episode\n- Updates the estimate of \\(V(s_t)\\) toward the observed return"
+  },
+  {
+    "q": "What is \\( Q(s, a) \\) in Monte Carlo estimation and what is needed for convergence?",
+    "a": "- \\( Q(s, a) \\): expected return starting from state \\(s\\), taking action \\(a\\), and following policy \\(\\pi\\)\n- Converges if every state-action pair is visited sufficiently often\n- Requires 'exploring starts' so all actions have a chance to be tried"
+  },
+  {
+    "q": "How does Monte Carlo Control work?",
+    "a": "- Alternates between:\n  - Policy Evaluation using MC\n  - Policy Improvement by choosing better actions (greedy w.r.t. \\(V\\) or \\(Q\\))\n- Repeats until convergence to optimal policy"
+  },
+  {
+    "q": "Why is Monte Carlo useful in practice?",
+    "a": "- Good for problems with large state spaces but limited key actions\n- Performs well in games like Backgammon and Go\n- Does not need a model of the environment"
+  },
+  {
+    "q": "What is Temporal Difference (TD) learning and how is it different from Monte Carlo?",
+    "a": "- Learns from each step, not full episodes\n- Uses current estimate of next state value (bootstrapping)\n- Does not need full environment model, like Monte Carlo"
+  },
+  {
+    "q": "State the Temporal Difference value update formula and explain the components.",
+    "a": "- Formula:\n\\[ V(s_t) \\leftarrow V(s_t) + \\alpha [r_{t+1} + \\gamma V(s_{t+1}) - V(s_t)] \\]\n- \\(\\alpha\\): learning rate\n- \\(r_{t+1}\\): reward received after action\n- \\(\\gamma\\): discount factor\n- \\(V(s_{t+1})\\): value of next state\n- Bootstraps using the next state estimate to improve the current state"
+  },
+  {
+    "q": "Compare Dynamic Programming, Monte Carlo, and Temporal Difference methods.",
+    "a": "- **Dynamic Programming**:\n  - Needs full model of environment\n  - Uses expected values\n- **Monte Carlo**:\n  - Learns from full episodes\n  - Uses actual returns\n- **Temporal Difference**:\n  - Learns step-by-step\n  - Uses actual rewards and estimated future values"
+  }
+]

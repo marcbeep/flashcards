@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the goal of Temporal Difference (TD) prediction in reinforcement learning?",
+    "a": "- Estimate the state-value function \\( V^{\\pi}(s) \\) for a given policy \\( \\pi \\)\n- Learn how good it is to be in a state while following that policy"
+  },
+  {
+    "q": "What is the TD(0) update rule for value prediction?",
+    "a": "TD(0) updates the estimate of \\( V(s) \\) using:\n\\[ V(s) \\leftarrow V(s) + \\alpha [r + \\gamma V(s') - V(s)] \\]\n- \\( \\alpha \\): learning rate\n- \\( r \\): immediate reward\n- \\( \\gamma \\): discount factor\n- \\( s' \\): next state"
+  },
+  {
+    "q": "How does TD learning compare with Monte Carlo and Dynamic Programming methods?",
+    "a": "- **TD methods**: use both sampling and bootstrapping\n- **Monte Carlo**: samples only, no bootstrapping\n- **Dynamic Programming**: bootstraps only, no sampling"
+  },
+  {
+    "q": "What are the advantages of TD learning methods?",
+    "a": "- Do not need a model of the environment (model-free)\n- Learn before the episode ends\n- Work with incomplete sequences\n- Use less memory and less peak computation than Monte Carlo"
+  },
+  {
+    "q": "What is the Q-value in TD control and what does it represent?",
+    "a": "- \\( Q(s, a) \\) is the action-value function\n- It represents the expected return from taking action \\( a \\) in state \\( s \\), and then following the policy"
+  },
+  {
+    "q": "What is the SARSA update rule and how does it work?",
+    "a": "- SARSA (on-policy) updates Q-values as:\n\\[ Q(s, a) \\leftarrow Q(s, a) + \\alpha [r + \\gamma Q(s', a') - Q(s, a)] \\]\n- Learns from the action actually taken by the current policy"
+  },
+  {
+    "q": "What is the Q-learning update rule and how does it differ from SARSA?",
+    "a": "- Q-learning (off-policy) updates as:\n\\[ Q(s, a) \\leftarrow Q(s, a) + \\alpha [r + \\gamma \\max_{a'} Q(s', a') - Q(s, a)] \\]\n- Learns from the best possible action in the next state, not necessarily the one taken"
+  },
+  {
+    "q": "What is the difference between on-policy and off-policy learning in TD control?",
+    "a": "- **On-policy (SARSA)**: learns from actions the policy actually takes\n- **Off-policy (Q-learning)**: learns from the best possible actions, regardless of what the policy did"
+  },
+  {
+    "q": "Under what conditions do SARSA and Q-learning converge to the optimal policy?",
+    "a": "- **SARSA** converges if:\n  - Every state-action pair is visited infinitely often\n  - The policy becomes greedy in the limit\n- **Q-learning** converges if:\n  - Every state-action pair is visited infinitely often\n  - The learning rate \\( \\alpha \\) decreases over time, but not too quickly"
+  },
+  {
+    "q": "How do TD learning methods combine aspects of Dynamic Programming and Monte Carlo methods?",
+    "a": "- Like DP: TD bootstraps using current value estimates\n- Like MC: TD learns from raw experience without a model\n- This makes TD flexible, efficient, and model-free"
+  }
+]

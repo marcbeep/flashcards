@@ -1,0 +1,38 @@
+[
+  {
+    "q": "What is reward shaping in reinforcement learning and why is it useful?",
+    "a": "- Adds extra rewards using domain knowledge to help the agent learn faster\n- Helps guide the agent toward better policies early in training\n- If done correctly (e.g. potential-based), the optimal policy is preserved"
+  },
+  {
+    "q": "What is the Q-learning update rule with and without reward shaping?",
+    "a": "- **Standard Q-learning**:\n\\[\nQ(s_t, a_t) \\leftarrow Q(s_t, a_t) + \\alpha [r_{t+1} + \\gamma \\max_a Q(s_{t+1}, a) - Q(s_t, a_t)]\n\\]\n\n- **With potential-based shaping**:\n\\[\nQ(s_t, a_t) \\leftarrow Q(s_t, a_t) + \\alpha [r_{t+1} + F(s, s') + \\gamma \\max_a Q(s_{t+1}, a) - Q(s_t, a_t)]\n\\]\n- \\( F(s, s') \\) is the shaping function based on state transitions"
+  },
+  {
+    "q": "What are Actor-Critic methods in reinforcement learning?",
+    "a": "- **Actor**: Learns the policy (decides what action to take)\n- **Critic**: Estimates the value function (judges how good an action is)\n- Value function is parameterized (e.g., with neural networks)\n- Uses advantage functions to guide learning"
+  },
+  {
+    "q": "How do policy gradient methods work?",
+    "a": "- Learn policies directly instead of value functions\n- Objective function: expected return \\( J(\\theta) \\)\n- Gradient update rule:\n\\[\n\\Delta \\theta_t = G_t \\nabla_\\theta \\log \\pi(a_t | s_t)\n\\]\n- Requires policy \\( \\pi \\) to be differentiable (e.g., neural nets)"
+  },
+  {
+    "q": "What is multi-step TD learning?",
+    "a": "- Extends TD learning to back up rewards over multiple steps\n- Example for 2 steps:\n\\[\nQ(s_t, a_t) \\leftarrow Q(s_t, a_t) + \\alpha [r_{t+1} + \\gamma r_{t+2} + \\gamma^2 \\max_a Q(s_{t+2}, a) - Q(s_t, a_t)]\n\\]\n- Allows learning from longer-term outcomes"
+  },
+  {
+    "q": "What are eligibility traces in TD learning?",
+    "a": "- Track recently visited state-action pairs\n- Assign more credit to recent visits\n- Trace decays over time, enabling credit assignment for delayed rewards\n- Combines multi-step and single-step TD"
+  },
+  {
+    "q": "What is model-based TD and planning?",
+    "a": "- Uses a model of the environment to improve policy\n- **Planning**: simulate experiences to learn better actions\n- **Model-based TD** combines model learning with value updates\n- Dynamic Programming is a classic example of a planning method"
+  },
+  {
+    "q": "Why is function approximation used in reinforcement learning?",
+    "a": "- Tabular methods don’t scale to large or continuous state/action spaces\n- Function approximators generalize from seen to unseen states\n- Examples:\n  - Neural networks\n  - Gaussian processes"
+  },
+  {
+    "q": "What are the main RL architectures discussed in the lecture?",
+    "a": "- Based on advice\n- Actor-Critic\n- Direct policy learners\n- Multi-step TD & Eligibility Traces\n- Function approximation\n- Model learning & Planning"
+  }
+]
