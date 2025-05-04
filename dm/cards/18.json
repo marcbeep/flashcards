@@ -1,0 +1,30 @@
+[
+  {
+    "q": "What is hierarchical clustering and what are its key features?",
+    "a": "- Does not require pre-specifying the number of clusters\n- Produces clusterings at multiple levels of granularity\n- Organizes data into a hierarchy useful for abstraction and visualization"
+  },
+  {
+    "q": "What is a dendrogram and how is it used in hierarchical clustering?",
+    "a": "- A dendrogram is a tree-like diagram that visualizes cluster hierarchy\n- Bottom level: each point is its own cluster\n- Higher levels: clusters merge based on similarity\n- The height of merges indicates the distance (or dissimilarity) between clusters"
+  },
+  {
+    "q": "What are the steps to build a phylogenetic tree using hierarchical clustering?",
+    "a": "- Generate DNA sequences\n- Compute edit distances between sequences\n- Calculate similarities from distances\n- Apply hierarchical clustering to construct the phylogenetic tree"
+  },
+  {
+    "q": "How is hierarchical clustering used to track viruses like HIV?",
+    "a": "- High mutation rate allows tracking through DNA similarity\n- Closer genetic similarity suggests more recent common transmission\n- Used in legal cases to support evidence of virus transmission paths\n- Example: Victim's strands (V1–V3) cluster closer to suspect's (P1–P3) than control group (LA1–LA12)"
+  },
+  {
+    "q": "How was hierarchical clustering applied to SARS-CoV-2 analysis?",
+    "a": "- Used to analyze global phylogeny of SARS-CoV-2\n- Helped highlight evolutionary divergence of the Omicron lineage\n- Tracked changes in viral genome and spread patterns"
+  },
+  {
+    "q": "What are the two main approaches to hierarchical clustering?",
+    "a": "- **Agglomerative (Bottom-Up)**:\n  - Start with individual points as clusters\n  - Repeatedly merge the two most similar clusters\n\n- **Divisive (Top-Down)**:\n  - Start with all data in one cluster\n  - Recursively split it into smaller clusters"
+  },
+  {
+    "q": "Give an example of a hierarchy of clusters from hierarchical clustering.",
+    "a": "- Start: \\{1, 2, 3, 4, 5\\}\n- Merge: \\{1, 2, 3\\}, \\{4, 5\\}\n- Then: \\{1, 2\\}, \\{3\\}, \\{4, 5\\}\n- Finally: \\{1\\}, \\{2\\}, \\{3\\}, \\{4\\}, \\{5\\}"
+  }
+]

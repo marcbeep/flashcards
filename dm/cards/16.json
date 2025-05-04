@@ -1,0 +1,38 @@
+[
+  {
+    "q": "What is the goal of representative-based clustering algorithms?",
+    "a": "- To find \\( k \\) representatives \\( \\mathbf{Y}_1, \\dots, \\mathbf{Y}_k \\) that minimize the total distance between each data point and its closest representative:\n\\[ \\sum\\limits_{i=1}^n \\min_j\\, d(\\mathbf{X}_i, \\mathbf{Y}_j) \\ ]"
+  },
+  {
+    "q": "What are the general steps in k-representative clustering?",
+    "a": "- Initialise: Select \\( k \\) initial representatives\n- Assignment: Assign each point to the closest representative\n- Optimisation: Update each representative to minimise its cluster's local objective\n- Repeat assignment and optimisation until convergence"
+  },
+  {
+    "q": "What distance function and representative choice does k-Means use?",
+    "a": "- Distance: Squared Euclidean distance:\n\\[ \\|\\mathbf{X} - \\mathbf{Y}\\|^2 \\]\n- Representative: Mean (centroid) of each cluster:\n\\[ \\mathbf{Y}_i = \\frac{1}{|C_i|} \\sum\\limits_{\\mathbf{X} \\in C_i} \\mathbf{X} \\ ]"
+  },
+  {
+    "q": "What objective does k-Means minimise?",
+    "a": "- The within-cluster sum of squares (WCSS):\n\\[ \\sum\\limits_{i=1}^k \\sum\\limits_{\\mathbf{X} \\in C_i} \\|\\mathbf{X} - \\mathbf{Y}_i\\|^2 \\]"
+  },
+  {
+    "q": "How does the k-Medians algorithm differ from k-Means?",
+    "a": "- Distance: Uses Manhattan (L1) distance:\n\\[ \\|\\mathbf{X} - \\mathbf{Y}\\|_1 = \\sum\\limits_{i=1}^d |x_i - y_i| \\]\n- Representative: Median of each coordinate in the cluster"
+  },
+  {
+    "q": "What is the objective function in k-Medians?",
+    "a": "- Minimise the total L1 distance between points and representatives:\n\\[ \\sum\\limits_{i=1}^k \\sum\\limits_{\\mathbf{X} \\in C_i} \\|\\mathbf{X} - \\mathbf{Y}_i\\|_1 \\]"
+  },
+  {
+    "q": "How is the optimal representative computed in k-Medians?",
+    "a": "- For each dimension \\( i \\), compute the median of \\( x_i \\) values from all points in the cluster\n- Resulting representative: \\( \\mathbf{Y}' = (Y^{(1)}, \\dots, Y^{(d)}) \\) where:\n\\[ Y^{(i)} = \\text{median}(x_1^{(i)}, x_2^{(i)}, \\dots, x_s^{(i)}) \\]"
+  },
+  {
+    "q": "What are the steps of the k-Medians clustering algorithm?",
+    "a": "- Initialise: Randomly select \\( k \\) representatives from the dataset\n- Assignment: Assign each point to its closest representative (using L1 distance)\n- Optimisation: Update each representative to the coordinate-wise median of its cluster\n- Repeat assignment and optimisation until convergence (no changes or fixed iterations)"
+  },
+  {
+    "q": "What is a median in the context of k-Medians?",
+    "a": "- A value such that:\n  - At most half the data values are less than the median\n  - At most half the data values are greater than the median\n- Used to minimize the sum of absolute differences"
+  }
+]

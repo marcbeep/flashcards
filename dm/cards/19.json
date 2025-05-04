@@ -1,0 +1,26 @@
+[
+  {
+    "q": "What is divisive clustering and how does it work?",
+    "a": "- A top-down hierarchical clustering method.\n- Starts with all data in one cluster and recursively splits it into smaller clusters.\n- Produces a tree-like structure representing the cluster hierarchy."
+  },
+  {
+    "q": "Which algorithms can be used in divisive clustering?",
+    "a": "- Any flat clustering algorithm can be used.\n- Common choice: k-means.\n- Algorithm doesn't have to be distance-based."
+  },
+  {
+    "q": "What are two strategies for splitting clusters in divisive clustering?",
+    "a": "- **Strategy 1: Split the heaviest node**\n  - Cluster with the most objects is split.\n  - Leaf clusters tend to have similar sizes.\n\n- **Strategy 2: Equal number of subclusters per node**\n  - Each cluster is split into the same number of subclusters.\n  - Results in a balanced tree but leaf clusters may differ in size."
+  },
+  {
+    "q": "What are the steps of the generic divisive clustering algorithm?",
+    "a": "- Input: dataset \\( \\mathbf{D} \\), flat algorithm \\( \\mathbf{A} \\)\n- Steps:\n  1. Initialize tree \\( \\mathbf{T} \\) with a single root node containing all data.\n  2. Repeat:\n    - Select a leaf node \\( L \\) based on a criterion.\n    - Use \\( \\mathbf{A} \\) to split \\( L \\) into \\( L_1, \\dots, L_k \\).\n    - Add \\( L_1, \\dots, L_k \\) as children of \\( L \\) in \\( \\mathbf{T} \\).\n  3. Until a termination criterion is met.\n  4. Output the resulting clustering or hierarchy."
+  },
+  {
+    "q": "What is the bisecting k-means algorithm?",
+    "a": "- A special case of divisive clustering.\n- Uses k-means with \\( k = 2 \\) to repeatedly split clusters.\n- Builds a binary tree until desired number of clusters is reached."
+  },
+  {
+    "q": "What are the steps of the bisecting k-means algorithm?",
+    "a": "- Input: dataset \\( \\mathbf{D} \\), target number of clusters \\( s \\)\n- Steps:\n  1. Start with one cluster containing all data.\n  2. Repeat:\n    - Select the cluster \\( L \\) with the largest sum of squared distances:\n      \\[\n      \\sum\\limits_{X,Y \\in L} \\text{dist}(X, Y)^2\n      \\]\n    - Use k-means to split \\( L \\) into two clusters \\( L_1, L_2 \\).\n    - Add \\( L_1, L_2 \\) as children of \\( L \\).\n  3. Stop when there are \\( s \\) leaf clusters.\n  4. Return the leaf clusters."
+  }
+]
