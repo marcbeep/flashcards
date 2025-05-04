@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What does the PageRank algorithm model and how?",
+    "a": "- Models a random web surfer clicking on links.\n- Each page is a node; hyperlinks are transitions between nodes.\n- Surfer chooses one out-link at random with equal probability.\n- Represented as a Markov chain where each node is a state."
+  },
+  {
+    "q": "What is the transition probability matrix \\( \\mathbf{A} \\) in PageRank?",
+    "a": "- \\( \\mathbf{A}_{ij} = \\frac{1}{O_i} \\) if there is a link from page \\( i \\) to page \\( j \\)\n- \\( O_i \\): number of out-links from page \\( i \\)\n- \\( \\mathbf{A}_{ij} = 0 \\) if no such link exists"
+  },
+  {
+    "q": "What is the initial probability vector in PageRank?",
+    "a": "- \\( \\mathbf{P}_0 = (P_0(1), P_0(2), ..., P_0(n))^\\top \\)\n- Represents the probability that a surfer starts at each page\n- Common choice: uniform distribution, \\( P_0(i) = \\frac{1}{n} \\)"
+  },
+  {
+    "q": "How is the next PageRank vector \\( \\mathbf{P}_1 \\) calculated?",
+    "a": "- Multiply the transpose of \\( \\mathbf{A} \\) by \\( \\mathbf{P}_0 \\):\n\\[ \\mathbf{P}_1 = \\mathbf{A}^\\top \\mathbf{P}_0 \\]\n- Represents the probability distribution after 1 step\n- In general: \\( \\mathbf{P}_k = \\mathbf{A}^\\top \\mathbf{P}_{k-1} \\)"
+  },
+  {
+    "q": "What is the stationary distribution in PageRank and how is it found?",
+    "a": "- As \\( k \\to \\infty \\), \\( \\mathbf{P}_k \\to \\mathbf{\\Pi} \\) (the steady state)\n- This means:\n\\[ \\mathbf{\\Pi} = \\mathbf{A}^\\top \\mathbf{\\Pi} \\]\n- \\( \\mathbf{\\Pi} \\) is the principal eigenvector of \\( \\mathbf{A}^\\top \\) with eigenvalue 1"
+  },
+  {
+    "q": "What properties must the matrix \\( \\mathbf{A} \\) satisfy for PageRank to work?",
+    "a": "- Must be:\n  - Stochastic (columns sum to 1)\n  - Irreducible (every state reachable from any other)\n  - Aperiodic (no cycles with fixed period)\n- Real web graphs often violate these, so modifications are needed"
+  },
+  {
+    "q": "How is a dangling page handled in PageRank?",
+    "a": "- A dangling page has no out-links\n- Fix: add links from it to all pages with equal probability \\( \\frac{1}{n} \\)\n- Makes \\( \\mathbf{A} \\) stochastic again"
+  },
+  {
+    "q": "How is \\( \\mathbf{A} \\) modified to be irreducible and aperiodic?",
+    "a": "- Add small probability of jumping to any page from any page\n- Define new matrix:\n\\[ \\mathbf{M} = (1 - d) \\cdot \\frac{1}{n} \\mathbf{E} + d \\cdot \\mathbf{A}^\\top \\]\n- \\( d \\): damping factor (typically 0.85)\n- \\( \\mathbf{E} \\): matrix of all 1s"
+  },
+  {
+    "q": "What is the PageRank power iteration algorithm?",
+    "a": "- Initialize \\( P_0(i) = \\frac{1}{n} \\)\n- Repeat:\n\\[ P_k(i) = \\frac{1 - d}{n} + d \\sum\\limits_{(x, i) \\in E} \\frac{P_{k-1}(x)}{O_x} \\]\n- Until:\n\\[ \\| \\mathbf{P}_k - \\mathbf{P}_{k-1} \\| \\leq \\varepsilon \\]\n- Returns \\( \\mathbf{P}_k \\) as the PageRank vector"
+  },
+  {
+    "q": "What are key practical notes about the PageRank algorithm?",
+    "a": "- Typical damping factor: \\( d = 0.85 \\)\n- Can be applied to any graph to rank nodes\n- Based on random walks, not limited to web graphs\n- Early termination is acceptable if only relative ranks matter\n- Example: convergence in 52 iterations on 322 million links"
+  }
+]

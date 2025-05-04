@@ -1,0 +1,26 @@
+[
+  {
+    "q": "What is the main idea behind the PageRank algorithm?",
+    "a": "- It measures the importance of webpages based on the link structure of the web.\n- A page is important if it is linked to by other important pages.\n- Links are treated as votes, but votes from more important pages count more."
+  },
+  {
+    "q": "What is the structure of the web used in PageRank?",
+    "a": "- The web is modeled as a **directed graph**:\n  - Nodes: webpages\n  - Edges: hyperlinks between pages (directed)\n- In-links: links pointing **to** a page\n- Out-links: links going **out from** a page"
+  },
+  {
+    "q": "How is the PageRank score of a page calculated?",
+    "a": "For page \\( a \\):\n\\[\nP(a) = \\sum\\limits_{(x,a) \\in E} \\frac{P(x)}{O_x}\n\\]\n- \\( P(a) \\): PageRank of page \\( a \\)\n- \\( O_x \\): Number of out-links from page \\( x \\)\n- The sum is over all pages \\( x \\) that link to \\( a \\)\n- Each linking page's score is divided by how many links it gives out"
+  },
+  {
+    "q": "What is the matrix form of the PageRank equation?",
+    "a": "- Let \\( P = [P(1), P(2), ..., P(n)]^\\top \\) be the vector of PageRank scores.\n- Define matrix \\( A \\) such that:\n  - \\( A_{ij} = \\frac{1}{O_i} \\) if there is a link from page \\( i \\) to page \\( j \\)\n  - \\( A_{ij} = 0 \\) otherwise\n- Then the equation becomes:\n\\[\nP = A^\\top P\n\\]\n- This means \\( P \\) is an **eigenvector** of \\( A^\\top \\) with eigenvalue 1"
+  },
+  {
+    "q": "How is the PageRank vector computed in practice?",
+    "a": "- Using **power iteration**:\n  1. Start with initial guess \\( P_0 \\)\n  2. Iteratively compute \\( P_i = A P_{i-1} \\)\n  3. Stop when the change is below a threshold \\( \\varepsilon \\):\n\\[\n\\| P_i - P_{i-1} \\|_1 \\leq \\varepsilon\n\\]"
+  },
+  {
+    "q": "Why can't we directly use the basic PageRank algorithm on the real web?",
+    "a": "- The real web graph does not meet the necessary mathematical conditions (e.g., it's not strongly connected).\n- As a result, the power iteration might not converge correctly.\n- Fixes like random teleportation (not covered in this lecture) are used in practice."
+  }
+]

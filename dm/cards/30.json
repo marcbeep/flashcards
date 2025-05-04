@@ -1,0 +1,66 @@
+[
+  {
+    "q": "What are the basic components of a data visualization?",
+    "a": "- Position: where an element is located (e.g., on the x or y axis)\n- Shape: represents different categories or groups\n- Size: often encodes quantity (e.g., bigger = more)\n- Color: used to show categories or value ranges"
+  },
+  {
+    "q": "What types of data are commonly used in visualization?",
+    "a": "- Quantitative:\n  - Continuous (e.g., 1.5, 2.6)\n  - Discrete (e.g., 1, 2, 3)\n- Categorical:\n  - Ordered (e.g., good, fair, poor)\n  - Unordered (e.g., dog, cat, fish)\n- Date/Time (e.g., Jan 5, 2018, 8:03am)\n- Text (e.g., \"The quick brown fox...\")"
+  },
+  {
+    "q": "What are Cartesian and nonlinear coordinate systems?",
+    "a": "- Cartesian: standard grid with straight x and y axes\n- Nonlinear: axes that curve or transform (e.g., for log or polar plots)\n- Curved coordinate systems: used in maps or radial plots"
+  },
+  {
+    "q": "What are some common qualitative color scales used in visualization?",
+    "a": "- Okabe-Ito scale: colorblind-friendly\n- ColorBrewer: includes Dark2 and others\n- ggplot2 hue: default in ggplot2 plotting library"
+  },
+  {
+    "q": "What are basic visualization principles related to scales and proportions?",
+    "a": "- Data values must map one-to-one with visual aesthetics\n- Area or length in visuals must be proportional to values\n- Misleading visuals occur when axes don't start at zero"
+  },
+  {
+    "q": "List common visualization types used to show quantity.",
+    "a": "- Bar Chart\n- Heat Map"
+  },
+  {
+    "q": "List common visualization types used to show distribution.",
+    "a": "- Histogram\n- Density Plot"
+  },
+  {
+    "q": "List common visualization types used to show proportions.",
+    "a": "- Pie Chart\n- Side-by-Side Bar Chart"
+  },
+  {
+    "q": "List common visualization types for relationships between two variables.",
+    "a": "- Scatter Plot\n- Correlogram"
+  },
+  {
+    "q": "List visualization types suitable for geospatial data.",
+    "a": "- Projections (e.g., Mercator)\n- Layers (e.g., dots over maps)"
+  },
+  {
+    "q": "How can uncertainty be visualized?",
+    "a": "- Error Bars\n- Confidence Strips\n- Confidence Bands"
+  },
+  {
+    "q": "What are common methods for visualizing trends?",
+    "a": "- Smoothing with moving averages\n- Time Series plots\n- Decomposition: trend + seasonality + noise"
+  },
+  {
+    "q": "What are pitfalls of using too many colors in visualizations?",
+    "a": "- Difficult to match colors to categories if >5\n- Overuse clutters and confuses the plot\n- Better to group or label directly"
+  },
+  {
+    "q": "Why is the rainbow color scale problematic?",
+    "a": "- It's non-monotonic (lightness doesn't increase evenly)\n- It emphasizes arbitrary data regions\n- Can mislead interpretation"
+  },
+  {
+    "q": "Why must visualizations account for color vision deficiency?",
+    "a": "- Some viewers can't distinguish certain colors\n- Rainbow scales are especially problematic\n- Use colorblind-friendly palettes like Okabe-Ito"
+  },
+  {
+    "q": "Which Python libraries are commonly used for data visualization?",
+    "a": "- Matplotlib\n- Seaborn\n- Bokeh\n- Pygal\n- Geoplotlib"
+  }
+]

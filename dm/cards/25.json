@@ -1,0 +1,62 @@
+[
+  {
+    "q": "What are real-world examples of graphs used in graph mining?",
+    "a": "- Air transportation networks: airports as nodes, flights as edges\n- Social networks: people as nodes, friendships as edges\n- Cattle movement networks: farms as nodes, animal movements as edges\n- Email exchange networks: individuals as nodes, emails as edges\n- Program flow graphs: program parts as nodes, control flow as edges\n- Chemical reaction networks: molecules/reactions as nodes, reactions as edges\n- Power networks (electrical grids): substations as nodes, transmission lines as edges\n- Molecular or chemical graphs: atoms as nodes, chemical bonds as edges"
+  },
+  {
+    "q": "What are the main topics in graph mining?",
+    "a": "- Graph Classification\n- Graph Clustering\n- Graph Pattern Mining\n- Graph Compression\n- Graph Dynamics\n- Social Network Analysis\n- Graph Visualization\n- Link Analysis"
+  },
+  {
+    "q": "What is graph classification and give an example?",
+    "a": "- Task: Assign a label to an entire graph\n- Example: Classify molecular graphs as toxic or non-toxic"
+  },
+  {
+    "q": "What is graph clustering and give an example?",
+    "a": "- Task: Group similar graphs or nodes within a graph\n- Example: Detect communities in social networks or group similar molecules"
+  },
+  {
+    "q": "What is graph pattern mining?",
+    "a": "- Task: Discover frequently occurring subgraph structures\n- Example: Find recurring chemical substructures in compounds"
+  },
+  {
+    "q": "What is graph compression?",
+    "a": "- Task: Reduce graph size while preserving key information\n- Benefit: Saves storage and speeds up computation"
+  },
+  {
+    "q": "What is graph dynamics?",
+    "a": "- Task: Analyze how graphs evolve over time\n- Example: Track changes in social networks or financial transactions"
+  },
+  {
+    "q": "What is social network analysis in graph mining?",
+    "a": "- Studies relationships and influence in social graphs\n- Common tasks:\n  - Community detection\n  - Identifying influential users\n  - Modeling information spread"
+  },
+  {
+    "q": "What is graph visualization and its use?",
+    "a": "- Task: Create visual representations of graphs\n- Purpose: Help understand structure, connections, and patterns"
+  },
+  {
+    "q": "What is link analysis in graph mining?",
+    "a": "- Task: Analyze relationships and predict new links\n- Example: Recommend friends or products based on connections"
+  },
+  {
+    "q": "What are the two common settings in graph mining?",
+    "a": "- Database of many small graphs\n- A single large graph"
+  },
+  {
+    "q": "What are example tasks for a database of many small graphs?",
+    "a": "- Graph Classification\n- Graph Pattern Mining\n- Graph Clustering"
+  },
+  {
+    "q": "What are example applications of small graph databases?",
+    "a": "- Chemical and biological data (e.g. molecules)\n- Program flow analysis (e.g. control flow graphs)"
+  },
+  {
+    "q": "What are example tasks for a single large graph?",
+    "a": "- Community Detection\n- Influential Node Identification\n- Node Ranking\n- Link Prediction"
+  },
+  {
+    "q": "What are example applications of single large graph analysis?",
+    "a": "- Web graph analysis (e.g. websites and links)\n- Social network analysis (e.g. Facebook, LinkedIn)\n- Organisational network analysis\n- Transportation network analysis"
+  }
+]

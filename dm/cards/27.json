@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What are actors and relationships in a social network, and how are they represented?",
+    "a": "- Actors: entities like people or organizations.\n- Relationships: interactions or links between actors.\n- Represented as a graph: \\( G = (V, E) \\)\n  - \\( V \\): set of nodes (actors)\n  - \\( E \\): set of edges (relationships)"
+  },
+  {
+    "q": "What can be analyzed in a social network graph?",
+    "a": "- Structural properties\n- Central or influential nodes\n- Critical nodes\n- Community detection\n- Abnormal substructures\n- Link prediction\n- Social influence"
+  },
+  {
+    "q": "What are the main types of centrality and prestige measures?",
+    "a": "- **Centrality (undirected graphs):**\n  - Degree Centrality\n  - Closeness Centrality\n  - Betweenness Centrality\n- **Prestige (directed graphs):**\n  - Degree Prestige\n  - Proximity Prestige"
+  },
+  {
+    "q": "What is Degree Centrality and how is it calculated?",
+    "a": "- Measures node's direct connections in undirected graphs.\n- Formula:\n\\[ \\mathbf{CD(i)} = \\frac{\\text{deg}(i)}{n - 1} \\]\n- \\( \\text{deg}(i) \\): number of links for node \\( i \\)\n- Higher degree = more central/hub-like"
+  },
+  {
+    "q": "What is a limitation of Degree Centrality?",
+    "a": "- Uses only local information.\n- Ignores nodes beyond immediate neighbors.\n- May misidentify global importance."
+  },
+  {
+    "q": "What is Closeness Centrality and how is it calculated?",
+    "a": "- Measures how close a node is to all others in the graph.\n- Based on average shortest path distance:\n\\[ \\mathbf{AvDist(i)} = \\frac{\\sum\\limits_{j \\neq i} \\text{dist}(i, j)}{n - 1} \\]\n\\[ \\mathbf{CC(i)} = \\frac{1}{\\text{AvDist}(i)} \\]\n- Smaller \\( \\text{AvDist}(i) \\) means higher \\( CC(i) \\)"
+  },
+  {
+    "q": "What is Betweenness Centrality and how is it calculated?",
+    "a": "- Measures how often a node lies on shortest paths between others.\n- Reflects control over communication.\n- Formula:\n\\[ \\mathbf{CB(i)} = \\frac{\\sum\\limits_{j < k} f_{jk}(i)}{\\frac{n(n - 1)}{2}} \\]\n- \\( f_{jk}(i) = \\frac{q_{jk}(i)}{q_{jk}} \\): fraction of paths from \\( j \\) to \\( k \\) passing through \\( i \\)"
+  },
+  {
+    "q": "What are key properties and uses of Betweenness Centrality?",
+    "a": "- Ranges from 0 to 1\n- High values = node is a bridge or gatekeeper\n- Can be extended to edges\n- Used in community detection (e.g., Girvan–Newman algorithm)"
+  },
+  {
+    "q": "What is Degree Prestige in a directed graph?",
+    "a": "- Based on number of incoming links (in-degree).\n- Reflects popularity or importance.\n- Formula:\n\\[ \\mathbf{PD(i)} = \\frac{\\text{deg}^+(i)}{n - 1} \\]\n- \\( \\text{deg}^+(i) \\): in-degree of node \\( i \\)"
+  },
+  {
+    "q": "What is Proximity Prestige and how is it calculated?",
+    "a": "- Measures how reachable a node is and from how many others.\n- Definitions:\n  - \\( \\text{Influence}(i) \\): nodes that can reach \\( i \\)\n  - \\( \\text{AvDist}(i) = \\frac{\\sum\\limits_{j \\in Influence(i)} \\text{dist}(j, i)}{|Influence(i)|} \\)\n  - \\( \\text{InfluenceFraction}(i) = \\frac{|Influence(i)|}{n - 1} \\)\n- Final formula:\n\\[ \\mathbf{PP(i)} = \\frac{\\text{InfluenceFraction}(i)}{\\text{AvDist}(i)} \\ ]"
+  },
+  {
+    "q": "Why is Proximity Prestige better than using inverse average distance alone?",
+    "a": "- Avoids favoring nodes with small but close influence sets.\n- Combines how many nodes can reach the target and how close they are.\n- Ensures fairness by using a multiplicative adjustment."
+  }
+]

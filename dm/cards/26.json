@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What is a graph in the context of network analysis?",
+    "a": "- A graph consists of:\n  - \\( \\mathbf{V} \\): a set of vertices (nodes)\n  - \\( \\mathbf{E} \\): a set of edges (connections between nodes)\n- Edges can be visualized as lines connecting points (nodes)."
+  },
+  {
+    "q": "What is the difference between undirected and directed graphs?",
+    "a": "- **Undirected graph**: edges have no direction\n  - \\( (u, v) = (v, u) \\)\n- **Directed graph (digraph)**: edges have direction\n  - \\( (u, v) \\neq (v, u) \\), called arcs"
+  },
+  {
+    "q": "What are multigraphs and loops in graph theory?",
+    "a": "- **Multigraph**: allows multiple edges between the same pair of nodes\n- **Loop**: an edge that connects a node to itself (e.g., \\( (u, u) \\))"
+  },
+  {
+    "q": "What are weighted graphs?",
+    "a": "- **Edge-weighted**: each edge has a numerical value (weight)\n- **Vertex-weighted**: each node has a numerical value (weight)"
+  },
+  {
+    "q": "How is an adjacency matrix defined for an undirected graph?",
+    "a": "- Let \\( G = (V, E) \\) be an undirected graph with \\( n \\) vertices\n- The adjacency matrix \\( A \\) is an \\( n \\times n \\) matrix:\n  \\[ A_{ij} = \\begin{cases}1 & \\text{if } (i, j) \\in E \\\\ 0 & \\text{otherwise} \\end{cases} \\]\n- The matrix is symmetric: \\( A_{ij} = A_{ji} \\)"
+  },
+  {
+    "q": "How is an adjacency matrix defined for a directed graph?",
+    "a": "- For a graph \\( G = (V, E) \\), the adjacency matrix \\( A \\):\n  \\[ A_{ij} = \\begin{cases}1 & \\text{if arc } (i, j) \\in E \\\\ 0 & \\text{otherwise} \\end{cases} \\]\n- Not necessarily symmetric: \\( A_{ij} \\neq A_{ji} \\)"
+  },
+  {
+    "q": "How is an adjacency matrix defined for a weighted graph?",
+    "a": "- Let \\( w_{ij} \\) be the weight of edge or arc \\( (i, j) \\):\n  \\[ A_{ij} = \\begin{cases}w_{ij} & \\text{if } (i, j) \\in E \\\\ 0 & \\text{otherwise} \\end{cases} \\]"
+  },
+  {
+    "q": "What are neighbours and degree in undirected graphs?",
+    "a": "- **Neighbour**: node \\( u \\) is a neighbour of \\( v \\) if \\( (u, v) \\in E \\)\n- **Neighbourhood** \\( N(v) \\): set of all neighbours of \\( v \\)\n- **Degree** \\( \\deg(v) \\): number of neighbours of \\( v \\)"
+  },
+  {
+    "q": "What are in-neighbours, out-neighbours, and degree in directed graphs?",
+    "a": "- **In-neighbour**: \\( u \\) is an in-neighbour of \\( v \\) if \\( (u, v) \\in E \\)\n- **Out-neighbour**: \\( u \\) is an out-neighbour of \\( v \\) if \\( (v, u) \\in E \\)\n- **In-degree** \\( \\deg^-(v) \\): number of in-neighbours\n- **Out-degree** \\( \\deg^+(v) \\): number of out-neighbours"
+  },
+  {
+    "q": "What is a path and distance in an undirected graph?",
+    "a": "- **Path**: sequence of distinct vertices \\( v_0, v_1, ..., v_k \\) such that each pair \\( (v_{i-1}, v_i) \\) is an edge\n- **Length**: number of edges in the path\n- **Distance** between \\( u \\) and \\( v \\): length of the shortest path\n  - If no path exists, distance is \\( \\infty \\)"
+  },
+  {
+    "q": "What is a path and distance in a directed graph?",
+    "a": "- **Directed path**: sequence of vertices \\( v_0, ..., v_k \\) where each \\( (v_{i-1}, v_i) \\) is a directed arc\n- **Length**: number of arcs\n- **Distance** between \\( u \\) and \\( v \\): length of shortest directed path\n  - If no path exists, distance is \\( \\infty \\)"
+  },
+  {
+    "q": "What does it mean for a graph to be connected or strongly connected?",
+    "a": "- **Undirected graph**:\n  - Connected: path exists between every pair of nodes\n  - A **connected component** is a maximal connected subgraph\n- **Directed graph**:\n  - Strongly connected: directed path exists between every ordered pair of nodes\n  - A **strongly connected component** is a maximal strongly connected subgraph"
+  }
+]
