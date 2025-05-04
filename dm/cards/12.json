@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is clustering and what is its goal?",
+    "a": "- Clustering groups objects in a dataset into clusters\n- Goal: items in the same cluster are similar; items in different clusters are dissimilar"
+  },
+  {
+    "q": "What are some applications of clustering?",
+    "a": "- Data summarization\n- Topic detection\n- Visualization\n- Outlier detection\n- Community detection"
+  },
+  {
+    "q": "What types of learning exist and how does clustering fit in?",
+    "a": "- **Supervised learning**: data has labels\n- **Unsupervised learning**: no labels (clustering belongs here)\n- **Semi-supervised learning**: mix of labeled and unlabeled data"
+  },
+  {
+    "q": "What can we learn from data without labels?",
+    "a": "- Feature similarity and distribution\n- Can create richer feature spaces for supervised learning later"
+  },
+  {
+    "q": "Why is clustering not a one-size-fits-all problem?",
+    "a": "- A single dataset can have multiple valid clusterings\n- Different clustering algorithms give different perspectives\n- No single 'correct' clustering"
+  },
+  {
+    "q": "How is clustering quality measured?",
+    "a": "- **Extrinsic methods**: compare to known labels (ground truth)\n- **Intrinsic methods**: evaluate structure using only the clustering output"
+  },
+  {
+    "q": "What are the main types of clustering algorithms?",
+    "a": "- Representative-based (e.g., k-Means, k-Medoids)\n- Hierarchical (e.g., agglomerative, divisive)\n- Graph-based (e.g., modularity, spectral clustering)"
+  },
+  {
+    "q": "How does k-Means clustering work?",
+    "a": "- Choose \\( k \\) cluster centers (means)\n- Assign each point to its nearest center\n- Recompute centers as the average of assigned points\n- Repeat until convergence"
+  },
+  {
+    "q": "How is k-Medoids different from k-Means?",
+    "a": "- Cluster centers (medoids) are actual data points\n- More robust to outliers than k-Means"
+  },
+  {
+    "q": "What is hierarchical clustering and its two approaches?",
+    "a": "- Builds a tree of clusters (dendrogram)\n- **Agglomerative (bottom-up)**: merge closest clusters iteratively\n- **Divisive (top-down)**: start with one cluster and split recursively"
+  },
+  {
+    "q": "How does graph-based clustering work?",
+    "a": "- Models data as a graph of connected points\n- **Community detection**: finds groups with strong internal connections\n- **Spectral clustering**: uses graph eigenvalues to find optimal cuts"
+  }
+]

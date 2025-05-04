@@ -1,0 +1,54 @@
+[
+  {
+    "q": "What is the k-Nearest Neighbours (k-NN) algorithm?",
+    "a": "- Store the entire training dataset (no model learning).\n- To classify a new point:\n  - Find the \\( k \\) closest training points.\n  - Predict the label that appears most among them."
+  },
+  {
+    "q": "What is the difference between 1-NN and k-NN?",
+    "a": "- 1-NN: classify based on the single nearest neighbor.\n- k-NN: classify based on the majority label of the \\( k \\) nearest neighbors."
+  },
+  {
+    "q": "What are common distance measures used in k-NN for numerical data?",
+    "a": "- **Euclidean Distance (L2 norm):**\n\\[ \\text{Euclidean}(X, Y) = \\sqrt{\\sum\\limits_{i=1}^{d}(x_i - y_i)^2} \\]\n\n- **Manhattan Distance (L1 norm):**\n\\[ \\text{Manhattan}(X, Y) = \\sum\\limits_{i=1}^{d}|x_i - y_i| \\]\n\n- **Cosine Similarity:**\n\\[ \\text{CosSim}(X, Y) = \\frac{X^\\top Y}{\\|X\\|_2 \\|Y\\|_2} = \\cos(\\theta) \\]\n- Cosine Distance: \\( 1 - \\text{CosSim}(X, Y) \\)"
+  },
+  {
+    "q": "What are Jaccard similarity and distance used for set data?",
+    "a": "- **Jaccard Similarity:**\n\\[ J(A, B) = \\frac{|A \\cap B|}{|A \\cup B|} \\]\n- **Jaccard Distance:**\n\\[ d_J(A, B) = 1 - J(A, B) \\]"
+  },
+  {
+    "q": "What is Hamming distance and when is it used?",
+    "a": "- Used for binary vectors of the same length.\n- It counts the number of differing positions:\n\\[ \\text{Hamming}(X, Y) = |\\{i : x_i \\neq y_i\\}| \\]"
+  },
+  {
+    "q": "How is similarity measured for categorical features?",
+    "a": "- Basic method:\n\\[ S(x_i, y_i) = \\begin{cases}1 & \\text{if } x_i = y_i \\\\ 0 & \\text{otherwise} \\end{cases} \\]\n\n- Frequency-weighted method:\n\\[ S(x_i, y_i) = \\begin{cases}\\frac{1}{p_i(x_i)^2} & \\text{if } x_i = y_i \\\\ 0 & \\text{otherwise} \\end{cases} \\]\nWhere \\( p_i(x_i) \\) is the frequency of value \\( x_i \\) in the dataset."
+  },
+  {
+    "q": "How should the parameter \\( k \\) be chosen in k-NN?",
+    "a": "- \\( k \\) is a hyperparameter.\n- Large datasets → larger \\( k \\)\n- Small datasets → smaller \\( k \\)\n- Use a **validation set** or **cross-validation** to select \\( k \\).\n- Do NOT tune \\( k \\) using test data."
+  },
+  {
+    "q": "What is the Train / Validation / Test approach?",
+    "a": "- Split data into:\n  - **Training set:** to build the model.\n  - **Validation set:** to tune hyperparameters like \\( k \\).\n  - **Test set:** for final evaluation (no tuning).\n- Helps reduce overfitting."
+  },
+  {
+    "q": "What is cross-validation and why is it used?",
+    "a": "- Split training data into \\( n \\) folds.\n- Train on \\( n-1 \\) folds and validate on the remaining one.\n- Repeat \\( n \\) times, each time using a different fold for validation.\n- Average the performance to choose the best \\( k \\)."
+  },
+  {
+    "q": "What is the computational complexity of k-NN?",
+    "a": "- **Training time:** fast (just store data).\n- **Prediction time:** slow, compare test point to all training points.\n- Time complexity for each test: \\( O(n \\cdot d) \\)\n  - \\( n \\): number of training points\n  - \\( d \\): number of features\n- Solution: use Approximate Nearest Neighbor (ANN) methods."
+  },
+  {
+    "q": "What is Distance-Weighted Voting in k-NN?",
+    "a": "- Not all neighbors have equal vote.\n- Weight each vote by inverse square of distance:\n\\[ w_i = \\frac{1}{\\text{dist}(X', Y_i)^2} \\]\n- For each class \\( c \\), sum weights:\n\\[ v_c = \\sum w_i \\text{ for neighbors with class } c \\]\n- Predict class with highest total weight \\( v_c \\)."
+  },
+  {
+    "q": "Why is feature scaling important in k-NN and how is it done?",
+    "a": "- Features with different scales can distort distance.\n- Use **Gaussian Normalization**:\n\\[ x_{\\text{new}} = \\frac{x - \\mu}{\\sigma} \\]\nWhere:\n  - \\( \\mu \\): mean of the feature\n  - \\( \\sigma \\): standard deviation\n- Ensures each feature has mean 0 and variance 1."
+  },
+  {
+    "q": "What are key tips for using k-NN in practice?",
+    "a": "- Normalize your features (e.g., Gaussian normalization).\n- Choose \\( k \\) using validation or cross-validation.\n- Try both \\( L_1 \\) and \\( L_2 \\) distances.\n- Use dimensionality reduction for high-dimensional data.\n- Avoid irrelevant features—they reduce accuracy."
+  }
+]

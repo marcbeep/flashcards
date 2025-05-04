@@ -1,0 +1,26 @@
+[
+  {
+    "q": "What is the problem of zero probabilities in Naive Bayes classification?",
+    "a": "- If a feature value has not appeared with a class in training data, its probability estimate becomes 0.\n- Multiplying probabilities causes the entire class probability to be 0.\n- This skews predictions, especially with many features (e.g. in text classification)."
+  },
+  {
+    "q": "How are conditional probabilities calculated in Naive Bayes?",
+    "a": "- Using relative frequency:\n\\[ P(x_i = a \\mid C = c) = \\frac{n(a, c)}{N(c)} \\]\n- \\( n(a, c) \\): number of examples in class \\( c \\) with feature value \\( a \\)\n- \\( N(c) \\): total number of examples in class \\( c \\)"
+  },
+  {
+    "q": "What is Laplace smoothing and why is it used?",
+    "a": "- A technique to handle zero probabilities in classification.\n- Adds 1 to each feature count:\n\\[ P(x_i = a \\mid C = c) = \\frac{n(a, c) + 1}{N(c) + m_i} \\]\n- \\( m_i \\): number of possible values for feature \\( x_i \\)\n- Prevents any conditional probability from being zero."
+  },
+  {
+    "q": "What does Laplace smoothing do to probability estimates?",
+    "a": "- Increases all counts by 1, including previously 0 counts.\n- Denominator increases by number of possible feature values.\n- Ensures:\n  - No zero probabilities\n  - Total probability mass remains valid"
+  },
+  {
+    "q": "How do predictions change after applying Laplace smoothing?",
+    "a": "- All class probabilities become non-zero.\n- Even unseen feature values get small probabilities.\n- Improves model robustness on new data.\n- Prevents domination by a single feature with zero probability."
+  },
+  {
+    "q": "Give an example of zero probability and how Laplace smoothing fixes it.",
+    "a": "- Example: \\( P(\\text{Outlook} = \\text{overcast} \\mid \\text{Play} = \\text{no}) = 0 \\)\n- Without smoothing: entire class probability becomes 0.\n- With smoothing:\n\\[ P(\\text{Outlook} = \\text{overcast} \\mid \\text{Play} = \\text{no}) = \\frac{0 + 1}{5 + m} \\]\n- \\( m \\): number of Outlook categories (e.g., 3)"
+  }
+]

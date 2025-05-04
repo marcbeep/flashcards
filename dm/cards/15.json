@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What are the main methods to choose initial centroids in k-means clustering?",
+    "a": "- Random initialization\n- Random initialization with repetition\n- Sampling + hierarchical clustering\n- Selecting furthest points\n- k-means++ (careful seeding)"
+  },
+  {
+    "q": "How does random initialization work in k-means?",
+    "a": "- Select \\( k \\) points at random from the dataset\n- Run standard k-means\n- Results can vary depending on luck\n- May lead to poor clustering due to bad initial centers"
+  },
+  {
+    "q": "How does repeating random initialization improve k-means?",
+    "a": "- Repeat the k-means algorithm multiple times with different random starts\n- Choose the best result (e.g., lowest within-cluster sum of squares)\n- Increases chances of finding a better clustering"
+  },
+  {
+    "q": "Describe the sampling + hierarchical clustering method for initializing k-means.",
+    "a": "- Sample a small subset \\( \\mathcal{D}' \\) from the full dataset \\( \\mathcal{D} \\)\n- Run hierarchical clustering on \\( \\mathcal{D}' \\)\n- Form \\( k \\) clusters and compute their means\n- Use those means as initial centroids for k-means\n- Practical only if \\( \\mathcal{D}' \\) is small and \\( k \\ll |\\mathcal{D}'| \\)"
+  },
+  {
+    "q": "How does the furthest-point heuristic work for k-means initialization?",
+    "a": "- Choose one point randomly\n- Select next points one by one:\n  - Each time, pick the point furthest from any already selected centroid\n- Ensures spread-out centroids\n- May select outliers, which can hurt clustering"
+  },
+  {
+    "q": "What is the k-means++ initialization algorithm?",
+    "a": "- Start by choosing one point randomly\n- For each new point:\n  - Compute \\( R(X)^2 \\): squared distance to closest existing centroid\n  - Select with probability proportional to \\( R(X)^2 \\)\n\nProbability of choosing point \\( X \\):\n\\[\nP(X) = \\frac{R(X)^2}{\\sum\\limits_{X \\in \\mathcal{D}} R(X)^2}\n\\]\n- Reduces chance of poor initialization and improves clustering"
+  },
+  {
+    "q": "What is the main benefit of k-means++ over standard k-means?",
+    "a": "- More accurate clustering by avoiding bad initial centroids\n- Faster convergence in many cases\n- Theoretically and empirically proven to perform better"
+  },
+  {
+    "q": "What did experiments show about k-means++ vs. k-means on synthetic datasets?",
+    "a": "- Datasets: Norm-10 and Norm-25 with well-separated Gaussian clusters\n- k-means often merges clusters incorrectly\n- k-means++ almost always finds near-optimal clusters"
+  },
+  {
+    "q": "How does k-means++ perform on real datasets compared to k-means?",
+    "a": "- On Cloud dataset:\n  - k-means++ was nearly 2x faster\n  - Achieved 20% better clustering (lower within-cluster sum of squares)\n- On Intrusion dataset:\n  - k-means++ was 10x to 1000x better in clustering quality\n  - Up to 70% faster than standard k-means"
+  },
+  {
+    "q": "What is the within-cluster sum of squares in k-means?",
+    "a": "- Measure of how compact the clusters are\n- Lower values mean better clustering\n- k-means++ aims to minimize this more effectively than random seeding"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is the difference between an ordinary classifier and a probabilistic classifier?",
+    "a": "- Ordinary classifier: assigns a class \\( c \\) to an input \\( X \\) using \\( c = f(X) \\)\n- Probabilistic classifier: returns probabilities \\( p_i = P(c_i \\mid X) \\) for each class \\( c_i \\)\n- The probabilities form a distribution: \\( \\sum p_i = 1 \\)"
+  },
+  {
+    "q": "What are discriminative and generative models in probabilistic classification?",
+    "a": "- Discriminative models:\n  - Model \\( P(C \\mid X) \\)\n  - Learn parameters \\( \\theta \\) directly from conditional probability\n- Generative models:\n  - Model joint distribution \\( P(X, C) \\)\n  - Learn parameters and then use Bayes' rule to get \\( P(C \\mid X) \\)"
+  },
+  {
+    "q": "What is the Bayes optimal classifier?",
+    "a": "- Chooses class \\( c \\) that maximizes the joint probability:\n\\[ f^*(X) = \\arg\\max_{c \\in \\mathcal{C}} P(X, c) \\]\n- Minimizes classification error more than any other classifier"
+  },
+  {
+    "q": "Why can’t we use the Bayes optimal classifier directly in practice?",
+    "a": "- The true data generating distribution \\( P(X, c) \\) is unknown\n- We approximate it using a learned distribution \\( \\hat{P}(X, c) \\)\n- Use \\( \\hat{P} \\) for classification instead"
+  },
+  {
+    "q": "What assumptions are made when learning a probabilistic model from data?",
+    "a": "- Model assumption: data comes from a known parametric family (e.g. Normal, Bernoulli)\n- i.i.d. assumption: training samples are independent and identically distributed"
+  },
+  {
+    "q": "What is Maximum Likelihood Estimation (MLE)?",
+    "a": "- A method to estimate parameters \\( \\theta \\) that maximize the probability of observed data\n- Finds \\( \\theta \\) such that likelihood \\( P_\\theta(D) \\) is maximized"
+  },
+  {
+    "q": "How do you compute MLE for a biased coin (Bernoulli distribution)?",
+    "a": "- Suppose observed sequence: T, H, H, H\n- Let \\( \\beta \\) be the probability of heads\n- Likelihood:\n\\[ P_\\beta(THHH) = (1 - \\beta) \\cdot \\beta^3 \\]\n- Maximize by solving:\n\\[ \\frac{d}{d\\beta}(\\beta^3 - \\beta^4) = 0 \\Rightarrow \\beta = \\frac{3}{4} \\]"
+  },
+  {
+    "q": "What is the general MLE formula for a Bernoulli distribution?",
+    "a": "- If \\( h \\) heads and \\( t \\) tails observed:\n- Likelihood: \\( \\beta^h (1 - \\beta)^t \\)\n- Log-likelihood:\n\\[ \\log(\\beta^h (1 - \\beta)^t) = h \\log \\beta + t \\log(1 - \\beta) \\]\n- Maximize to find best \\( \\beta \\)"
+  },
+  {
+    "q": "How do you compute MLE for a K-sided die (multiclass case)?",
+    "a": "- Let \\( \\beta_i \\) be the probability of side \\( i \\), and \\( x_i \\) the count of side \\( i \\)\n- Log-likelihood:\n\\[ \\sum\\limits_{i=1}^{K} x_i \\log \\beta_i \\]\n- Constraint: \\( \\sum\\limits_{i=1}^{K} \\beta_i = 1 \\)\n- Use Lagrange multipliers to solve"
+  },
+  {
+    "q": "What is the MLE solution for a K-class multinomial model?",
+    "a": "- With \\( x_i \\) counts and total \\( N = \\sum x_i \\):\n\\[ \\beta_i = \\frac{x_i}{N} \\quad \\text{for each } i = 1, ..., K \\]"
+  },
+  {
+    "q": "What are examples of generative and discriminative probabilistic classifiers?",
+    "a": "- Generative:\n  - Naive Bayes\n- Discriminative:\n  - Logistic regression\n  - Multilayer perceptrons (neural networks)"
+  }
+]

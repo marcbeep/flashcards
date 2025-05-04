@@ -1,0 +1,34 @@
+[
+  {
+    "q": "What are the two main types of clustering evaluation methods?",
+    "a": "- **Extrinsic methods (supervised):** use ground truth labels to assess clustering quality.\n- **Intrinsic methods (unsupervised):** assess cluster quality based only on the data and its clustering."
+  },
+  {
+    "q": "What steps are followed in extrinsic clustering evaluation using ground truth labels?",
+    "a": "- Assign each cluster the most common label within it.\n- Merge clusters with the same label.\n- Calculate Precision, Recall, and F-score for each label.\n- Compute the macro-average of these metrics across all labels."
+  },
+  {
+    "q": "Define the B-CUBED precision and recall for a clustering evaluation.",
+    "a": "- Let \\( C(x) \\) be the cluster of item \\( x \\), and \\( A(x) \\) be its true label.\n\n- **Precision(x):**\n\\[ \\frac{\\text{Number of items in } C(x) \\text{ with label } A(x)}{\\text{Total items in } C(x)} \\]\n\n- **Recall(x):**\n\\[ \\frac{\\text{Number of items in } C(x) \\text{ with label } A(x)}{\\text{Total items with label } A(x)} \\]"
+  },
+  {
+    "q": "How is the B-CUBED F-score and overall evaluation calculated?",
+    "a": "- **F-score(x):**\n\\[ \\frac{2 \\cdot \\text{Precision(x)} \\cdot \\text{Recall(x)}}{\\text{Precision(x)} + \\text{Recall(x)}} \\]\n\n- Overall metrics (with \\( N \\) items):\n\\[ \\text{Precision} = \\frac{1}{N} \\sum\\limits_{x} \\text{Precision(x)} \\]\n\\[ \\text{Recall} = \\frac{1}{N} \\sum\\limits_{x} \\text{Recall(x)} \\]\n\\[ \\text{F-score} = \\frac{1}{N} \\sum\\limits_{x} F(x) \\]"
+  },
+  {
+    "q": "What is the purpose of community mining in clustering evaluation?",
+    "a": "- Measures semantic similarity between named entities (e.g., people).\n- Clusters entities into communities using similarity scores.\n- Evaluated using B-CUBED metric on how well entities of the same type are grouped."
+  },
+  {
+    "q": "What clustering method was used in the community mining task and how was similarity measured?",
+    "a": "- Used Group-Average Agglomerative Clustering (GAAC).\n- Merged clusters with highest average similarity:\n\\[ \\text{Corr}(\\Theta) = \\frac{1}{2} \\cdot \\frac{1}{|\\Theta|(|\\Theta|-1)} \\sum\\limits_{(u,v)\\in\\Theta} sim(u,v) \\ ]"
+  },
+  {
+    "q": "What is the Silhouette Coefficient in clustering evaluation?",
+    "a": "- Measures how similar a point is to its own cluster vs. the next closest cluster.\n\n- For item \\( x \\):\n  - \\( a(x) \\): average distance to all other points in its own cluster.\n  - \\( b(x) \\): minimum average distance to all points in another cluster.\n\n- **Silhouette coefficient:**\n\\[ s(x) = \\frac{b(x) - a(x)}{\\max(a(x), b(x))} \\]"
+  },
+  {
+    "q": "How do you interpret the Silhouette Coefficient values?",
+    "a": "- \\( s(x) \\approx 1 \\): well-clustered point.\n- \\( s(x) \\approx 0 \\): point on the boundary between clusters.\n- \\( s(x) \\approx -1 \\): point may be in the wrong cluster.\n\n- Average \\( s(x) \\) over all points gives dataset's overall clustering quality."
+  }
+]

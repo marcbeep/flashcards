@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What does Bayes' Rule state and what do its terms mean?",
+    "a": "- Formula:\n\\[ P(H \\mid E) = \\frac{P(E \\mid H) P(H)}{P(E)} \\]\n\n- Terms:\n  - \\( P(H \\mid E) \\): Posterior probability (hypothesis after evidence)\n  - \\( P(E \\mid H) \\): Likelihood (evidence given hypothesis)\n  - \\( P(H) \\): Prior probability (before evidence)\n  - \\( P(E) \\): Marginal probability (total evidence probability)"
+  },
+  {
+    "q": "Why is Bayes’ Rule useful in classification?",
+    "a": "- Helps estimate \\( P(H \\mid E) \\) when direct estimation is hard\n- Allows combining prior knowledge with new evidence\n- Enables learning from limited data using known probabilities"
+  },
+  {
+    "q": "Explain the naive Bayes assumption.",
+    "a": "- Assumes all features are conditionally independent given the class\n- Allows simplifying joint probability:\n\\[ P(x_1, x_2, \\dots, x_d \\mid C) = \\prod_{i=1}^d P(x_i \\mid C) \\ ]"
+  },
+  {
+    "q": "How is class prediction made in Naive Bayes classification?",
+    "a": "- Use proportional form:\n\\[ P(C \\mid X) \\propto P(C) \\prod_{i=1}^d P(x_i \\mid C) \\]\n- Predict class with the highest posterior probability"
+  },
+  {
+    "q": "How are the terms in Naive Bayes estimated from data?",
+    "a": "- \\( P(C) \\): Fraction of training examples in class \\( C \\)\n- \\( P(x_i \\mid C) \\): Fraction of class \\( C \\) examples with feature \\( x_i \\)"
+  },
+  {
+    "q": "Give an example of using Bayes' Rule with medical data.",
+    "a": "- Given:\n  - \\( P(H) = 1/50000 \\), \\( P(E) = 1/20 \\), \\( P(E \\mid H) = 0.5 \\)\n- Compute:\n\\[ P(H \\mid E) = \\frac{0.5 \\times 0.00002}{0.05} = 0.0002 \\]\n- Interpretation: 0.02% chance of having meningitis given a stiff neck"
+  },
+  {
+    "q": "How does naive Bayes help with high-dimensional data?",
+    "a": "- Direct estimation of \\( P(H \\mid x_1, ..., x_d) \\) is difficult due to data sparsity\n- Independence assumption allows splitting joint probabilities into simpler parts"
+  },
+  {
+    "q": "What does it mean for events to be independent?",
+    "a": "- Two events A and B are independent if:\n\\[ P(A \\mid B) = P(A) \\]\n- Then:\n\\[ P(A \\cap B) = P(A) \\cdot P(B) \\]\n- For more than 2 events:\n\\[ P(A_1, A_2, ..., A_n) = \\prod_{i=1}^n P(A_i) \\] (if all are mutually independent)"
+  },
+  {
+    "q": "Summarize the weather prediction example using Naive Bayes.",
+    "a": "- Input: (Outlook=sunny, Temp=cool, Humidity=high, Windy=true)\n- Compute for both classes:\n  - \\( P(Play=yes \\mid X) \\approx 0.0053 \\)\n  - \\( P(Play=no \\mid X) \\approx 0.0206 \\)\n- Prediction: Play = no (higher posterior)"
+  },
+  {
+    "q": "What is the classification rule in naive Bayes?",
+    "a": "- Predict the class \\( c \\) that maximizes:\n\\[ P(C = c) \\prod_{i=1}^d P(x_i \\mid C = c) \\]"
+  }
+]

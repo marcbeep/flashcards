@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the goal of the k-Means clustering algorithm?",
+    "a": "- Partition data into \\( k \\) clusters\n- Minimize the total distance between each data point and its closest representative (centroid)"
+  },
+  {
+    "q": "What is the objective function used in k-Means?",
+    "a": "The within-cluster sum of squares (WCSS):\n\\[\n\\sum\\limits_{j=1}^{k} \\sum\\limits_{X \\in C_j} \\|X - Y_j\\|^2\n\\]\nWhere:\n- \\( C_j \\): Cluster j\n- \\( Y_j \\): Representative (centroid) of cluster j"
+  },
+  {
+    "q": "What are the steps of the general k-representatives clustering approach?",
+    "a": "- Initialise: Pick initial \\( k \\) representatives\n- Assign step: Assign each object to its closest representative\n- Optimise step: Update each representative to minimize local distances within its cluster"
+  },
+  {
+    "q": "What distance function is used in k-Means?",
+    "a": "- Squared Euclidean distance:\n\\[ \\|X - Y\\|^2 = (X_1 - Y_1)^2 + (X_2 - Y_2)^2 + \\dots \\]"
+  },
+  {
+    "q": "How is the optimal representative (centroid) for a cluster calculated in k-Means?",
+    "a": "- The mean of the points in the cluster:\n\\[\nY_j = \\frac{1}{|C_j|} \\sum\\limits_{X \\in C_j} X\n\\]"
+  },
+  {
+    "q": "What are the main phases of the k-Means algorithm?",
+    "a": "- **Initialisation**: Randomly select \\( k \\) representatives from the dataset\n- **Assignment**: Assign each point to the closest representative (using squared Euclidean distance)\n- **Optimisation**: Update each representative as the mean of its assigned cluster\n- Repeat assignment and optimisation until convergence"
+  },
+  {
+    "q": "When does k-Means algorithm stop?",
+    "a": "- When no data points change clusters (convergence)\n- Or after a fixed number of iterations (set by user)"
+  },
+  {
+    "q": "What are some limitations of k-Means?",
+    "a": "- Sensitive to initialisation (can get stuck in local minima)\n- Outliers strongly affect the mean and cluster center\n- Centroids may not be actual data points\n- Euclidean distance unsuitable for categorical features"
+  },
+  {
+    "q": "How can we address k-Means sensitivity to initialisation?",
+    "a": "- Run the algorithm multiple times with different initial representatives\n- Choose the clustering with the lowest WCSS"
+  },
+  {
+    "q": "How is k-Means used for image segmentation?",
+    "a": "- Each pixel is treated as a point in RGB color space\n- Pixels are clustered into \\( k \\) groups based on color similarity\n- Each cluster is represented by one color\n- Spatial relationships between pixels are not considered"
+  }
+]
