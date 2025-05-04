@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the connection between Reinforcement Learning (RL) and Evolutionary Game Theory (EGT)?",
+    "a": "- Both model how agents or strategies improve over time\n- RL agents adapt policies based on reward\n- EGT models how strategies spread in a population based on fitness\n- Formally linked: the continuous-time limit of Cross Learning in RL becomes replicator dynamics in EGT"
+  },
+  {
+    "q": "What are replicator dynamics in Evolutionary Game Theory?",
+    "a": "- Describe how the frequency of strategies changes over time\n- Single population equation:\n\\[ \\dot{x}_i = x_i \\left( (A x)_i - x^\\top A x \\right) \\]\n- Two-population version:\n\\[ \\dot{x}_i = x_i ((A y)_i - x^\\top A y) \\]\n\\[ \\dot{y}_j = y_j ((x^\\top B)_j - x^\\top B y) \\]\n- Where:\n  - \\(x_i\\), \\(y_j\\): probability of choosing strategy \\(i\\), \\(j\\)\n  - \\(A\\), \\(B\\): payoff matrices"
+  },
+  {
+    "q": "How do key terms in RL, game theory, and EGT map to each other?",
+    "a": "- RL: environment → Game theory: game → EGT: game\n- RL: agent → Game theory: player → EGT: population\n- RL: action → Game theory: action → EGT: type\n- RL: policy → Game theory: strategy → EGT: distribution over types\n- RL: reward → Game theory: payoff → EGT: fitness"
+  },
+  {
+    "q": "What is the matching pennies game and its equilibrium?",
+    "a": "- Two players choose heads or tails\n- Player 1 wins if choices differ, else Player 2 wins\n- Payoff matrix:\n  - H/H: (-1, 1), H/T: (1, -1)\n  - T/H: (1, -1), T/T: (-1, 1)\n- Nash equilibrium: each chooses heads or tails with probability 0.5"
+  },
+  {
+    "q": "What do the replicator dynamics look like in the matching pennies game?",
+    "a": "- Players’ strategies cycle around the mixed Nash equilibrium\n- No stable fixed point (not evolutionarily stable)\n- Strategy frequencies fluctuate, not converge"
+  },
+  {
+    "q": "How does reinforcement learning behave in multi-agent settings like matching pennies?",
+    "a": "- Agents update policies iteratively based on rewards\n- Example: learning automata follow similar paths as replicator dynamics\n- Over time, learning traces match the dynamics predicted by EGT"
+  },
+  {
+    "q": "What are the benefits of linking RL to EGT?",
+    "a": "- Model various RL algorithms using EGT variants\n- Gain insight into learning behavior\n- Simplify parameter tuning (e.g., learning rate)\n- Design new algorithms by shaping desired dynamics first"
+  },
+  {
+    "q": "What are some applications of the evolutionary model in multi-agent learning?",
+    "a": "- Study learning dynamics to guide parameter tuning\n- Design learning rules that exhibit desired dynamic behavior\n- Analyze strategic interactions in complex environments\n- Predict outcomes in systems too complex for full game modeling"
+  },
+  {
+    "q": "What makes some real-world systems too complex for standard game theory?",
+    "a": "- Too many actions\n- Huge state spaces\n- Payoff functions are unknown or unformulatable\n- Use heuristic meta-strategies instead (e.g., poker play styles, trading strategies)"
+  },
+  {
+    "q": "Give examples of domains where EGT has been applied.",
+    "a": "- Market mechanism analysis\n- Stock trading strategies\n- Poker strategy evolution (e.g., Texas Hold’em)\n- Multi-robot collision avoidance\n- Space debris removal dilemma"
+  }
+]

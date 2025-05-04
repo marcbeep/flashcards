@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is Swarm Intelligence and how does it work?",
+    "a": "- A decentralized, bioinspired method where simple agents solve problems through:\n  - Local search (independent exploration)\n  - Global communication (e.g. pheromones or shared bests)\n- Example systems:\n  - Ant Systems: ants lay pheromones to guide others\n  - Particle Swarm Optimization: particles share best positions"
+  },
+  {
+    "q": "What inspired Particle Swarm Optimization (PSO)?",
+    "a": "- Inspired by bird flocking and fish schooling\n- Based on Reynolds' Boids model with 3 rules:\n  - Separation: avoid crowding\n  - Alignment: match neighbor direction\n  - Cohesion: move toward group center\n- Kennedy & Eberhart (1995) added a 'roost' target and replaced it with an arbitrary function to optimize"
+  },
+  {
+    "q": "What are the key components of a particle in PSO?",
+    "a": "- Position \\( \\mathbf{x}_i \\)\n- Velocity \\( \\mathbf{v}_i \\)\n- Personal best position \\( \\mathbf{pb}_i \\)\n- Global best position \\( \\mathbf{gb} \\)\n- Fitness value \\( f(\\mathbf{x}_i) \\)"
+  },
+  {
+    "q": "What are the main steps of the canonical PSO algorithm?",
+    "a": "- Randomly initialize positions and velocities\n- Repeat until stopping condition:\n  - Evaluate each particle’s fitness\n  - Update personal best if current is better\n  - Update global best if current is best so far\n  - Update velocity:\n\\[\n\\mathbf{v}_i^{t+1} = \\mathbf{v}_i^t + \\phi_1 U_1 (\\mathbf{pb}_i - \\mathbf{x}_i^t) + \\phi_2 U_2 (\\mathbf{gb} - \\mathbf{x}_i^t)\n\\]\n  - Update position:\n\\[\n\\mathbf{x}_i^{t+1} = \\mathbf{x}_i^t + \\mathbf{v}_i^{t+1}\n\\]"
+  },
+  {
+    "q": "Explain the components of the PSO velocity update rule.",
+    "a": "- Momentum: \\( \\mathbf{v}_i^t \\) keeps the particle moving in the current direction\n- Personal influence: move toward own best position \\( \\mathbf{pb}_i \\)\n- Social influence: move toward global best \\( \\mathbf{gb} \\)\n- Combined:\n\\[\n\\mathbf{v}_i^{t+1} = \\mathbf{v}_i^t + \\phi_1 U_1 (\\mathbf{pb}_i - \\mathbf{x}_i^t) + \\phi_2 U_2 (\\mathbf{gb} - \\mathbf{x}_i^t)\n\\]"
+  },
+  {
+    "q": "How does PSO handle continuous optimization?",
+    "a": "- Objective: find \\( \\mathbf{x}^* \\in \\mathbb{R}^n \\) such that:\n\\[\n\\mathbf{x}^* = \\arg\\min_{\\mathbf{x} \\in X} f(\\mathbf{x})\n\\]\n- Each particle explores \\( \\mathbb{R}^n \\) space and updates based on fitness"
+  },
+  {
+    "q": "What are local best topologies in PSO and why are they used?",
+    "a": "- Instead of global best, each particle uses a local best \\( \\mathbf{lb}_i \\)\n- Velocity update becomes:\n\\[\n\\mathbf{v}_i^{t+1} = \\mathbf{v}_i^t + \\phi_1 U_1 (\\mathbf{pb}_i - \\mathbf{x}_i^t) + \\phi_2 U_2 (\\mathbf{lb}_i - \\mathbf{x}_i^t)\n\\]\n- Benefits:\n  - Slower convergence\n  - Better exploration and chance to find global optimum"
+  },
+  {
+    "q": "What is the effect of neighborhood structure in PSO?",
+    "a": "- Degree (number of neighbors) affects performance:\n  - Low degree: slower info spread, better exploration\n  - High degree: fast convergence, but risks local optima\n- Structure determines which particles influence each other"
+  },
+  {
+    "q": "What is the inertia weight in PSO and how does it affect behavior?",
+    "a": "- Modified velocity update:\n\\[\n\\mathbf{v}_i^{t+1} = w \\mathbf{v}_i^t + \\phi_1 U_1 (\\mathbf{pb}_i - \\mathbf{x}_i^t) + \\phi_2 U_2 (\\mathbf{gb} - \\mathbf{x}_i^t)\n\\]\n- \\( w \\): inertia weight\n  - High \\( w \\): more exploration\n  - Low \\( w \\): more exploitation\n- Often decreases over time for balance"
+  },
+  {
+    "q": "What are some common PSO extensions?",
+    "a": "- Dynamic neighborhood topologies\n- Diversity-enhancing techniques\n- Modified velocity update rules\n- Adaptations for discrete optimization\n- Relations to:\n  - Gradient ascent\n  - Genetic algorithms\n  - Reinforcement learning"
+  }
+]

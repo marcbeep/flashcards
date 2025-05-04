@@ -1,0 +1,54 @@
+[
+  {
+    "q": "What are key features of swarm intelligence?",
+    "a": "- Decentralized control: no central leader\n- Parallel search: many agents work at once\n- Adaptive: can adjust to changes\n- Robust: works even if some agents fail"
+  },
+  {
+    "q": "What are the two main sub-problems in the foraging task?",
+    "a": "- Path construction/planning: how to find paths to targets\n- Path exploitation/repair: reusing and maintaining good paths"
+  },
+  {
+    "q": "How do ants solve the foraging task?",
+    "a": "- Random exploration to discover paths\n- Deposit pheromones on paths\n- Stronger pheromones attract more ants\n- Pheromones evaporate over time to remove bad paths"
+  },
+  {
+    "q": "How do bees solve the foraging task?",
+    "a": "- Use Lévy flight for efficient exploration\n- Use path integration to track direction and distance to nest\n- Communicate food source info using a recruitment dance"
+  },
+  {
+    "q": "What is a Lévy flight and why is it useful in foraging?",
+    "a": "- A search pattern combining many short moves with occasional long jumps\n- Helps balance local search and global exploration"
+  },
+  {
+    "q": "What is path integration (PI) in bee behavior?",
+    "a": "- A vector representing the bee's angle and distance to the nest\n- Used to return directly after finding food"
+  },
+  {
+    "q": "What is the purpose of the bee recruitment dance?",
+    "a": "- Done in the nest to recruit others\n- Dance direction shows food direction\n- Dance length indicates food quality\n- Enables direct communication and autocatalytic recruitment"
+  },
+  {
+    "q": "What is Particle Swarm Optimization (PSO)?",
+    "a": "- An algorithm inspired by bird flocking\n- Each particle adjusts its path based on:\n  - Its own best position (\\(\\mathbf{p}_{\\text{best}}\\))\n  - The global best position (\\(\\mathbf{g}_{\\text{best}}\\))\n\n- Velocity and position updates:\n\\[\n\\mathbf{v}_i \\leftarrow \\omega \\mathbf{v}_i + c_1 r_1 (\\mathbf{p}_{\\text{best},i} - \\mathbf{x}_i) + c_2 r_2 (\\mathbf{g}_{\\text{best}} - \\mathbf{x}_i)\n\\]\n\\[\n\\mathbf{x}_i \\leftarrow \\mathbf{x}_i + \\mathbf{v}_i\n\\]\n- Where:\n  - \\(\\omega\\): inertia weight\n  - \\(c_1, c_2\\): acceleration coefficients\n  - \\(r_1, r_2\\): random numbers in [0,1]"
+  },
+  {
+    "q": "What is Ant Colony Optimization (ACO)?",
+    "a": "- Inspired by how ants find paths using pheromones\n- Ants build paths and deposit pheromones\n- More pheromones = more attractive path\n- Pheromones evaporate to remove bad paths over time"
+  },
+  {
+    "q": "What is swarm robotics and what are its advantages?",
+    "a": "- Applying swarm principles to robot teams\n- Advantages:\n  - Local communication\n  - Scalability to large numbers\n  - Robustness to individual failure\n  - Adaptivity to new environments"
+  },
+  {
+    "q": "How do fireflies synchronize in swarm robotics?",
+    "a": "- Fireflies flash in sync by adjusting to their neighbors\n- Robots mimic this to synchronize actions\n- Achieved through local interaction"
+  },
+  {
+    "q": "How does bee-inspired foraging work in robot systems?",
+    "a": "- Robots perform Lévy flight to explore\n- Use path integration to track paths\n- Communicate PI vectors when they meet\n- Use visual markers for food and nest"
+  },
+  {
+    "q": "What are some applications of swarm robotics?",
+    "a": "- Flying robot swarms for bridge inspection\n- Mobile wireless sensor networks\n- Morphogenesis (forming structures)\n- Exploration, patrolling, and anomaly detection"
+  }
+]

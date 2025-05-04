@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What is Swarm Intelligence?",
+    "a": "- A type of collective behavior from decentralized systems.\n- Emerges from self-organized interactions among simple agents.\n- No central control or global knowledge required.\n- Inspired by nature (e.g., ants, bees, birds, fish)."
+  },
+  {
+    "q": "What are some examples of swarm behavior in animals?",
+    "a": "- Ant colonies: foraging, farming, specialized roles.\n- Bee hives: division of labor, temperature regulation.\n- Fish schools: predator avoidance, hunting coordination.\n- Bird flocks: energy-saving flight formations.\n- Humans: crowd movement, traffic flows."
+  },
+  {
+    "q": "Why does swarming occur so frequently in nature?",
+    "a": "- Energy efficiency (e.g., birds flying in V-formation).\n- Predator avoidance through confusion.\n- Better prey capture (e.g., fish channeling prey).\n- Achieved through simple individual behaviors."
+  },
+  {
+    "q": "What is self-organization in swarm systems?",
+    "a": "- A global pattern emerges from local interactions.\n- No central coordination needed.\n- Based on local information only.\n- Behavior is an emergent property of the system."
+  },
+  {
+    "q": "What are the four ingredients of self-organization?",
+    "a": "- Multiple interactions between agents.\n- Randomness for exploration.\n- Positive feedback (e.g., reinforcement of successful paths).\n- Negative feedback (e.g., limits, evaporation of signals)."
+  },
+  {
+    "q": "What are the key features of Swarm Intelligence systems?",
+    "a": "- Inherent parallelism (many agents working simultaneously).\n- Stochastic behavior (includes randomness).\n- Adaptive to changing environments.\n- Uses positive and negative feedback.\n- Autocatalytic: successful behaviors reinforce themselves."
+  },
+  {
+    "q": "What is stigmergy and how is it used in swarms?",
+    "a": "- Indirect communication through environmental changes.\n- Agents modify the environment (e.g., pheromone trails).\n- Other agents sense and respond to these changes.\n- Helps solve problems in a distributed way."
+  },
+  {
+    "q": "How do ants use stigmergy to find the shortest path?",
+    "a": "- Ants deposit pheromones on paths.\n- More pheromone → more likely to be followed.\n- Shorter paths are reinforced faster.\n- Pheromone evaporation prevents overcommitment.\n- Leads to collective optimization of path."
+  },
+  {
+    "q": "What is an example of stigmergic coordination in ants?",
+    "a": "- Ants encounter an obstacle.\n- They randomly explore new paths.\n- Some ants find a shorter path.\n- That path is used more often and reinforced.\n- Eventually, the majority follow the optimal route."
+  },
+  {
+    "q": "What is the formal definition of Swarm Intelligence?",
+    "a": "- \"Any attempt to design algorithms or distributed problem-solving devices inspired by the collective behavior of social insect colonies and other animal societies.\"\n- (Bonabeau, Dorigo & Theraulaz, 1999)"
+  },
+  {
+    "q": "What are some applications of Swarm Intelligence?",
+    "a": "- Brood sorting and division of labor\n- Flocking and foraging simulations\n- Self-assembling transport systems\n- Data clustering\n- Ant Colony Optimization (ACO)\n- Adaptive task allocation\n- Swarm robotics"
+  }
+]

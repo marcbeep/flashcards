@@ -1,0 +1,38 @@
+[
+  {
+    "q": "What is Swarm Intelligence and what are its applications?",
+    "a": "- Swarm Intelligence is decentralized, collective problem-solving inspired by nature (e.g. ants, bees).\n- Applications include:\n  - Data clustering\n  - Adaptive task allocation\n  - Routing and logistics\n  - Swarm robotics\n  - Combinatorial optimization"
+  },
+  {
+    "q": "What is the basic idea behind Ant Colony Optimization (ACO)?",
+    "a": "- Ants move on a graph representing possible solutions.\n- They probabilistically choose paths based on:\n  - \\( \\tau_{ij} \\): pheromone levels\n  - \\( \\eta_{ij} \\): heuristic values (e.g. \\( 1/\\text{distance} \\))\n- After completing a tour, ants deposit pheromones.\n- Better paths get more pheromone, encouraging reuse."
+  },
+  {
+    "q": "How do artificial ants choose the next node in ACO?",
+    "a": "- The probability of choosing node \\( j \\) from \\( i \\):\n\\[\nP_{ij}(t) = \\frac{[\\tau_{ij}(t)]^\\alpha \\cdot [\\eta_{ij}]^\\beta}{\\sum\\limits_{k \\in J} [\\tau_{ik}(t)]^\\alpha \\cdot [\\eta_{ik}]^\\beta}\n\\]\n- \\( \\alpha \\): influence of pheromone\n- \\( \\beta \\): influence of heuristic\n- \\( J \\): set of unvisited nodes"
+  },
+  {
+    "q": "How are pheromones updated in ACO?",
+    "a": "- Two steps:\n  - **Evaporation**:\n    \\[ \\tau_{ij} \\leftarrow (1 - \\rho) \\cdot \\tau_{ij} \\]\n  - **Deposit**:\n    \\[ \\Delta \\tau_{ij} = \\sum\\limits_{k=1}^{m} \\frac{1}{L_k} \\]\n    - \\( L_k \\): path length of ant \\( k \\)\n- Shorter paths (lower \\( L_k \\)) get more pheromone"
+  },
+  {
+    "q": "Why does ACO work effectively for optimization problems?",
+    "a": "- Three main factors:\n  - **Time**: shorter paths reinforced quicker\n  - **Quality**: better solutions get more pheromone\n  - **Combinatorics**: fewer choices make a path more likely"
+  },
+  {
+    "q": "What is the Ant System algorithm loop?",
+    "a": "- Loop until end condition:\n  - Place one ant per city\n  - Each ant builds a tour probabilistically\n  - After all tours, update pheromone trails"
+  },
+  {
+    "q": "How is ACO applied to the Travelling Salesman Problem (TSP)?",
+    "a": "- Ants construct legal tours by:\n  - Avoiding already visited cities\n  - Using probability based on distance and pheromone\n- After the tour:\n  - Pheromones deposited on all edges in the tour\n  - Amount depends on total tour length"
+  },
+  {
+    "q": "What are key features of the Ant Colony System (ACS)?",
+    "a": "- **State transition rule** with parameter \\( q_0 \\):\n  - Exploitation if \\( q \\leq q_0 \\): pick best\n  - Exploration otherwise: use probabilities\n- **Local pheromone update**:\n  \\[ \\tau_{ij} \\leftarrow (1 - \\phi)\\tau_{ij} + \\phi\\tau_0 \\]\n- **Global update** only on best tour so far:\n  \\[ \\Delta \\tau_{ij}^{bs} = \\frac{1}{L_{bs}} \\]"
+  },
+  {
+    "q": "What are some variants of the Ant System and their key differences?",
+    "a": "- **Elitist AS**: iteration-best solution deposits extra pheromone\n- **Rank-Based AS**: top-ranked ants deposit, weighted by rank\n- **Max-Min AS**:\n  - Only best ants deposit\n  - Pheromone bounds (min/max)\n  - Reinitialize if stuck\n- **ACS**: includes local update and uses best-so-far tour only"
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "q": "What is the main idea of Evolutionary Game Theory (EGT)?",
+    "a": "- Describes how strategies evolve in populations over time\n- Based on biological concepts like selection and mutation\n- Interactions determine fitness, which drives reproduction"
+  },
+  {
+    "q": "What are the core concepts of Evolutionary Game Theory?",
+    "a": "- **Replicator Dynamics**: strategy growth based on fitness\n- **Evolutionarily Stable Strategy (ESS)**: resists invasion by other strategies\n- Models learning in populations rather than individuals"
+  },
+  {
+    "q": "Explain the payoff matrix of the Prisoner's Dilemma.",
+    "a": "- Two strategies: Cooperate (C) or Defect (D)\n- Payoff matrix:\n\\[\n\\begin{array}{c|cc}\n & C & D \\\\\n\\hline\nC & 3, 3 & 0, 5 \\\\\nD & 5, 0 & 1, 1\n\\end{array}\n\\]"
+  },
+  {
+    "q": "How does fitness affect strategy evolution in EGT?",
+    "a": "- Fitness is the average payoff from random interactions\n- Higher fitness = more likely to reproduce\n- Strategies with lower fitness decrease over time"
+  },
+  {
+    "q": "What is the replicator dynamics equation and its intuition?",
+    "a": "- Equation:\n\\[\n\\dot{x_i} = x_i (f_i(x) - \\bar{f}(x))\n\\]\n- \\(x_i\\): fraction playing strategy \\(i\\)\n- \\(f_i(x)\\): fitness of strategy \\(i\\)\n- \\(\\bar{f}(x)\\): average fitness\n- If a strategy does better than average, it grows"
+  },
+  {
+    "q": "What are fixed points in replicator dynamics?",
+    "a": "- Points where \\(\\dot{x_i} = 0\\) for all \\(i\\)\n- Can be:\n  - **Attractors** (stable)\n  - **Repellers** (unstable)\n  - **Saddle points** (partially stable)"
+  },
+  {
+    "q": "How does the population evolve in the Prisoner's Dilemma?",
+    "a": "- Defectors always get higher fitness\n- Cooperators decline over time\n- All-Defectors state is stable (ESS)"
+  },
+  {
+    "q": "Describe replicator dynamics in the Rock-Paper-Scissors game.",
+    "a": "- Payoff matrix is antisymmetric\n- Mixed strategy equilibrium at \\((1/3, 1/3, 1/3)\\)\n- All strategies cycle around the center\n- No strategy dominates long-term"
+  },
+  {
+    "q": "What is the difference between single and multi-population replicator dynamics?",
+    "a": "- **Single**: one population interacts with itself\n- **Multi**: two distinct populations interact\n- Each population evolves based on the other's strategy distribution"
+  },
+  {
+    "q": "State the equations for multi-population replicator dynamics.",
+    "a": "- For two populations \\(x\\) and \\(y\\):\n\\[\n\\dot{x_i} = x_i ((A y)_i - x^\\top A y)\n\\]\n\\[\n\\dot{y_i} = y_i ((x^\\top B)_i - x^\\top B y)\n\\]\n- \\(A, B\\): payoff matrices for each population"
+  },
+  {
+    "q": "What happens in the Stag Hunt and Matching Pennies games?",
+    "a": "- **Stag Hunt**: two stable pure strategies (coordination)\n- **Matching Pennies**: mixed NE, but strategy shares cycle forever"
+  },
+  {
+    "q": "How is replicator dynamics connected to reinforcement learning?",
+    "a": "- Continuous-time limit of Cross Learning = Replicator Dynamics\n- Links bounded rationality in agents with evolutionary dynamics\n- Formalized by Börgers and Sarin (1997)"
+  },
+  {
+    "q": "What are Evolutionarily Stable Strategies (ESS) and their conditions?",
+    "a": "- A refinement of Nash Equilibrium\n- Strategy \\(x\\) is ESS if for all mutants \\(y\\):\n  1. \\(u(x, x) \\ge u(y, x)\\)\n  2. If equal, then \\(u(x, y) > u(y, y)\\)"
+  },
+  {
+    "q": "What is mutation in selection-mutation dynamics?",
+    "a": "- Allows random changes in strategy\n- Extended replicator dynamics:\n\\[\n\\dot{x_i} = x_i(f_i(x) - \\bar{f}(x)) + \\sum\\limits_{j \\ne i} [\\mu_{ji} x_j - \\mu_{ij} x_i]\n\\]\n- \\(\\mu_{ji}\\): mutation rate from \\(j\\) to \\(i\\)"
+  },
+  {
+    "q": "Compare terms in Reinforcement Learning, Classical Game Theory, and Evolutionary Game Theory.",
+    "a": "- **Environment / Game / Game**\n- **Agent / Player / Population**\n- **Action / Action / Type**\n- **Policy / Strategy / Distribution over types**\n- **Reward / Payoff / Fitness**"
+  },
+  {
+    "q": "What defines a Nash equilibrium?",
+    "a": "- No player can improve their payoff by changing their strategy alone\n- Assumes rational players and full knowledge\n- Static concept (final outcome)"
+  }
+]
