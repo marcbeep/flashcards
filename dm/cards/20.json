@@ -1,0 +1,30 @@
+[
+  {
+    "q": "What is the main idea of agglomerative clustering?",
+    "a": "- It is a bottom-up hierarchical method.\n- Start with each object in its own cluster.\n- Iteratively merge the closest clusters.\n- Continue until a termination criterion is met."
+  },
+  {
+    "q": "What are the main steps in the agglomerative clustering algorithm?",
+    "a": "- Initialize: each object is its own cluster.\n- Repeat:\n  - Find the closest pair of clusters \\( i \\) and \\( j \\).\n  - Merge them into one cluster.\n- Stop when a termination condition is satisfied.\n- Return the final clustering or hierarchy."
+  },
+  {
+    "q": "What is needed to perform agglomerative clustering?",
+    "a": "- A dataset \\( \\mathcal{D} \\).\n- A distance function \\( d(\\cdot, \\cdot) \\) to measure object proximity.\n- A method to measure distance between clusters (linkage)."
+  },
+  {
+    "q": "What is single-linkage in agglomerative clustering?",
+    "a": "- Measures distance between two clusters as the shortest distance between any two points (one from each cluster).\n- Formula:\n\\[ \\text{dist}(P, Q) = \\min\\limits_{X \\in P, Y \\in Q} d(X, Y) \\ ]\n- Tends to form long, chain-like clusters."
+  },
+  {
+    "q": "What is complete-linkage in agglomerative clustering?",
+    "a": "- Measures distance as the longest distance between any two points in different clusters.\n- Formula:\n\\[ \\text{dist}(P, Q) = \\max\\limits_{X \\in P, Y \\in Q} d(X, Y) \\ ]\n- Tries to minimize the maximum cluster diameter.\n- Produces compact, round clusters."
+  },
+  {
+    "q": "What is group-average linkage in agglomerative clustering?",
+    "a": "- Measures distance as the average of all pairwise distances between points in the two clusters.\n- Let \\( p \\) and \\( q \\) be the number of points in clusters \\( P \\) and \\( Q \\), respectively.\n- Formula:\n\\[ \\text{dist}(P, Q) = \\frac{1}{p \\cdot q} \\sum\\limits_{X \\in P, Y \\in Q} d(X, Y) \\ ]\n- Balances between single-linkage and complete-linkage."
+  },
+  {
+    "q": "What are some termination criteria for agglomerative clustering?",
+    "a": "- Desired number of clusters is reached.\n- Minimum distance between clusters exceeds a threshold.\n- Hierarchy is fully built (e.g. for dendrograms)."
+  }
+]

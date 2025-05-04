@@ -1,0 +1,54 @@
+[
+  {
+    "q": "What is the difference between an ordinary and a probabilistic classifier?",
+    "a": "- Ordinary classifier: Outputs a single class label \\( c = f(X) \\).\n- Probabilistic classifier: Outputs probabilities for each class:\n  - \\( p_i = P(c_i \\mid X) \\)\n  - \\( \\sum p_i = 1 \\)"
+  },
+  {
+    "q": "What are discriminative and generative models?",
+    "a": "- Discriminative models:\n  - Model \\( P(C \\mid X) \\)\n  - Directly classify input based on learned boundaries\n- Generative models:\n  - Model \\( P(X, C) \\)\n  - Learn how data is generated and use Bayes' rule for classification"
+  },
+  {
+    "q": "What is the main idea of logistic regression?",
+    "a": "- Define a separating hyperplane: \\( b + \\mathbf{W}^\\top \\mathbf{X} = 0 \\)\n- Use the **score** \\( b + \\mathbf{W}^\\top \\mathbf{X} \\) to:\n  - Determine class label by sign\n  - Measure confidence by distance from the hyperplane\n- Convert score to probability using the sigmoid function"
+  },
+  {
+    "q": "What is the logistic sigmoid function and its properties?",
+    "a": "- Function:\n\\[ \\sigma(x) = \\frac{1}{1 + e^{-x}} \\]\n- Properties:\n  - \\( \\sigma(x) \\in [0, 1] \\)\n  - \\( 1 - \\sigma(x) = \\sigma(-x) \\)\n  - \\( \\frac{d\\sigma}{dx} = \\sigma(x)(1 - \\sigma(x)) \\)"
+  },
+  {
+    "q": "How is probability modeled in logistic regression?",
+    "a": "- For input \\( \\mathbf{X} \\), compute score \\( a = b + \\mathbf{W}^\\top \\mathbf{X} \\)\n- Probabilities:\n  - \\( P(y = +1 \\mid \\mathbf{X}) = \\sigma(a) \\)\n  - \\( P(y = -1 \\mid \\mathbf{X}) = \\sigma(-a) \\)\n- General form: \\( P(y = t \\mid \\mathbf{X}) = \\sigma(t \\cdot a) \\), where \\( t \\in \\{-1, +1\\} \\)"
+  },
+  {
+    "q": "How are logistic regression parameters fitted?",
+    "a": "- Use **Maximum Likelihood Estimation**\n- Likelihood:\n\\[ \\mathcal{L}(b, \\mathbf{W}) = \\prod\\limits_{i=1}^n \\sigma(y_i (b + \\mathbf{W}^\\top \\mathbf{X}_i)) \\]\n- Negative log-likelihood (loss):\n\\[ -\\ell = -\\sum\\limits_{i=1}^n \\log \\sigma(y_i (b + \\mathbf{W}^\\top \\mathbf{X}_i)) \\]"
+  },
+  {
+    "q": "What are the gradients used in logistic regression training?",
+    "a": "- Let \\( a_i = b + \\mathbf{W}^\\top \\mathbf{X}_i \\)\n- Gradients:\n  - Bias:\n\\[ \\frac{\\partial \\ell}{\\partial b} = \\sum\\limits_{i=1}^n y_i \\cdot \\sigma(-y_i a_i) \\]\n  - Weights:\n\\[ \\frac{\\partial \\ell}{\\partial w_k} = \\sum\\limits_{i=1}^n y_i \\cdot \\sigma(-y_i a_i) \\cdot x_k^{(i)} \\]"
+  },
+  {
+    "q": "What is the gradient descent update rule for logistic regression?",
+    "a": "- Update equations:\n\\[ b \\leftarrow b + \\mu \\sum\\limits_{i=1}^n y_i \\cdot \\sigma(-y_i a_i) \\]\n\\[ \\mathbf{W} \\leftarrow \\mathbf{W} + \\mu \\sum\\limits_{i=1}^n y_i \\cdot \\sigma(-y_i a_i) \\cdot \\mathbf{X}_i \\]"
+  },
+  {
+    "q": "How does online logistic regression (SGD) differ from batch?",
+    "a": "- **Batch**:\n  - Uses entire dataset in each iteration\n  - Slower but more accurate\n- **Online (SGD)**:\n  - Updates weights with one example at a time\n  - Faster and suited for large-scale data"
+  },
+  {
+    "q": "How is logistic regression prediction performed?",
+    "a": "- Compute score: \\( a = b + \\mathbf{W}^\\top \\mathbf{X} \\)\n- Predict:\n  - If \\( a > 0 \\), label = +1, confidence = \\( \\sigma(a) \\)\n  - Else, label = -1, confidence = \\( 1 - \\sigma(a) \\)"
+  },
+  {
+    "q": "What is the neuron interpretation of logistic regression?",
+    "a": "- Weighted sum: \\( a = b + \\sum w_i x_i \\)\n- Apply sigmoid to get probability\n- If \\( a > 0 \\):\n  - Output = +1\n  - Probability = \\( \\sigma(a) \\)\n- Else:\n  - Output = -1\n  - Probability = \\( 1 - \\sigma(a) \\)"
+  },
+  {
+    "q": "What is L2 regularisation in logistic regression?",
+    "a": "- Add penalty for large weights:\n\\[ J(\\mathcal{D}, \\mathbf{W}) = L(\\mathcal{D}, \\mathbf{W}) + \\lambda \\sum\\limits_{i=1}^d w_i^2 \\]\n- Gradient becomes:\n\\[ \\nabla_\\mathbf{W} J = \\nabla_\\mathbf{W} L + 2\\lambda \\mathbf{W} \\]"
+  },
+  {
+    "q": "What is the L2-regularised update rule for logistic regression?",
+    "a": "- No regularisation:\n\\[ \\mathbf{W} \\leftarrow \\mathbf{W} + \\mu y \\cdot \\sigma(-y a) \\cdot \\mathbf{X} \\]\n- With regularisation:\n\\[ \\mathbf{W} \\leftarrow (1 - 2\\mu\\lambda)\\mathbf{W} + \\mu y \\cdot \\sigma(-y a) \\cdot \\mathbf{X} \\]"
+  }
+]

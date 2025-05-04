@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the goal of the Apriori algorithm?",
+    "a": "- To find frequent itemsets in a transaction dataset\n- An itemset is frequent if it appears in transactions at least as often as a specified threshold"
+  },
+  {
+    "q": "What is the support of an itemset?",
+    "a": "- The number of transactions in which the itemset appears\n- Notation: \\( \\text{sup}(I) \\) where \\( I \\) is the itemset"
+  },
+  {
+    "q": "What is the Downward Closure Property in Apriori?",
+    "a": "- If an itemset is frequent, then all its subsets are also frequent\n- Used to prune candidate itemsets and reduce computation"
+  },
+  {
+    "q": "Describe the main idea behind the Apriori algorithm.",
+    "a": "- Start with frequent 1-itemsets\n- Iteratively generate larger itemsets using only previously found frequent itemsets\n- Prune candidates that have infrequent subsets"
+  },
+  {
+    "q": "What are \\( \\mathcal{F}_k \\) and \\( \\mathcal{C}_k \\) in Apriori?",
+    "a": "- \\( \\mathcal{F}_k \\): Frequent itemsets of size \\( k \\)\n- \\( \\mathcal{C}_k \\): Candidate itemsets of size \\( k \\) to be tested for frequency"
+  },
+  {
+    "q": "List the steps of the Apriori algorithm.",
+    "a": "- Compute \\( \\mathcal{F}_1 \\): all frequent 1-itemsets\n- For \\( k = 2 \\) to \\( d \\):\n  - If \\( \\mathcal{F}_{k-1} \\) is empty, break\n  - Generate \\( \\mathcal{C}_k \\) from \\( \\mathcal{F}_{k-1} \\)\n  - For each \\( I \\in \\mathcal{C}_k \\), if \\( \\text{sup}(I) \\geq f \\), add to \\( \\mathcal{F}_k \\)\n- Return \\( \\bigcup\\limits_{i=1}^{d} \\mathcal{F}_i \\)"
+  },
+  {
+    "q": "What assumptions are made in Apriori's input?",
+    "a": "- Items are numbered and represented as \\( U = \\{1, 2, ..., d\\} \\)\n- Itemsets and transactions are ordered lexicographically"
+  },
+  {
+    "q": "How does the candidate generation process (\\texttt{generate-candidates}) work?",
+    "a": "- Join phase:\n  - Join pairs of frequent (\\( k-1 \\))-itemsets that share \\( k-2 \\) items\n- Prune phase:\n  - Remove candidates that have any subset not in \\( \\mathcal{F}_{k-1} \\)"
+  },
+  {
+    "q": "What is the stopping condition in Apriori?",
+    "a": "- If no frequent \\( k \\)-itemsets are found (i.e., \\( \\mathcal{F}_k = \\emptyset \\)), then stop the algorithm"
+  },
+  {
+    "q": "What does it mean for an itemset to be generated at the join phase but removed at the prune phase?",
+    "a": "- It was formed by joining two frequent itemsets\n- But one of its subsets was not frequent, so it was pruned"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "q": "What are the two phases of association rule generation?",
+    "a": "- Phase 1: Generate all frequent itemsets that meet the frequency threshold.\n- Phase 2: From these frequent itemsets, generate association rules that meet the confidence threshold."
+  },
+  {
+    "q": "How are association rules generated from frequent itemsets?",
+    "a": "- For each frequent itemset \\( I \\):\n  - Partition \\( I \\) into all pairs \\( (X, Y) \\) such that \\( X \\cup Y = I \\) and \\( X \\cap Y = \\emptyset \\).\n  - Compute the confidence of rule \\( X \\Rightarrow Y \\).\n  - If \\( \\text{confidence} \\geq c \\), store the rule."
+  },
+  {
+    "q": "What is the Brute Force algorithm for frequent itemset generation?",
+    "a": "- Consider every non-empty subset \\( I \\subseteq U \\), where \\( U \\) is the universe of items.\n- For each \\( I \\), compute its support (number of transactions in \\( \\mathcal{D} \\) containing \\( I \\)).\n- If \\( \\text{sup}(I) \\geq f \\) (frequency threshold), add \\( I \\) to the set of frequent itemsets."
+  },
+  {
+    "q": "Why is the basic Brute Force algorithm inefficient?",
+    "a": "- The number of non-empty subsets of \\( U \\) is \\( 2^{|U|} - 1 \\).\n- For large \\( |U| \\), this becomes computationally infeasible.\n- Example: If \\( |U| = 1000 \\), then \\( 2^{1000} > 10^{300} \\)."
+  },
+  {
+    "q": "What is the Downward Closure Property in frequent itemset mining?",
+    "a": "- Every subset of a frequent itemset is also frequent.\n- If a \\( k \\)-itemset is not frequent, no \\( (k+1) \\)-itemset containing it can be frequent.\n- This allows pruning of the search space."
+  },
+  {
+    "q": "How does the Improved Brute Force algorithm work?",
+    "a": "- Iterate over itemset sizes \\( k = 1 \\) to \\( |U| \\):\n  - For each \\( k \\)-itemset \\( I \\), compute support.\n  - If \\( \\text{sup}(I) \\geq f \\), keep \\( I \\).\n  - If no \\( k \\)-itemsets are frequent, stop early (pruning)."
+  },
+  {
+    "q": "Why is the Improved Brute Force algorithm more efficient for sparse datasets?",
+    "a": "- Sparse datasets have transactions with fewer items (let \\( l \\) be the max items per transaction).\n- Number of candidate itemsets is at most:\n\\[\n\\sum\\limits_{i=1}^{l} \\binom{|U|}{i}\n\\]\n- This is much smaller than \\( 2^{|U|} \\) when \\( l \\ll |U| \\).\n- Example: \\( |U| = 1000, l = 10 \\) ⇒ ~\\( 1023 \\) candidates instead of \\( 10^{300} \\)."
+  }
+]

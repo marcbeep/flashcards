@@ -1,0 +1,58 @@
+[
+  {
+    "q": "What is association pattern mining used for?",
+    "a": "- Supermarket data: find frequently bought item combinations\n- Marketing: shelf placement and product promotion\n- Text mining: identify co-occurring terms\n- Web log analysis\n- Software bug detection\n- Spatio-temporal event detection"
+  },
+  {
+    "q": "What are the key terms in association pattern mining?",
+    "a": "- **Transaction**: A record (e.g. shopping basket)\n- **Itemset**: A set of items\n- **Frequent itemset**: An itemset that appears frequently in the dataset\n- **Support**: Fraction of transactions containing the itemset"
+  },
+  {
+    "q": "How is support of an itemset defined?",
+    "a": "\\[ \\text{support}(I) = \\frac{\\text{Number of transactions containing } I}{\\text{Total number of transactions}} \\]"
+  },
+  {
+    "q": "What is the frequent itemset mining problem?",
+    "a": "Given:\n- A dataset \\( \\mathcal{D} \\) of transactions\n- A frequency threshold \\( f \\)\n\nFind all itemsets \\( I \\) such that:\n\\[ \\text{support}(I) \\geq f \\]"
+  },
+  {
+    "q": "What is the effect of changing the frequency threshold?",
+    "a": "- Lower \\( f \\): more frequent itemsets (but possibly less useful)\n- Higher \\( f \\): fewer frequent itemsets (may miss patterns)"
+  },
+  {
+    "q": "What are the Support Monotonicity and Downward Closure properties?",
+    "a": "- **Support Monotonicity**: For \\( J \\subseteq I \\),\n\\[ \\text{support}(J) \\geq \\text{support}(I) \\]\n- **Downward Closure**: Every subset of a frequent itemset is also frequent"
+  },
+  {
+    "q": "What is a maximal frequent itemset?",
+    "a": "A frequent itemset that has no frequent supersets"
+  },
+  {
+    "q": "What is the benefit and limitation of using maximal frequent itemsets?",
+    "a": "- **Benefit**: Compact representation of all frequent itemsets\n- **Limitation**: Does not store individual support values for all subsets"
+  },
+  {
+    "q": "What is an association rule and how is its confidence defined?",
+    "a": "An association rule has the form:\n\\[ X \\Rightarrow Y \\]\nMeaning: if a transaction contains \\( X \\), it is likely to contain \\( Y \\)\n\n**Confidence**:\n\\[ \\text{conf}(X \\Rightarrow Y) = \\frac{\\text{support}(X \\cup Y)}{\\text{support}(X)} \\]"
+  },
+  {
+    "q": "What conditions must an association rule satisfy?",
+    "a": "Given thresholds \\( f \\) (support) and \\( c \\) (confidence), rule \\( X \\Rightarrow Y \\) is valid if:\n- \\( \\text{support}(X \\cup Y) \\geq f \\)\n- \\( \\text{conf}(X \\Rightarrow Y) \\geq c \\)"
+  },
+  {
+    "q": "What are the two main phases of association rule mining?",
+    "a": "- **Phase 1**: Find all frequent itemsets with support \\( \\geq f \\)\n  - Algorithms: Bruteforce, Apriori\n- **Phase 2**: Generate valid rules from frequent itemsets\n  - Only keep rules with confidence \\( \\geq c \\)"
+  },
+  {
+    "q": "How are rules generated from frequent itemsets in Phase 2?",
+    "a": "For each frequent itemset \\( I \\):\n- Partition \\( I \\) into all \\( (X, Y) \\) pairs where \\( X \\cup Y = I \\) and \\( X \\cap Y = \\emptyset \\)\n- Compute \\( \\text{conf}(X \\Rightarrow Y) \\)\n- Keep if \\( \\text{conf}(X \\Rightarrow Y) \\geq c \\)"
+  },
+  {
+    "q": "What is the Confidence Monotonicity property?",
+    "a": "If \\( X_1 \\subset X_2 \\subset I \\), then:\n\\[ \\text{conf}(X_2 \\Rightarrow I \\setminus X_2) \\geq \\text{conf}(X_1 \\Rightarrow I \\setminus X_1) \\]\nThis means more specific rules tend to have higher confidence"
+  },
+  {
+    "q": "Give an example of redundant rules based on confidence monotonicity.",
+    "a": "- Rule: \\( \\{\\text{Butter}\\} \\Rightarrow \\{\\text{Milk, Bread}\\} \\)\n- Rule: \\( \\{\\text{Butter, Bread}\\} \\Rightarrow \\{\\text{Milk}\\} \\)\n\nThe second rule is not worse (possibly better) in confidence and covers the same itemset"
+  }
+]
