@@ -1,0 +1,62 @@
+[
+  {
+    "q": "What does convolution do in CNNs and what are stride and padding?",
+    "a": "- **Convolution** applies a small filter to input data to extract features.\n- **Stride** controls how far the filter moves: larger stride = smaller output.\n  \\[ \\text{Output size} = \\frac{N - F}{S} + 1 \\]\n  where \\( N \\): input size, \\( F \\): filter size, \\( S \\): stride.\n- **Padding** adds pixels around the input to preserve spatial size.\n  - Common: zero-padding with \\( (F - 1)/2 \\) for stride 1."
+  },
+  {
+    "q": "What is the typical structure of a convolutional layer?",
+    "a": "- Applies multiple filters to produce multiple feature maps.\n- Followed by non-linearity (ReLU).\n- Often followed by pooling to reduce spatial size.\n- Example: 6 filters of size 5x5x3 applied to a 32x32x3 image."
+  },
+  {
+    "q": "Describe the architecture of LeNet-5.",
+    "a": "- Designed for digit classification.\n- Structure:\n  - CONV (5x5) → POOL (2x2)\n  - CONV (5x5) → POOL (2x2)\n  - Fully Connected layers\n- Total: [CONV - POOL - CONV - POOL - CONV - FC]"
+  },
+  {
+    "q": "Summarize the key layers and parameters of AlexNet.",
+    "a": "- Input: 227x227x3 images\n- CONV1: 96 filters, 11x11, stride 4 → Output: 55x55x96\n  \\[ \\text{Parameters} = 11 \\times 11 \\times 3 \\times 96 = 34{,}848 \\]\n- POOL1: 3x3, stride 2 → Output: 27x27x96\n- Full structure includes 8 learned layers: 5 CONV + 3 FC\n- Uses ReLU, dropout (0.5), normalization, SGD+momentum (0.9)"
+  },
+  {
+    "q": "What are the advantages of VGG-16 compared to earlier networks?",
+    "a": "- Deeper network: 16 layers vs 8 (AlexNet)\n- Uses only 3x3 filters (stride 1, pad 1)\n- Better performance with fewer parameters per receptive field\n- More non-linearities due to more layers"
+  },
+  {
+    "q": "What is the Inception module in GoogLeNet?",
+    "a": "- A network within a network: combines 1x1, 3x3, 5x5 filters in parallel\n- Reduces parameters using 1x1 convolutions\n- Multiple modules stacked → deep and efficient network\n- Total: 22 layers, ~5 million parameters"
+  },
+  {
+    "q": "What problem does ResNet solve and how?",
+    "a": "- Solves vanishing gradient problem in deep networks\n- Introduces **residual connections**:\n  \\[ \\mathbf{F(x)} + \\mathbf{x} \\]\n- Learns the difference (residual) between input and output\n- Enables training of networks with 100+ layers"
+  },
+  {
+    "q": "What causes underfitting and overfitting, and how are they addressed?",
+    "a": "- **Underfitting** (high bias):\n  - Model too simple\n  - Solutions: deeper network, train longer, better architecture\n- **Overfitting** (high variance):\n  - Model too complex for available data\n  - Solutions: more data, regularization, dropout, early stopping"
+  },
+  {
+    "q": "What is dropout and why is it used?",
+    "a": "- Dropout randomly deactivates neurons during training\n- Prevents co-adaptation of features\n- Reduces overfitting\n- Common rate: 0.5"
+  },
+  {
+    "q": "Describe SGD with momentum and its formula.",
+    "a": "- Adds past gradients to current step for faster convergence:\n\\[\n\\mathbf{v}_t = \\beta \\mathbf{v}_{t-1} + (1 - \\beta) \\nabla L(\\mathbf{w}) \\\\\n\\mathbf{w} = \\mathbf{w} - \\alpha \\mathbf{v}_t\n\\]\n- \\( \\beta \\): momentum (typically 0.9), \\( \\alpha \\): learning rate"
+  },
+  {
+    "q": "What is AdaGrad and how does it adapt the learning rate?",
+    "a": "- Accumulates squared gradients for each parameter\n- Learning rate shrinks over time:\n\\[\n\\Delta w = - \\frac{\\eta}{\\sqrt{G + \\epsilon}} \\cdot g\n\\]\n- \\( G \\): sum of past squared gradients, \\( \\epsilon \\): small constant"
+  },
+  {
+    "q": "How does RMSprop improve upon AdaGrad?",
+    "a": "- Uses exponential moving average of squared gradients:\n\\[\nE[g^2]_t = \\rho E[g^2]_{t-1} + (1 - \\rho) g_t^2\n\\]\n- Keeps learning rate from shrinking too much\n- Typical: \\( \\rho = 0.9 \\), \\( \\eta = 0.001 \\), \\( \\epsilon = 10^{-6} \\)"
+  },
+  {
+    "q": "What is Adam optimizer and how does it work?",
+    "a": "- Combines momentum and RMSprop\n- Tracks:\n  - \\( m_t \\): first moment (mean)\n  - \\( v_t \\): second moment (variance)\n- Bias correction:\n\\[\n\\hat{m}_t = \\frac{m_t}{1 - \\beta_1^t},\\quad \\hat{v}_t = \\frac{v_t}{1 - \\beta_2^t}\n\\]\n- Update rule:\n\\[\nw_t = w_{t-1} - \\eta \\frac{\\hat{m}_t}{\\sqrt{\\hat{v}_t} + \\epsilon}\n\\]\n- Default: \\( \\beta_1 = 0.9 \\), \\( \\beta_2 = 0.999 \\), \\( \\epsilon = 10^{-8} \\)"
+  },
+  {
+    "q": "What are some popular deep learning frameworks?",
+    "a": "- TensorFlow / Keras\n- PyTorch\n- Caffe / Caffe2\n- Theano (historical)"
+  },
+  {
+    "q": "What is transfer learning and how is it done?",
+    "a": "- Use a pretrained model on a new task\n- Steps:\n  - Load pretrained model\n  - **Freeze** early layers\n  - **Fine-tune** later layers with new data\n- Effective when data is limited"
+  }
+]

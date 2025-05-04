@@ -1,0 +1,54 @@
+[
+  {
+    "q": "What are independent learners in multi-agent reinforcement learning (MARL)?",
+    "a": "- Each agent learns without considering others\n- Treats others' actions as environmental noise\n\n**Pros:**\n- Simple and scalable\n- Applies single-agent RL techniques\n\n**Cons:**\n- No convergence guarantees\n- No coordination"
+  },
+  {
+    "q": "Describe the 'Battle of the Sexes' example using independent Q-learners.",
+    "a": "- Two agents learn without observing each other\n- Game matrix:\n  |     | B     | F     |\n  |-----|-------|-------|\n  | B   | 2, 1  | 0, 0  |\n  | F   | 0, 0  | 1, 2  |\n\n- Learners may converge to either pure Nash equilibrium (B,F) or (F,B)\n- Average reward depends on which equilibrium is reached"
+  },
+  {
+    "q": "What are Joint Action Learners (JAL) and how do they work?",
+    "a": "- Agents observe other agents' actions\n- Assume others follow stationary policies and learn best response\n\n**Pros:**\n- Enables coordination\n\n**Cons:**\n- Requires observing others\n- Complexity increases exponentially with more agents"
+  },
+  {
+    "q": "What is the core idea of minimax Q-learning in zero-sum games?",
+    "a": "- Agent maximizes its worst-case expected reward\n- Given policy \\( \\pi = (\\pi_{\\text{rock}}, \\pi_{\\text{paper}}, \\pi_{\\text{scissors}}) \\)\n- Example objective:\n\\[\n\\max_{\\pi} \\min(\\pi_{\\text{paper}} - \\pi_{\\text{scissors}}, -\\pi_{\\text{rock}} + \\pi_{\\text{scissors}}, \\pi_{\\text{rock}} - \\pi_{\\text{paper}})\n\\]\n- Solved using linear programming"
+  },
+  {
+    "q": "How is minimax Q-learning extended to Markov games?",
+    "a": "- Redefine value function: \\( V(s) \\) = expected reward from state \\( s \\)\n- Define Q-values: \\( Q(s, a, o) \\) = expected reward for action \\( a \\), opponent action \\( o \\)\n\n**Update rule:**\n\\[\nQ(s, a, o) \\leftarrow (1 - \\alpha) Q(s, a, o) + \\alpha [r + \\gamma V(s')]\n\\]"
+  },
+  {
+    "q": "What are the limitations of minimax Q-learning?",
+    "a": "- Only applicable to **two-player zero-sum** games\n- Requires knowledge of opponent’s actions"
+  },
+  {
+    "q": "How does Nash-Q learning extend Q-learning to general-sum games?",
+    "a": "- Learns Q-values for all joint actions and agents\n- Update rule:\n\\[\nQ_i(s, a_1, ..., a_n) \\leftarrow (1 - \\alpha) Q_i + \\alpha [r + \\gamma \\text{NashPayoff}_i(s')]\n\\]\n- Assumes all agents play the same Nash equilibrium\n\n**Challenges:**\n- Computing Nash equilibrium is hard\n- Multiple equilibria → selection problem"
+  },
+  {
+    "q": "What is the idea behind gradient ascent-based MARL methods?",
+    "a": "- Directly adjust policy in direction of reward gradient\n\n**Policy update:**\n\\[\n\\Delta \\pi_i \\leftarrow \\nabla V_i(\\pi_i) \\quad \\Rightarrow \\quad \\pi_i \\leftarrow \\pi_i + \\Delta \\pi_i\n\\]\n\n**Examples:** IGA, GIGA\n- Works mainly in 2-player matrix games"
+  },
+  {
+    "q": "What does the WoLF principle add to gradient-based MARL?",
+    "a": "- Stands for “Win or Learn Fast”\n- Learns slowly when doing well (winning)\n- Learns faster when doing poorly\n- Helps stabilize convergence\n\n**Used in:** WoLF-IGA, GIGA-WoLF, WoLF-PHC"
+  },
+  {
+    "q": "How is Q-learning applied in fully cooperative multi-agent tasks?",
+    "a": "- All agents share the same reward: \\( \\rho_1 = \\cdots = \\rho_n \\)\n- Common Q-function:\n\\[\nQ(x, u) \\leftarrow Q(x, u) + \\alpha [r + \\gamma \\max_{u'} Q(x', u') - Q(x, u)]\n\\]\n\n**Issue:**\n- Agents may break ties differently in greedy policy, leading to suboptimal joint actions"
+  },
+  {
+    "q": "Give an example of a coordination problem in cooperative MARL.",
+    "a": "- Two mobile agents must avoid an obstacle and maintain formation\n- Best joint actions: (Left, Left) or (Right, Right)\n- Without coordination, agents may take mismatched actions → collisions or broken formation"
+  },
+  {
+    "q": "How do Team Q-learning and Distributed Q-learning handle coordination?",
+    "a": "- **Team Q-learning**:\n  - Assumes unique optimal joint action (rare)\n  - All agents use shared Q-function\n\n- **Distributed Q-learning**:\n  - Each agent uses local Q-function and policy\n  - Works in deterministic environments\n  - Less computationally demanding"
+  },
+  {
+    "q": "List some real-world applications of multi-agent reinforcement learning.",
+    "a": "- Electronic marketplaces\n- Mobile networks\n- Self-managing computer systems\n- Teams of robots\n- Video games\n- Military/counter-terrorism scenarios"
+  }
+]

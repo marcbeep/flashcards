@@ -1,0 +1,46 @@
+[
+  {
+    "q": "What distinguishes multi-agent reinforcement learning (MARL) from single-agent RL?",
+    "a": "- In single-agent RL, the environment is assumed to be stationary.\n- In MARL, multiple agents are learning simultaneously, making the environment non-stationary.\n- Agents may have limited or no knowledge of others' strategies or rewards."
+  },
+  {
+    "q": "What are common objectives in multi-agent learning?",
+    "a": "- Converge to a stationary strategy.\n- In self-play, converge to an equilibrium strategy.\n- Achieve payoffs close to best-response to others' strategies.\n- Guarantee a minimum worst-case payoff."
+  },
+  {
+    "q": "What is a normal-form game?",
+    "a": "- A game represented by a matrix with:\n  - Players\n  - Set of actions\n  - Payoff functions for each joint action.\n- Players choose actions simultaneously without knowledge of others’ choices."
+  },
+  {
+    "q": "What is a stochastic (Markov) game and how does it differ from a matrix game?",
+    "a": "- Stochastic game includes:\n  - States \\( s \\in S \\)\n  - Actions \\( a_i(s) \\)\n  - Transition probabilities \\( P(s'|s, \\langle a_1,\\dots,a_n \\rangle) \\)\n  - Reward functions \\( r_i(s, \\langle a_1,\\dots,a_n \\rangle) \\)\n- Matrix game has no state transitions: only one state (\\( |S| = 1 \\))"
+  },
+  {
+    "q": "Define pure and mixed strategies in game theory.",
+    "a": "- Pure strategy: always selects the same action.\n- Mixed strategy: assigns a probability to each possible action.\n  - Example: Prob(Rock, Paper, Scissors) = (1/2, 1/4, 1/4)"
+  },
+  {
+    "q": "What is a best-response, dominant strategy, and Nash equilibrium?",
+    "a": "- Best-response: strategy that maximizes a player’s payoff given others’ strategies.\n- Dominant strategy: best regardless of others’ choices.\n- Nash equilibrium: each player's strategy is a best-response to others; no one has incentive to change unilaterally."
+  },
+  {
+    "q": "What are assumptions in normal-form games?",
+    "a": "- Full knowledge of payoffs and actions.\n- Players act simultaneously.\n- No communication (or it doesn't affect play).\n- Typically one-shot (played only once)."
+  },
+  {
+    "q": "Explain the Prisoner's Dilemma and its significance.",
+    "a": "- Two prisoners can Confess (Defect) or Hold Out (Cooperate).\n- Payoffs:\n  - (Confess, Confess): (1,1)\n  - (Hold, Hold): (3,3)\n  - One confesses, other holds: (5,0) or (0,5)\n- Confessing is a dominant strategy, leading to suboptimal outcome.\n- Highlights social conflict: learning in repeated play may enable cooperation (Pareto optimal outcome)."
+  },
+  {
+    "q": "Describe the Nash equilibrium in Rock-Paper-Scissors.",
+    "a": "- Unique mixed strategy Nash equilibrium:\n  - Each player randomly plays R, P, S with equal probability:\n\\[ \\text{Prob}(R, P, S) = \\left(\\frac{1}{3}, \\frac{1}{3}, \\frac{1}{3}\\right) \\]\n- Game is zero-sum and symmetric."
+  },
+  {
+    "q": "What are matrix games and how do they relate to stochastic games?",
+    "a": "- Matrix games:\n  - No state transitions.\n  - Only one state and immediate payoffs.\n- Stochastic games:\n  - Extend matrix games with state transitions based on joint actions."
+  },
+  {
+    "q": "Why is equilibrium selection a challenge in game theory?",
+    "a": "- Nash equilibrium always exists but:\n  - There can be many (exponentially).\n  - Difficult to compute.\n  - Players must agree on which one to play (coordination issue)."
+  }
+]

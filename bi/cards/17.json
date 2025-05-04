@@ -1,0 +1,46 @@
+[
+  {
+    "q": "Why is deep learning used in reinforcement learning (RL)?",
+    "a": "- Traditional Q-learning uses tables, which don’t scale to large state spaces.\n- For images (e.g. 210×160×3 Atari frames), state combinations are enormous.\n- Deep learning (neural networks) is used as a **function approximator** to estimate \\( Q(s, a) \\)."
+  },
+  {
+    "q": "What is Deep Q-Learning (DQN)?",
+    "a": "- Combines Q-learning with deep neural networks.\n- Uses the network to estimate \\( Q(s, a; \\theta) \\approx Q^*(s, a) \\)\n  - \\( s \\): state\n  - \\( a \\): action\n  - \\( \\theta \\): network weights"
+  },
+  {
+    "q": "What is the Q-learning update rule?",
+    "a": "\\[\nQ(s, a) \\leftarrow Q(s, a) + \\alpha \\left[ r + \\gamma \\max\\limits_{a'} Q(s', a') - Q(s, a) \\right]\n\\]\n- \\( \\alpha \\): learning rate\n- \\( \\gamma \\): discount factor\n- \\( r \\): reward\n- \\( s' \\): next state\n- \\( a' \\): next action"
+  },
+  {
+    "q": "How is the loss function in Deep Q-Learning defined?",
+    "a": "- Uses Mean Squared Error between target \\( y \\) and predicted Q-value:\n\\[\nL(\\theta) = \\mathbb{E}\\left[ (y - Q(s, a; \\theta))^2 \\right]\n\\]\n- Target value:\n\\[\ny = r + \\gamma \\max\\limits_{a'} Q(s', a'; \\theta^-)\n\\]\n- \\( \\theta^- \\): parameters of the target network"
+  },
+  {
+    "q": "How does Deep Q-Learning train the neural network?",
+    "a": "- **Forward pass**: compute predicted Q-values\n- **Loss**: compute difference from target Q-values\n- **Backward pass**: update weights using gradient descent"
+  },
+  {
+    "q": "What is the input and architecture used for Atari game playing in DQN?",
+    "a": "- Input: 84×84×4 (stack of last 4 grayscale frames)\n- Architecture:\n  - 2 convolutional layers\n  - 2 fully connected (FC) layers\n  - Output layer: Q-values for possible actions"
+  },
+  {
+    "q": "What are the components of the RL setup in Atari games?",
+    "a": "- **State**: raw pixels (preprocessed frames)\n- **Actions**: game control commands (e.g., Up, Down)\n- **Reward**: score change at each time step\n- **Goal**: maximize total game score"
+  },
+  {
+    "q": "What is AlphaGo and why is it significant?",
+    "a": "- First AI to beat a professional Go player (2016)\n- Built by Google DeepMind\n- Combined:\n  - Convolutional neural networks\n  - Reinforcement learning via self-play\n  - Monte Carlo Tree Search"
+  },
+  {
+    "q": "How did AlphaGo combine different learning methods?",
+    "a": "- **Supervised learning**: trained on expert human games\n- **Reinforcement learning**: improved via self-play\n- **Tree search**: used Monte Carlo search to evaluate future moves"
+  },
+  {
+    "q": "What is OpenAI Gym?",
+    "a": "- A toolkit for developing and testing RL algorithms\n- Provides a standard interface and environments (e.g., Atari games)\n- URL: https://gym.openai.com"
+  },
+  {
+    "q": "What are the key takeaways about Deep RL from this lecture?",
+    "a": "- Deep networks help tackle large state spaces\n- CNNs are useful for extracting features from images\n- Combining methods (SL + RL + planning) can outperform individual techniques\n- Quote: \"Robots will never understand the beauty of the game the same way that we humans do\" — Lee Sedol"
+  }
+]

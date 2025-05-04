@@ -1,0 +1,50 @@
+[
+  {
+    "q": "What is multi-agent reinforcement learning (MARL)?",
+    "a": "- Study of systems with multiple autonomous agents that learn from experience.\n- Agents interact, adapt, and make decisions based on environment and each other.\n- Unlike single-agent RL, theoretical guarantees often do not hold."
+  },
+  {
+    "q": "What is the key concept in classical game theory and its assumptions?",
+    "a": "- Central concept: Nash Equilibrium.\n- Assumes rational players with full information.\n- Each player's strategy is a best response to others.\n- No player benefits by changing strategy alone."
+  },
+  {
+    "q": "What is the difference between classical and evolutionary game theory?",
+    "a": "- Classical Game Theory:\n  - Rational decision-makers\n  - Strategic reasoning\n- Evolutionary Game Theory:\n  - No explicit rationality\n  - Strategy change based on payoff (fitness)\n  - Inspired by natural selection"
+  },
+  {
+    "q": "What equations describe strategy evolution in evolutionary game theory?",
+    "a": "- Replicator dynamics:\n\\[ \\frac{dp_i}{dt} = p_i (\\mathbf{e}_i^\\top A q - p^\\top A q) \\]\n\\[ \\frac{dq_i}{dt} = q_i (p^\\top B \\mathbf{e}_i - q^\\top B p) \\]\n- \\( p_i, q_i \\): proportions of strategies\n- \\( A, B \\): payoff matrices\n- \\( \\mathbf{e}_i \\): unit vector for strategy \\( i \\)"
+  },
+  {
+    "q": "Why is learning harder in multi-agent settings?",
+    "a": "- Environment is non-stationary due to other agents learning.\n- Markov property often breaks down.\n- Communication can be unreliable or costly.\n- No guaranteed convergence or stability."
+  },
+  {
+    "q": "What are common applications of multi-agent systems?",
+    "a": "- Teamwork (e.g., sensor networks, robotics)\n- Scheduling tasks (e.g., job shops)\n- Trading (e.g., auctions)\n- Simulations (e.g., military, economic models)"
+  },
+  {
+    "q": "What new challenges arise in multi-agent learning?",
+    "a": "- Need for decentralized and adaptive systems\n- High computational cost of centralized control\n- Agents may be cooperative or competitive\n- Must coordinate, communicate, or compete effectively"
+  },
+  {
+    "q": "What are key components of a multi-agent learning system?",
+    "a": "- Environment: defines states, actions, and dynamics\n- Agents: have utility functions, communication, and policies\n- Interaction mechanism: rules of interaction and observation\n- Learning mechanism: defines what and how agents learn"
+  },
+  {
+    "q": "What are the main paradigms in multi-agent learning?",
+    "a": "- Online RL for individual utility\n- Online RL for social welfare\n- Co-evolutionary learning\n- Swarm intelligence\n- Adaptive mechanism design"
+  },
+  {
+    "q": "How does game theory help model multi-agent interactions?",
+    "a": "- Provides structured modeling of agent decisions\n- Defines actions, strategies, and payoffs\n- Predicts outcomes under full rationality\n- Central to understanding equilibrium behavior"
+  },
+  {
+    "q": "What were the two historical phases of multi-agent learning development?",
+    "a": "- Startup (1980s–2000s):\n  - Inspired by nature (e.g., ant systems, flocking)\n  - Early reinforcement learning efforts\n- Consolidation (2000s–now):\n  - Focused on theoretical grounding\n  - Game-theoretic reinforcement learning"
+  },
+  {
+    "q": "What are the two main questions in multi-agent learning?",
+    "a": "- What should agents learn? (group objectives, optimal behavior)\n- How should they learn? (algorithms and adaptation methods)"
+  }
+]
