@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is Bayes' Rule and what do its components represent?",
+    "a": "Bayes' Rule:\n\\[ \\mathbb{P}(A|B) = \\frac{\\mathbb{P}(B|A) \\mathbb{P}(A)}{\\mathbb{P}(B)} \\]\n\nComponents:\n- \\(\\mathbb{P}(A|B)\\): Posterior probability (probability of A given B)\n- \\(\\mathbb{P}(B|A)\\): Likelihood (probability of B given A)\n- \\(\\mathbb{P}(A)\\): Prior probability (initial belief about A)\n- \\(\\mathbb{P}(B)\\): Marginal probability (total probability of B)\n\nUpdates our belief about A after observing B."
+  },
+  {
+    "q": "What is the Q-Learning update rule and what do its components mean?",
+    "a": "Q-Learning Update Rule:\n\\[ Q(s,a) \\leftarrow Q(s,a) + \\alpha [r + \\gamma \\max_{a'} Q(s',a') - Q(s,a)] \\]\n\nComponents:\n- \\(Q(s,a)\\): Current estimate of action-value\n- \\(\\alpha\\): Learning rate\n- \\(r\\): Immediate reward\n- \\(\\gamma\\): Discount factor\n- \\(s'\\): Next state\n- \\(a'\\): Next action\n\nUpdates our estimate by considering immediate reward plus best possible future reward."
+  },
+  {
+    "q": "What is the Bellman Equation for State Value and what does it represent?",
+    "a": "Bellman Equation:\n\\[ V^{\\pi}(s) = \\mathbb{E}_{\\pi} [r_{t+1} + \\gamma V^{\\pi}(s_{t+1}) \\mid s_t = s] \\]\n\nComponents:\n- \\(V^{\\pi}(s)\\): Value of state s under policy π\n- \\(r_{t+1}\\): Next reward\n- \\(\\gamma\\): Discount factor\n- \\(s_{t+1}\\): Next state\n\nRepresents that the value of a state equals the expected immediate reward plus the discounted value of the next state."
+  },
+  {
+    "q": "What are the Bellman Optimality Equations and what do they represent?",
+    "a": "Bellman Optimality Equations:\n\nFor state values:\n\\[ V^*(s) = \\max_a \\mathbb{E} [r_{t+1} + \\gamma V^*(s_{t+1}) \\mid s_t = s, a_t = a] \\]\n\nFor action values:\n\\[ Q^*(s,a) = \\mathbb{E} [r_{t+1} + \\gamma \\max_{a'} Q^*(s_{t+1}, a') \\mid s_t = s, a_t = a] \\]\n\nComponents:\n- \\(V^*(s)\\): Optimal state value\n- \\(Q^*(s,a)\\): Optimal action-value\n- \\(r_{t+1}\\): Next reward\n- \\(\\gamma\\): Discount factor\n- \\(s_{t+1}\\): Next state\n- \\(a'\\): Next action\n\nRepresent the optimal value functions that maximize expected returns."
+  },
+  {
+    "q": "What is the Temporal Difference (TD) Learning Update rule?",
+    "a": "TD Learning Update:\n\\[ V(s_t) \\leftarrow V(s_t) + \\alpha [r_{t+1} + \\gamma V(s_{t+1}) - V(s_t)] \\]\n\nComponents:\n- \\(V(s_t)\\): Current value estimate\n- \\(\\alpha\\): Learning rate\n- \\(r_{t+1}\\): Next reward\n- \\(\\gamma\\): Discount factor\n- \\(V(s_{t+1})\\): Value estimate of next state\n\nUpdates the value estimate by moving it towards the sum of immediate reward and discounted next state value."
+  },
+  {
+    "q": "What are the key activation functions in neural networks and their formulas?",
+    "a": "Sigmoid:\n\\[ \\sigma(x) = \\frac{1}{1 + e^{-x}} \\]\n- Squashes input to range [0,1]\n- Used for binary classification\n\nReLU:\n\\[ f(x) = \\max(0, x) \\]\n- Returns input if positive, zero otherwise\n- Helps with vanishing gradient problem\n- Introduces non-linearity"
+  },
+  {
+    "q": "What are the main loss functions in neural networks and their formulas?",
+    "a": "Mean Squared Error (MSE):\n\\[ \\text{MSE} = \\frac{1}{n} \\sum_{i=1}^{n} (y_i - \\hat{y}_i)^2 \\]\n- Measures average squared difference between predictions and true values\n\nCross Entropy Loss:\n\\[ L = -\\frac{1}{n} \\sum_{i=1}^{n} \\sum_{c=1}^{C} y_{ic} \\log(\\hat{y}_{ic}) \\]\n- Measures how well predicted probabilities match true labels\n- Used in classification tasks"
+  },
+  {
+    "q": "What is the Ant Colony Optimization probability formula and what do its components mean?",
+    "a": "ACO Probability:\n\\[ P_{ij}(t) = \\frac{[\\tau_{ij}(t)]^\\alpha \\cdot [\\eta_{ij}]^\\beta}{\\sum_{k \\in J} [\\tau_{ik}(t)]^\\alpha \\cdot [\\eta_{ik}]^\\beta} \\]\n\nComponents:\n- \\(P_{ij}\\): Probability of choosing path ij\n- \\(\\tau_{ij}\\): Pheromone level on path ij\n- \\(\\eta_{ij}\\): Heuristic information (e.g., 1/distance)\n- \\(\\alpha, \\beta\\): Parameters controlling influence\n- \\(J\\): Set of possible next moves\n\nDetermines probability of an ant choosing a particular path based on pheromone levels and heuristic information."
+  },
+  {
+    "q": "What is the Particle Swarm Optimization velocity update rule?",
+    "a": "PSO Velocity Update:\n\\[ v_i^{t+1} = w v_i^t + \\phi_1 U_1 (pb_i - x_i^t) + \\phi_2 U_2 (gb - x_i^t) \\]\n\nComponents:\n- \\(v_i\\): Velocity of particle i\n- \\(w\\): Inertia weight\n- \\(\\phi_1, \\phi_2\\): Learning rates\n- \\(U_1, U_2\\): Random numbers between 0 and 1\n- \\(pb_i\\): Personal best position\n- \\(gb\\): Global best position\n- \\(x_i\\): Current position\n\nUpdates particle velocity based on current movement, personal best, and global best positions."
+  },
+  {
+    "q": "What are the Replicator Dynamics equations and what do they represent?",
+    "a": "Single Population:\n\\[ \\dot{x}_i = x_i (f_i(x) - \\bar{f}(x)) \\]\n\nTwo Populations:\n\\[ \\dot{x}_i = x_i \\left( (A y)_i - x^T A y \\right) \\\\\n\\dot{y}_j = y_j \\left( (x^T B)_j - x^T B y \\right) \\]\n\nComponents:\n- \\(x_i\\): Proportion/frequency of strategy i\n- \\(f_i(x)\\): Fitness of strategy i\n- \\(\\bar{f}(x)\\): Average fitness\n- \\(A, B\\): Payoff matrices\n\nDescribe how strategy frequencies change over time in evolutionary systems."
+  }
+]

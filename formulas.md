@@ -196,3 +196,23 @@ v_i^{t+1} = w v_i^t + \phi_1 U_1 (pb_i - x_i^t) + \phi_2 U_2 (gb - x_i^t)
 - \(\bar{f}(x)\): Average fitness of population
 
 **Plain English:** Rate of change of a strategy's proportion in the population equals its current proportion times how much better (or worse) it is than average.
+
+### Replicator Dynamics for Two Populations
+
+\[
+\dot{x}\_i = x_i \left( (A y)\_i - x^T A y \right) \\
+\dot{y}\_j = y_j \left( (x^T B)\_j - x^T B y \right)
+\]
+
+**Variables:**
+
+- \(x_i\): frequency of strategy \(i\) in first population
+- \(y_j\): frequency of strategy \(j\) in second population
+- \(A\): payoff matrix for first population
+- \(B\): payoff matrix for second population
+- \((A y)\_i\): expected payoff of strategy \(i\) in first population
+- \((x^T B)\_j\): expected payoff of strategy \(j\) in second population
+- \(x^T A y\): average payoff in first population
+- \(x^T B y\): average payoff in second population
+
+**Plain English:** Describes how strategy frequencies change over time in two interacting populations, where each population's evolution depends on the current state of the other population.
