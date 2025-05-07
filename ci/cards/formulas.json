@@ -1,0 +1,42 @@
+[
+  {
+    "q": "What is the basic neuron output formula and what do its components represent?",
+    "a": "Basic neuron output:\n\\[ y = \\phi\\left(\\sum\\limits_{i=1}^{p} w_i x_i + b\\right) \\]\n\nComponents:\n- \\(\\phi\\) = activation function (e.g., sigmoid, ReLU)\n- \\(w_i\\) = weight for input i\n- \\(x_i\\) = input value i\n- \\(b\\) = bias term\n- \\(p\\) = number of inputs"
+  },
+  {
+    "q": "What are the key activation functions and their formulas?",
+    "a": "- **Heaviside (Threshold)**:\n\\[ \\phi(v) = \\begin{cases} 1 & v \\geq 0 \\\\ 0 & v < 0 \\end{cases} \\]\n\n- **Sigmoid**:\n\\[ \\phi(v) = \\frac{1}{1 + e^{-\\alpha v}} \\]\n\n- **Tanh**:\n\\[ \\phi(v) = \\tanh(v) = \\frac{e^{2v} - 1}{e^{2v} + 1} \\]\n\n- **ReLU**:\n\\[ \\phi(v) = \\max(0, v) \\]"
+  },
+  {
+    "q": "What are the main learning rules in neural networks and their formulas?",
+    "a": "- **Error-Correction (Delta Rule)**:\n\\[ \\Delta w_{kj}(n) = \\eta \\cdot e_k(n) \\cdot x_j(n) \\]\n\n- **Hebbian Learning**:\n\\[ \\Delta w_{kj}(n) = \\eta \\cdot y_k(n) \\cdot x_j(n) \\]\n\n- **Covariance Hypothesis**:\n\\[ \\Delta w_{kj}(n) = \\eta \\cdot (y_k - \\bar{y})(x_j - \\bar{x}) \\]\n\n- **Competitive Learning**:\n\\[ y_k = \\begin{cases} 1 & \\text{if } v_k > v_j, \\forall j \\ne k \\\\ 0 & \\text{otherwise} \\end{cases} \\]"
+  },
+  {
+    "q": "What are the key backpropagation formulas?",
+    "a": "- **Output Layer Error**:\n\\[ \\delta_j = (d_j - y_j) \\cdot \\phi'(v_j) \\]\n\n- **Hidden Layer Error**:\n\\[ \\delta_j = \\phi'(v_j) \\cdot \\sum\\limits_k \\delta_k w_{kj} \\]\n\n- **Weight Update**:\n\\[ \\Delta w_{ij} = \\eta \\cdot \\delta_j \\cdot y_i \\]\n\n- **Momentum Update**:\n\\[ \\Delta w_{ij}(n) = \\eta \\cdot \\delta_j \\cdot y_i + \\mu \\cdot \\Delta w_{ij}(n-1) \\]"
+  },
+  {
+    "q": "What are the key SVM formulas and concepts?",
+    "a": "- **Decision Boundary**:\n\\[ \\mathbf{w}^\\top \\mathbf{x} + b = 0 \\]\n\n- **Margin**:\n\\[ \\rho = \\frac{2}{\\|\\mathbf{w}\\|} \\]\n\n- **Primal Problem**:\n\\[ \\min_{\\mathbf{w}, b} \\frac{1}{2}\\|\\mathbf{w}\\|^2 \\quad \\text{s.t.} \\quad d_i(\\mathbf{w}^\\top \\mathbf{x}_i + b) \\geq 1 \\]\n\n- **Soft Margin**:\n\\[ \\min_{\\mathbf{w}, b, \\boldsymbol{\\xi}} \\frac{1}{2}\\|\\mathbf{w}\\|^2 + C\\sum \\xi_i \\]"
+  },
+  {
+    "q": "What are the key reinforcement learning formulas?",
+    "a": "- **Q-Learning Update**:\n\\[ Q(s,a) = Q(s,a) + \\alpha[r + \\gamma \\cdot \\max_{a'} Q(s',a') - Q(s,a)] \\]\n\n- **Policy**:\n\\[ \\pi(a|s) = \\frac{e^{Q(s,a)/\\tau}}{\\sum_{a'} e^{Q(s,a')/\\tau}} \\]"
+  },
+  {
+    "q": "What are the key genetic algorithm formulas?",
+    "a": "- **Selection Probability**:\n\\[ p(i) = \\frac{f(i)}{\\sum\\limits_j f(j)} \\]\n\n- **Baker's Linear Ranking**:\n\\[ p_i = \\frac{1}{N} \\left( \\eta_{\\text{max}} - (\\eta_{\\text{max}} - \\eta_{\\text{min}}) \\cdot \\frac{i-1}{N-1} \\right) \\]\n\n- **Fitness Sharing**:\n\\[ F_{\\text{shared}}(p_i) = \\frac{F(p_i)^b}{\\sum\\limits_{j=1}^{N} \\gamma(d(p_i, p_j))} \\]"
+  },
+  {
+    "q": "What are the key particle swarm optimization formulas?",
+    "a": "- **Velocity Update**:\n\\[ v_{ij} = w \\cdot v_{ij} + c_1 \\cdot rand \\cdot (pbest_{ij} - x_{ij}) + c_2 \\cdot rand \\cdot (gbest_j - x_{ij}) \\]\n\n- **Position Update**:\n\\[ x_{ij} = x_{ij} + v_{ij} \\]\n\n- **Time Varying Inertia Weight**:\n\\[ w = (w_{\\text{init}} - w_{\\text{final}}) \\cdot \\frac{t_{\\text{final}} - t}{t_{\\text{final}}} + w_{\\text{final}} \\]"
+  },
+  {
+    "q": "What are the key RBF network formulas?",
+    "a": "- **RBF Network Function**:\n\\[ F(\\mathbf{x}) = \\sum\\limits_{i=1}^{M} w_i \\, \\exp\\left(-\\frac{\\|\\mathbf{x} - \\mathbf{c}_i\\|^2}{2\\sigma_i^2}\\right) \\]\n\n- **RBF Training Objective**:\n\\[ E(\\mathbf{w}) = \\sum \\left[F(\\mathbf{x}_i) - y_i\\right]^2 + \\lambda \\|D\\mathbf{F}\\|^2 \\]"
+  },
+  {
+    "q": "What are the key optimization formulas?",
+    "a": "- **Gradient Descent**:\n\\[ \\mathbf{x}' = \\mathbf{x} - \\eta \\nabla f(\\mathbf{x}) \\]\n\n- **Momentum**:\n\\[ \\mathbf{v} = \\mu \\mathbf{v} - \\eta \\nabla f(\\mathbf{x}) \\]\n\\[ \\mathbf{x}' = \\mathbf{x} + \\mathbf{v} \\]"
+  }
+]
