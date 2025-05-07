@@ -161,27 +161,39 @@
 
 - **Path Selection Probability**:
   \[
-  P*{ij}(t) = \frac{[\tau*{ij}(t)]^\alpha \cdot [\eta_{ij}]^\beta}{\sum*{k \in J} [\tau*{ik}(t)]^\alpha \cdot [\eta_{ik}]^\beta}
+  p*{ij} = \frac{[\tau*{ij}]^\alpha [\eta_{ij}]^\beta}{\sum*{l \in N_i} [\tau*{il}]^\alpha [\eta_{il}]^\beta}
   \]
   where:
 
   - \( \tau\_{ij} \) = pheromone level on path i,j
   - \( \eta\_{ij} \) = heuristic information (like inverse of distance)
   - \( \alpha, \beta \) = parameters controlling influence
-  - \( J \) = set of unvisited nodes
+  - \( N_i \) = set of available next nodes
 
   In plain English: This formula determines how likely an ant is to choose a particular path based on both the amount of pheromone on the path and how good the path looks based on distance or other factors.
 
 - **Pheromone Update Rule**:
   \[
-  \tau*{ij} \leftarrow (1 - \rho) \cdot \tau*{ij} + \Delta \tau\_{ij}
+  \tau*{ij} \leftarrow (1 - \rho)\tau*{ij} + \rho \Delta\tau\_{ij}
   \]
   where:
 
+  - \( \tau\_{ij} \) = current pheromone level
   - \( \rho \) = evaporation rate
-  - \( \Delta \tau\_{ij} \) = amount of new pheromone deposited
+  - \( \Delta\tau\_{ij} \) = new pheromone deposited
 
   In plain English: This formula updates the pheromone level on each path by first reducing it through evaporation and then adding new pheromone based on how many ants used the path and how good their solutions were.
+
+- **Global Best Update**:
+  \[
+  \tau*{ij} \leftarrow (1 - \rho)\tau*{ij} + \rho \Delta\tau\_{ij}^{bs}
+  \]
+  where:
+
+  - \( \Delta\tau*{ij}^{bs} = 1/L*{bs} \) = reward based on best tour length
+  - Other variables same as above
+
+  In plain English: This special update rule reinforces the best solution found so far, helping the colony remember and build upon its best discoveries.
 
 ## 🧬 Evolutionary Game Theory
 
@@ -212,3 +224,44 @@
   - \( A, B \) = payoff matrices
 
   In plain English: Shows how two populations' strategies evolve based on their interactions and payoffs.
+
+## 🐝 Bee System
+
+### Lévy Flight
+
+- **Step Length Distribution**:
+  \[
+  p(l) \sim l^{-\mu}
+  \]
+  where:
+
+  - \( l \) = step length
+  - \( \mu \) = power law exponent (typically 1 < \( \mu \) < 3)
+
+  In plain English: This formula describes how bees mix short local moves with occasional long jumps during foraging, creating an efficient search pattern that balances exploration and exploitation.
+
+### Path Integration
+
+- **Return Vector**:
+  \[
+  \mathbf{v}_{\text{return}} = -\sum_{i=1}^n \mathbf{v}\_i
+  \]
+  where:
+
+  - \( \mathbf{v}\_i \) = individual movement vectors
+  - \( n \) = number of steps taken
+
+  In plain English: This formula calculates the direct path back to the nest by summing up all the movement vectors taken during foraging, allowing bees to return efficiently even after complex paths.
+
+### Dance Recruitment
+
+- **Probability of Following Dance**:
+  \[
+  p\_{\text{follow}} = \frac{Q}{Q + K}
+  \]
+  where:
+
+  - \( Q \) = food quality
+  - \( K \) = threshold parameter
+
+  In plain English: This formula determines how likely other bees are to follow a dance based on the quality of the food source, with better food sources attracting more followers.
