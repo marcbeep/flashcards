@@ -5,15 +5,20 @@
 ### Basic Neuron
 
 - **Neuron Output**: Sum of weighted inputs through activation function
+
   $$
   y = \phi\left(\sum_{i=1}^{p} w_i x_i + b\right)
   $$
+
   where:
+
   - $\phi$ = activation function (e.g., sigmoid, ReLU)
   - $w_i$ = weight for input i
   - $x_i$ = input value i
   - $b$ = bias term
   - $p$ = number of inputs
+
+  In plain English: The output of a neuron is calculated by taking the sum of all inputs multiplied by their respective weights, adding a bias term, and then passing this sum through an activation function that determines the neuron's final output.
 
 ### Activation Functions
 
@@ -24,6 +29,8 @@
   $$
 
   where $v$ = input value. Outputs 1 if input ≥ 0, 0 otherwise.
+
+  In plain English: This is a simple step function that outputs 1 when the input is zero or positive, and 0 when the input is negative. It's like a digital switch that's either on (1) or off (0).
 
 - **Piecewise Linear**:
 
@@ -44,6 +51,8 @@
   - $v$ = input value
   - $\alpha$ = steepness parameter (larger = steeper curve)
   - Output range: (0,1)
+
+  In plain English: The sigmoid function smoothly transforms any input into a value between 0 and 1. It creates an S-shaped curve that's useful for binary classification problems, where we want to predict probabilities.
 
 - **Tanh**: Like sigmoid but centered at 0, outputs between -1 and 1
 
@@ -74,16 +83,23 @@
   - $w_{kj}$ = weight from input j to neuron k
   - $p$ = number of inputs
 
+  In plain English: This formula describes how a single layer of neurons processes inputs. Each neuron takes all inputs, multiplies them by their respective weights, sums them up, and passes the result through an activation function to produce its output.
+
 - **Multi-Layer Feedforward**:
+
   $$
   y_k(\mathbf{x}) = \phi\left( \sum_{j=0}^{p_{\text{hidden}}} w_{kj} \cdot \phi\left( \sum_{i=0}^{p_{\text{input}}} w_{ji} x_i \right) \right)
   $$
+
   where:
+
   - $y_k$ = output of neuron k in output layer
   - $w_{kj}$ = weight from hidden neuron j to output k
   - $w_{ji}$ = weight from input i to hidden neuron j
   - $p_{\text{hidden}}$ = number of hidden neurons
   - $p_{\text{input}}$ = number of input neurons
+
+  In plain English: This formula describes how a neural network with multiple layers processes information. The input is first processed by a hidden layer of neurons, and then the outputs of these hidden neurons are processed by the output layer. Each layer transforms the data through weighted sums and activation functions, allowing the network to learn complex patterns.
 
 ### Learning Rules
 
@@ -100,6 +116,8 @@
   - $e_k$ = error at output k
   - $x_j$ = input j
   - $n$ = time step
+
+  In plain English: This rule adjusts the weights of a neural network based on the error in its output. The weight change is proportional to the learning rate, the error at the output, and the input value. It's like making small corrections to reduce the difference between what the network predicted and what it should have predicted.
 
 - **Hebbian Learning**:
 
@@ -217,6 +235,8 @@
   - $\phi'$ = derivative of activation function
   - $v_j$ = weighted sum of inputs
 
+  In plain English: This formula calculates how much each output neuron contributed to the overall error. It considers both the difference between what we wanted and what we got, and how sensitive the neuron is to changes in its input (through the derivative of the activation function).
+
 - **Hidden Layer Error**: Error propagated from next layer
 
   $$
@@ -269,6 +289,8 @@
   - $\mathbf{w}$ = weight vector (normal to hyperplane)
   - $\mathbf{x}$ = input vector
   - $b$ = bias term
+
+  In plain English: This equation defines the boundary that separates different classes in the data. The boundary is a line (in 2D) or a plane (in 3D) that is positioned to maximize the margin between classes. Points on one side of the boundary belong to one class, while points on the other side belong to another class.
 
 - **Margin**: Distance to closest data points (support vectors)
 
@@ -354,6 +376,8 @@
   - $s'$ = next state
   - $a'$ = next action
 
+  In plain English: This formula updates our estimate of how good an action is in a particular state by considering the immediate reward we get and the best possible future rewards we could get. It's like learning from both immediate and future consequences of our actions.
+
 - **Policy**: Probability of taking action in state
   $$
   \pi(a|s) = \frac{e^{Q(s,a)/\tau}}{\sum_{a'} e^{Q(s,a')/\tau}}
@@ -377,6 +401,8 @@
   - $p(i)$ = probability of selecting individual i
   - $f(i)$ = fitness of individual i
   - $j$ = all individuals
+
+  In plain English: This formula determines how likely each solution is to be selected for reproduction based on its fitness. Better solutions (higher fitness) have a higher chance of being selected, similar to natural selection in evolution where fitter individuals are more likely to pass on their genes.
 
 - **Baker's Linear Ranking**:
 
@@ -422,6 +448,8 @@
   - $pbest_{ij}$ = best position of particle i
   - $gbest_j$ = best position in swarm
   - $x_{ij}$ = current position
+
+  In plain English: This formula determines how a particle moves in the search space by considering three factors: its current momentum, its memory of its best position, and the influence of the best position found by any particle in the swarm. It's like a group of birds flying together, where each bird is influenced by its own experience and the group's collective knowledge.
 
 - **Position Update**: New position based on velocity
 
@@ -472,6 +500,8 @@
   - $\Sigma$ = covariance matrix
   - $t$ = generation
 
+  In plain English: This formula describes how solutions are modified in evolution strategies. It adds random changes to the current solution, where the size and direction of these changes are controlled by a normal distribution. The covariance matrix determines how these changes are distributed across different dimensions of the solution.
+
 - **1/5 Success Rule**: Adapt step size
 
   $$
@@ -515,6 +545,8 @@
 
   - size = number of nodes
   - children = all child nodes
+
+  In plain English: This formula calculates the total number of nodes in a program tree by counting the current node (1) plus the size of all its child nodes. It's like counting all the branches and leaves in a tree, where each node represents a part of the program.
 
 - **Program Fitness**: Usually includes size penalty
 
@@ -574,6 +606,8 @@
   - $\sigma_i$ = width of RBF i
   - $M$ = number of RBFs
 
+  In plain English: This formula calculates the output of a Radial Basis Function network by summing up the weighted responses of multiple bell-shaped functions. Each function measures how close the input is to its center point, creating a smooth interpolation between known points in the input space.
+
 - **RBF Training Objective**:
   $$
   E(\mathbf{w}) = \sum \left[F(\mathbf{x}_i) - y_i\right]^2 + \lambda \|D\mathbf{F}\|^2
@@ -599,6 +633,8 @@
   - $\mathbf{x}'$ = new position
   - $\eta$ = learning rate
   - $\nabla f$ = gradient of function
+
+  In plain English: This is the basic step in gradient descent optimization. It moves the current position in the direction of steepest descent (downhill) of the function, scaled by the learning rate. It's like taking small steps downhill to find the lowest point in a valley.
 
 - **Momentum**: Helps escape local minima
   $$
