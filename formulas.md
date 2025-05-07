@@ -216,3 +216,192 @@ v_i^{t+1} = w v_i^t + \phi_1 U_1 (pb_i - x_i^t) + \phi_2 U_2 (gb - x_i^t)
 - \(x^T B y\): average payoff in second population
 
 **Plain English:** Describes how strategy frequencies change over time in two interacting populations, where each population's evolution depends on the current state of the other population.
+
+# Data Mining Formulas
+
+## Classification Metrics
+
+### Accuracy
+
+\[
+\text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
+\]
+
+- TP = True Positives
+- TN = True Negatives
+- FP = False Positives
+- FN = False Negatives
+- Definition: Proportion of total correct predictions
+
+### Precision
+
+\[
+\text{Precision} = \frac{TP}{TP + FP}
+\]
+
+- Definition: Among predicted positives, how many are actually positive
+
+### Recall
+
+\[
+\text{Recall} = \frac{TP}{TP + FN}
+\]
+
+- Definition: Among actual positives, how many did we correctly predict
+
+### F-score
+
+\[
+\text{F-score} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
+\]
+
+- Definition: Harmonic mean of precision and recall
+
+## Distance Metrics
+
+### Euclidean Distance (L2)
+
+\[
+\text{Euclidean}(X, Y) = \sqrt{\sum\_{i=1}^{d}(x_i - y_i)^2}
+\]
+
+- X, Y = d-dimensional vectors
+- Definition: Straight-line distance between two points
+
+### Manhattan Distance (L1)
+
+\[
+\text{Manhattan}(X, Y) = \sum\_{i=1}^{d}|x_i - y_i|
+\]
+
+- Definition: Sum of absolute differences in each dimension
+
+### Cosine Similarity
+
+\[
+\text{Cosine}(X, Y) = \frac{X \cdot Y}{\|X\|\|Y\|} = \cos(\theta)
+\]
+
+- Definition: Measures angle between vectors (1 = same direction, 0 = perpendicular, -1 = opposite)
+
+### Jaccard Similarity
+
+\[
+J(A, B) = \frac{|A \cap B|}{|A \cup B|}
+\]
+
+- A, B = sets
+- Definition: Ratio of intersection size to union size
+
+## Clustering
+
+### k-Means Objective
+
+\[
+\sum*{j=1}^{k} \sum*{X \in C_j} \|X - Y_j\|^2
+\]
+
+- k = number of clusters
+- C_j = j-th cluster
+- Y_j = centroid of cluster j
+- Definition: Total within-cluster sum of squares
+
+### Silhouette Coefficient
+
+\[
+s(x) = \frac{b(x) - a(x)}{\max(a(x), b(x))}
+\]
+
+- a(x) = average distance from x to points in its cluster
+- b(x) = average distance from x to points in nearest cluster
+- Definition: Measures how well a point fits in its cluster (-1 to 1)
+
+## Graph Theory
+
+### Degree Centrality
+
+\[
+CD(i) = \frac{\text{deg}(i)}{n - 1}
+\]
+
+- deg(i) = number of connections of node i
+- n = total number of nodes
+- Definition: Normalized number of connections
+
+### Closeness Centrality
+
+\[
+CC(i) = \frac{1}{\frac{\sum\_{j \neq i} \text{dist}(i, j)}{n - 1}}
+\]
+
+- dist(i,j) = shortest path distance between i and j
+- Definition: Inverse of average distance to all other nodes
+
+### Betweenness Centrality
+
+\[
+CB(i) = \frac{\sum*{j < k} f*{jk}(i)}{\frac{n(n - 1)}{2}}
+\]
+
+- f\_{jk}(i) = fraction of shortest paths between j and k that pass through i
+- Definition: How often a node appears on shortest paths between other nodes
+
+### PageRank
+
+\[
+P(a) = \sum\_{(x,a) \in E} \frac{P(x)}{O_x}
+\]
+
+- P(a) = PageRank score of page a
+- O_x = number of out-links from page x
+- E = set of all directed links
+- Definition: Importance score based on incoming links, weighted by source importance
+
+## Association Rules
+
+### Support
+
+\[
+\text{sup}(I) = \frac{\text{count of transactions containing I}}{\text{total transactions}}
+\]
+
+- I = itemset
+- Definition: Frequency of itemset in dataset
+
+### Confidence
+
+\[
+\text{conf}(X \Rightarrow Y) = \frac{\text{sup}(X \cup Y)}{\text{sup}(X)}
+\]
+
+- X, Y = itemsets
+- Definition: Probability of Y given X
+
+## Logistic Regression
+
+### Sigmoid Function
+
+\[
+\sigma(x) = \frac{1}{1 + e^{-x}}
+\]
+
+- Definition: Maps any real number to (0,1) for probability
+
+### Logistic Regression Probability
+
+\[
+P(y = +1 | X) = \sigma(b + W^T X)
+\]
+
+- b = bias term
+- W = weight vector
+- X = input features
+- Definition: Probability of positive class given input features
+
+### Negative Log-Likelihood
+
+\[
+-\ell = - \sum\_{i=1}^n \log \sigma(y_i (b + W^T X_i))
+\]
+
+- Definition: Loss function for logistic regression training
