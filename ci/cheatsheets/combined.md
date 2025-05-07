@@ -1,154 +1,3 @@
-# File: 0.md
-# 🧠 Computational Intelligence Mind Map
-
-## 📚 Neural Networks & Deep Learning (02-05)
-
-### 1. Neural Network Fundamentals (02)
-
-- Structure of a Neuron
-  - Synapses/Connections with weights
-  - Adder (Summing Junction)
-  - Activation Functions
-- Bias Term and Mathematical Foundations
-- Activation Functions
-  - Heaviside (Threshold)
-  - Piecewise Linear
-  - Sigmoid (Logistic)
-  - Tanh
-  - ReLU
-- Network Architectures
-  - Single-Layer Feedforward
-  - Multi-Layer Feedforward (MLP)
-  - CNN
-  - RNN
-
-### 2. Learning in Neural Networks (03)
-
-- Core Learning Rules
-  - Error-Correction Learning
-  - Memory-Based Learning
-  - Hebbian Learning
-  - Competitive Learning
-  - Boltzmann Learning
-- Learning Paradigms
-  - Supervised Learning
-  - Unsupervised Learning
-  - Reinforcement Learning
-- Credit Assignment Problem
-
-### 3. Adaptive Filtering & Learning (04)
-
-- System Identification
-- Linear Neuron Model
-- Linear Least Squares (LLS)
-- Least Mean Square (LMS)
-- Perceptrons
-  - Model & Training
-  - Linear Separability
-  - Convergence Theorem
-
-### 4. Backpropagation & MLPs (05)
-
-- Backpropagation Algorithm
-  - Forward Pass
-  - Backward Pass
-  - Error Calculation
-- Training Modes
-  - Sequential
-  - Batch
-  - Mini-Batch
-- Generalization & Complexity Control
-- Regularization Techniques
-
-## 📊 Advanced Neural Networks (06-07)
-
-### 1. RBF Networks (06)
-
-- Pattern Separability
-- RBF Structure
-- Training Strategies
-- Comparison with MLPs
-
-### 2. Support Vector Machines (07)
-
-- Margin and Separation
-- Support Vectors
-- Optimization (Primal & Dual)
-- Kernel Methods
-- Soft Margin SVM
-
-## 🤖 Reinforcement Learning (08)
-
-### 1. Core Concepts
-
-- Agent-Environment Interaction
-- States, Actions, Rewards
-- Policies and Value Functions
-- Markov Decision Process
-
-### 2. Learning Methods
-
-- Q-Learning
-- Deep Q-Learning (DQN)
-- Experience Replay
-- Target Networks
-
-## 🔍 Optimization Techniques (09-11)
-
-### 1. Mathematical Optimization (09)
-
-- Types of Optimization
-  - Unconstrained
-  - Constrained
-- Optimization Methods
-  - Enumerative
-  - Gradient-based
-  - Stochastic
-
-### 2. Genetic Algorithms (10-11)
-
-- Basic Components
-  - Population
-  - Selection
-  - Crossover
-  - Mutation
-- Advanced Topics
-  - Fitness Transformation
-  - Selection Schemes
-  - Population Models
-  - Parallel Populations
-- Practical Implementation
-  - Example GA Code
-  - Parameter Tuning
-
-## 🌳 Advanced Evolutionary Methods (13-15)
-
-### 1. Genetic Programming (13)
-
-- Tree Representation
-- GP Components
-  - Terminal Set
-  - Function Set
-- GP Operators
-- Gene Expression Programming (GEP)
-
-### 2. Particle Swarm Optimization (14)
-
-- Basic PSO Algorithm
-- PSO Variations
-  - Time Varying Inertia Weight
-  - Constriction Factor
-  - Acceleration Coefficients
-  - Social Stereotyping
-
-### 3. Evolution Strategies (15)
-
-- Basic ES Algorithm
-- Extensions
-  - 1/5 Success Rule
-  - (μ+λ)-ES
-  - (μ,λ)-ES
-  - Covariance Matrix Updates
 # File: 02.md
 ---
 ## 🧠 Neural Networks Cheat Sheet – COMP 575 (Chapter 2)
@@ -861,6 +710,163 @@ Training MLPs using BP involves:
   - **Weight pruning (OBD/OBS)**
 
 These concepts are the **foundation of modern neural networks** and remain essential in deep learning frameworks today.
+
+---
+
+# Plain English Backprop Example
+
+---
+
+## 🎯 Problem Setup (Simple Neural Network)
+
+- **Inputs**: $x_1 = 0.6$, $x_2 = 0.2$
+- **Hidden weights**: $w_{h1} = 0.5$, $w_{h2} = 0.4$
+- **Output weight**: $w_{ho} = 0.9$
+- **Target output**: $d = 1$
+- **Learning rate**: $\eta = 0.1$
+
+---
+
+## ▶️ Step 1: **Forward Pass** (Make a guess)
+
+### 🧮 Hidden Neuron (before activation)
+
+$$
+v_h = x_1 \cdot w_{h1} + x_2 \cdot w_{h2} = 0.6 \cdot 0.5 + 0.2 \cdot 0.4 = 0.3 + 0.08 = 0.38
+$$
+
+> **English**: Multiply inputs by their weights and add them up.
+
+### 🔄 Apply sigmoid activation
+
+$$
+y_h = \frac{1}{1 + e^{-v_h}} = \frac{1}{1 + e^{-0.38}} \approx 0.594
+$$
+
+> **English**: Plug the result into the sigmoid function to get the hidden neuron’s output.
+
+---
+
+### 🧮 Output Neuron (before activation)
+
+$$
+v_o = y_h \cdot w_{ho} = 0.594 \cdot 0.9 = 0.534
+$$
+
+> **English**: Multiply the hidden output by its weight to the output.
+
+### 🔄 Apply sigmoid activation
+
+$$
+y_o = \frac{1}{1 + e^{-v_o}} = \frac{1}{1 + e^{-0.534}} \approx 0.630
+$$
+
+> **English**: Use sigmoid again to get the network’s final output.
+
+---
+
+## ❌ Step 2: **Calculate Error**
+
+$$
+e = d - y_o = 1 - 0.630 = 0.370
+$$
+
+> **English**: Subtract the actual output from the target.
+
+$$
+E = \frac{1}{2} \cdot e^2 = \frac{1}{2} \cdot (0.370)^2 = 0.0685
+$$
+
+> **English**: Square the error and divide by 2 (this is the total error for this example).
+
+---
+
+## 🔁 Step 3: **Backward Pass** (Figure out how wrong the weights are)
+
+### 🔽 Output Neuron Delta (how much to change)
+
+$$
+\phi'(v_o) = y_o \cdot (1 - y_o) = 0.630 \cdot (1 - 0.630) = 0.233
+$$
+
+> **English**: Compute the derivative of sigmoid using the output.
+
+$$
+\delta_o = e \cdot \phi'(v_o) = 0.370 \cdot 0.233 = 0.086
+$$
+
+> **English**: Multiply the error by the derivative to get the correction term for the output.
+
+---
+
+### 🔽 Hidden Neuron Delta
+
+$$
+\phi'(v_h) = y_h \cdot (1 - y_h) = 0.594 \cdot (1 - 0.594) = 0.241
+$$
+
+> **English**: Derivative of sigmoid for the hidden neuron.
+
+$$
+\delta_h = \phi'(v_h) \cdot (\delta_o \cdot w_{ho}) = 0.241 \cdot (0.086 \cdot 0.9) = 0.241 \cdot 0.0774 \approx 0.019
+$$
+
+> **English**: Use output delta and weight to backtrack the error into the hidden layer.
+
+---
+
+## 🔧 Step 4: **Update the Weights**
+
+### 🔄 Output weight:
+
+$$
+\Delta w_{ho} = \eta \cdot \delta_o \cdot y_h = 0.1 \cdot 0.086 \cdot 0.594 = 0.0051
+$$
+
+> **English**: Small change to output weight = learning rate × output delta × hidden output
+
+$$
+w_{ho}^{new} = 0.9 + 0.0051 = 0.9051
+$$
+
+> **English**: Add the small change to the old weight
+
+---
+
+### 🔄 Hidden weight 1:
+
+$$
+\Delta w_{h1} = \eta \cdot \delta_h \cdot x_1 = 0.1 \cdot 0.019 \cdot 0.6 = 0.00114
+$$
+
+$$
+w_{h1}^{new} = 0.5 + 0.00114 = 0.50114
+$$
+
+> **English**: Update input-to-hidden weight using input $x_1$
+
+---
+
+### 🔄 Hidden weight 2:
+
+$$
+\Delta w_{h2} = 0.1 \cdot 0.019 \cdot 0.2 = 0.00038
+$$
+
+$$
+w_{h2}^{new} = 0.4 + 0.00038 = 0.40038
+$$
+
+> **English**: Update weight for input $x_2$
+
+---
+
+## ✅ Final Summary (Plain English)
+
+1. **Forward Pass**: Guess the output by passing inputs through the network.
+2. **Error**: Measure how far the guess was from the target.
+3. **Backward Pass**: Figure out how much each weight contributed to the error.
+4. **Update Weights**: Adjust the weights to reduce the error next time.
 
 ---
 # File: 06.md
@@ -1937,12 +1943,12 @@ This is non-examinable.
 
 ## 🧬 **Genetic Programming (GP)** – Overview
 
-**GP** is a method where computers evolve programs (solutions) automatically using biological ideas like selection, crossover, and mutation.
+**GP** is a method where computers evolve programs (solutions) automatically using biological ideas like **selection**, **crossover**, and **mutation**.
 
-- Instead of just adjusting values (like Genetic Algorithms), GP changes both:
+- Unlike Genetic Algorithms (GAs), GP evolves:
 
-  - The **structure** (form) of the program,
-  - And the **parameters** (numbers/inputs) in it.
+  - The **structure** of the program
+  - The **parameters** (constants, variables)
 
 ---
 
@@ -1950,12 +1956,12 @@ This is non-examinable.
 
 - Programs are represented as **trees**:
 
-  - **Functions** go in the **branches** (e.g., `+`, `*`, `if`, `sin`)
-  - **Terminals** (numbers or variables) go in the **leaves**
+  - **Functions**: in **branches** (e.g., `+`, `*`, `if`, `sin`)
+  - **Terminals**: in **leaves** (e.g., constants like 2 or variables like `x`)
 
-- Example Tree:
-  `(2 + N) × 4`
-  Looks like:
+- Example expression: $(2 + N) \times 4$
+
+  Tree structure:
 
   ```
       ×
@@ -1969,76 +1975,65 @@ This is non-examinable.
 
 ## 🧱 GP Components
 
-### Terminal Set (T):
+| Component            | Description                              | Examples                   |
+| -------------------- | ---------------------------------------- | -------------------------- |
+| **Terminal Set (T)** | Endpoints of trees (constants/variables) | `2`, `x`, `y`              |
+| **Function Set (F)** | Internal nodes (operations or controls)  | `+`, `-`, `*`, `if`, `sin` |
 
-- Endpoints of trees.
-- Could be constants (like `2`) or variables (like `x`, `y`).
-
-### Function Set (F):
-
-- Internal nodes like `+`, `-`, `*`, `if`, `loop`, `sin`, etc.
-- Should be small (for speed) but expressive (for solving problems).
+- Function sets should be small (for speed) but expressive enough for the task.
 
 ---
 
 ## ⚙️ GP Operators
 
-### 1. **Selection**:
+### 1. **Selection**
 
-- Pick better programs to survive or mate (based on fitness).
+- Choose better programs based on **fitness** to survive or reproduce.
 
-### 2. **Crossover**:
+### 2. **Crossover**
 
-- Swap parts (subtrees) of two programs to create new ones.
+- Swap **subtrees** between two parent programs to create offspring.
 
-### 3. **Mutation**:
+### 3. **Mutation**
 
-- Randomly change one function or terminal in a tree.
+- Randomly change one **function** or **terminal** in a tree.
 
-### GP Flow (Loop):
+### GP Loop (Execution Flow)
 
-1. While the population isn't full:
+1. Until new generation is full:
 
-   - Decide to mutate or crossover.
-   - If mutate: pick 1, change a part.
-   - If crossover: pick 2, swap parts.
-   - Add to new generation.
+   - Choose to **mutate** or **crossover**
+   - If **mutate**: pick 1 individual, randomly alter it
+   - If **crossover**: pick 2 individuals, exchange subtrees
+   - Add to new generation
 
-2. Repeat for many generations.
+2. Repeat for many generations
 
 ---
 
 ## 🌱 Tree Initialization Methods
 
-### 1. **Full Method**:
-
-- All branches go to max depth (`Dmax`).
-- Functions inside, terminals at the end.
-
-### 2. **Grow Method**:
-
-- Varying depths.
-- Mixed functions and terminals inside.
-
-### 3. **Ramped Half-and-Half**:
-
-- Mix of Full and Grow to get diverse trees.
+| Method                   | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| **Full Method**          | All branches extend to max depth $D_{\text{max}}$; functions inside, terminals at leaves |
+| **Grow Method**          | Variable depth trees; functions and terminals mixed at all levels                        |
+| **Ramped Half-and-Half** | Combines both Full and Grow to create diverse initial trees                              |
 
 ---
 
 ## ❌ Introns in GP
 
-**Introns** are parts of the program that **do nothing**.
+**Introns**: Parts of the program that do **nothing** (e.g., unused branches like `if` statements that are never true).
 
-- Example: an unused `if` statement.
-- They can:
+Pros and cons:
 
-  - ✅ Protect good parts from bad crossover
-  - ❌ Make programs longer, slower, and harder to understand
+| ✅ Pros                                        | ❌ Cons                                           |
+| ---------------------------------------------- | ------------------------------------------------- |
+| Protect useful subtrees from harmful crossover | Make programs longer, slower, harder to interpret |
 
-### Controlling Introns:
+### Controlling Introns
 
-- Penalize complex programs using:
+- Use **penalties** based on:
 
   - Node count
   - Instruction count
@@ -2048,28 +2043,28 @@ This is non-examinable.
 
 ## 🧠 Gene Expression Programming (GEP)
 
-GEP is similar to GP but uses **fixed-length strings (like DNA)** to represent programs.
+**GEP** uses **fixed-length strings** (like DNA) to encode programs.
 
-### Genotype vs Phenotype:
+| Term          | Description                                     |
+| ------------- | ----------------------------------------------- |
+| **Genotype**  | Encoded string (e.g., `Q * + - a b c d`)        |
+| **Phenotype** | Tree representation after decoding the genotype |
 
-- **Genotype** = the gene string (e.g., `Q * + - a b c d`)
-- **Phenotype** = the tree it decodes into
+### Decoding Process
 
-### Decoding:
-
-- Read the string left to right
-- Fill the tree level-by-level
-- Use each function’s required number of inputs
+- Read string **left-to-right**
+- Fill tree **level-by-level**
+- Each function uses its required number of inputs
 
 ---
 
-## 💡 GEP Encoding Example:
+## 💡 GEP Encoding Example
 
 Math formula:
 
-```
-√((a + b) × (c − d))
-```
+$$
+\sqrt{(a + b) \times (c - d)}
+$$
 
 GEP gene string:
 
@@ -2077,7 +2072,7 @@ GEP gene string:
 Q * + - a b c d
 ```
 
-Turns into tree:
+Tree structure:
 
 ```
        Q
@@ -2093,89 +2088,76 @@ Turns into tree:
 
 ## ✨ GEP Advantages over GP
 
-1. **Fixed-length strings** (easier to manage)
-2. **Always valid programs** (no broken trees)
-3. **Non-coding regions** (help mutation/crossover without damage)
+1. Uses **fixed-length strings**
+2. Guarantees **valid programs**
+3. Allows **non-coding regions** to absorb mutations/crossovers safely
 
-### Head and Tail:
+### Head vs Tail Regions
 
-- **Head**: can have functions and terminals
-- **Tail**: only terminals
-- Example:
+| Region   | Contains                |
+| -------- | ----------------------- |
+| **Head** | Functions and terminals |
+| **Tail** | Only terminals          |
 
-  ```
-  + Q - / b * a a Q b a  a b b a
-  ```
+Example:
+
+```
++ Q - / b * a a Q b a  a b b a
+```
 
 ---
 
 ## 🔁 GEP Mutation Example
 
-Original gene:
+Original:
 
 ```
 + Q - / b * a a Q **b** a  a b b a
 ```
 
-Mutate `"b"` → `"+"` (a function from head set)
-
-Result:
+Mutation (`b → +`, a valid head function):
 
 ```
 + Q - / b * a a Q **+** a  a b b a
 ```
 
-This mutation changes the structure of the resulting tree and increases its depth.
+- Changes **tree structure**
+- May **increase depth**
 
 ---
 
 ## 🔀 GEP Crossover Example
 
-Parent 1:
+| Parent 1                              | Parent 2                              |
+| ------------------------------------- | ------------------------------------- |
+| `- b + Q b b a b b / a Q b b b a a b` | `/ - a / a b a b b - b a - a b a a a` |
 
-```
-- b + Q b b a b b / a Q b b b a a b
-```
+Cut and swap partway:
 
-Parent 2:
+| Resulting Child 1                     | Resulting Child 2                     |
+| ------------------------------------- | ------------------------------------- |
+| `- b + / a b a b b - b a - a b a a a` | `/ - a Q b b a b b / a Q b b b a a b` |
 
-```
-/ - a / a b a b b - b a - a b a a a
-```
-
-Cut and swap after a point:
-
-Child 1:
-
-```
-- b + / a b a b b - b a - a b a a a
-```
-
-Child 2:
-
-```
-/ - a Q b b a b b / a Q b b b a a b
-```
-
-This introduces **diversity**, but may disrupt useful structures.
+- Introduces **diversity**
+- Might **disrupt useful structures**
 
 ---
 
 ## 📊 GEP in Symbolic Regression
 
-Goal: Find this function using basic math (no `^` allowed):
+Target function:
 
-```
-f(a) = a⁴ + a³ + a² + a
-```
+$$
+f(a) = a^4 + a^3 + a^2 + a
+$$
 
-GEP finds:
+GEP output:
 
 ```
 * + + / * * a a a a a a a a
 ```
 
-Which builds this tree:
+Tree:
 
 ```
        *
@@ -2186,13 +2168,13 @@ Which builds this tree:
  a a a a a a
 ```
 
-This results in:
+Equivalent expression:
 
-```
-(1 + a²) × (a + a²) = a + a² + a³ + a⁴
-```
+$$
+(1 + a^2)(a + a^2) = a + a^2 + a^3 + a^4
+$$
 
-🎉 Perfect match!
+✅ **Perfect match**
 
 ---
 # File: 14.md
@@ -2571,164 +2553,3 @@ To evolve the **strategy itself**, update both diagonal and off-diagonal element
 | Covariance Updates | Adapt how mutation behaves, including direction |
 
 ---
-# File: formulas.md
-# 🔢 Essential Formulas in Computational Intelligence
-
-## 🧠 Neural Networks
-
-### Basic Neuron
-
-- **Neuron Output**: Sum of weighted inputs through activation function
-  ```
-  y = φ(Σ wᵢxᵢ + b)
-  ```
-  where φ is activation function, w are weights, x are inputs, b is bias
-
-### Activation Functions
-
-- **Sigmoid**: Smooth, differentiable, outputs between 0 and 1
-
-  ```
-  φ(v) = 1 / (1 + e⁻ᵛ)
-  ```
-
-- **Tanh**: Like sigmoid but centered at 0, outputs between -1 and 1
-
-  ```
-  φ(v) = (e²ᵛ - 1) / (e²ᵛ + 1)
-  ```
-
-- **ReLU**: Simple, fast, helps with vanishing gradient
-  ```
-  φ(v) = max(0, v)
-  ```
-
-### Backpropagation
-
-- **Output Layer Error**: Difference between target and actual output
-
-  ```
-  δⱼ = (dⱼ - yⱼ) × φ'(vⱼ)
-  ```
-
-- **Hidden Layer Error**: Error propagated from next layer
-
-  ```
-  δⱼ = φ'(vⱼ) × Σ(δₖwₖⱼ)
-  ```
-
-- **Weight Update**: Learning from errors
-  ```
-  Δwᵢⱼ = η × δⱼ × yᵢ
-  ```
-  where η is learning rate
-
-## 📊 Support Vector Machines
-
-- **Decision Boundary**: Hyperplane separating classes
-
-  ```
-  wᵀx + b = 0
-  ```
-
-- **Margin**: Distance to closest data points (support vectors)
-
-  ```
-  margin = 2 / ||w||
-  ```
-
-- **Kernel Trick**: Transform to higher dimension
-  ```
-  K(x,y) = φ(x)ᵀφ(y)
-  ```
-
-## 🎲 Reinforcement Learning
-
-- **Q-Learning Update**: Learn action values
-
-  ```
-  Q(s,a) = Q(s,a) + α[r + γ×max(Q(s',a')) - Q(s,a)]
-  ```
-
-  where α is learning rate, γ is discount factor
-
-- **Policy**: Probability of taking action in state
-  ```
-  π(a|s) = e^(Q(s,a)/τ) / Σ(e^(Q(s,a')/τ))
-  ```
-  where τ is temperature parameter
-
-## 🧬 Genetic Algorithms
-
-- **Selection Probability**: Chance of being selected based on fitness
-
-  ```
-  p(i) = f(i) / Σf(j)
-  ```
-
-- **Rank-Based Selection**: Selection based on rank instead of raw fitness
-  ```
-  p(i) = (2-s)/N + 2i(s-1)/(N(N-1))
-  ```
-  where s is selection pressure
-
-## 🐦 Particle Swarm Optimization
-
-- **Velocity Update**: How particles move in search space
-
-  ```
-  v = w×v + c₁r₁(pbest - x) + c₂r₂(gbest - x)
-  ```
-
-  where w is inertia, c₁,c₂ are learning factors
-
-- **Position Update**: New position based on velocity
-  ```
-  x = x + v
-  ```
-
-## 📈 Evolution Strategies
-
-- **Mutation**: Gaussian perturbation of solution
-
-  ```
-  x' = x + σ×N(0,1)
-  ```
-
-  where σ is step size
-
-- **1/5 Success Rule**: Adapt step size
-  ```
-  σ' = σ × (success_rate > 0.2 ? 1.22 : 0.82)
-  ```
-
-## 🌳 Genetic Programming
-
-- **Tree Size**: Number of nodes in program tree
-
-  ```
-  size = 1 + Σ(size of children)
-  ```
-
-- **Program Fitness**: Usually includes size penalty
-  ```
-  fitness = accuracy - λ×size
-  ```
-  where λ controls complexity penalty
-
-## 🔍 Optimization
-
-- **Gradient Descent**: Basic optimization step
-
-  ```
-  x' = x - η∇f(x)
-  ```
-
-  where η is step size, ∇f is gradient
-
-- **Momentum**: Helps escape local minima
-  ```
-  v = μv - η∇f(x)
-  x' = x + v
-  ```
-  where μ is momentum coefficient
