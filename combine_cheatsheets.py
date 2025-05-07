@@ -5,7 +5,7 @@ import glob
 def combine_markdown_files():
     # Get the directory of this script
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    cheatsheets_dir = os.path.join(script_dir, "ci", "cheatsheets")
+    cheatsheets_dir = os.path.join(script_dir, "bi", "cheatsheets")
     output_file = os.path.join(cheatsheets_dir, "combined.md")
 
     # Get all markdown files and sort them
