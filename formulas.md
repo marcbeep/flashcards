@@ -17,6 +17,14 @@
 
 **Plain English:** Updates our belief about A after observing B. The probability of A given B equals the probability of B given A, times our prior belief in A, divided by the total probability of B.
 
+### Naive Bayes Assumption
+
+\[
+P(x*1, x_2, ..., x_d | C) = \prod*{i=1}^d P(x_i | C)
+\]
+
+**Plain English:** Features are conditionally independent given the class.
+
 ## Reinforcement Learning
 
 ### Q-Learning Update Rule
@@ -405,3 +413,100 @@ P(y = +1 | X) = \sigma(b + W^T X)
 \]
 
 - Definition: Loss function for logistic regression training
+
+### Feature Normalization
+
+**Min-Max Scaling ([0,1] Normalization):**
+\[
+\hat{x} = \frac{x - \text{min}(x)}{\text{max}(x) - \text{min}(x)}
+\]
+
+**Z-Score (Gaussian) Normalization:**
+\[
+\hat{x} = \frac{x - \mu}{\sigma}
+\]
+
+### Distance Measures
+
+**Manhattan Distance (L1):**
+\[
+\text{Manhattan}(X, Y) = \sum\_{i=1}^{d}|x_i - y_i|
+\]
+
+**Euclidean Distance (L2):**
+\[
+\text{Euclidean}(X, Y) = \sqrt{\sum\_{i=1}^{d}(x_i - y_i)^2}
+\]
+
+**Cosine Similarity:**
+\[
+\text{Cosine}(X, Y) = \frac{X \cdot Y}{\|X\|\|Y\|} = \cos(\theta)
+\]
+
+**Jaccard Similarity:**
+\[
+J(A, B) = \frac{|A \cap B|}{|A \cup B|}
+\]
+
+### Clustering Metrics
+
+**k-Means Objective:**
+\[
+\sum*{j=1}^{k} \sum*{X \in C_j} \|X - Y_j\|^2
+\]
+
+**Silhouette Coefficient:**
+\[
+s(x) = \frac{b(x) - a(x)}{\max(a(x), b(x))}
+\]
+where:
+
+- a(x) = average distance from x to points in its cluster
+- b(x) = average distance from x to points in nearest cluster
+
+### Graph Metrics
+
+**PageRank with Damping:**
+\[
+M = \frac{1-d}{n}E + dA^T
+\]
+where:
+
+- d = damping factor (typically 0.85)
+- E = matrix of all 1s
+- A = transition matrix
+
+**Degree Centrality:**
+\[
+CD(i) = \frac{\text{deg}(i)}{n - 1}
+\]
+
+**Betweenness Centrality:**
+\[
+CB(i) = \frac{\sum*{j < k} f*{jk}(i)}{\frac{n(n - 1)}{2}}
+\]
+where f\_{jk}(i) = fraction of shortest paths between j and k that pass through i
+
+### Association Rules
+
+**Support:**
+\[
+\text{sup}(I) = \frac{\text{count of transactions containing I}}{\text{total transactions}}
+\]
+
+**Confidence:**
+\[
+\text{conf}(X \Rightarrow Y) = \frac{\text{sup}(X \cup Y)}{\text{sup}(X)}
+\]
+
+### Logistic Regression
+
+**Probability:**
+\[
+P(y = +1 | X) = \sigma(b + W^T X) = \frac{1}{1 + e^{-(b + W^T X)}}
+\]
+
+**Loss Function:**
+\[
+-\ell = - \sum\_{i=1}^n \log \sigma(y_i (b + W^T X_i))
+\]
