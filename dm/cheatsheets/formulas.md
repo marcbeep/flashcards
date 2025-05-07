@@ -23,7 +23,13 @@
 P(x*1, x_2, ..., x_d | C) = \prod*{i=1}^d P(x_i | C)
 \]
 
-**Plain English:** Features are conditionally independent given the class.
+**Variables:**
+
+- \(x_i\): Individual features
+- \(C\): Class
+- \(P(x_i | C)\): Probability of feature i given class C
+
+**Plain English:** Features are conditionally independent given the class. This means each feature contributes independently to the probability of the class.
 
 ## Reinforcement Learning
 
@@ -56,6 +62,7 @@ V^{\pi}(s) = \mathbb{E}_{\pi} [r_{t+1} + \gamma V^{\pi}(s\_{t+1}) \mid s_t = s]
 - \(r\_{t+1}\): Next reward
 - \(\gamma\): Discount factor
 - \(s\_{t+1}\): Next state
+- \(\mathbb{E}\_{\pi}\): Expectation under policy π
 
 **Plain English:** The value of a state equals the expected immediate reward plus the discounted value of the next state.
 
@@ -225,288 +232,309 @@ v_i^{t+1} = w v_i^t + \phi_1 U_1 (pb_i - x_i^t) + \phi_2 U_2 (gb - x_i^t)
 
 **Plain English:** Describes how strategy frequencies change over time in two interacting populations, where each population's evolution depends on the current state of the other population.
 
-# Data Mining Formulas
+## Data Mining Formulas
 
-## Classification Metrics
+### Classification Metrics
 
-### Accuracy
+#### Accuracy
 
 \[
 \text{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 \]
 
-- TP = True Positives
-- TN = True Negatives
-- FP = False Positives
-- FN = False Negatives
-- Definition: Proportion of total correct predictions
+**Variables:**
 
-### Precision
+- TP: True Positives
+- TN: True Negatives
+- FP: False Positives
+- FN: False Negatives
+
+**Plain English:** Proportion of total correct predictions out of all predictions.
+
+#### Precision
 
 \[
 \text{Precision} = \frac{TP}{TP + FP}
 \]
 
-- Definition: Among predicted positives, how many are actually positive
+**Variables:**
 
-### Recall
+- TP: True Positives
+- FP: False Positives
+
+**Plain English:** Among predicted positives, how many are actually positive.
+
+#### Recall
 
 \[
 \text{Recall} = \frac{TP}{TP + FN}
 \]
 
-- Definition: Among actual positives, how many did we correctly predict
+**Variables:**
 
-### F-score
+- TP: True Positives
+- FN: False Negatives
+
+**Plain English:** Among actual positives, how many did we correctly predict.
+
+#### F-score
 
 \[
 \text{F-score} = \frac{2 \cdot \text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 \]
 
-- Definition: Harmonic mean of precision and recall
+**Variables:**
 
-## Distance Metrics
+- Precision: Precision score
+- Recall: Recall score
 
-### Euclidean Distance (L2)
+**Plain English:** Harmonic mean of precision and recall, providing a balanced measure of both metrics.
+
+### Distance Metrics
+
+#### Euclidean Distance (L2)
 
 \[
 \text{Euclidean}(X, Y) = \sqrt{\sum\_{i=1}^{d}(x_i - y_i)^2}
 \]
 
-- X, Y = d-dimensional vectors
-- Definition: Straight-line distance between two points
+**Variables:**
 
-### Manhattan Distance (L1)
+- X, Y: d-dimensional vectors
+- \(x_i, y_i\): Components of vectors X and Y
+- d: Number of dimensions
+
+**Plain English:** Straight-line distance between two points in space.
+
+#### Manhattan Distance (L1)
 
 \[
 \text{Manhattan}(X, Y) = \sum\_{i=1}^{d}|x_i - y_i|
 \]
 
-- Definition: Sum of absolute differences in each dimension
+**Variables:**
 
-### Cosine Similarity
+- X, Y: d-dimensional vectors
+- \(x_i, y_i\): Components of vectors X and Y
+- d: Number of dimensions
+
+**Plain English:** Sum of absolute differences in each dimension, like walking along city blocks.
+
+#### Cosine Similarity
 
 \[
 \text{Cosine}(X, Y) = \frac{X \cdot Y}{\|X\|\|Y\|} = \cos(\theta)
 \]
 
-- Definition: Measures angle between vectors (1 = same direction, 0 = perpendicular, -1 = opposite)
+**Variables:**
 
-### Jaccard Similarity
+- X, Y: Vectors
+- \(\theta\): Angle between vectors
+- \(\|X\|, \|Y\|\): Magnitudes of vectors
+
+**Plain English:** Measures angle between vectors (1 = same direction, 0 = perpendicular, -1 = opposite).
+
+#### Jaccard Similarity
 
 \[
 J(A, B) = \frac{|A \cap B|}{|A \cup B|}
 \]
 
-- A, B = sets
-- Definition: Ratio of intersection size to union size
+**Variables:**
 
-## Clustering
+- A, B: Sets
+- \(|A \cap B|\): Size of intersection
+- \(|A \cup B|\): Size of union
 
-### k-Means Objective
+**Plain English:** Ratio of intersection size to union size, measuring similarity between sets.
+
+### Clustering
+
+#### k-Means Objective
 
 \[
 \sum*{j=1}^{k} \sum*{X \in C_j} \|X - Y_j\|^2
 \]
 
-- k = number of clusters
-- C_j = j-th cluster
-- Y_j = centroid of cluster j
-- Definition: Total within-cluster sum of squares
+**Variables:**
 
-### Silhouette Coefficient
+- k: Number of clusters
+- C_j: j-th cluster
+- Y_j: Centroid of cluster j
+- X: Data points
+
+**Plain English:** Total within-cluster sum of squares, measuring how compact the clusters are.
+
+#### Silhouette Coefficient
 
 \[
 s(x) = \frac{b(x) - a(x)}{\max(a(x), b(x))}
 \]
 
-- a(x) = average distance from x to points in its cluster
-- b(x) = average distance from x to points in nearest cluster
-- Definition: Measures how well a point fits in its cluster (-1 to 1)
+**Variables:**
 
-## Graph Theory
+- a(x): Average distance from x to points in its cluster
+- b(x): Average distance from x to points in nearest cluster
 
-### Degree Centrality
+**Plain English:** Measures how well a point fits in its cluster (-1 to 1), with higher values indicating better clustering.
+
+### Graph Theory
+
+#### Degree Centrality
 
 \[
 CD(i) = \frac{\text{deg}(i)}{n - 1}
 \]
 
-- deg(i) = number of connections of node i
-- n = total number of nodes
-- Definition: Normalized number of connections
+**Variables:**
 
-### Closeness Centrality
+- deg(i): Number of connections of node i
+- n: Total number of nodes
+
+**Plain English:** Normalized number of connections a node has.
+
+#### Closeness Centrality
 
 \[
 CC(i) = \frac{1}{\frac{\sum\_{j \neq i} \text{dist}(i, j)}{n - 1}}
 \]
 
-- dist(i,j) = shortest path distance between i and j
-- Definition: Inverse of average distance to all other nodes
+**Variables:**
 
-### Betweenness Centrality
+- dist(i,j): Shortest path distance between i and j
+- n: Total number of nodes
+
+**Plain English:** Inverse of average distance to all other nodes, measuring how central a node is in the network.
+
+#### Betweenness Centrality
 
 \[
 CB(i) = \frac{\sum*{j < k} f*{jk}(i)}{\frac{n(n - 1)}{2}}
 \]
 
-- f\_{jk}(i) = fraction of shortest paths between j and k that pass through i
-- Definition: How often a node appears on shortest paths between other nodes
+**Variables:**
 
-### PageRank
+- f\_{jk}(i): Fraction of shortest paths between j and k that pass through i
+- n: Total number of nodes
+
+**Plain English:** How often a node appears on shortest paths between other nodes, measuring its importance as a bridge.
+
+#### PageRank
 
 \[
 P(a) = \sum\_{(x,a) \in E} \frac{P(x)}{O_x}
 \]
 
-- P(a) = PageRank score of page a
-- O_x = number of out-links from page x
-- E = set of all directed links
-- Definition: Importance score based on incoming links, weighted by source importance
+**Variables:**
 
-## Association Rules
+- P(a): PageRank score of page a
+- O_x: Number of out-links from page x
+- E: Set of all directed links
 
-### Support
+**Plain English:** Importance score based on incoming links, weighted by source importance.
+
+### Association Rules
+
+#### Support
 
 \[
 \text{sup}(I) = \frac{\text{count of transactions containing I}}{\text{total transactions}}
 \]
 
-- I = itemset
-- Definition: Frequency of itemset in dataset
+**Variables:**
 
-### Confidence
+- I: Itemset
+- count: Number of transactions containing I
+- total transactions: Total number of transactions
+
+**Plain English:** Frequency of itemset in dataset.
+
+#### Confidence
 
 \[
 \text{conf}(X \Rightarrow Y) = \frac{\text{sup}(X \cup Y)}{\text{sup}(X)}
 \]
 
-- X, Y = itemsets
-- Definition: Probability of Y given X
+**Variables:**
 
-## Logistic Regression
+- X, Y: Itemsets
+- sup(X ∪ Y): Support of combined itemset
+- sup(X): Support of itemset X
 
-### Sigmoid Function
+**Plain English:** Probability of Y given X, measuring how often the rule is true.
+
+### Logistic Regression
+
+#### Sigmoid Function
 
 \[
 \sigma(x) = \frac{1}{1 + e^{-x}}
 \]
 
-- Definition: Maps any real number to (0,1) for probability
+**Variables:**
 
-### Logistic Regression Probability
+- x: Input value
+
+**Plain English:** Maps any real number to (0,1) for probability.
+
+#### Logistic Regression Probability
 
 \[
 P(y = +1 | X) = \sigma(b + W^T X)
 \]
 
-- b = bias term
-- W = weight vector
-- X = input features
-- Definition: Probability of positive class given input features
+**Variables:**
 
-### Negative Log-Likelihood
+- b: Bias term
+- W: Weight vector
+- X: Input features
+
+**Plain English:** Probability of positive class given input features.
+
+#### Negative Log-Likelihood
 
 \[
 -\ell = - \sum\_{i=1}^n \log \sigma(y_i (b + W^T X_i))
 \]
 
-- Definition: Loss function for logistic regression training
+**Variables:**
+
+- n: Number of samples
+- y_i: True label
+- b: Bias term
+- W: Weight vector
+- X_i: Input features
+
+**Plain English:** Loss function for logistic regression training, measuring how well the model fits the data.
 
 ### Feature Normalization
 
-**Min-Max Scaling ([0,1] Normalization):**
+#### Min-Max Scaling ([0,1] Normalization)
+
 \[
 \hat{x} = \frac{x - \text{min}(x)}{\text{max}(x) - \text{min}(x)}
 \]
 
-**Z-Score (Gaussian) Normalization:**
+**Variables:**
+
+- x: Original value
+- min(x): Minimum value in dataset
+- max(x): Maximum value in dataset
+- \(\hat{x}\): Normalized value
+
+**Plain English:** Scales values to range [0,1] by subtracting minimum and dividing by range.
+
+#### Z-Score (Gaussian) Normalization
+
 \[
 \hat{x} = \frac{x - \mu}{\sigma}
 \]
 
-### Distance Measures
+**Variables:**
 
-**Manhattan Distance (L1):**
-\[
-\text{Manhattan}(X, Y) = \sum\_{i=1}^{d}|x_i - y_i|
-\]
+- x: Original value
+- μ: Mean of dataset
+- σ: Standard deviation of dataset
+- \(\hat{x}\): Normalized value
 
-**Euclidean Distance (L2):**
-\[
-\text{Euclidean}(X, Y) = \sqrt{\sum\_{i=1}^{d}(x_i - y_i)^2}
-\]
-
-**Cosine Similarity:**
-\[
-\text{Cosine}(X, Y) = \frac{X \cdot Y}{\|X\|\|Y\|} = \cos(\theta)
-\]
-
-**Jaccard Similarity:**
-\[
-J(A, B) = \frac{|A \cap B|}{|A \cup B|}
-\]
-
-### Clustering Metrics
-
-**k-Means Objective:**
-\[
-\sum*{j=1}^{k} \sum*{X \in C_j} \|X - Y_j\|^2
-\]
-
-**Silhouette Coefficient:**
-\[
-s(x) = \frac{b(x) - a(x)}{\max(a(x), b(x))}
-\]
-where:
-
-- a(x) = average distance from x to points in its cluster
-- b(x) = average distance from x to points in nearest cluster
-
-### Graph Metrics
-
-**PageRank with Damping:**
-\[
-M = \frac{1-d}{n}E + dA^T
-\]
-where:
-
-- d = damping factor (typically 0.85)
-- E = matrix of all 1s
-- A = transition matrix
-
-**Degree Centrality:**
-\[
-CD(i) = \frac{\text{deg}(i)}{n - 1}
-\]
-
-**Betweenness Centrality:**
-\[
-CB(i) = \frac{\sum*{j < k} f*{jk}(i)}{\frac{n(n - 1)}{2}}
-\]
-where f\_{jk}(i) = fraction of shortest paths between j and k that pass through i
-
-### Association Rules
-
-**Support:**
-\[
-\text{sup}(I) = \frac{\text{count of transactions containing I}}{\text{total transactions}}
-\]
-
-**Confidence:**
-\[
-\text{conf}(X \Rightarrow Y) = \frac{\text{sup}(X \cup Y)}{\text{sup}(X)}
-\]
-
-### Logistic Regression
-
-**Probability:**
-\[
-P(y = +1 | X) = \sigma(b + W^T X) = \frac{1}{1 + e^{-(b + W^T X)}}
-\]
-
-**Loss Function:**
-\[
--\ell = - \sum\_{i=1}^n \log \sigma(y_i (b + W^T X_i))
-\]
+**Plain English:** Centers data around 0 with unit variance by subtracting mean and dividing by standard deviation.
