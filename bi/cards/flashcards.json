@@ -1,0 +1,26 @@
+[
+  {
+    "q": "What are the key probability formulas and their interpretations?",
+    "a": "- **PMF/PDF Properties**:\n  - Non-negative: \\(p(x) \\geq 0\\) for all \\(x\\)\n  - Sum to 1: \\(\\sum_x p(x) = 1\\) (discrete) or \\(\\int p(x) dx = 1\\) (continuous)\n\n- **Joint Probability**: \\(\\mathbb{P}(X = x, Y = y)\\)\n  - Probability of two events happening together\n\n- **Sum Rule**: \\(\\mathbb{P}(X = x) = \\sum_y \\mathbb{P}(X = x, Y = y)\\)\n  - Probability of one event regardless of another\n\n- **Conditional Probability**: \\(\\mathbb{P}(Y = y | X = x) = \\frac{\\mathbb{P}(X = x, Y = y)}{\\mathbb{P}(X = x)}\\)\n  - Probability of one event given another has occurred\n\n- **Bayes' Rule**: \\(\\mathbb{P}(A|B) = \\frac{\\mathbb{P}(B|A) \\mathbb{P}(A)}{\\mathbb{P}(B)}\\)\n  - Reverses conditional probabilities from evidence to cause"
+  },
+  {
+    "q": "What are the key formulas in Reinforcement Learning and what do they represent?",
+    "a": "- **Q-Learning Update**:\n\\[Q(s,a) = Q(s,a) + \\alpha[r + \\gamma \\cdot \\max_{a'} Q(s',a') - Q(s,a)]\\]\n  - Updates action-value based on immediate reward and best future reward\n  - \\(\\alpha\\) = learning rate, \\(\\gamma\\) = discount factor\n\n- **State-Value Function**:\n\\[V^{\\pi}(s) = \\mathbb{E}_{\\pi} \\left[ \\sum_{t=0}^{\\infty} \\gamma^t r_{t+1} \\mid s_0 = s \\right]\\]\n  - Expected total reward from a state following policy \\(\\pi\\)\n\n- **Action-Value Function**:\n\\[Q^{\\pi}(s,a) = \\mathbb{E}_{\\pi} \\left[ \\sum_{t=0}^{\\infty} \\gamma^t r_{t+1} \\mid s_0 = s, a_0 = a \\right]\\]\n  - Expected total reward from taking action \\(a\\) in state \\(s\\)\n\n- **Bellman Equation**:\n\\[V^{\\pi}(s) = \\mathbb{E}_{\\pi} [r_{t+1} + \\gamma V^{\\pi}(s_{t+1}) \\mid s_t = s]\\]\n  - Relates state value to next state value\n\n- **TD(0) Update**:\n\\[V(s) \\leftarrow V(s) + \\alpha[r + \\gamma V(s') - V(s)]\\]\n  - Updates value estimate based on prediction error\n\n- **Sarsa Update**:\n\\[Q(s,a) \\leftarrow Q(s,a) + \\alpha[r + \\gamma Q(s',a') - Q(s,a)]\\]\n  - Updates Q-values based on actual next action"
+  },
+  {
+    "q": "What are the key formulas in Particle Swarm Optimization (PSO) and how do they work?",
+    "a": "- **Velocity Update**:\n\\[v_i^{t+1} = w \\cdot v_i^t + \\phi_1 U_1 (pb_i - x_i^t) + \\phi_2 U_2 (gb - x_i^t)\\]\n  - Combines current momentum, personal best pull, and global best pull\n  - \\(w\\) = inertia weight\n  - \\(\\phi_1, \\phi_2\\) = acceleration constants\n  - \\(U_1, U_2\\) = random numbers in [0,1]\n\n- **Position Update**:\n\\[x_i^{t+1} = x_i^t + v_i^{t+1}\\]\n  - Updates particle position based on new velocity"
+  },
+  {
+    "q": "What are the key formulas in Ant Colony Optimization (ACO) and how do they work?",
+    "a": "- **Path Selection Probability**:\n\\[p_{ij} = \\frac{[\\tau_{ij}]^\\alpha [\\eta_{ij}]^\\beta}{\\sum_{l \\in N_i} [\\tau_{il}]^\\alpha [\\eta_{il}]^\\beta}\\]\n  - Determines path choice based on pheromones and heuristic info\n  - \\(\\tau_{ij}\\) = pheromone level\n  - \\(\\eta_{ij}\\) = heuristic info (e.g., inverse distance)\n  - \\(\\alpha, \\beta\\) = influence parameters\n\n- **Pheromone Update**:\n\\[\\tau_{ij} \\leftarrow (1 - \\rho)\\tau_{ij} + \\rho \\Delta\\tau_{ij}\\]\n  - Updates pheromone levels through evaporation and new deposits\n  - \\(\\rho\\) = evaporation rate\n\n- **Global Best Update**:\n\\[\\tau_{ij} \\leftarrow (1 - \\rho)\\tau_{ij} + \\rho \\Delta\\tau_{ij}^{bs}\\]\n  - Reinforces best solution found\n  - \\(\\Delta\\tau_{ij}^{bs} = 1/L_{bs}\\) = reward based on best tour"
+  },
+  {
+    "q": "What are the key formulas in Bee System and how do they work?",
+    "a": "- **Lévy Flight Distribution**:\n\\[p(l) \\sim l^{-\\mu}\\]\n  - Describes step length distribution\n  - \\(\\mu\\) = power law exponent (1 < \\(\\mu\\) < 3)\n  - Mixes short local moves with occasional long jumps\n\n- **Path Integration**:\n\\[\\mathbf{v}_{\\text{return}} = -\\sum_{i=1}^n \\mathbf{v}_i\\]\n  - Calculates direct path back to nest\n  - Sums all movement vectors\n\n- **Dance Recruitment**:\n\\[p_{\\text{follow}} = \\frac{Q}{Q + K}\\]\n  - Probability of following a dance\n  - \\(Q\\) = food quality\n  - \\(K\\) = threshold parameter"
+  },
+  {
+    "q": "What are the key formulas in Evolutionary Game Theory and how do they work?",
+    "a": "- **Single Population Replicator Dynamics**:\n\\[\\dot{x}_i = x_i(f_i(x) - \\bar{f}(x))\\]\n  - Shows how strategy frequency changes based on relative fitness\n  - \\(x_i\\) = frequency of strategy i\n  - \\(f_i(x)\\) = fitness of strategy i\n  - \\(\\bar{f}(x)\\) = average fitness\n\n- **Multi-Population Dynamics**:\n\\[\\dot{x}_i = x_i((Ay)_i - x^T Ay)\\]\n\\[\\dot{y}_j = y_j((x^T B)_j - x^T By)\\]\n  - Shows how two populations' strategies evolve\n  - \\(x, y\\) = strategy distributions\n  - \\(A, B\\) = payoff matrices"
+  }
+]
