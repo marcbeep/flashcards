@@ -1,0 +1,78 @@
+[
+  {
+    "q": "What is the main difference between supervised and unsupervised learning?\n(a) Supervised learning uses pattern labels while unsupervised learning does not.\n(b) Supervised learning is only for single-layer neural networks.\n(c) Supervised learning requires multi-layer networks, unsupervised works on self-organising maps.\n(d) Supervised learning works for classification only.",
+    "a": "- Correct: (a) Supervised learning uses pattern labels while unsupervised learning does not.\n- Supervised learning uses labeled data (input-output pairs).\n- Unsupervised learning finds structure in data without labels."
+  },
+  {
+    "q": "Why do multi-layer perceptrons (MLPs) have multiple layers?\n(a) To enable nonlinear activation functions.\n(b) To accelerate learning.\n(c) To solve nonlinearly separable problems.\n(d) To easily calculate error derivatives when patterns are unavailable.",
+    "a": "- Correct: (c) To solve nonlinearly separable problems.\n- Single-layer perceptrons can only solve linearly separable problems.\n- MLPs use hidden layers to handle complex, nonlinear relationships."
+  },
+  {
+    "q": "Why does a neuron model include a bias term at index j=0?\n(a) To allow recurrent connections.\n(b) To accommodate a fixed bias input (x0 = ±1).\n(c) To enable optional memory during weight training.\n(d) To couple inputs via a learning-rate dependent threshold.",
+    "a": "- Correct: (b) To accommodate a fixed bias input (x0 = ±1).\n- The bias allows the neuron to shift activation threshold.\n- It improves the flexibility of the model."
+  },
+  {
+    "q": "What learning approach uses $x^* = \\arg\\min_{x \\in D_{\\text{train}}} \\|x - x_t\\|_2$?\n(a) Memory-based learning (e.g., nearest neighbor).\n(b) Multi-layer feed-forward networks.\n(c) Competitive learning.\n(d) Boltzmann learning.",
+    "a": "- Correct: (a) Memory-based learning (e.g., nearest neighbor).\n- Finds the closest stored pattern to the input.\n- Used in k-NN and related methods."
+  },
+  {
+    "q": "Why is fitness transformation important in genetic algorithms?\n(a) It speeds up crossover and mutation.\n(b) It balances selection probabilities for mating.\n(c) It detaches fitness from objective values.\n(d) It predicts super-individual cases.",
+    "a": "- Correct: (b) It balances selection probabilities for mating.\n- Raw objective values may cause poor selection pressure.\n- Transformation scales fitness to stabilize selection."
+  },
+  {
+    "q": "What happens when elitism and no-duplicates operators are applied together in genetic algorithms?\n(a) Duplicates are allowed except for elite members.\n(b) Super-individuals are blocked from duplication.\n(c) Steady-state model must be used.\n(d) No duplicates and the best objective never decreases.",
+    "a": "- Correct: (d) No duplicates and the best objective never decreases.\n- Elitism keeps the best solutions.\n- No-duplicates maintains diversity."
+  },
+  {
+    "q": "What is an intron in genetic programming and why is it important?\n(a) Subtree with no useful effect but protects against destructive crossover.\n(b) Subtree that pulls toward global optimum.\n(c) Subtree with large function complexity.\n(d) Subtree with large depth protecting against mutation.",
+    "a": "- Correct: (a) Subtree with no useful effect but protects against destructive crossover.\n- Introns act as genetic buffers and waste resources."
+  },
+  {
+    "q": "In genetic programming, what does a complexity of 8 and an intron \"X * (2 * 2 < 2)\" indicate?\n(a) The intron always yields zero; 8 functions used.\n(b) The intron always yields zero; 17 functions used.\n(c) Largest intron is \"2 * 2 < 2\"; 8 functions used.\n(d) Intron \"X > 1\" always false; 7 functions used.",
+    "a": "- Correct: (a) The intron always yields zero; 8 functions used.\n- The expression X * (2 * 2 < 2) simplifies to X * 0 = 0."
+  },
+  {
+    "q": "You train a perceptron with inputs x1 = 1, x2 = 0, weights w0 = 1.5, w1 = 2.5, w2 = 0.4, desired output -1, learning rate 0.5. What are the new weights?\n(a) (+2.5, +1.5, +0.4)\n(b) (+2.5, +1.5, +1.4)\n(c) (+2.5, +2.5, +0.4)\n(d) (+3.5, +1.5, +0.4)",
+    "a": "- Correct: (a) (+2.5, +1.5, +0.4)\n- Weight update uses the perceptron learning rule."
+  },
+  {
+    "q": "Why does the linear-least-squares algorithm allow finding optimal weights in a single step?\n(a) Uses Jacobian equal to negative data matrix; no current weights dependency.\n(b) Uses Jacobian without needing all patterns.\n(c) Works only on linearly separable data.\n(d) Works only for single-layer neurons.",
+    "a": "- Correct: (a) Uses Jacobian equal to negative data matrix; no current weights dependency.\n- Batch learning with LLS allows single-step solution."
+  },
+  {
+    "q": "Which heuristic in particle swarm optimisation does not make sense?\n(a) Cognitive increases, social decreases over time.\n(b) Inertia starts large then decreases.\n(c) Cognitive decreases, social increases over time.\n(d) Social increases over time to support convergence.",
+    "a": "- Correct: (a) Cognitive increases, social decreases over time.\n- This setup would reduce group convergence later, which contradicts the goal."
+  },
+  {
+    "q": "Which of the following is not true about evolutionary strategies?\n(a) Proven to always find global optimum in 1 of 5 problems.\n(b) Child competes with parent; multi-parent variants exist.\n(c) Asymptotic convergence proven but not practical.\n(d) Single solution evolves with adaptable variance and covariance.",
+    "a": "- Correct: (a) Proven to always find global optimum in 1 of 5 problems.\n- This is a misunderstanding of the 1/5 success rule; no such guarantee exists."
+  },
+  {
+    "q": "Which statement is correct about high-point crossover in genetic algorithms?\n(a) High distribution bias, high recombination power, higher gene disruption.\n(b) High distribution bias, high recombination power, lower gene disruption.\n(c) Low distribution bias, high recombination power, higher gene disruption.\n(d) High distribution bias, low recombination power, higher gene disruption.",
+    "a": "- Correct: (a) High distribution bias, high recombination power, higher gene disruption.\n- More crossover points increase both mixing and disruption risk."
+  },
+  {
+    "q": "What network configuration corresponds to yk(x) = Φ(Σj wkj Φ(Σi wji xi))?\n(a) One-hidden-layer feedforward network.\n(b) Two-hidden-layer feedforward network.\n(c) Recurrent neural network.\n(d) Single-layer perceptron.",
+    "a": "- Correct: (a) One-hidden-layer feedforward network.\n- Inputs pass to hidden neurons then to the output neuron."
+  },
+  {
+    "q": "Which genetic programming expression could NOT result from replacing a single subtree below the root?\n(a) y / (5 + y) * (3 + sqrt(y) + 12)\n(b) y / (5 + 1) * (3 + y + exp(12x))\n(c) y / (5 + 1) * (sqrt(y sqrt(3)) + y + 12)\n(d) y / (5 + (3 + y + 12)) * (3 + y + 12)",
+    "a": "- Correct: (a) y / (5 + y) * (3 + sqrt(y) + 12)\n- This changes both an internal node and leaf, violating the single mutation rule."
+  },
+  {
+    "q": "You classify 4 patterns with feature vectors and labels. Which transformation leads to perfect linear separability?\n(a) Transform to [x1 * x2, x1]\n(b) Transform to [x1 + x2, x1]\n(c) Transform to [x1 + x2, x2 - x2]\n(d) Transform to [x1 + x1 * x2, x2]",
+    "a": "- Correct: (a) Transform to [x1 * x2, x1]\n- This mapping separates classes along a linear boundary in feature space."
+  },
+  {
+    "q": "Which statement is NOT correct about genetic algorithms and fitness utilisation?\n(a) Close-race and super-individual effects are caused by mutation rates.\n(b) Close-race occurs with low selective pressures; high pressures cause domination.\n(c) High selection frequency leads to super-individuals, low frequency causes random search.\n(d) Premature convergence occurs when few individuals dominate mating.",
+    "a": "- Correct: (a) Close-race and super-individual effects are caused by mutation rates.\n- These effects are caused by selection pressure, not mutation rates."
+  },
+  {
+    "q": "In gene expression programming (GEP), what happens when a terminal 'a' in the head is replaced by function 'M' of arity 3?\n(a) The tail shortens because 3 terminals are moved into the head.\n(b) The tail length increases to compensate.\n(c) The new branch is added at the end of the tree.\n(d) The head size grows to include extra terminals.",
+    "a": "- Correct: (a) The tail shortens because 3 terminals are moved into the head.\n- GEP maintains chromosome size by adjusting the tail after mutation."
+  },
+  {
+    "q": "Why does the linear-least-squares (LLS) algorithm allow recovery of optimal weights in a single step?\n(a) Gauss-Newton produces a formula using the data matrix with no weight dependency.\n(b) It doesn't require all patterns to be known.\n(c) It works only for single-layer networks.\n(d) It assumes linear separability so no iterations are needed.",
+    "a": "- Correct: (a) Gauss-Newton produces a formula using the data matrix with no weight dependency.\n- LLS batch learning gives an exact weight solution in one step."
+  }
+]
