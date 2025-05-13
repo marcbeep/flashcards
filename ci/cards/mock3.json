@@ -1,0 +1,82 @@
+[
+  {
+    "q": "What is the primary purpose of the bias term in a neural network?\n(a) To create recurrent connections between neurons.\n(b) To shift the activation threshold of the neuron.\n(c) To normalize input data before processing.\n(d) To enable backpropagation through multiple layers.",
+    "a": "- Correct: (b) To shift the activation threshold of the neuron.\n- The bias term improves the flexibility of the model.\n- It allows the activation function to be shifted along the input axis."
+  },
+  {
+    "q": "Which activation function is most commonly used in hidden layers of modern deep neural networks?\n(a) Heaviside (Threshold)\n(b) Piecewise Linear\n(c) ReLU\n(d) Sigmoid",
+    "a": "- Correct: (c) ReLU\n- ReLU is fast to compute and used in modern deep networks.\n- However, it can suffer from 'dead neurons' if inputs become negative."
+  },
+  {
+    "q": "In the context of the credit assignment problem, what does 'structural' credit assignment refer to?\n(a) Assigning credit to the right moment of action.\n(b) Assigning credit to the right part of the system.\n(c) Determining which training examples deserve credit.\n(d) Calculating the credit score of the neural network.",
+    "a": "- Correct: (b) Assigning credit to the right part of the system.\n- Structural credit assignment determines which components (e.g., neurons or layers) deserve credit or blame.\n- This is crucial in multi-layer networks where hidden units indirectly influence results."
+  },
+  {
+    "q": "What learning rule is described by the equation Δwₖⱼ = η(yₖ - ȳ)(xⱼ - x̄)?\n(a) Error-correction learning\n(b) Hebbian learning\n(c) Covariance hypothesis (improved Hebbian rule)\n(d) Competitive learning",
+    "a": "- Correct: (c) Covariance hypothesis (improved Hebbian rule)\n- This equation incorporates mean activity values (ȳ and x̄).\n- It allows both synaptic strengthening and weakening, preventing saturation."
+  },
+  {
+    "q": "In the LMS algorithm, what happens if the learning rate η is set too large?\n(a) Learning becomes too slow but more stable.\n(b) The algorithm becomes more memory-efficient.\n(c) The algorithm becomes less stable and may not converge.\n(d) Nothing changes except training speed increases.",
+    "a": "- Correct: (c) The algorithm becomes less stable and may not converge.\n- Large learning rates cause faster adaptation but less stability.\n- This can lead to oscillation or divergence of weights."
+  },
+  {
+    "q": "What is guaranteed by the Perceptron Convergence Theorem?\n(a) The perceptron will always find the global minimum error.\n(b) The perceptron will converge in finite steps if the data is linearly separable.\n(c) The perceptron will eventually solve any classification problem.\n(d) The perceptron will converge faster than other neural networks.",
+    "a": "- Correct: (b) The perceptron will converge in finite steps if the data is linearly separable.\n- It guarantees that a solution will be found if one exists.\n- However, it doesn't guarantee finding the optimal solution."
+  },
+  {
+    "q": "Which statement about backpropagation is FALSE?\n(a) It uses gradient descent to minimize an error function.\n(b) It requires differentiable activation functions.\n(c) It guarantees finding the global minimum of the error function.\n(d) It computes error gradients backwards through the network.",
+    "a": "- Correct: (c) It guarantees finding the global minimum of the error function.\n- Backpropagation can get stuck in local minima.\n- It follows the gradient which only points to local improvements."
+  },
+  {
+    "q": "What is the derivative of the sigmoid activation function σ(v) = 1/(1+e^(-αv)) used in backpropagation?\n(a) α(1-σ(v))\n(b) ασ(v)(1-σ(v))\n(c) σ(v)(1+σ(v))\n(d) α(σ(v))²",
+    "a": "- Correct: (b) ασ(v)(1-σ(v))\n- This is the derivative used in backpropagation for the sigmoid function.\n- It's often simplified to αy(1-y) where y is the output of the sigmoid."
+  },
+  {
+    "q": "What is the main difference between RBF networks and MLPs?\n(a) RBF networks use nonlinear activation functions while MLPs use linear ones.\n(b) RBF networks have localized responses while MLPs have global responses.\n(c) RBF networks require more hidden layers than MLPs.\n(d) RBF networks can only solve classification problems while MLPs can do regression.",
+    "a": "- Correct: (b) RBF networks have localized responses while MLPs have global responses.\n- RBF neurons only respond strongly near their centers.\n- MLP neurons affect large areas of the input space."
+  },
+  {
+    "q": "Which statement about Support Vector Machines (SVMs) is correct?\n(a) SVMs always require kernel functions to work properly.\n(b) Support vectors are the data points furthest from the decision boundary.\n(c) The goal of an SVM is to find the hyperplane with maximum margin.\n(d) SVMs cannot handle non-separable data.",
+    "a": "- Correct: (c) The goal of an SVM is to find the hyperplane with maximum margin.\n- This improves generalization to unseen data.\n- Support vectors are the points that lie on the margin boundaries."
+  },
+  {
+    "q": "In reinforcement learning, what is the purpose of the discount factor γ in Q-learning?\n(a) To reduce the learning rate over time.\n(b) To determine the importance of future rewards compared to immediate ones.\n(c) To balance exploration and exploitation.\n(d) To calculate the error between predicted and actual Q-values.",
+    "a": "- Correct: (b) To determine the importance of future rewards compared to immediate ones.\n- A high γ values future rewards more strongly.\n- A low γ makes the agent more short-sighted."
+  },
+  {
+    "q": "What is the main challenge addressed by Experience Replay in Deep Q-Learning?\n(a) The need for more training data.\n(b) The correlation between consecutive experiences.\n(c) The slow convergence of neural networks.\n(d) The high computational cost of Q-learning.",
+    "a": "- Correct: (b) The correlation between consecutive experiences.\n- Experience Replay stores past experiences in a buffer.\n- Random sampling breaks correlations and makes learning more stable."
+  },
+  {
+    "q": "What is the main advantage of genetic algorithms over gradient-based optimization methods?\n(a) They always converge faster.\n(b) They require less computational resources.\n(c) They can explore wider solution spaces and avoid local minima.\n(d) They guarantee finding the global optimum.",
+    "a": "- Correct: (c) They can explore wider solution spaces and avoid local minima.\n- Genetic algorithms use randomness to explore different solutions.\n- They don't rely only on local information like gradients do."
+  },
+  {
+    "q": "In genetic algorithms, what is the purpose of the crossover operation?\n(a) To maintain diversity in the population.\n(b) To exploit good solutions by combining parent traits.\n(c) To prevent premature convergence.\n(d) To repair invalid chromosomes.",
+    "a": "- Correct: (b) To exploit good solutions by combining parent traits.\n- Crossover combines parts of two parent solutions to form children.\n- It helps to exploit promising regions of the search space."
+  },
+  {
+    "q": "Which statement about genetic programming is FALSE?\n(a) Programs are represented as trees with functions in branches and terminals in leaves.\n(b) Crossover involves swapping subtrees between parent programs.\n(c) The function set should be as large as possible for best results.\n(d) Introns can protect useful subtrees from harmful crossover.",
+    "a": "- Correct: (c) The function set should be as large as possible for best results.\n- Function sets should be small for speed but expressive enough for the task.\n- Large function sets make search more difficult and slow."
+  },
+  {
+    "q": "In Particle Swarm Optimization (PSO), what does the cognitive component (c₁) control?\n(a) The particle's tendency to follow the global best position.\n(b) The particle's tendency to return to its own best position.\n(c) The particle's momentum from previous velocity.\n(d) The particle's tendency to move randomly.",
+    "a": "- Correct: (b) The particle's tendency to return to its own best position.\n- c₁ is the cognitive parameter (personal memory).\n- It controls how much a particle is influenced by its own past success."
+  },
+  {
+    "q": "What is the 1/5 success rule in Evolution Strategies?\n(a) If more than 1/5 of mutations succeed, increase step size; otherwise decrease it.\n(b) Select the top 1/5 of solutions for the next generation.\n(c) Apply mutation to 1/5 of the population in each generation.\n(d) Stop the algorithm when success rate drops below 1/5.",
+    "a": "- Correct: (a) If more than 1/5 of mutations succeed, increase step size; otherwise decrease it.\n- This rule automatically adjusts mutation strength based on recent performance.\n- It helps balance exploration and exploitation."
+  },
+  {
+    "q": "Which statement about Gene Expression Programming (GEP) compared to standard Genetic Programming (GP) is correct?\n(a) GEP uses variable-length chromosomes while GP uses fixed-length.\n(b) GEP uses fixed-length strings to encode programs, while GP directly manipulates tree structures.\n(c) GEP can only handle numerical optimization problems, while GP can evolve programs.\n(d) GEP requires more computational resources than GP.",
+    "a": "- Correct: (b) GEP uses fixed-length strings to encode programs, while GP directly manipulates tree structures.\n- GEP separates genotype (string) from phenotype (tree).\n- This makes genetic operations simpler and guarantees valid programs."
+  },
+  {
+    "q": "In a neural network with sigmoid activation functions, weights initialized to zero would cause what problem?\n(a) Exploding gradients during backpropagation.\n(b) All neurons would output the same values, making learning impossible.\n(c) The network would immediately overfit to training data.\n(d) Activation functions would saturate, preventing learning.",
+    "a": "- Correct: (b) All neurons would output the same values, making learning impossible.\n- Zero weights would cause identical outputs and gradients for all neurons in a layer.\n- This symmetry prevents neurons from learning different features."
+  },
+  {
+    "q": "What is the purpose of regularization techniques like weight decay in neural networks?\n(a) To speed up the training process.\n(b) To prevent overfitting by penalizing large weights.\n(c) To ensure all neurons activate during training.\n(d) To make the network more sensitive to input variations.",
+    "a": "- Correct: (b) To prevent overfitting by penalizing large weights.\n- Weight decay adds a penalty term: E_S = Σw_i²\n- This encourages smaller weights and simpler models that generalize better."
+  }
+]
