@@ -1,0 +1,62 @@
+[
+  {
+    "q": "A neural network is trained on a dataset where all input features are in the range [0,1]. After deployment, it performs poorly on new data. Which explanation is most likely?\n(a) The network has too many hidden layers for this problem.\n(b) The activation functions are saturating due to weight magnitudes.\n(c) The new data contains features outside the [0,1] range.\n(d) The learning rate was too small during training.",
+    "a": "- Correct: (c) The new data contains features outside the [0,1] range.\n- Neural networks generalize poorly to data distributions different from training.\n- Features outside the expected range can cause unexpected activation patterns."
+  },
+  {
+    "q": "When comparing RBF networks and SVMs with Gaussian kernels, which statement is most accurate?\n(a) They are mathematically equivalent but SVMs have better generalization.\n(b) RBF networks place centers at arbitrary locations while SVMs place them at support vectors.\n(c) RBF networks can solve non-linearly separable problems while SVMs cannot.\n(d) SVMs require fewer computational resources than RBF networks for the same problem.",
+    "a": "- Correct: (b) RBF networks place centers at arbitrary locations while SVMs place them at support vectors.\n- Both use similar Gaussian functions but differ in how centers are determined.\n- SVMs automatically select important points (support vectors) as centers."
+  },
+  {
+    "q": "A genetic algorithm with high selection pressure converges quickly but to a suboptimal solution. Which combination of modifications would most effectively address this issue?\n(a) Increase mutation rate and use tournament selection.\n(b) Decrease mutation rate and implement fitness sharing.\n(c) Increase crossover rate and use elitism.\n(d) Decrease population size and use rank-based selection.",
+    "a": "- Correct: (b) Decrease mutation rate and implement fitness sharing.\n- Fitness sharing reduces the fitness of similar individuals, promoting diversity.\n- Lower mutation maintains good solutions while allowing exploration of nearby space."
+  },
+  {
+    "q": "In reinforcement learning, an agent trained in a simulated environment performs poorly when deployed in the real world. Which approach would most likely improve real-world performance?\n(a) Increase the discount factor to value future rewards more highly.\n(b) Add random noise to the simulation environment during training.\n(c) Use a larger neural network to represent the Q-function.\n(d) Switch from Q-learning to a policy gradient method.",
+    "a": "- Correct: (b) Add random noise to the simulation environment during training.\n- Adding noise helps the agent generalize to variations in the environment.\n- This technique, called domain randomization, makes the policy robust to real-world differences."
+  },
+  {
+    "q": "When training a neural network with backpropagation, the validation error initially decreases but then increases while training error continues to decrease. What is happening and what should be done?\n(a) The network has insufficient capacity; add more hidden neurons.\n(b) The network is overfitting; apply regularization or early stopping.\n(c) The learning rate is too high; reduce it to stabilize training.\n(d) The validation set is too small; use more validation examples.",
+    "a": "- Correct: (b) The network is overfitting; apply regularization or early stopping.\n- The divergence between training and validation error is a classic sign of overfitting.\n- The network is memorizing training data rather than learning generalizable patterns."
+  },
+  {
+    "q": "In a PSO implementation, particles quickly converge to a local optimum. Which parameter adjustment would most effectively encourage exploration of other promising regions?\n(a) Decrease the cognitive component (c₁) and increase the social component (c₂).\n(b) Increase the inertia weight (w) and decrease the social component (c₂).\n(c) Add a constriction factor to limit velocity magnitude.\n(d) Implement a fully connected topology instead of a ring topology.",
+    "a": "- Correct: (b) Increase the inertia weight (w) and decrease the social component (c₂).\n- Higher inertia maintains momentum, allowing particles to escape local optima.\n- Reducing social influence prevents premature convergence to the current best position."
+  },
+  {
+    "q": "A genetic programming solution has evolved to be very large with many introns. What effect would removing all introns have on the solution?\n(a) The solution would become more efficient without changing its behavior.\n(b) The solution would likely break during future crossover operations.\n(c) The solution would generalize better to unseen test cases.\n(d) The solution would converge faster to the global optimum.",
+    "a": "- Correct: (b) The solution would likely break during future crossover operations.\n- Introns protect useful subtrees from destructive crossover.\n- Removing them exposes functional code to potentially harmful genetic operations."
+  },
+  {
+    "q": "When training an SVM, increasing the regularization parameter C leads to:\n(a) A wider margin with more support vectors.\n(b) A narrower margin with fewer support vectors.\n(c) A wider margin with fewer support vectors.\n(d) A narrower margin with more support vectors.",
+    "a": "- Correct: (d) A narrower margin with more support vectors.\n- Higher C penalizes misclassifications more strongly, forcing a tighter fit to training data.\n- This creates a narrower margin and typically increases the number of support vectors."
+  },
+  {
+    "q": "In Evolution Strategies, the (μ,λ)-ES approach performs better than (μ+λ)-ES in which scenario?\n(a) When the fitness landscape is static and has many local optima.\n(b) When computational resources are limited and fast convergence is required.\n(c) When the fitness landscape changes over time or contains noise.\n(d) When the population size is very small relative to the problem dimension.",
+    "a": "- Correct: (c) When the fitness landscape changes over time or contains noise.\n- (μ,λ)-ES selects only from offspring, discarding parents each generation.\n- This forces continuous adaptation, beneficial in dynamic or noisy environments."
+  },
+  {
+    "q": "A neural network with ReLU activations has many 'dead' neurons after training. Which combination would most effectively address this issue?\n(a) Initialize weights with smaller values and use Leaky ReLU instead.\n(b) Increase the learning rate and use batch normalization.\n(c) Add dropout and increase the number of neurons.\n(d) Use weight decay and switch to sigmoid activations.",
+    "a": "- Correct: (a) Initialize weights with smaller values and use Leaky ReLU instead.\n- Smaller initial weights prevent large negative inputs to ReLU units.\n- Leaky ReLU allows small gradient flow even for negative inputs, preventing complete neuron death."
+  },
+  {
+    "q": "When applying genetic algorithms to a constrained optimization problem, which approach for handling invalid chromosomes is most computationally efficient?\n(a) Rejection sampling until valid chromosomes are generated.\n(b) Repair functions that transform invalid solutions into valid ones.\n(c) Penalty functions that reduce fitness based on constraint violation.\n(d) Special operators that only produce valid offspring.",
+    "a": "- Correct: (c) Penalty functions that reduce fitness based on constraint violation.\n- Penalty functions allow evaluation of all solutions without additional operations.\n- They guide the search toward feasible regions without requiring extra computation for repairs."
+  },
+  {
+    "q": "In a multi-layer perceptron, what happens if all hidden neurons initialize to identical weights?\n(a) The network will learn faster due to weight sharing effects.\n(b) Hidden neurons will compute identical features, effectively reducing network capacity.\n(c) The symmetry will be broken during the first backpropagation update.\n(d) The network will be more robust to overfitting due to redundancy.",
+    "a": "- Correct: (b) Hidden neurons will compute identical features, effectively reducing network capacity.\n- Identical weights cause neurons to learn the same function.\n- This wastes capacity as multiple neurons perform the same computation."
+  },
+  {
+    "q": "When comparing memory-based learning (like k-NN) to model-based approaches (like neural networks), which statement is most accurate?\n(a) Memory-based methods always generalize better because they use the actual training data.\n(b) Memory-based methods require more storage but less computation during training.\n(c) Model-based methods perform better when the underlying function is simple but data is noisy.\n(d) Model-based methods require more hyperparameter tuning but less computation during inference.",
+    "a": "- Correct: (d) Model-based methods require more hyperparameter tuning but less computation during inference.\n- Neural networks need tuning of architecture, learning rates, etc., but run quickly once trained.\n- Memory-based methods store all training data, making inference computationally expensive."
+  },
+  {
+    "q": "In Gene Expression Programming (GEP), what happens if a function in the head is replaced by a terminal during mutation?\n(a) The expression tree becomes shorter but maintains its structure.\n(b) The expression tree changes structure, potentially losing subtrees.\n(c) The mutation is rejected as it would create an invalid chromosome.\n(d) The tail must expand to maintain the fixed chromosome length.",
+    "a": "- Correct: (b) The expression tree changes structure, potentially losing subtrees.\n- Replacing a function with a terminal removes all its arguments from the tree.\n- This structural change can dramatically alter the program's behavior."
+  },
+  {
+    "q": "When training a reinforcement learning agent for a complex task, which approach would most effectively balance exploration and exploitation?\n(a) Use a fixed ε-greedy policy throughout training.\n(b) Start with high exploration and gradually decrease it over time.\n(c) Use Thompson sampling based on uncertainty estimates.\n(d) Alternate between pure exploration and pure exploitation phases.",
+    "a": "- Correct: (b) Start with high exploration and gradually decrease it over time.\n- Early exploration helps discover promising regions of the state-action space.\n- Gradually shifting to exploitation allows refinement of the policy in those regions."
+  }
+]
