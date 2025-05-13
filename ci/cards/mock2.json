@@ -1,0 +1,62 @@
+[
+  {
+    "q": "Which of the following best describes the main goal of Support Vector Machines (SVMs)?\n(a) Minimize the number of support vectors\n(b) Maximize the margin between classes\n(c) Minimize the sum of squared errors\n(d) Maximize the number of features",
+    "a": "- Correct: (b) Maximize the margin between classes\n- SVMs find the hyperplane that separates classes with the largest possible margin, improving generalization."
+  },
+  {
+    "q": "In the perceptron learning algorithm, what happens if the output for a training pattern does not match the target?\n(a) The weights are left unchanged\n(b) The learning rate is set to zero\n(c) The weights are updated using the error and input\n(d) The bias is removed from the model",
+    "a": "- Correct: (c) The weights are updated using the error and input\n- The perceptron rule updates weights when the output is incorrect: w_i ← w_i + η(target - output)x_i."
+  },
+  {
+    "q": "Which process in Self-Organizing Maps (SOMs) ensures that not only the winning neuron but also its neighbors learn from the input?\n(a) Competitive process\n(b) Cooperative process\n(c) Adaptive process\n(d) Random process",
+    "a": "- Correct: (b) Cooperative process\n- The cooperative process uses a neighborhood function so that the winner and its neighbors update their weights."
+  },
+  {
+    "q": "What is the main advantage of using the Moore–Penrose pseudoinverse in linear least squares training?\n(a) It guarantees integer weights\n(b) It finds a solution even if the data matrix is not invertible\n(c) It increases the learning rate\n(d) It reduces the number of training samples needed",
+    "a": "- Correct: (b) It finds a solution even if the data matrix is not invertible\n- The pseudoinverse provides a least-squares solution for any data matrix, even if it's singular or not square."
+  },
+  {
+    "q": "In a multi-layer perceptron (MLP) trained with backpropagation, what is the main role of the activation function's derivative?\n(a) It determines the number of hidden layers\n(b) It is used to compute gradients for weight updates\n(c) It sets the initial weights\n(d) It controls the learning rate",
+    "a": "- Correct: (b) It is used to compute gradients for weight updates\n- The derivative is essential for calculating how much each weight should change during backpropagation."
+  },
+  {
+    "q": "Which of the following is a key characteristic of Boltzmann learning in neural networks?\n(a) Deterministic neuron activations\n(b) Asymmetric weight matrix\n(c) Stochastic, probabilistic neuron activations\n(d) Only single-layer architectures are allowed",
+    "a": "- Correct: (c) Stochastic, probabilistic neuron activations\n- Boltzmann machines use probabilistic units and symmetric weights, modeling energy-based learning."
+  },
+  {
+    "q": "What is the main purpose of the neighborhood function in Self-Organizing Maps (SOMs)?\n(a) To select the learning rate\n(b) To determine which neurons are updated along with the winner\n(c) To initialize the weights\n(d) To calculate the output error",
+    "a": "- Correct: (b) To determine which neurons are updated along with the winner\n- The neighborhood function defines how far the influence of the winning neuron spreads in the map."
+  },
+  {
+    "q": "Which method is commonly used to set the centers of RBF units in an RBF network?\n(a) Backpropagation\n(b) K-means clustering\n(c) Genetic programming\n(d) Linear regression",
+    "a": "- Correct: (b) K-means clustering\n- K-means is often used to find cluster centers, which become the centers of the RBF units."
+  },
+  {
+    "q": "In genetic algorithms, what is the main effect of using a high number of crossover points?\n(a) Increases positional bias\n(b) Decreases recombination power\n(c) Increases gene disruption and diversity\n(d) Prevents any new gene combinations",
+    "a": "- Correct: (c) Increases gene disruption and diversity\n- More crossover points lead to more mixing of genes, increasing diversity but also disrupting building blocks."
+  },
+  {
+    "q": "Which of the following best describes fitness sharing in genetic algorithms?\n(a) Increasing the mutation rate for similar individuals\n(b) Reducing the fitness of individuals in crowded regions\n(c) Selecting only the fittest individuals for reproduction\n(d) Sharing genetic material between all individuals",
+    "a": "- Correct: (b) Reducing the fitness of individuals in crowded regions\n- Fitness sharing penalizes individuals that are too similar, promoting diversity and multiple solutions."
+  },
+  {
+    "q": "What is the main benefit of using the inertia weight in Particle Swarm Optimization (PSO)?\n(a) It increases the number of particles\n(b) It helps balance exploration and exploitation\n(c) It guarantees global optimality\n(d) It prevents any velocity updates",
+    "a": "- Correct: (b) It helps balance exploration and exploitation\n- A high inertia weight encourages exploration, while a low one encourages convergence."
+  },
+  {
+    "q": "Which of the following is a valid method for handling invalid chromosomes in genetic algorithms?\n(a) Only using crossover\n(b) Repairing the chromosome to make it valid\n(c) Ignoring the fitness function\n(d) Increasing the population size until all are valid",
+    "a": "- Correct: (b) Repairing the chromosome to make it valid\n- Repair functions modify invalid chromosomes so they satisfy problem constraints."
+  },
+  {
+    "q": "In Evolution Strategies (ES), what is the main purpose of self-adaptive mutation step sizes (σ)?\n(a) To keep mutation strength constant\n(b) To allow the mutation rate to evolve along with the solution\n(c) To prevent crossover\n(d) To ensure only one parent is used",
+    "a": "- Correct: (b) To allow the mutation rate to evolve along with the solution\n- Self-adaptation lets the algorithm adjust mutation strengths for better search performance."
+  },
+  {
+    "q": "Which of the following is a key feature of Gene Expression Programming (GEP) compared to standard Genetic Programming (GP)?\n(a) Uses variable-length chromosomes\n(b) Always produces invalid trees\n(c) Uses fixed-length linear chromosomes that are decoded into trees\n(d) Does not use mutation or crossover",
+    "a": "- Correct: (c) Uses fixed-length linear chromosomes that are decoded into trees\n- GEP encodes solutions as linear strings, which are then expressed as valid expression trees."
+  },
+  {
+    "q": "What is the main reason for using the BLX-α (Blend Crossover) operator in real-valued genetic algorithms?\n(a) To restrict offspring to the range of the parents\n(b) To allow offspring to explore beyond the range of the parents\n(c) To prevent any gene mixing\n(d) To ensure only one parent contributes genes",
+    "a": "- Correct: (b) To allow offspring to explore beyond the range of the parents\n- BLX-α creates children in an extended range, promoting exploration and diversity."
+  }
+]
