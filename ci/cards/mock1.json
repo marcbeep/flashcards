@@ -1,0 +1,62 @@
+[
+  {
+    "q": "What is the main purpose of the bias term in a neural network?\n(a) To enable recurrent connections between layers\n(b) To shift the activation threshold and improve model flexibility\n(c) To store previous network states\n(d) To normalize input values",
+    "a": "- Correct: (b) To shift the activation threshold and improve model flexibility\n- The bias term allows the neuron to shift its activation threshold\n- It helps the model learn patterns that don't pass through the origin"
+  },
+  {
+    "q": "Which activation function is most commonly used in modern deep neural networks?\n(a) Sigmoid\n(b) Tanh\n(c) ReLU\n(d) Heaviside",
+    "a": "- Correct: (c) ReLU\n- ReLU is computationally efficient and helps with vanishing gradient problem\n- It's widely used in modern architectures like CNNs"
+  },
+  {
+    "q": "What is the key difference between RBF networks and MLPs?\n(a) RBFs use local activation while MLPs use global activation\n(b) RBFs always have more layers than MLPs\n(c) RBFs can only solve linear problems\n(d) MLPs use distance-based activation while RBFs use dot products",
+    "a": "- Correct: (a) RBFs use local activation while MLPs use global activation\n- RBF neurons respond strongly only near their centers\n- MLP neurons affect large input areas through their weights"
+  },
+  {
+    "q": "In Particle Swarm Optimization, what happens when the inertia weight (w) is decreased over time?\n(a) Particles explore more of the search space\n(b) Particles converge more quickly to local optima\n(c) Particles maintain their current velocity\n(d) Particles ignore the global best position",
+    "a": "- Correct: (b) Particles converge more quickly to local optima\n- Lower inertia means less momentum, leading to finer local search\n- This helps fine-tune solutions in later stages"
+  },
+  {
+    "q": "What is the main purpose of the 1/5 success rule in Evolution Strategies?\n(a) To ensure exactly 20% of mutations are successful\n(b) To adapt the mutation step size based on success rate\n(c) To maintain population diversity\n(d) To select the best 20% of individuals",
+    "a": "- Correct: (b) To adapt the mutation step size based on success rate\n- If more than 1/5 mutations succeed, step size is increased\n- If fewer succeed, step size is decreased"
+  },
+  {
+    "q": "In Genetic Programming, what is the purpose of introns?\n(a) To increase program complexity\n(b) To protect useful subtrees from destructive crossover\n(c) To speed up program execution\n(d) To ensure program termination",
+    "a": "- Correct: (b) To protect useful subtrees from destructive crossover\n- Introns are non-functional code segments that act as buffers\n- They help preserve important program parts during evolution"
+  },
+  {
+    "q": "What is the main advantage of using a target network in Deep Q-Learning?\n(a) It reduces memory usage\n(b) It prevents overestimation of Q-values\n(c) It stabilizes training by providing fixed targets\n(d) It allows parallel processing",
+    "a": "- Correct: (c) It stabilizes training by providing fixed targets\n- Target network updates slowly, providing stable Q-value estimates\n- This helps prevent the feedback loop problem in DQN"
+  },
+  {
+    "q": "Which statement about SVMs is correct?\n(a) They always use linear decision boundaries\n(b) They maximize the margin between classes\n(c) They require equal number of samples per class\n(d) They work best with small feature sets",
+    "a": "- Correct: (b) They maximize the margin between classes\n- SVMs find the hyperplane that creates the largest margin\n- This helps with generalization and robustness"
+  },
+  {
+    "q": "What is the main purpose of fitness sharing in Genetic Algorithms?\n(a) To speed up convergence\n(b) To maintain population diversity\n(c) To reduce computational cost\n(d) To increase mutation rate",
+    "a": "- Correct: (b) To maintain population diversity\n- Fitness sharing reduces the fitness of similar individuals\n- This helps prevent premature convergence to local optima"
+  },
+  {
+    "q": "In backpropagation, why is the derivative of the activation function important?\n(a) It determines the learning rate\n(b) It's used to calculate the error gradient\n(c) It sets the network architecture\n(d) It determines the number of layers",
+    "a": "- Correct: (b) It's used to calculate the error gradient\n- The derivative is needed for the chain rule in backpropagation\n- It helps determine how to adjust weights to reduce error"
+  },
+  {
+    "q": "What is the main difference between (μ+λ)-ES and (μ,λ)-ES?\n(a) (μ+λ)-ES uses crossover while (μ,λ)-ES doesn't\n(b) (μ+λ)-ES selects from parents and children, (μ,λ)-ES only from children\n(c) (μ+λ)-ES is faster but less accurate\n(d) (μ+λ)-ES works only for continuous problems",
+    "a": "- Correct: (b) (μ+λ)-ES selects from parents and children, (μ,λ)-ES only from children\n- (μ+λ)-ES keeps strong parents alive longer\n- (μ,λ)-ES forces more exploration by only using new solutions"
+  },
+  {
+    "q": "Which statement about RBF networks is correct?\n(a) They always have more layers than MLPs\n(b) They use distance-based activation functions\n(c) They can only solve classification problems\n(d) They require more training data than MLPs",
+    "a": "- Correct: (b) They use distance-based activation functions\n- RBF neurons activate based on distance to their centers\n- This creates localized response regions in the input space"
+  },
+  {
+    "q": "What is the purpose of the constriction factor in PSO?\n(a) To increase particle velocity\n(b) To prevent particles from overshooting\n(c) To reduce computational cost\n(d) To increase population size",
+    "a": "- Correct: (b) To prevent particles from overshooting\n- The constriction factor controls particle velocity\n- It helps maintain stable convergence behavior"
+  },
+  {
+    "q": "In Genetic Programming, what is the main advantage of the ramped half-and-half initialization?\n(a) It creates trees of equal depth\n(b) It ensures all trees are valid\n(c) It creates diverse initial population\n(d) It speeds up evolution",
+    "a": "- Correct: (c) It creates diverse initial population\n- Combines full and grow methods\n- Produces trees of varying sizes and shapes"
+  },
+  {
+    "q": "What is the main purpose of experience replay in Deep Q-Learning?\n(a) To reduce memory usage\n(b) To break correlations between consecutive samples\n(c) To speed up training\n(d) To increase exploration",
+    "a": "- Correct: (b) To break correlations between consecutive samples\n- Stores past experiences in a buffer\n- Random sampling helps prevent overfitting to recent experiences"
+  }
+]
