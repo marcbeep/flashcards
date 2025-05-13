@@ -1,0 +1,62 @@
+[
+  {
+    "q": "A neural network trained with backpropagation consistently fails to learn a simple XOR function despite having sufficient hidden neurons. Which modification would most likely solve this issue?\n(a) Adding more training examples of the XOR function.\n(b) Using a different activation function in the output layer.\n(c) Initializing weights with non-zero random values instead of zeros.\n(d) Increasing the number of training epochs.",
+    "a": "- Correct: (c) Initializing weights with non-zero random values instead of zeros.\n- Zero initialization creates symmetry where all neurons compute identical functions.\n- Random initialization breaks symmetry, allowing neurons to learn different features."
+  },
+  {
+    "q": "When comparing Genetic Programming (GP) and Gene Expression Programming (GEP), in which scenario would GEP be clearly advantageous?\n(a) When evolving solutions for symbolic regression problems.\n(b) When the problem requires variable-length solutions.\n(c) When crossover operations need to be performed frequently.\n(d) When the solution space requires highly nested function calls.",
+    "a": "- Correct: (c) When crossover operations need to be performed frequently.\n- GEP's linear chromosome format makes crossover simpler and more efficient.\n- GEP always produces valid programs after genetic operations, unlike GP which may require repair."
+  },
+  {
+    "q": "A Support Vector Machine (SVM) with a linear kernel performs poorly on a classification task. After switching to an RBF kernel, performance improves dramatically. What does this suggest about the data?\n(a) The classes have significant overlap in feature space.\n(b) The decision boundary is nonlinear in the original feature space.\n(c) The training set contains many outliers affecting generalization.\n(d) The feature dimensionality is too high relative to sample size.",
+    "a": "- Correct: (b) The decision boundary is nonlinear in the original feature space.\n- The RBF kernel implicitly maps data to a higher-dimensional space where linear separation becomes possible.\n- This transformation enables capturing nonlinear relationships that the linear kernel couldn't represent."
+  },
+  {
+    "q": "In a Particle Swarm Optimization implementation with Time Varying Acceleration Coefficients (TVAC), what would happen if the cognitive component (c₁) starts low and increases over time while the social component (c₂) decreases?\n(a) Particles would initially follow the global best but become more independent later.\n(b) The swarm would converge more quickly but likely to a suboptimal solution.\n(c) Exploration would increase over time, potentially escaping local optima.\n(d) The algorithm would behave similarly to standard PSO with fixed coefficients.",
+    "a": "- Correct: (c) Exploration would increase over time, potentially escaping local optima.\n- Increasing c₁ makes particles more attracted to their personal best positions.\n- Decreasing c₂ reduces influence of the global best, encouraging diverse search paths."
+  },
+  {
+    "q": "A reinforcement learning agent using Q-learning fails to converge in an environment with continuous state space. Which modification would most effectively address this issue?\n(a) Increase the learning rate to update Q-values more aggressively.\n(b) Use a neural network to approximate the Q-function instead of a table.\n(c) Switch to a model-based reinforcement learning approach.\n(d) Add more exploration by increasing the epsilon in epsilon-greedy policy.",
+    "a": "- Correct: (b) Use a neural network to approximate the Q-function instead of a table.\n- Continuous state spaces have infinitely many states, making tabular approaches impractical.\n- Function approximation (like neural networks) allows generalization across similar states."
+  },
+  {
+    "q": "In Evolution Strategies, what would be the effect of using very small step sizes (σ) throughout the entire optimization process?\n(a) The algorithm would converge more precisely to the nearest optimum.\n(b) The algorithm would explore the search space more thoroughly.\n(c) The algorithm would get stuck in local optima and progress very slowly.\n(d) The algorithm would adapt faster to changes in the fitness landscape.",
+    "a": "- Correct: (c) The algorithm would get stuck in local optima and progress very slowly.\n- Small step sizes limit the algorithm's ability to escape local optima.\n- Progress would be slow even in favorable directions due to small update magnitudes."
+  },
+  {
+    "q": "When training an RBF network, centers are placed using K-means clustering but performance is poor. Which modification would most likely improve performance?\n(a) Increase the number of clusters beyond the number of training examples.\n(b) Use a supervised approach to place centers near class boundaries.\n(c) Make all RBF widths identical instead of cluster-dependent.\n(d) Initialize K-means with the K furthest points in the dataset.",
+    "a": "- Correct: (b) Use a supervised approach to place centers near class boundaries.\n- K-means is unsupervised and may not place centers optimally for classification.\n- Supervised center placement considers class information, focusing resources on difficult regions."
+  },
+  {
+    "q": "In a genetic algorithm solving a multi-modal optimization problem, the population converges to a single peak despite using fitness sharing. What is the most likely cause?\n(a) The sharing radius (σshare) is too large relative to the distance between peaks.\n(b) The mutation rate is too high, disrupting good solutions.\n(c) The crossover operator is creating too many invalid solutions.\n(d) The population size is too small to maintain diversity across peaks.",
+    "a": "- Correct: (a) The sharing radius (σshare) is too large relative to the distance between peaks.\n- If σshare exceeds the distance between optima, individuals at different peaks share fitness.\n- This effectively treats multiple peaks as one large niche, allowing convergence to the highest peak."
+  },
+  {
+    "q": "When implementing a multi-layer perceptron for a regression task, which combination would likely achieve the best generalization?\n(a) ReLU activation in hidden layers, linear activation in output layer, MSE loss.\n(b) Sigmoid activation in hidden layers, sigmoid activation in output layer, MSE loss.\n(c) Tanh activation in hidden layers, sigmoid activation in output layer, cross-entropy loss.\n(d) Linear activation in hidden layers, linear activation in output layer, MSE loss.",
+    "a": "- Correct: (a) ReLU activation in hidden layers, linear activation in output layer, MSE loss.\n- ReLU provides nonlinearity without saturation issues in hidden layers.\n- Linear output is appropriate for regression (unbounded predictions) with MSE loss."
+  },
+  {
+    "q": "In a genetic algorithm implementation, increasing the population size while keeping other parameters constant results in:\n(a) Faster convergence to the global optimum due to increased genetic diversity.\n(b) Slower convergence but potentially better solutions due to more thorough exploration.\n(c) Similar final solutions but with higher computational cost.\n(d) More robust performance across different problem instances.",
+    "a": "- Correct: (b) Slower convergence but potentially better solutions due to more thorough exploration.\n- Larger populations contain more genetic diversity, enabling broader search.\n- Each generation requires evaluating more individuals, slowing convergence in terms of iterations."
+  },
+  {
+    "q": "When training a Deep Q-Network (DQN), the agent's performance oscillates wildly despite using experience replay and a target network. Which modification would most likely stabilize training?\n(a) Increase the frequency of target network updates.\n(b) Use a smaller neural network architecture.\n(c) Implement Double DQN to reduce overestimation bias.\n(d) Decrease the size of the replay buffer.",
+    "a": "- Correct: (c) Implement Double DQN to reduce overestimation bias.\n- Standard DQN tends to overestimate Q-values due to using max operation.\n- Double DQN decouples action selection from evaluation, reducing harmful oscillations."
+  },
+  {
+    "q": "In competitive learning, what happens if a single neuron consistently wins the competition (\"winner-takes-all\") for many different input patterns?\n(a) The network achieves optimal clustering more quickly.\n(b) The neuron becomes more specialized for a specific input pattern.\n(c) Other neurons become \"dead\" and the representation capacity is wasted.\n(d) The learning rate automatically increases for other neurons.",
+    "a": "- Correct: (c) Other neurons become \"dead\" and the representation capacity is wasted.\n- When one neuron dominates, others never update their weights.\n- This creates poor clustering with most vectors assigned to one prototype."
+  },
+  {
+    "q": "A genetic algorithm using tournament selection with tournament size k=2 is modified to use k=10. How would this change affect the evolutionary process?\n(a) Increase selection pressure, potentially leading to premature convergence.\n(b) Decrease selection pressure, leading to slower convergence but better exploration.\n(c) Have minimal effect on selection pressure compared to other parameters.\n(d) Create more genetic drift due to increased randomness in selection.",
+    "a": "- Correct: (a) Increase selection pressure, potentially leading to premature convergence.\n- Larger tournaments make it harder for weaker individuals to be selected.\n- This increases exploitation of current best solutions at the expense of exploration."
+  },
+  {
+    "q": "When applying the LMS algorithm to a system identification problem, the weights oscillate instead of converging. Which approach would most effectively address this issue?\n(a) Increase the learning rate to reach convergence faster.\n(b) Normalize the input vectors to have unit length.\n(c) Add momentum to the weight updates.\n(d) Switch to batch learning instead of online updates.",
+    "a": "- Correct: (b) Normalize the input vectors to have unit length.\n- Oscillations often occur when input features have widely different magnitudes.\n- Normalization makes the error surface more uniform, enabling stable convergence."
+  },
+  {
+    "q": "In a Self-Organizing Map (SOM), what happens if the neighborhood function width is kept constant throughout training instead of decreasing over time?\n(a) The map will fail to organize into a topologically ordered representation.\n(b) The map will organize faster but with less precise feature representation.\n(c) The map will maintain global ordering but fail to develop fine local structure.\n(d) The map will become more sensitive to initial weight values.",
+    "a": "- Correct: (c) The map will maintain global ordering but fail to develop fine local structure.\n- Early training with wide neighborhoods establishes global topology.\n- Decreasing width is needed for local refinement and specialization."
+  }
+]
