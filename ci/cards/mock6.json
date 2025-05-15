@@ -1,0 +1,62 @@
+[
+  {
+    "q": "A neural network with sigmoid activation functions is struggling to learn deep representations. The training loss decreases very slowly in the early layers. Which modification would most effectively address this issue?\n(a) Increase the learning rate for all layers.\n(b) Replace sigmoid activations with ReLU activations.\n(c) Add more neurons to each layer.\n(d) Initialize all weights with larger random values.",
+    "a": "- Correct: (b) Replace sigmoid activations with ReLU activations.\n- Sigmoid activations suffer from vanishing gradient problem in deep networks.\n- ReLU allows for non-zero gradients for positive inputs, enabling faster learning in deep layers.\n- Unlike larger weights or learning rates, this addresses the fundamental issue without risking instability."
+  },
+  {
+    "q": "In a Genetic Algorithm implementation, the population quickly converges to a suboptimal solution despite using tournament selection. Which modification would most effectively improve exploration of the search space?\n(a) Increase the tournament size to select better individuals.\n(b) Implement elitism to preserve the best solutions.\n(c) Decrease the mutation rate to prevent disruption of good solutions.\n(d) Implement fitness sharing based on genotypic distance.",
+    "a": "- Correct: (d) Implement fitness sharing based on genotypic distance.\n- Fitness sharing reduces the fitness of similar individuals, promoting diversity.\n- Larger tournament size (a) would increase selection pressure, worsening premature convergence.\n- Elitism (b) and lower mutation (c) both enhance exploitation rather than exploration."
+  },
+  {
+    "q": "When training an RBF network for a complex classification task, which approach would likely achieve the best performance?\n(a) Using many RBF centers with large widths (σ).\n(b) Using few RBF centers with small widths (σ).\n(c) Using many RBF centers with small widths (σ).\n(d) Using K-means clustering with K equal to the number of classes.",
+    "a": "- Correct: (c) Using many RBF centers with small widths (σ).\n- Many centers provide good coverage of the input space for complex problems.\n- Small widths allow for precise, localized responses to capture detailed decision boundaries.\n- Option (d) would be insufficient for complex problems where classes have multiple clusters."
+  },
+  {
+    "q": "A Support Vector Machine with a linear kernel achieves 95% accuracy on training data but only 70% on test data. Which approach would most likely improve generalization?\n(a) Increase the regularization parameter C to fit the training data better.\n(b) Decrease the regularization parameter C to create a wider margin.\n(c) Add more training examples with the same distribution.\n(d) Switch to a higher-degree polynomial kernel.",
+    "a": "- Correct: (b) Decrease the regularization parameter C to create a wider margin.\n- The performance gap indicates overfitting to training data.\n- Lower C values penalize margin violations less, creating a wider margin that generalizes better.\n- Increasing C (a) would worsen overfitting, while a more complex kernel (d) might also overfit."
+  },
+  {
+    "q": "In a Particle Swarm Optimization implementation, particles quickly converge to a local optimum. Which modification would most effectively help escape this local optimum?\n(a) Increase the cognitive component (c₁) and decrease the social component (c₂).\n(b) Implement a constriction factor to control velocity.\n(c) Add passive congregation to encourage particles to explore new areas.\n(d) Decrease the inertia weight (w) over time.",
+    "a": "- Correct: (c) Add passive congregation to encourage particles to explore new areas.\n- Passive congregation adds a term that attracts particles to random others, increasing diversity.\n- Higher cognitive component (a) would make particles favor personal experience, not necessarily escaping the local optimum.\n- Constriction (b) and decreasing inertia (d) both tend to enhance convergence rather than exploration."
+  },
+  {
+    "q": "When implementing Q-learning for a reinforcement learning problem with a large state space, which approach would be most effective?\n(a) Decrease the learning rate to ensure stable convergence.\n(b) Increase the discount factor to prioritize long-term rewards.\n(c) Use a neural network to approximate the Q-function (Deep Q-Network).\n(d) Implement prioritized experience replay to focus on important transitions.",
+    "a": "- Correct: (c) Use a neural network to approximate the Q-function (Deep Q-Network).\n- Large state spaces make tabular Q-learning impractical due to memory requirements.\n- Function approximation with neural networks allows generalization across similar states.\n- While (d) could help, it assumes experience replay is already implemented and doesn't solve the fundamental issue."
+  },
+  {
+    "q": "In a multi-layer perceptron trained with backpropagation, adding momentum to the weight updates would most significantly improve which aspect of training?\n(a) Ability to escape local minima by occasionally moving uphill.\n(b) Speed of convergence when the error surface has consistent gradients.\n(c) Stability when using higher learning rates.\n(d) Precision of the final weights by averaging recent gradients.",
+    "a": "- Correct: (b) Speed of convergence when the error surface has consistent gradients.\n- Momentum accumulates velocity in directions with consistent gradients, accelerating convergence.\n- While momentum can help avoid shallow local minima, it doesn't move uphill (a).\n- It can improve stability (c), but its primary benefit is faster learning in favorable directions."
+  },
+  {
+    "q": "When applying Evolution Strategies to a noisy fitness function, which approach would be most effective?\n(a) Use (μ+λ)-ES to preserve the best solutions across generations.\n(b) Use (μ,λ)-ES with λ >> μ to discard parents each generation.\n(c) Implement the 1/5 success rule with a small adaptation rate.\n(d) Use very small mutation step sizes to make precise movements.",
+    "a": "- Correct: (b) Use (μ,λ)-ES with λ >> μ to discard parents each generation.\n- In noisy environments, fitness evaluations may be misleading.\n- (μ,λ)-ES discards all parents, preventing the algorithm from getting stuck on falsely promising solutions.\n- Having λ >> μ creates selection pressure while still allowing exploration through many offspring."
+  },
+  {
+    "q": "In Genetic Programming, a solution tree grows extremely large without corresponding improvement in fitness. Which technique would most effectively address this issue?\n(a) Increase the probability of crossover relative to mutation.\n(b) Implement a parsimony pressure that penalizes larger trees.\n(c) Use tournament selection with larger tournament sizes.\n(d) Switch from subtree mutation to point mutation.",
+    "a": "- Correct: (b) Implement a parsimony pressure that penalizes larger trees.\n- The problem describes bloat - growth without fitness improvement.\n- Parsimony pressure directly addresses this by adding a size penalty to the fitness function.\n- Other options either don't address bloat (a, c) or might reduce exploration (d)."
+  },
+  {
+    "q": "When using the LMS algorithm for adaptive filtering, the error oscillates significantly. Which modification would most effectively stabilize the learning process?\n(a) Normalize the step size by the power of the input signal.\n(b) Increase the step size to converge faster.\n(c) Switch to batch learning instead of online updates.\n(d) Add momentum to the weight updates.",
+    "a": "- Correct: (a) Normalize the step size by the power of the input signal.\n- Oscillations often occur when input signals have varying power levels.\n- Normalization makes convergence more consistent across different input conditions.\n- Increasing step size (b) would likely worsen oscillations, while batch learning (c) might help but is less efficient for adaptive filtering."
+  },
+  {
+    "q": "In a Gene Expression Programming (GEP) implementation, which advantage does GEP have over traditional Genetic Programming (GP) when evolving complex mathematical expressions?\n(a) GEP can represent more complex functions due to its tree-based structure.\n(b) GEP always produces syntactically valid expressions after genetic operations.\n(c) GEP requires fewer fitness evaluations to reach optimal solutions.\n(d) GEP can directly incorporate domain knowledge through specialized operators.",
+    "a": "- Correct: (b) GEP always produces syntactically valid expressions after genetic operations.\n- GEP's separation of genotype (linear string) and phenotype (expression tree) ensures valid expressions.\n- GP's tree-based crossover and mutation can create invalid syntax requiring repair.\n- This makes GEP more efficient by avoiding the need to handle invalid solutions."
+  },
+  {
+    "q": "When implementing a neural network for a regression problem with highly skewed target values, which combination would likely perform best?\n(a) Linear activation in output layer with MSE loss function.\n(b) Sigmoid activation in output layer with MSE loss function.\n(c) Linear activation in output layer with MAE loss function.\n(d) Tanh activation in output layer with MSE loss function.",
+    "a": "- Correct: (c) Linear activation in output layer with MAE loss function.\n- For skewed data, MSE disproportionately penalizes errors on large values.\n- MAE (Mean Absolute Error) treats all errors equally regardless of target magnitude.\n- Linear activation allows unbounded output values needed for regression, while sigmoid/tanh would constrain outputs."
+  },
+  {
+    "q": "In a reinforcement learning scenario using Deep Q-Networks (DQN), the agent shows inconsistent performance despite using experience replay. Which modification would most effectively stabilize training?\n(a) Increase the size of the replay buffer to store more experiences.\n(b) Implement a target network that updates less frequently than the policy network.\n(c) Use a smaller neural network with fewer parameters.\n(d) Increase the exploration rate (epsilon) during training.",
+    "a": "- Correct: (b) Implement a target network that updates less frequently than the policy network.\n- DQN instability often comes from the moving target problem - the network chases its own changing estimates.\n- A separate target network updated less frequently provides stable targets for learning.\n- This directly addresses a fundamental issue in DQN training that other options don't."
+  },
+  {
+    "q": "When applying a Genetic Algorithm to a constrained optimization problem, many individuals violate constraints. Which approach would most effectively handle this issue?\n(a) Reject all invalid solutions and regenerate until valid ones are found.\n(b) Implement a repair operator that converts invalid solutions to valid ones.\n(c) Use penalty functions that reduce fitness based on constraint violation severity.\n(d) Modify genetic operators to never produce invalid solutions.",
+    "a": "- Correct: (c) Use penalty functions that reduce fitness based on constraint violation severity.\n- Penalty functions maintain population diversity while guiding search toward valid regions.\n- Rejection (a) wastes computational effort and may struggle if valid solutions are rare.\n- Repair (b) and constraint-preserving operators (d) may be problem-specific and difficult to design."
+  },
+  {
+    "q": "In a competitive learning neural network, neurons frequently become 'dead' (never win competition). Which modification would most effectively address this issue?\n(a) Initialize all neurons with the same weight vectors.\n(b) Implement a conscience mechanism that handicaps frequent winners.\n(c) Increase the learning rate for all neurons.\n(d) Use batch updates instead of online learning.",
+    "a": "- Correct: (b) Implement a conscience mechanism that handicaps frequent winners.\n- Dead neurons occur when some neurons consistently win the competition, preventing others from learning.\n- A conscience mechanism temporarily reduces the competitive strength of frequent winners.\n- This gives other neurons a chance to win and learn, ensuring all neurons contribute to the representation."
+  }
+]
