@@ -1,9 +1,9 @@
 # COMP532-Machine-Learning-and-Bioinspired-Optimisation
 
-Key Knowledge Points for Machine Learning and Bioinspired Optimisation Exam
+## Format
 
 - 25MCQs
-- 3/4 written questions
+- 5 written questions
 
 ## 1. Reinforcement Learning (RL) Basics:
 
