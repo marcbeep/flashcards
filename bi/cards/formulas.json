@@ -1,26 +1,114 @@
 [
   {
-    "q": "What are the key probability formulas and their interpretations?",
-    "a": "- **PMF/PDF Properties**:\n  - Non-negative: \\(p(x) \\geq 0\\) for all \\(x\\)\n  - Sum to 1: \\(\\sum_x p(x) = 1\\) (discrete) or \\(\\int p(x) dx = 1\\) (continuous)\n\n- **Joint Probability**: \\(\\mathbb{P}(X = x, Y = y)\\)\n  - Probability of two events happening together\n\n- **Sum Rule**: \\(\\mathbb{P}(X = x) = \\sum_y \\mathbb{P}(X = x, Y = y)\\)\n  - Probability of one event regardless of another\n\n- **Conditional Probability**: \\(\\mathbb{P}(Y = y | X = x) = \\frac{\\mathbb{P}(X = x, Y = y)}{\\mathbb{P}(X = x)}\\)\n  - Probability of one event given another has occurred\n\n- **Bayes' Rule**: \\(\\mathbb{P}(A|B) = \\frac{\\mathbb{P}(B|A) \\mathbb{P}(A)}{\\mathbb{P}(B)}\\)\n  - Reverses conditional probabilities from evidence to cause"
+    "q": "What is the Q-Learning update rule in Reinforcement Learning?",
+    "a": "- Variables:\n  - \\(Q(s,a)\\): Q-value for state s and action a\n  - \\(\\alpha\\): learning rate (0 < α ≤ 1)\n  - \\(r\\): immediate reward\n  - \\(\\gamma\\): discount factor (0 ≤ γ < 1)\n  - \\(s'\\): next state\n  - \\(a'\\): next action\n- Update rule:\n\\[ Q(s,a) = Q(s,a) + \\alpha \\big[r + \\gamma \\max_{a'} Q(s',a') - Q(s,a)\\big] \\]\n- Updates Q-value for a state-action pair based on reward and best future value."
   },
   {
-    "q": "What are the key formulas in Reinforcement Learning and what do they represent?",
-    "a": "- **Q-Learning Update**:\n\\[Q(s,a) = Q(s,a) + \\alpha[r + \\gamma \\cdot \\max_{a'} Q(s',a') - Q(s,a)]\\]\n  - Updates action-value based on immediate reward and best future reward\n  - \\(\\alpha\\) = learning rate, \\(\\gamma\\) = discount factor\n\n- **State-Value Function**:\n\\[V^{\\pi}(s) = \\mathbb{E}_{\\pi} \\left[ \\sum_{t=0}^{\\infty} \\gamma^t r_{t+1} \\mid s_0 = s \\right]\\]\n  - Expected total reward from a state following policy \\(\\pi\\)\n\n- **Action-Value Function**:\n\\[Q^{\\pi}(s,a) = \\mathbb{E}_{\\pi} \\left[ \\sum_{t=0}^{\\infty} \\gamma^t r_{t+1} \\mid s_0 = s, a_0 = a \\right]\\]\n  - Expected total reward from taking action \\(a\\) in state \\(s\\)\n\n- **Bellman Equation**:\n\\[V^{\\pi}(s) = \\mathbb{E}_{\\pi} [r_{t+1} + \\gamma V^{\\pi}(s_{t+1}) \\mid s_t = s]\\]\n  - Relates state value to next state value\n\n- **TD(0) Update**:\n\\[V(s) \\leftarrow V(s) + \\alpha[r + \\gamma V(s') - V(s)]\\]\n  - Updates value estimate based on prediction error\n\n- **Sarsa Update**:\n\\[Q(s,a) \\leftarrow Q(s,a) + \\alpha[r + \\gamma Q(s',a') - Q(s,a)]\\]\n  - Updates Q-values based on actual next action"
+    "q": "What is the Bellman equation for the state-value function?",
+    "a": "- Variables:\n  - \\(V^{\\pi}(s)\\): value of state s under policy π\n  - \\(r_{t+1}\\): reward at time t+1\n  - \\(\\gamma\\): discount factor (0 ≤ γ < 1)\n  - \\(s_t\\): state at time t\n  - \\(s_{t+1}\\): next state\n- Bellman equation:\n\\[ V^{\\pi}(s) = \\mathbb{E}_{\\pi} \\big[ r_{t+1} + \\gamma V^{\\pi}(s_{t+1}) \\mid s_t = s \\big] \\]\n- Relates the value of a state to expected reward and value of the next state."
   },
   {
-    "q": "What are the key formulas in Particle Swarm Optimization (PSO) and how do they work?",
-    "a": "- **Velocity Update**:\n\\[v_i^{t+1} = w \\cdot v_i^t + \\phi_1 U_1 (pb_i - x_i^t) + \\phi_2 U_2 (gb - x_i^t)\\]\n  - Combines current momentum, personal best pull, and global best pull\n  - \\(w\\) = inertia weight\n  - \\(\\phi_1, \\phi_2\\) = acceleration constants\n  - \\(U_1, U_2\\) = random numbers in [0,1]\n\n- **Position Update**:\n\\[x_i^{t+1} = x_i^t + v_i^{t+1}\\]\n  - Updates particle position based on new velocity"
+    "q": "What is the TD(0) update rule?",
+    "a": "- Variables:\n  - \\(V(s)\\): value estimate for state s\n  - \\(\\alpha\\): learning rate (0 < α ≤ 1)\n  - \\(r\\): immediate reward\n  - \\(\\gamma\\): discount factor (0 ≤ γ < 1)\n  - \\(s'\\): next state\n- Update rule:\n\\[ V(s) \\leftarrow V(s) + \\alpha \\big[ r + \\gamma V(s') - V(s) \\big] \\]\n- Updates value estimate based on reward and next state value."
   },
   {
-    "q": "What are the key formulas in Ant Colony Optimization (ACO) and how do they work?",
-    "a": "- **Path Selection Probability**:\n\\[p_{ij} = \\frac{[\\tau_{ij}]^\\alpha [\\eta_{ij}]^\\beta}{\\sum_{l \\in N_i} [\\tau_{il}]^\\alpha [\\eta_{il}]^\\beta}\\]\n  - Determines path choice based on pheromones and heuristic info\n  - \\(\\tau_{ij}\\) = pheromone level\n  - \\(\\eta_{ij}\\) = heuristic info (e.g., inverse distance)\n  - \\(\\alpha, \\beta\\) = influence parameters\n\n- **Pheromone Update**:\n\\[\\tau_{ij} \\leftarrow (1 - \\rho)\\tau_{ij} + \\rho \\Delta\\tau_{ij}\\]\n  - Updates pheromone levels through evaporation and new deposits\n  - \\(\\rho\\) = evaporation rate\n\n- **Global Best Update**:\n\\[\\tau_{ij} \\leftarrow (1 - \\rho)\\tau_{ij} + \\rho \\Delta\\tau_{ij}^{bs}\\]\n  - Reinforces best solution found\n  - \\(\\Delta\\tau_{ij}^{bs} = 1/L_{bs}\\) = reward based on best tour"
+    "q": "What is the Sarsa update rule?",
+    "a": "- Variables:\n  - \\(Q(s,a)\\): Q-value for state s and action a\n  - \\(\\alpha\\): learning rate (0 < α ≤ 1)\n  - \\(r\\): immediate reward\n  - \\(\\gamma\\): discount factor (0 ≤ γ < 1)\n  - \\(s'\\): next state\n  - \\(a'\\): next action\n- Update rule:\n\\[ Q(s,a) \\leftarrow Q(s,a) + \\alpha \\big[ r + \\gamma Q(s',a') - Q(s,a) \\big] \\]\n- On-policy update using the actual next action taken."
   },
   {
-    "q": "What are the key formulas in Bee System and how do they work?",
-    "a": "- **Lévy Flight Distribution**:\n\\[p(l) \\sim l^{-\\mu}\\]\n  - Describes step length distribution\n  - \\(\\mu\\) = power law exponent (1 < \\(\\mu\\) < 3)\n  - Mixes short local moves with occasional long jumps\n\n- **Path Integration**:\n\\[\\mathbf{v}_{\\text{return}} = -\\sum_{i=1}^n \\mathbf{v}_i\\]\n  - Calculates direct path back to nest\n  - Sums all movement vectors\n\n- **Dance Recruitment**:\n\\[p_{\\text{follow}} = \\frac{Q}{Q + K}\\]\n  - Probability of following a dance\n  - \\(Q\\) = food quality\n  - \\(K\\) = threshold parameter"
+    "q": "How does epsilon-greedy action selection work?",
+    "a": "- Variables:\n  - \\(\\epsilon\\): exploration rate (0 ≤ ε ≤ 1)\n  - \\(a\\): action\n  - \\(Q(a)\\): Q-value for action a\n- With probability \\(1-\\epsilon\\), choose the best-known action; with probability \\(\\epsilon\\), choose a random action.\n- Balances exploration (random) and exploitation (greedy)."
   },
   {
-    "q": "What are the key formulas in Evolutionary Game Theory and how do they work?",
-    "a": "- **Single Population Replicator Dynamics**:\n\\[\\dot{x}_i = x_i(f_i(x) - \\bar{f}(x))\\]\n  - Shows how strategy frequency changes based on relative fitness\n  - \\(x_i\\) = frequency of strategy i\n  - \\(f_i(x)\\) = fitness of strategy i\n  - \\(\\bar{f}(x)\\) = average fitness\n\n- **Multi-Population Dynamics**:\n\\[\\dot{x}_i = x_i((Ay)_i - x^T Ay)\\]\n\\[\\dot{y}_j = y_j((x^T B)_j - x^T By)\\]\n  - Shows how two populations' strategies evolve\n  - \\(x, y\\) = strategy distributions\n  - \\(A, B\\) = payoff matrices"
+    "q": "How does softmax action selection work?",
+    "a": "- Variables:\n  - \\(P(a)\\): probability of choosing action a\n  - \\(Q(a)\\): Q-value for action a\n  - \\(\\tau\\): temperature parameter (τ > 0)\n  - \\(b\\): any action in the action space\n- Probability of choosing action \\(a\\):\n\\[ P(a) = \\frac{e^{Q(a)/\\tau}}{\\sum\\limits_b e^{Q(b)/\\tau}} \\]\n- \\(\\tau\\) controls exploration: higher τ = more random, lower τ = more greedy."
+  },
+  {
+    "q": "What is the sigmoid activation function?",
+    "a": "- Variables:\n  - \\(\\sigma(x)\\): sigmoid output\n  - \\(x\\): input value\n  - \\(e\\): Euler's number (≈ 2.718)\n- Formula:\n\\[ \\sigma(x) = \\frac{1}{1 + e^{-x}} \\]\n- Squashes input to (0,1)."
+  },
+  {
+    "q": "What is the ReLU activation function?",
+    "a": "- Variables:\n  - \\(f(x)\\): ReLU output\n  - \\(x\\): input value\n- Formula:\n\\[ f(x) = \\max(0, x) \\]\n- Used to mitigate vanishing gradients."
+  },
+  {
+    "q": "What is the backpropagation weight update rule for one neuron (MSE loss)?",
+    "a": "- Variables:\n  - \\(\\Delta w_j\\): weight update for input j\n  - \\(\\eta\\): learning rate (η > 0)\n  - \\(o\\): neuron output\n  - \\(d\\): desired output\n  - \\(x_j\\): input j\n- Update rule:\n\\[ \\Delta w_j = -\\eta (o - d) o (1 - o) x_j \\]\n- Updates weights based on error and input."
+  },
+  {
+    "q": "What is the gradient descent update rule?",
+    "a": "- Variables:\n  - \\(w\\): weight vector\n  - \\(\\eta\\): learning rate (η > 0)\n  - \\(\\nabla E(w)\\): gradient of error function\n- Update rule:\n\\[ w \\leftarrow w - \\eta \\nabla E(w) \\]\n- Updates weights in the direction of the negative gradient of error."
+  },
+  {
+    "q": "What is the mean squared error (MSE) loss function?",
+    "a": "- Variables:\n  - \\(y_i\\): predicted value for sample i\n  - \\(d_i\\): desired/target value for sample i\n  - \\(N\\): number of samples\n- Formula:\n\\[ \\text{MSE} = \\frac{1}{N} \\sum\\limits_{i=1}^N (y_i - d_i)^2 \\]\n- Measures average squared difference between predicted and target values."
+  },
+  {
+    "q": "What is the PSO velocity update rule?",
+    "a": "- Variables:\n  - \\(v_i^t\\): velocity of particle i at time t\n  - \\(w\\): inertia weight\n  - \\(\\phi_1, \\phi_2\\): acceleration coefficients\n  - \\(U_1, U_2\\): random numbers in [0,1]\n  - \\(pb_i\\): personal best position of particle i\n  - \\(gb\\): global best position\n  - \\(x_i^t\\): position of particle i at time t\n- Update rule:\n\\[ v_i^{t+1} = w v_i^t + \\phi_1 U_1 (pb_i - x_i^t) + \\phi_2 U_2 (gb - x_i^t) \\]\n- Combines inertia, personal best, and global best."
+  },
+  {
+    "q": "What is the PSO position update rule?",
+    "a": "- Variables:\n  - \\(x_i^t\\): position of particle i at time t\n  - \\(v_i^{t+1}\\): velocity of particle i at time t+1\n- Update rule:\n\\[ x_i^{t+1} = x_i^t + v_i^{t+1} \\]\n- Updates particle position."
+  },
+  {
+    "q": "What is the ACO path selection probability formula?",
+    "a": "- Variables:\n  - \\(p_{ij}\\): probability of choosing path (i,j)\n  - \\(\\tau_{ij}\\): pheromone level on path (i,j)\n  - \\(\\eta_{ij}\\): heuristic value for path (i,j)\n  - \\(\\alpha, \\beta\\): parameters controlling pheromone and heuristic influence\n  - \\(N_i\\): set of available paths from node i\n- Probability of ant choosing path (i,j):\n\\[ p_{ij} = \\frac{[\\tau_{ij}]^\\alpha [\\eta_{ij}]^\\beta}{\\sum\\limits_{l \\in N_i} [\\tau_{il}]^\\alpha [\\eta_{il}]^\\beta} \\]\n- Based on pheromone and heuristic."
+  },
+  {
+    "q": "What is the ACO pheromone update rule?",
+    "a": "- Variables:\n  - \\(\\tau_{ij}\\): pheromone level on path (i,j)\n  - \\(\\rho\\): evaporation rate (0 < ρ < 1)\n  - \\(\\Delta\\tau_{ij}\\): pheromone deposit\n- Update rule:\n\\[ \\tau_{ij} \\leftarrow (1 - \\rho)\\tau_{ij} + \\rho \\Delta\\tau_{ij} \\]\n- Evaporation and deposit of pheromone."
+  },
+  {
+    "q": "What is the replicator dynamics equation in evolutionary game theory?",
+    "a": "- Variables:\n  - \\(\\dot{x}_i\\): rate of change of strategy i's frequency\n  - \\(x_i\\): frequency of strategy i\n  - \\(f_i(x)\\): fitness of strategy i\n  - \\(\\bar{f}(x)\\): average fitness of all strategies\n- Equation:\n\\[ \\dot{x}_i = x_i(f_i(x) - \\bar{f}(x)) \\]\n- Change in frequency of strategy i based on fitness."
+  },
+  {
+    "q": "What is the hyperbolic tangent (tanh) activation function?",
+    "a": "- Variables:\n  - \\(\\tanh(x)\\): tanh output\n  - \\(x\\): input value\n  - \\(e\\): Euler's number (≈ 2.718)\n- Formula:\n\\[ \\tanh(x) = \\frac{e^x - e^{-x}}{e^x + e^{-x}} \\]\n- Squashes input to (-1,1)."
+  },
+  {
+    "q": "What is the cross-entropy loss function?",
+    "a": "- Variables:\n  - \\(y_i\\): predicted probability for class i\n  - \\(d_i\\): true probability for class i\n  - \\(N\\): number of classes\n- Formula:\n\\[ L = -\\sum\\limits_{i=1}^N d_i \\log(y_i) \\]\n- Measures difference between predicted and true probability distributions."
+  },
+  {
+    "q": "What is the momentum update rule for gradient descent?",
+    "a": "- Variables:\n  - \\(v_t\\): velocity at time t\n  - \\(\\beta\\): momentum coefficient (0 ≤ β < 1)\n  - \\(\\eta\\): learning rate\n  - \\(\\nabla E(w_t)\\): gradient at time t\n- Update rules:\n\\[ v_t = \\beta v_{t-1} - \\eta \\nabla E(w_t) \\]\n\\[ w_{t+1} = w_t + v_t \\]\n- Accumulates gradient updates to overcome local minima."
+  },
+  {
+    "q": "What are the LSTM cell equations?",
+    "a": "- Variables:\n  - \\(f_t\\): forget gate\n  - \\(i_t\\): input gate\n  - \\(o_t\\): output gate\n  - \\(\\tilde{c}_t\\): candidate cell state\n  - \\(c_t\\): cell state\n  - \\(h_t\\): hidden state\n  - \\(W, U, b\\): weight matrices and bias vectors\n- Equations:\n\\[ f_t = \\sigma(W_f[h_{t-1}, x_t] + b_f) \\]\n\\[ i_t = \\sigma(W_i[h_{t-1}, x_t] + b_i) \\]\n\\[ \\tilde{c}_t = \\tanh(W_c[h_{t-1}, x_t] + b_c) \\]\n\\[ c_t = f_t \\odot c_{t-1} + i_t \\odot \\tilde{c}_t \\]\n\\[ o_t = \\sigma(W_o[h_{t-1}, x_t] + b_o) \\]\n\\[ h_t = o_t \\odot \\tanh(c_t) \\]\n- Controls information flow in LSTM cell."
+  },
+  {
+    "q": "What is the selection probability formula in genetic algorithms?",
+    "a": "- Variables:\n  - \\(P(i)\\): selection probability of individual i\n  - \\(f_i\\): fitness of individual i\n  - \\(N\\): population size\n- Formula:\n\\[ P(i) = \\frac{f_i}{\\sum\\limits_{j=1}^N f_j} \\]\n- Probability proportional to fitness."
+  },
+  {
+    "q": "What is the UCB (Upper Confidence Bound) formula?",
+    "a": "- Variables:\n  - \\(Q(a)\\): estimated value of action a\n  - \\(N(a)\\): number of times action a was selected\n  - \\(t\\): total number of actions taken\n  - \\(c\\): exploration parameter\n- Formula:\n\\[ UCB(a) = Q(a) + c\\sqrt{\\frac{\\ln t}{N(a)}} \\]\n- Balances exploration and exploitation."
+  },
+  {
+    "q": "What is the Thompson Sampling formula?",
+    "a": "- Variables:\n  - \\(\\alpha_a, \\beta_a\\): parameters of Beta distribution for action a\n  - \\(\\theta_a\\): sampled value for action a\n- Formula:\n\\[ \\theta_a \\sim \\text{Beta}(\\alpha_a, \\beta_a) \\]\n- Samples from posterior distribution to select action."
+  },
+  {
+    "q": "What is the Nash Equilibrium payoff calculation?",
+    "a": "- Variables:\n  - \\(u_i(s)\\): utility of player i for strategy profile s\n  - \\(s_i\\): strategy of player i\n  - \\(s_{-i}\\): strategies of all other players\n- Condition:\n\\[ u_i(s_i^*, s_{-i}^*) \\geq u_i(s_i, s_{-i}^*) \\text{ for all } s_i \\]\n- No player can improve payoff by unilaterally changing strategy."
+  },
+  {
+    "q": "What is the CNN convolution operation formula?",
+    "a": "- Variables:\n  - \\(I\\): input feature map\n  - \\(K\\): kernel/filter\n  - \\(b\\): bias term\n  - \\(s\\): stride\n  - \\(p\\): padding\n- Formula:\n\\[ (I * K)(i,j) = \\sum\\limits_{m} \\sum\\limits_{n} I(i+m, j+n)K(m,n) + b \\]\n- Computes feature maps by sliding kernel over input."
+  },
+  {
+    "q": "What is the dropout formula?",
+    "a": "- Variables:\n  - \\(x\\): input vector\n  - \\(p\\): dropout probability\n  - \\(m\\): binary mask\n  - \\(\\odot\\): element-wise multiplication\n- Formula:\n\\[ y = \\frac{1}{1-p} (x \\odot m) \\]\n- Randomly sets elements to zero during training, scaled by 1/(1-p) during inference."
+  },
+  {
+    "q": "What is the genetic algorithm crossover formula?",
+    "a": "- Variables:\n  - \\(p_1, p_2\\): parent chromosomes\n  - \\(c_1, c_2\\): child chromosomes\n  - \\(\\alpha\\): crossover point\n- Formula for single-point crossover:\n\\[ c_1 = [p_1[1:\\alpha], p_2[\\alpha+1:n]] \\]\n\\[ c_2 = [p_2[1:\\alpha], p_1[\\alpha+1:n]] \\]\n- Combines genetic material from two parents."
+  },
+  {
+    "q": "What is the genetic algorithm mutation formula?",
+    "a": "- Variables:\n  - \\(x\\): chromosome\n  - \\(p_m\\): mutation probability\n  - \\(\\epsilon\\): small random change\n- Formula:\n\\[ x_i' = \\begin{cases} x_i + \\epsilon & \\text{with probability } p_m \\\\ x_i & \\text{otherwise} \\end{cases} \\]\n- Randomly modifies genes with probability p_m."
   }
 ]
