@@ -105,7 +105,7 @@
   },
   {
     "q": "Describe how backpropagation works in a feedforward neural network. Include the role of the chain rule.",
-    "a": "- **Forward Pass**:\n  - Compute activations layer by layer\n  - For layer \\(l\\): \\(\\mathbf{a}^l = f(\\mathbf{W}^l\\mathbf{a}^{l-1} + \\mathbf{b}^l)\\)\n\n- **Backward Pass**:\n  - Compute gradients using chain rule\n  - Error at output layer: \\(\\delta^L = \\nabla_a C \\odot f'(\\mathbf{z}^L)\\)\n  - For hidden layers: \\(\\delta^l = ((\\mathbf{W}^{l+1})^\\top \\delta^{l+1}) \\odot f'(\\mathbf{z}^l)\\)\n\n- **Weight Updates**:\n  - \\(\\Delta w_{ij}^l = -\\eta \\delta_i^l a_j^{l-1}\\)\n  - \\(\\Delta b_i^l = -\\eta \\delta_i^l\\)\n\n- Chain rule enables gradient flow through multiple layers by multiplying local gradients"
+    "a": "- **Forward Pass**:\n  - Compute activations layer by layer\n  - For layer \\(l\\): \\(v^l = \\mathbf{W}^l\\mathbf{a}^{l-1} + \\mathbf{b}^l\\)\n  - \\(a^l = \\phi(v^l)\\)\n\n- **Backward Pass**:\n  - Compute gradients using chain rule\n  - Error at output layer: \\(\\delta^L = (a^L - d)\\phi'(v^L)\\)\n  - For hidden layers: \\(\\delta^l = \\delta^{l+1}\\mathbf{W}^{l+1}\\phi'(v^l)\\)\n\n- **Weight Updates**:\n  - \\(\\Delta w_{ij}^l = -\\eta \\delta_i^l a_j^{l-1}\\)\n  - \\(\\Delta b_i^l = -\\eta \\delta_i^l\\)\n\n- Chain rule enables gradient flow through multiple layers by multiplying local gradients"
   },
   {
     "q": "Derive the Bellman optimality equation for \\( Q^* \\).",
