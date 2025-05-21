@@ -1,0 +1,122 @@
+[
+  {
+    "q": "Which statement best describes the relationship between on-policy and off-policy learning in reinforcement learning?\n- A) On-policy methods always use Monte Carlo updates while off-policy methods always use TD updates.\n- B) On-policy methods learn from actions taken under the current policy, while off-policy methods can learn from any behavior policy.\n- C) On-policy methods are always more efficient than off-policy methods.\n- D) Off-policy methods can only learn from optimal policies.",
+    "a": "B - Correct because it accurately describes the fundamental difference: on-policy methods learn from the current policy's behavior, while off-policy methods can learn from any behavior policy. A is incorrect because both types can use either MC or TD updates. C is wrong because efficiency depends on the specific problem. D is incorrect because off-policy methods can learn from any policy."
+  },
+  {
+    "q": "What is the primary purpose of eligibility traces in reinforcement learning?\n- A) To increase exploration in the environment.\n- B) To efficiently update values based on partial information across multiple time steps.\n- C) To reduce the memory requirements of the algorithm.\n- D) To speed up the computation of immediate rewards.",
+    "a": "B - Correct because eligibility traces help assign credit to past states and actions, making learning more efficient. A is incorrect because eligibility traces are not about exploration. C is wrong because they actually require additional memory. D is incorrect because they don't affect immediate reward computation."
+  },
+  {
+    "q": "Which activation function is most effective at mitigating the vanishing gradient problem in deep networks?\n- A) Sigmoid\n- B) Tanh\n- C) ReLU\n- D) Softmax",
+    "a": "C - Correct because ReLU allows non-zero gradients for positive inputs, helping prevent vanishing gradients. A and B are incorrect because both sigmoid and tanh can suffer from vanishing gradients. D is wrong because softmax is used for multi-class classification, not for addressing gradient issues."
+  },
+  {
+    "q": "What is the main purpose of dropout in neural networks?\n- A) To increase the network's capacity.\n- B) To prevent overfitting by randomly deactivating neurons during training.\n- C) To speed up the forward pass during inference.\n- D) To reduce the number of parameters in the network.",
+    "a": "B - Correct because dropout is a regularization technique that randomly deactivates neurons during training to prevent overfitting. A is incorrect because dropout doesn't increase capacity. C is wrong because dropout is only used during training. D is incorrect because dropout doesn't reduce parameters."
+  },
+  {
+    "q": "In genetic algorithms, what is the primary purpose of the mutation operator?\n- A) To combine solutions from two parents.\n- B) To introduce diversity by randomly changing genes.\n- C) To select the best solutions from the population.\n- D) To evaluate the fitness of solutions.",
+    "a": "B - Correct because mutation introduces diversity by randomly changing genes. A is incorrect because it describes crossover. C is wrong because it describes selection. D is incorrect because it describes fitness evaluation."
+  },
+  {
+    "q": "How does Particle Swarm Optimization (PSO) update particle positions?\n- A) By using only the global best position.\n- B) By combining personal best and global best information through velocity updates.\n- C) By randomly mutating positions.\n- D) By performing crossover between particles.",
+    "a": "B - Correct because PSO particles learn from both personal and global best positions through velocity updates. A is incorrect because it ignores personal experience. C is wrong because it describes genetic algorithms. D is incorrect because crossover is used in genetic algorithms."
+  },
+  {
+    "q": "What is the key characteristic of a zero-sum game?\n- A) All players receive equal payoffs.\n- B) One player's gain is exactly another player's loss.\n- C) Players must cooperate to achieve optimal outcomes.\n- D) The game has no equilibrium solution.",
+    "a": "B - Correct because zero-sum games are defined by the sum of payoffs being zero. A is incorrect because payoffs must sum to zero. C is wrong because zero-sum games are competitive. D is incorrect because zero-sum games can have equilibrium solutions."
+  },
+  {
+    "q": "Which statement best describes the Nash Equilibrium?\n- A) A state where all players receive maximum possible payoffs.\n- B) A state where no player can benefit from unilaterally changing their strategy.\n- C) A state where players must cooperate to achieve optimal outcomes.\n- D) A state where players randomly choose their strategies.",
+    "a": "B - Correct because Nash Equilibrium is defined as a state where no player can improve their outcome by changing strategy alone. A is incorrect because it describes Pareto optimality. C is wrong because it describes cooperative games. D is incorrect because it describes random strategies."
+  },
+  {
+    "q": "What is the primary mechanism used in Ant Colony Optimization for communication?\n- A) Direct message passing between ants.\n- B) Pheromone trails.\n- C) Genetic crossover.\n- D) Velocity updates.",
+    "a": "B - Correct because ants communicate through pheromone trails. A is incorrect because ants don't directly communicate. C is wrong because it describes genetic algorithms. D is incorrect because it describes PSO."
+  },
+  {
+    "q": "In backpropagation, how are weight updates computed?\n- A) By using only forward pass information.\n- B) By propagating the gradient of the loss function backward through the layers.\n- C) By randomly perturbing weights.\n- D) By maximizing neuron activations.",
+    "a": "B - Correct because backpropagation computes gradients by propagating errors backward. A is incorrect because forward pass alone doesn't compute updates. C is wrong because random perturbations are not used. D is incorrect because maximizing activations is not the goal."
+  },
+  {
+    "q": "Which method is most effective at preventing overfitting in deep networks?\n- A) Increasing model size.\n- B) Early stopping.\n- C) Using higher learning rates.\n- D) Adding more training epochs.",
+    "a": "B - Correct because early stopping prevents overfitting by stopping training when validation performance degrades. A is incorrect because larger models are more prone to overfitting. C is wrong because higher learning rates can lead to instability. D is incorrect because more epochs can lead to overfitting."
+  },
+  {
+    "q": "What is the main purpose of convolutional layers in CNNs?\n- A) To reduce the number of parameters.\n- B) To perform classification.\n- C) To extract features by applying filters over local regions.\n- D) To increase the network's depth.",
+    "a": "C - Correct because convolutional layers use filters to extract local features. A is incorrect because parameter reduction is a side effect. B is wrong because classification is done by fully connected layers. D is incorrect because depth is a network architecture choice."
+  },
+  {
+    "q": "How do LSTM units help in RNNs?\n- A) By acting as an activation function.\n- B) By preserving long-term dependencies through gated memory cells.\n- C) By removing all historical information.\n- D) By randomly resetting weights.",
+    "a": "B - Correct because LSTM's gated architecture helps maintain long-term dependencies. A is incorrect because LSTM is not an activation function. C is wrong because LSTM preserves important historical information. D is incorrect because LSTM doesn't randomly reset weights."
+  },
+  {
+    "q": "What is the primary purpose of the epsilon-greedy strategy?\n- A) To maximize immediate rewards.\n- B) To balance exploration and exploitation.\n- C) To reduce computational complexity.\n- D) To increase the learning rate.",
+    "a": "B - Correct because epsilon-greedy balances exploration (random actions) and exploitation (best-known actions). A is incorrect because it focuses only on exploitation. C is wrong because it doesn't affect complexity. D is incorrect because it's not related to learning rate."
+  },
+  {
+    "q": "Which statement best describes Q-learning?\n- A) It is an on-policy learning algorithm.\n- B) It is an off-policy learning algorithm that can learn optimal policies from any behavior policy.\n- C) It requires a model of the environment.\n- D) It only works with discrete action spaces.",
+    "a": "B - Correct because Q-learning is an off-policy algorithm that can learn optimal policies from any behavior policy. A is incorrect because it's off-policy. C is wrong because it's model-free. D is incorrect because it can work with continuous actions through function approximation."
+  },
+  {
+    "q": "What is the main advantage of using momentum in gradient descent?\n- A) It reduces the learning rate over time.\n- B) It accelerates convergence and reduces oscillations by incorporating past gradients.\n- C) It increases the number of parameters.\n- D) It prevents overfitting.",
+    "a": "B - Correct because momentum uses past gradients to accelerate convergence and reduce oscillations. A is incorrect because it doesn't reduce learning rate. C is wrong because it doesn't affect parameters. D is incorrect because it's not a regularization technique."
+  },
+  {
+    "q": "Which component is essential in genetic algorithms for maintaining population diversity?\n- A) Selection\n- B) Crossover\n- C) Mutation\n- D) Fitness evaluation",
+    "a": "C - Correct because mutation introduces diversity by randomly changing genes. A is incorrect because selection reduces diversity. B is wrong because crossover combines existing solutions. D is incorrect because fitness evaluation doesn't affect diversity."
+  },
+  {
+    "q": "What is the primary mechanism in PSO for updating particle velocities?\n- A) Random mutations.\n- B) Genetic crossover.\n- C) Personal and global best positions.\n- D) Fitness-based selection.",
+    "a": "C - Correct because PSO particles update velocities based on personal and global best positions. A is incorrect because it describes genetic algorithms. B is wrong because it describes genetic algorithms. D is incorrect because it describes selection in genetic algorithms."
+  },
+  {
+    "q": "Which statement best describes the Bellman equation in reinforcement learning?\n- A) It only applies to deterministic environments.\n- B) It provides a recursive relationship for computing value functions.\n- C) It is only used in model-based learning.\n- D) It requires complete knowledge of the environment.",
+    "a": "B - Correct because the Bellman equation provides a recursive way to compute value functions. A is incorrect because it works in stochastic environments. C is wrong because it's used in both model-based and model-free learning. D is incorrect because it can be used with partial knowledge."
+  },
+  {
+    "q": "What is the main purpose of batch normalization in neural networks?\n- A) To reduce the number of parameters.\n- B) To normalize layer inputs to improve training stability.\n- C) To increase model capacity.\n- D) To prevent overfitting.",
+    "a": "B - Correct because batch normalization normalizes layer inputs to improve training stability. A is incorrect because it doesn't reduce parameters. C is wrong because it doesn't increase capacity. D is incorrect because it's not primarily for preventing overfitting."
+  },
+  {
+    "q": "Which statement best describes the role of the forget gate in LSTM?\n- A) It determines which new information to store.\n- B) It controls how much of the previous cell state to forget.\n- C) It decides which information to output.\n- D) It increases the learning rate.",
+    "a": "B - Correct because the forget gate controls how much of the previous cell state to forget. A is incorrect because it describes the input gate. C is wrong because it describes the output gate. D is incorrect because it's not related to learning rate."
+  },
+  {
+    "q": "What is the primary purpose of the softmax function in neural networks?\n- A) To prevent vanishing gradients.\n- B) To normalize outputs for multi-class classification.\n- C) To increase model capacity.\n- D) To reduce computational complexity.",
+    "a": "B - Correct because softmax normalizes outputs to create a probability distribution for multi-class classification. A is incorrect because it doesn't prevent vanishing gradients. C is wrong because it doesn't increase capacity. D is incorrect because it doesn't reduce complexity."
+  },
+  {
+    "q": "Which statement best describes the role of the learning rate in gradient descent?\n- A) It determines the number of training epochs.\n- B) It controls the size of weight updates during training.\n- C) It prevents overfitting.\n- D) It increases model capacity.",
+    "a": "B - Correct because the learning rate controls the size of weight updates during training. A is incorrect because it doesn't determine epochs. C is wrong because it's not a regularization technique. D is incorrect because it doesn't affect capacity."
+  },
+  {
+    "q": "What is the main purpose of the selection operator in genetic algorithms?\n- A) To introduce diversity.\n- B) To combine solutions.\n- C) To choose parents based on fitness.\n- D) To mutate solutions.",
+    "a": "C - Correct because selection chooses parents based on fitness. A is incorrect because it describes mutation. B is wrong because it describes crossover. D is incorrect because it describes mutation."
+  },
+  {
+    "q": "Which statement best describes the role of pheromones in Ant Colony Optimization?\n- A) They determine the fitness of solutions.\n- B) They guide ants toward promising paths.\n- C) They prevent ants from exploring.\n- D) They increase computational complexity.",
+    "a": "B - Correct because pheromones guide ants toward promising paths. A is incorrect because they don't determine fitness. C is wrong because they encourage exploration. D is incorrect because they don't affect complexity."
+  },
+  {
+    "q": "Explain the key differences between on-policy and off-policy learning in reinforcement learning, and provide examples of each.",
+    "a": "- **On-policy learning**:\n  - Learns the value of the policy being used to generate behavior\n  - Example: SARSA updates Q-values using the actual next action taken\n  - Formula: \\(Q(s_t,a_t) \\leftarrow Q(s_t,a_t) + \\alpha[r_t + \\gamma Q(s_{t+1},a_{t+1}) - Q(s_t,a_t)]\\)\n\n- **Off-policy learning**:\n  - Learns the value of a different policy than the one used for behavior\n  - Example: Q-learning updates using the maximum Q-value of next state\n  - Formula: \\(Q(s_t,a_t) \\leftarrow Q(s_t,a_t) + \\alpha[r_t + \\gamma \\max_a Q(s_{t+1},a) - Q(s_t,a_t)]\\)\n\n- Key difference: Q-learning can learn optimal policy while following any behavior policy, while SARSA learns the value of the behavior policy itself."
+  },
+  {
+    "q": "Describe how LSTM networks address the vanishing gradient problem in RNNs. Include the key components and their roles.",
+    "a": "- **Core Components**:\n  - Forget gate: \\(f_t = \\sigma(\\mathbf{W}_f [h_{t-1}, x_t] + \\mathbf{b}_f)\\)\n  - Input gate: \\(i_t = \\sigma(\\mathbf{W}_i [h_{t-1}, x_t] + \\mathbf{b}_i)\\)\n  - Output gate: \\(o_t = \\sigma(\\mathbf{W}_o [h_{t-1}, x_t] + \\mathbf{b}_o)\\)\n\n- **Cell State Update**:\n  - \\(\\tilde{C}_t = \\tanh(\\mathbf{W}_c [h_{t-1}, x_t] + \\mathbf{b}_c)\\)\n  - \\(C_t = f_t \\odot C_{t-1} + i_t \\odot \\tilde{C}_t\\)\n\n- **Hidden State**:\n  - \\(h_t = o_t \\odot \\tanh(C_t)\\)\n\n- **Gradient Flow**:\n  - Cell state provides direct path for gradients\n  - Gates control information flow\n  - Forget gate prevents gradient explosion\n  - Input gate controls new information\n  - Output gate controls information exposure"
+  },
+  {
+    "q": "Explain the key components of Particle Swarm Optimization (PSO) and how they work together to find optimal solutions.",
+    "a": "- **Particle Representation**:\n  - Each particle represents a potential solution\n  - Has position and velocity vectors\n\n- **Personal Best**:\n  - Each particle remembers its best position\n  - Updated when better solution is found\n\n- **Global Best**:\n  - Best position found by any particle\n  - Shared across the swarm\n\n- **Velocity Update**:\n  - \\(v_i(t+1) = w v_i(t) + c_1 r_1 (p_i - x_i) + c_2 r_2 (g - x_i)\\)\n  - w: inertia weight\n  - c1, c2: learning rates\n  - r1, r2: random numbers\n\n- **Position Update**:\n  - \\(x_i(t+1) = x_i(t) + v_i(t+1)\\)\n\n- **Key Features**:\n  - Social learning from global best\n  - Individual learning from personal best\n  - Balance between exploration and exploitation"
+  },
+  {
+    "q": "Describe the key components of genetic algorithms and explain how they work together to solve optimization problems.",
+    "a": "- **Population**:\n  - Set of candidate solutions (chromosomes)\n  - Each chromosome represents a potential solution\n\n- **Selection**:\n  - Choose parents based on fitness\n  - Common methods:\n    - Tournament selection\n    - Roulette wheel selection\n    - Rank-based selection\n\n- **Crossover**:\n  - Combine parent solutions\n  - Example: Single-point crossover\n  - Creates diversity in population\n\n- **Mutation**:\n  - Random changes to chromosomes\n  - Maintains genetic diversity\n  - Prevents premature convergence\n\n- **Fitness Function**:\n  - Evaluates solution quality\n  - Guides selection process\n  - Determines survival probability"
+  },
+  {
+    "q": "Explain the concept of Nash Equilibrium in game theory and provide an example of how it can be applied to a simple game.",
+    "a": "- **Definition**:\n  - A state where no player can benefit from unilaterally changing their strategy\n  - All players are playing their best response to others' strategies\n\n- **Example: Prisoner's Dilemma**:\n  - Two players: Prisoner A and B\n  - Strategies: Confess or Stay Silent\n  - Payoff matrix:\n    - If both confess: A=-3, B=-3\n    - If both silent: A=-1, B=-1\n    - If A confesses, B silent: A=0, B=-4\n    - If A silent, B confesses: A=-4, B=0\n\n- **Nash Equilibrium**:\n  - Both confessing is the Nash Equilibrium\n  - Neither player can improve their outcome by changing strategy\n  - Even though mutual silence would be better for both\n\n- **Key Properties**:\n  - May not be Pareto optimal\n  - Can be multiple equilibria\n  - Exists in finite games with mixed strategies"
+  }
+]
